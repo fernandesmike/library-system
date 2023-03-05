@@ -14,6 +14,7 @@ namespace LibrarySystem
     public partial class Home : Form
     {
         private string connectionString;
+        private DataHelper data;
 
         // Static variables used to extract data to other forms
         public static string id;
@@ -24,6 +25,7 @@ namespace LibrarySystem
         {
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            data = new DataHelper(connectionString, dataGrid);
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace LibrarySystem
             lblUser.Text = "Welcome, " + Login.currentUser + "!";
 
             // Populate the data grid everytime the form loads
-            loadData();
+            data.loadBooks();
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -49,34 +51,7 @@ namespace LibrarySystem
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE title LIKE @search";
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@search", "%" + txtSearch.Text.Trim() + "%");
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataTable books = new DataTable();
-                        adapter.Fill(books);
-                        dataGrid.DataSource = books;
-                    }
-
-                    // UI styling of data grid
-                    // Prevent dataGrid from rolling back to default header sizing when searching
-                    dataGrid.Columns[0].Width = 60;
-                    dataGrid.Columns[2].Width = 140;
-                    dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err + " Cannot perform the operation!");
-            }
+            data.searchBooks(txtSearch.Text.Trim());
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -125,7 +100,7 @@ namespace LibrarySystem
                         // Close the connection before calling loadData() method
                         // Because loadData() method will always open the connection
                         con.Close();
-                        loadData();
+                        data.loadAllBooks();
 
                         // Clean the UI when book is added
                         txtTitle.Clear();
@@ -179,7 +154,7 @@ namespace LibrarySystem
             edit.ShowDialog();
 
             // Magic!
-            loadData();
+            data.loadAllBooks();
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
         }
@@ -190,40 +165,9 @@ namespace LibrarySystem
             delete.ShowDialog();
 
             // Magic!
-            loadData();
+            data.loadAllBooks();
             btnDelete.Enabled = false;
             btnEdit.Enabled = false;
-        }
-
-        private void loadData()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books";
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.ExecuteNonQuery();
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataTable books = new DataTable();
-                        adapter.Fill(books);
-                        dataGrid.DataSource = books;
-                    }
-
-                    // UI styling of data grid
-                    dataGrid.Columns[0].Width = 60;
-                    dataGrid.Columns[2].Width = 140;
-                    dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err + "We can't load data from our server.");
-            }
         }
 
     }
