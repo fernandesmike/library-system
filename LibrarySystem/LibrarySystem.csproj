@@ -46,24 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfirmBorrow.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConfirmBorrow.Designer.cs">
-      <DependentUpon>ConfirmBorrow.cs</DependentUpon>
-    </Compile>
     <Compile Include="DataHelper.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Delete.Designer.cs">
       <DependentUpon>Delete.cs</DependentUpon>
-    </Compile>
-    <Compile Include="HomeScreen.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="HomeScreen.Designer.cs">
-      <DependentUpon>HomeScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="PasswordHandler.cs" />
     <Compile Include="Update.cs">
@@ -92,14 +80,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="ConfirmBorrow.resx">
-      <DependentUpon>ConfirmBorrow.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="HomeScreen.resx">
-      <DependentUpon>HomeScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Update.resx">
       <DependentUpon>Update.cs</DependentUpon>
@@ -122,7 +104,6 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Books.json" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
