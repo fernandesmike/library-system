@@ -20,6 +20,7 @@ namespace LibrarySystem
             this.dataGrid = dataGrid;
         }
 
+        // Books - DQL
         public void loadBooks()
         {
             try
@@ -192,7 +193,7 @@ namespace LibrarySystem
             }
         }
 
-        // Data Manipulation
+        // Books - DML
         public void updateBook(string book_id, string availability)
         {
             try
@@ -217,6 +218,89 @@ namespace LibrarySystem
             }
         }
 
+        // Borrowers - DQL
+        public void loadBorrowers()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname  FROM tbl_borrower";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable books = new DataTable();
+                        adapter.Fill(books);
+                        dataGrid.DataSource = books;
+                    }
+
+                    //applyGridStyling();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+            }
+        }
+
+        public int countBorrowers()
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_borrower";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
+
+        public int countBorrowers(String status)
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_borrower WHERE status = @status";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
         // UI Styling
         private void applyGridStyling()
         {
