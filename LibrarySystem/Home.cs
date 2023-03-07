@@ -11,7 +11,7 @@ using System.Data.SqlClient;
 
 namespace LibrarySystem
 {
-    public partial class Home : Form
+    public partial class Dashboard : Form
     {
         private string connectionString;
         private DataHelper data;
@@ -21,7 +21,7 @@ namespace LibrarySystem
         public static string title;
         public static string author;
 
-        public Home()
+        public Dashboard()
         {
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
@@ -31,7 +31,7 @@ namespace LibrarySystem
         private void Home_Load(object sender, EventArgs e)
         {
             // Greet the user
-            lblUser.Text = Login.currentUser + "!";
+            lblUser.Text = Login.currentUser;
             
             // Populate the data grid everytime the form loads
             data.loadBooks();

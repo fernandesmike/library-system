@@ -3,7 +3,6 @@ C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySy
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\bin\Debug\LibrarySystem.pdb
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Delete.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Update.resources
-C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Home.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Login.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Properties.Resources.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Register.resources
@@ -12,3 +11,4 @@ C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySy
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.exe
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.pdb
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.csprojAssemblyReference.cache
+C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Dashboard.resources
