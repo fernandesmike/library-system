@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnContainer = new System.Windows.Forms.Panel();
@@ -108,7 +108,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnContainer.Controls.Add(this.btnDelete);
             this.btnContainer.Controls.Add(this.btnEdit);
-            this.btnContainer.Location = new System.Drawing.Point(28, 646);
+            this.btnContainer.Location = new System.Drawing.Point(660, 163);
             this.btnContainer.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.btnContainer.Name = "btnContainer";
             this.btnContainer.Size = new System.Drawing.Size(524, 55);
@@ -116,59 +116,55 @@
             // 
             // divLeft
             // 
-            this.divLeft.AutoSize = true;
             this.divLeft.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.divLeft.BackColor = System.Drawing.Color.Transparent;
             this.divLeft.Controls.Add(this.userInfoContainer);
-            this.divLeft.Controls.Add(this.gbSearch);
-            this.divLeft.Controls.Add(this.gbAddBook);
-            this.divLeft.Controls.Add(this.btnContainer);
             this.divLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.divLeft.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.divLeft.Location = new System.Drawing.Point(0, 0);
             this.divLeft.MaximumSize = new System.Drawing.Size(620, 0);
             this.divLeft.Name = "divLeft";
             this.divLeft.Padding = new System.Windows.Forms.Padding(25, 15, 25, 0);
-            this.divLeft.Size = new System.Drawing.Size(580, 753);
+            this.divLeft.Size = new System.Drawing.Size(270, 753);
             this.divLeft.TabIndex = 23;
             // 
             // userInfoContainer
             // 
-            this.userInfoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userInfoContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.userInfoContainer.AutoSize = true;
             this.userInfoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.userInfoContainer.Controls.Add(this.imgAvatar);
             this.userInfoContainer.Controls.Add(this.infoContainer);
-            this.userInfoContainer.Controls.Add(this.btnLogout);
+            this.userInfoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.userInfoContainer.Location = new System.Drawing.Point(28, 18);
             this.userInfoContainer.Name = "userInfoContainer";
-            this.userInfoContainer.Size = new System.Drawing.Size(524, 86);
+            this.userInfoContainer.Size = new System.Drawing.Size(216, 156);
             this.userInfoContainer.TabIndex = 26;
             this.userInfoContainer.WrapContents = false;
             // 
             // imgAvatar
             // 
+            this.imgAvatar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgAvatar.Image = ((System.Drawing.Image)(resources.GetObject("imgAvatar.Image")));
-            this.imgAvatar.Location = new System.Drawing.Point(3, 3);
+            this.imgAvatar.Location = new System.Drawing.Point(73, 3);
             this.imgAvatar.Name = "imgAvatar";
-            this.imgAvatar.Size = new System.Drawing.Size(80, 80);
+            this.imgAvatar.Size = new System.Drawing.Size(70, 70);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgAvatar.TabIndex = 14;
             this.imgAvatar.TabStop = false;
             // 
             // infoContainer
             // 
-            this.infoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.infoContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.infoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoContainer.Controls.Add(this.lblUser);
             this.infoContainer.Controls.Add(this.lblUserType);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.infoContainer.Location = new System.Drawing.Point(101, 3);
-            this.infoContainer.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
+            this.infoContainer.Location = new System.Drawing.Point(0, 76);
+            this.infoContainer.Margin = new System.Windows.Forms.Padding(0);
             this.infoContainer.Name = "infoContainer";
             this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.infoContainer.Size = new System.Drawing.Size(323, 80);
+            this.infoContainer.Size = new System.Drawing.Size(216, 80);
             this.infoContainer.TabIndex = 25;
             // 
             // lblUser
@@ -178,18 +174,18 @@
             this.lblUser.ForeColor = System.Drawing.SystemColors.Desktop;
             this.lblUser.Location = new System.Drawing.Point(3, 10);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(314, 30);
+            this.lblUser.Size = new System.Drawing.Size(213, 30);
             this.lblUser.TabIndex = 12;
             this.lblUser.Text = "Welcome, Mike!";
+            this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblUserType
             // 
-            this.lblUserType.AutoSize = true;
             this.lblUserType.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserType.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblUserType.Location = new System.Drawing.Point(3, 40);
             this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(64, 24);
+            this.lblUserType.Size = new System.Drawing.Size(213, 24);
             this.lblUserType.TabIndex = 14;
             this.lblUserType.Text = "Admin";
             this.lblUserType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -201,9 +197,9 @@
             this.btnLogout.AutoSize = true;
             this.btnLogout.Font = new System.Drawing.Font("Outfit", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogout.LinkColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(430, 0);
+            this.btnLogout.Location = new System.Drawing.Point(1185, 55);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Size = new System.Drawing.Size(67, 86);
+            this.btnLogout.Size = new System.Drawing.Size(67, 21);
             this.btnLogout.TabIndex = 29;
             this.btnLogout.TabStop = true;
             this.btnLogout.Text = "Signout";
@@ -218,11 +214,11 @@
             this.gbSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.gbSearch.Controls.Add(this.searchContainer);
             this.gbSearch.Font = new System.Drawing.Font("Outfit", 9F);
-            this.gbSearch.Location = new System.Drawing.Point(28, 137);
+            this.gbSearch.Location = new System.Drawing.Point(599, 18);
             this.gbSearch.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.gbSearch.Name = "gbSearch";
             this.gbSearch.Padding = new System.Windows.Forms.Padding(10, 20, 10, 5);
-            this.gbSearch.Size = new System.Drawing.Size(524, 112);
+            this.gbSearch.Size = new System.Drawing.Size(514, 112);
             this.gbSearch.TabIndex = 27;
             this.gbSearch.TabStop = false;
             this.gbSearch.Text = "Search book";
@@ -274,7 +270,7 @@
             this.gbAddBook.Controls.Add(this.titleContainer);
             this.gbAddBook.Controls.Add(this.authorContainer);
             this.gbAddBook.Font = new System.Drawing.Font("Outfit", 9F);
-            this.gbAddBook.Location = new System.Drawing.Point(28, 272);
+            this.gbAddBook.Location = new System.Drawing.Point(660, 442);
             this.gbAddBook.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.gbAddBook.Name = "gbAddBook";
             this.gbAddBook.Padding = new System.Windows.Forms.Padding(10, 20, 10, 0);
@@ -287,6 +283,8 @@
             // 
             this.btnAdd.BackColor = System.Drawing.SystemColors.ControlLight;
             this.btnAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdd.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAdd.Location = new System.Drawing.Point(7, 269);
             this.btnAdd.Name = "btnAdd";
@@ -398,12 +396,11 @@
             // 
             // divRight
             // 
-            this.divRight.AutoSize = true;
             this.divRight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.divRight.Controls.Add(this.dataGrid);
-            this.divRight.Location = new System.Drawing.Point(617, 0);
+            this.divRight.Location = new System.Drawing.Point(1044, 243);
             this.divRight.Name = "divRight";
-            this.divRight.Size = new System.Drawing.Size(648, 756);
+            this.divRight.Size = new System.Drawing.Size(240, 185);
             this.divRight.TabIndex = 24;
             // 
             // dataGrid
@@ -412,40 +409,41 @@
             this.dataGrid.AllowUserToDeleteRows = false;
             this.dataGrid.AllowUserToResizeColumns = false;
             this.dataGrid.AllowUserToResizeRows = false;
+            this.dataGrid.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.RaisedHorizontal;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Outfit SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.LightBlue;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Outfit SemiBold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5, 10, 5, 10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.SystemColors.ControlLight;
             this.dataGrid.Location = new System.Drawing.Point(3, 3);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -454,7 +452,7 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(642, 750);
+            this.dataGrid.Size = new System.Drawing.Size(740, 394);
             this.dataGrid.TabIndex = 0;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             // 
@@ -462,12 +460,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1262, 753);
+            this.ClientSize = new System.Drawing.Size(1342, 753);
             this.Controls.Add(this.divRight);
+            this.Controls.Add(this.gbAddBook);
+            this.Controls.Add(this.gbSearch);
+            this.Controls.Add(this.btnContainer);
             this.Controls.Add(this.divLeft);
+            this.Controls.Add(this.btnLogout);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(1360, 800);
             this.Name = "Home";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
@@ -477,10 +480,8 @@
             this.divLeft.ResumeLayout(false);
             this.divLeft.PerformLayout();
             this.userInfoContainer.ResumeLayout(false);
-            this.userInfoContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
             this.infoContainer.ResumeLayout(false);
-            this.infoContainer.PerformLayout();
             this.gbSearch.ResumeLayout(false);
             this.gbSearch.PerformLayout();
             this.searchContainer.ResumeLayout(false);
