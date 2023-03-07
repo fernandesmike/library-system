@@ -145,7 +145,7 @@ namespace LibrarySystem
                     }
 
                     Login.currentUser = txtUsername.Text.Trim();
-                    Home home = new Home();
+                    Dashboard home = new Dashboard();
                     this.Close();
                     home.Show();
 

@@ -24,9 +24,9 @@ namespace LibrarySystem
 
         private void Update_Load(object sender, EventArgs e)
         {
-            lblBookID.Text = "Book ID: " + Home.id;
-            lblBookTitle.Text = Home.title;
-            lblAuthor.Text = "by " + Home.author;
+            lblBookID.Text = "Book ID: " + Dashboard.id;
+            lblBookTitle.Text = Dashboard.title;
+            lblAuthor.Text = "by " + Dashboard.author;
         }
 
         private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -68,7 +68,7 @@ namespace LibrarySystem
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand(command, con);
-                        cmd.Parameters.AddWithValue("@id", Home.id);
+                        cmd.Parameters.AddWithValue("@id", Dashboard.id);
                         cmd.Parameters.AddWithValue("@title", txtTitle.Text.Trim());
                         cmd.Parameters.AddWithValue("@author", txtAuthor.Text.Trim());
                         cmd.ExecuteNonQuery();

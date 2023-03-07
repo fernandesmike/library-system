@@ -71,7 +71,7 @@ namespace LibrarySystem
                                     // Used to contain the current user
                                     currentUser = txtUsername.Text;
 
-                                    Home home = new Home();
+                                    Dashboard home = new Dashboard();
                                     home.Show();
                                     this.Hide();
                                     

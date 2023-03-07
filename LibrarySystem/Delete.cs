@@ -29,9 +29,9 @@ namespace LibrarySystem
         private void Delete_Load(object sender, EventArgs e)
         {
             // Get the currently selected row
-            lblBookID.Text = "Book ID: " + Home.id;
-            lblBookTitle.Text = Home.title;
-            lblAuthor.Text = "by " + Home.author;
+            lblBookID.Text = "Book ID: " + Dashboard.id;
+            lblBookTitle.Text = Dashboard.title;
+            lblAuthor.Text = "by " + Dashboard.author;
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace LibrarySystem
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@id", Home.id);
+                    cmd.Parameters.AddWithValue("@id", Dashboard.id);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Book has been successfully deleted.");
