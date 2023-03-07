@@ -217,6 +217,7 @@ namespace LibrarySystem
             }
         }
 
+        // UI Styling
         private void applyGridStyling()
         {
             // UI styling of data grid

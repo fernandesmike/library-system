@@ -31,8 +31,8 @@ namespace LibrarySystem
         private void Home_Load(object sender, EventArgs e)
         {
             // Greet the user
-            lblUser.Text = "Welcome, " + Login.currentUser + "!";
-
+            lblUser.Text = Login.currentUser + "!";
+            
             // Populate the data grid everytime the form loads
             data.loadBooks();
         }
