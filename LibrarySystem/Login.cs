@@ -71,22 +71,10 @@ namespace LibrarySystem
                                     // Used to contain the current user
                                     currentUser = txtUsername.Text;
 
-                                    // If the login credential is an ADMIN account
-                                    // Display Admin dashboard
-                                    if (userLvl == "ADMIN")
-                                    {
-                                        Home home = new Home();
-                                        home.Show();
-                                        this.Hide();
-                                    }
-                                    // But if the credentials is a BASIC account
-                                    // Display Home screen
-                                    else
-                                    {
-                                        HomeScreen userScreen = new HomeScreen();
-                                        userScreen.Show();
-                                        this.Hide();
-                                    }
+                                    Home home = new Home();
+                                    home.Show();
+                                    this.Hide();
+                                    
                                 }
                                 else
                                 {
