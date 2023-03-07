@@ -192,6 +192,31 @@ namespace LibrarySystem
             }
         }
 
+        // Data Manipulation
+        public void updateBook(string book_id, string availability)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_books SET available = @availability WHERE id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@availability", availability);
+                    cmd.Parameters.AddWithValue("@id", book_id);
+                    cmd.ExecuteNonQuery();
+
+                    applyGridStyling();
+
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+            }
+        }
+
         private void applyGridStyling()
         {
             // UI styling of data grid
