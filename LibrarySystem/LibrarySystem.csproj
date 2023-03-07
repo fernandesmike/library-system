@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmBorrow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmBorrow.Designer.cs">
+      <DependentUpon>ConfirmBorrow.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataHelper.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
@@ -86,6 +92,9 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ConfirmBorrow.resx">
+      <DependentUpon>ConfirmBorrow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
     </EmbeddedResource>
