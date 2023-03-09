@@ -20,13 +20,16 @@ namespace LibrarySystem
             this.dataGrid = dataGrid;
         }
 
+        // Quantity, Genre, 
+
         // Books - DQL
-        public void loadBooks()
+        public void loadAllBooks()
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
+                    // Retrieve only the available books
                     string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books";
                     con.Open();
 
@@ -86,35 +89,6 @@ namespace LibrarySystem
                 {
                     // Retrieve only the available books
                     string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE available = 0";
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.ExecuteNonQuery();
-
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
-                    {
-                        DataTable books = new DataTable();
-                        adapter.Fill(books);
-                        dataGrid.DataSource = books;
-                    }
-
-                    applyGridStyling();
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err + "We can't load data from our server.");
-            }
-        }
-
-        public void loadAllBooks()
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(conString))
-                {
-                    // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -238,7 +212,36 @@ namespace LibrarySystem
                         dataGrid.DataSource = books;
                     }
 
-                    //applyGridStyling();
+                    applyGridStyling();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+            }
+        }
+
+        public void loadBorrowers(String status)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname  FROM tbl_borrower WHERE status = @status";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@status", status);
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable books = new DataTable();
+                        adapter.Fill(books);
+                        dataGrid.DataSource = books;
+                    }
+
+                    applyGridStyling();
                 }
             }
             catch (Exception err)
@@ -274,6 +277,7 @@ namespace LibrarySystem
 
         }
 
+        // Count borrowers by specified condition
         public int countBorrowers(String status)
         {
             int count;
@@ -309,6 +313,10 @@ namespace LibrarySystem
             dataGrid.Columns[0].Width = 60;
             dataGrid.Columns[2].Width = 140;
             dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+
+            // Refresh the grid
+            dataGrid.Visible = false;
+            dataGrid.Visible = true;
         }
     }
 }
