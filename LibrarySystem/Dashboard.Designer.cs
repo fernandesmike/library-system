@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -58,9 +58,9 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.LinkLabel();
             this.lblParagraph = new System.Windows.Forms.Label();
-            this.lblBorrower = new System.Windows.Forms.Label();
+            this.lblContext = new System.Windows.Forms.Label();
             this.flpTitle = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpContent = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpBorrowersUI = new System.Windows.Forms.FlowLayoutPanel();
             this.flpStatistics = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTotalBorrowers = new System.Windows.Forms.Label();
@@ -71,14 +71,20 @@
             this.flpInactive = new System.Windows.Forms.FlowLayoutPanel();
             this.lblInactive = new System.Windows.Forms.Label();
             this.lblInactiveCount = new System.Windows.Forms.Label();
-            this.divRight = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpDataGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGrid = new System.Windows.Forms.DataGridView();
-            this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblSearch = new System.Windows.Forms.Label();
             this.searchContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.iconSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.lblSearch = new System.Windows.Forms.Label();
+            this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpGridHeader = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.lblGridTitle = new System.Windows.Forms.Label();
+            this.radioContainer = new System.Windows.Forms.Panel();
+            this.rbAll = new System.Windows.Forms.RadioButton();
+            this.rbActive = new System.Windows.Forms.RadioButton();
+            this.rbInactive = new System.Windows.Forms.RadioButton();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -96,16 +102,18 @@
             this.signout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.flpTitle.SuspendLayout();
-            this.flpContent.SuspendLayout();
+            this.flpBorrowersUI.SuspendLayout();
             this.flpStatistics.SuspendLayout();
             this.flpBorrowers.SuspendLayout();
             this.flpActive.SuspendLayout();
             this.flpInactive.SuspendLayout();
-            this.divRight.SuspendLayout();
+            this.flpDataGrid.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
-            this.flpSearch.SuspendLayout();
             this.searchContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
+            this.flpSearch.SuspendLayout();
+            this.flpGridHeader.SuspendLayout();
+            this.radioContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // divLeft
@@ -218,6 +226,7 @@
             // 
             this.viewBorrowers.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.viewBorrowers.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.viewBorrowers.BackColor = System.Drawing.Color.Transparent;
             this.viewBorrowers.Controls.Add(this.icoBorrower);
             this.viewBorrowers.Controls.Add(this.btnViewBorrowers);
             this.viewBorrowers.Location = new System.Drawing.Point(3, 42);
@@ -261,6 +270,7 @@
             this.btnViewBorrowers.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnViewBorrowers.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnViewBorrowers.UseVisualStyleBackColor = false;
+            this.btnViewBorrowers.Click += new System.EventHandler(this.BtnViewBorrowers_Click);
             // 
             // viewBooks
             // 
@@ -308,6 +318,7 @@
             this.btnViewBooks.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnViewBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnViewBooks.UseVisualStyleBackColor = false;
+            this.btnViewBooks.Click += new System.EventHandler(this.BtnViewBooks_Click);
             // 
             // flpBtnGrp2
             // 
@@ -379,6 +390,7 @@
             this.btnViewReports.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnViewReports.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnViewReports.UseVisualStyleBackColor = false;
+            this.btnViewReports.Click += new System.EventHandler(this.BtnViewReports_Click);
             // 
             // viewTransactions
             // 
@@ -474,7 +486,7 @@
             this.lblParagraph.AutoSize = true;
             this.lblParagraph.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParagraph.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblParagraph.Location = new System.Drawing.Point(3, 40);
+            this.lblParagraph.Location = new System.Drawing.Point(3, 48);
             this.lblParagraph.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblParagraph.Name = "lblParagraph";
             this.lblParagraph.Size = new System.Drawing.Size(279, 48);
@@ -482,43 +494,44 @@
             this.lblParagraph.Text = "Manage borrower accounts and\r\nview statistics";
             this.lblParagraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // lblBorrower
+            // lblContext
             // 
-            this.lblBorrower.AutoEllipsis = true;
-            this.lblBorrower.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold);
-            this.lblBorrower.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblBorrower.Location = new System.Drawing.Point(3, 0);
-            this.lblBorrower.Name = "lblBorrower";
-            this.lblBorrower.Size = new System.Drawing.Size(235, 30);
-            this.lblBorrower.TabIndex = 12;
-            this.lblBorrower.Text = "Borrowers";
-            this.lblBorrower.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblContext.AutoEllipsis = true;
+            this.lblContext.AutoSize = true;
+            this.lblContext.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold);
+            this.lblContext.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblContext.Location = new System.Drawing.Point(3, 0);
+            this.lblContext.Name = "lblContext";
+            this.lblContext.Size = new System.Drawing.Size(163, 38);
+            this.lblContext.TabIndex = 12;
+            this.lblContext.Text = "Borrowers";
+            this.lblContext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // flpTitle
             // 
             this.flpTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpTitle.AutoSize = true;
             this.flpTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpTitle.Controls.Add(this.lblBorrower);
+            this.flpTitle.Controls.Add(this.lblContext);
             this.flpTitle.Controls.Add(this.lblParagraph);
             this.flpTitle.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpTitle.Location = new System.Drawing.Point(286, 21);
             this.flpTitle.Margin = new System.Windows.Forms.Padding(0);
             this.flpTitle.Name = "flpTitle";
-            this.flpTitle.Size = new System.Drawing.Size(285, 88);
+            this.flpTitle.Size = new System.Drawing.Size(285, 96);
             this.flpTitle.TabIndex = 33;
             // 
-            // flpContent
+            // flpBorrowersUI
             // 
-            this.flpContent.AutoSize = true;
-            this.flpContent.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpContent.Controls.Add(this.flpStatistics);
-            this.flpContent.Controls.Add(this.divRight);
-            this.flpContent.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpContent.Location = new System.Drawing.Point(286, 134);
-            this.flpContent.Name = "flpContent";
-            this.flpContent.Size = new System.Drawing.Size(1050, 622);
-            this.flpContent.TabIndex = 35;
+            this.flpBorrowersUI.AutoSize = true;
+            this.flpBorrowersUI.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpBorrowersUI.Controls.Add(this.flpStatistics);
+            this.flpBorrowersUI.Controls.Add(this.flpDataGrid);
+            this.flpBorrowersUI.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpBorrowersUI.Location = new System.Drawing.Point(286, 134);
+            this.flpBorrowersUI.Name = "flpBorrowersUI";
+            this.flpBorrowersUI.Size = new System.Drawing.Size(1044, 607);
+            this.flpBorrowersUI.TabIndex = 35;
             // 
             // flpStatistics
             // 
@@ -654,18 +667,19 @@
             this.lblInactiveCount.Text = "2";
             this.lblInactiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // divRight
+            // flpDataGrid
             // 
-            this.divRight.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.divRight.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.divRight.Controls.Add(this.lblGridTitle);
-            this.divRight.Controls.Add(this.dataGrid);
-            this.divRight.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.divRight.Location = new System.Drawing.Point(3, 134);
-            this.divRight.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
-            this.divRight.Name = "divRight";
-            this.divRight.Size = new System.Drawing.Size(1044, 485);
-            this.divRight.TabIndex = 36;
+            this.flpDataGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.flpDataGrid.Controls.Add(this.lblGridTitle);
+            this.flpDataGrid.Controls.Add(this.flpGridHeader);
+            this.flpDataGrid.Controls.Add(this.dataGrid);
+            this.flpDataGrid.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            this.flpDataGrid.Location = new System.Drawing.Point(0, 134);
+            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flpDataGrid.Name = "flpDataGrid";
+            this.flpDataGrid.Size = new System.Drawing.Size(1022, 473);
+            this.flpDataGrid.TabIndex = 36;
             // 
             // dataGrid
             // 
@@ -678,38 +692,38 @@
             this.dataGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Outfit", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Outfit", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Menu;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Outfit", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Outfit", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.EnableHeadersVisualStyles = false;
             this.dataGrid.GridColor = System.Drawing.SystemColors.Menu;
-            this.dataGrid.Location = new System.Drawing.Point(3, 77);
+            this.dataGrid.Location = new System.Drawing.Point(3, 115);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkOrange;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Transparent;
@@ -724,34 +738,8 @@
             this.dataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(1041, 365);
+            this.dataGrid.Size = new System.Drawing.Size(1018, 357);
             this.dataGrid.TabIndex = 0;
-            // 
-            // flpSearch
-            // 
-            this.flpSearch.AutoSize = true;
-            this.flpSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpSearch.Controls.Add(this.lblSearch);
-            this.flpSearch.Controls.Add(this.searchContainer);
-            this.flpSearch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpSearch.Location = new System.Drawing.Point(836, 21);
-            this.flpSearch.Margin = new System.Windows.Forms.Padding(0);
-            this.flpSearch.Name = "flpSearch";
-            this.flpSearch.Size = new System.Drawing.Size(500, 88);
-            this.flpSearch.TabIndex = 37;
-            // 
-            // lblSearch
-            // 
-            this.lblSearch.AutoSize = true;
-            this.lblSearch.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSearch.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblSearch.Location = new System.Drawing.Point(3, 10);
-            this.lblSearch.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(162, 24);
-            this.lblSearch.TabIndex = 37;
-            this.lblSearch.Text = "Search borrowers";
-            this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // searchContainer
             // 
@@ -790,6 +778,68 @@
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(450, 35);
             this.txtSearch.TabIndex = 19;
+            this.txtSearch.TextChanged += new System.EventHandler(this.TxtSearch_TextChanged);
+            // 
+            // lblSearch
+            // 
+            this.lblSearch.AutoSize = true;
+            this.lblSearch.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblSearch.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblSearch.Location = new System.Drawing.Point(3, 10);
+            this.lblSearch.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblSearch.Name = "lblSearch";
+            this.lblSearch.Size = new System.Drawing.Size(162, 24);
+            this.lblSearch.TabIndex = 37;
+            this.lblSearch.Text = "Search borrowers";
+            this.lblSearch.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flpSearch
+            // 
+            this.flpSearch.AutoSize = true;
+            this.flpSearch.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpSearch.Controls.Add(this.lblSearch);
+            this.flpSearch.Controls.Add(this.searchContainer);
+            this.flpSearch.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpSearch.Location = new System.Drawing.Point(836, 21);
+            this.flpSearch.Margin = new System.Windows.Forms.Padding(0);
+            this.flpSearch.Name = "flpSearch";
+            this.flpSearch.Size = new System.Drawing.Size(500, 88);
+            this.flpSearch.TabIndex = 37;
+            // 
+            // flpGridHeader
+            // 
+            this.flpGridHeader.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpGridHeader.Controls.Add(this.btnAdd);
+            this.flpGridHeader.Controls.Add(this.radioContainer);
+            this.flpGridHeader.Location = new System.Drawing.Point(3, 57);
+            this.flpGridHeader.Name = "flpGridHeader";
+            this.flpGridHeader.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.flpGridHeader.Size = new System.Drawing.Size(1018, 52);
+            this.flpGridHeader.TabIndex = 38;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAdd.BackColor = System.Drawing.Color.Transparent;
+            this.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAdd.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Outfit", 9.5F, System.Drawing.FontStyle.Bold);
+            this.btnAdd.ForeColor = System.Drawing.Color.ForestGreen;
+            this.btnAdd.Location = new System.Drawing.Point(10, 5);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Padding = new System.Windows.Forms.Padding(5);
+            this.btnAdd.Size = new System.Drawing.Size(190, 41);
+            this.btnAdd.TabIndex = 31;
+            this.btnAdd.Text = "+ Add book";
+            this.btnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // lblGridTitle
             // 
@@ -801,11 +851,69 @@
             this.lblGridTitle.Location = new System.Drawing.Point(3, 5);
             this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.lblGridTitle.Name = "lblGridTitle";
-            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(10, 20, 10, 20);
-            this.lblGridTitle.Size = new System.Drawing.Size(149, 64);
-            this.lblGridTitle.TabIndex = 13;
+            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(10);
+            this.lblGridTitle.Size = new System.Drawing.Size(149, 44);
+            this.lblGridTitle.TabIndex = 39;
             this.lblGridTitle.Text = "All borrowers";
             this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // radioContainer
+            // 
+            this.radioContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.radioContainer.Controls.Add(this.rbAll);
+            this.radioContainer.Controls.Add(this.rbActive);
+            this.radioContainer.Controls.Add(this.rbInactive);
+            this.radioContainer.Location = new System.Drawing.Point(203, 3);
+            this.radioContainer.Name = "radioContainer";
+            this.radioContainer.Size = new System.Drawing.Size(801, 45);
+            this.radioContainer.TabIndex = 39;
+            // 
+            // rbAll
+            // 
+            this.rbAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbAll.AutoSize = true;
+            this.rbAll.Checked = true;
+            this.rbAll.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAll.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rbAll.Location = new System.Drawing.Point(532, 10);
+            this.rbAll.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(52, 23);
+            this.rbAll.TabIndex = 35;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "All ";
+            this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.RbAll_CheckedChanged);
+            // 
+            // rbActive
+            // 
+            this.rbActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbActive.AutoSize = true;
+            this.rbActive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbActive.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.rbActive.Location = new System.Drawing.Point(610, 10);
+            this.rbActive.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rbActive.Name = "rbActive";
+            this.rbActive.Size = new System.Drawing.Size(83, 23);
+            this.rbActive.TabIndex = 36;
+            this.rbActive.Text = "Inactive";
+            this.rbActive.UseVisualStyleBackColor = true;
+            this.rbActive.CheckedChanged += new System.EventHandler(this.RbActive_CheckedChanged);
+            // 
+            // rbInactive
+            // 
+            this.rbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbInactive.AutoSize = true;
+            this.rbInactive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbInactive.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.rbInactive.Location = new System.Drawing.Point(722, 10);
+            this.rbInactive.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rbInactive.Name = "rbInactive";
+            this.rbInactive.Size = new System.Drawing.Size(75, 23);
+            this.rbInactive.TabIndex = 37;
+            this.rbInactive.Text = "Active ";
+            this.rbInactive.UseVisualStyleBackColor = true;
+            this.rbInactive.CheckedChanged += new System.EventHandler(this.RbInactive_CheckedChanged);
             // 
             // Dashboard
             // 
@@ -814,7 +922,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 753);
             this.Controls.Add(this.flpSearch);
-            this.Controls.Add(this.flpContent);
+            this.Controls.Add(this.flpBorrowersUI);
             this.Controls.Add(this.flpTitle);
             this.Controls.Add(this.divLeft);
             this.ForeColor = System.Drawing.SystemColors.MenuText;
@@ -848,8 +956,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.flpTitle.ResumeLayout(false);
             this.flpTitle.PerformLayout();
-            this.flpContent.ResumeLayout(false);
-            this.flpContent.PerformLayout();
+            this.flpBorrowersUI.ResumeLayout(false);
+            this.flpBorrowersUI.PerformLayout();
             this.flpStatistics.ResumeLayout(false);
             this.flpBorrowers.ResumeLayout(false);
             this.flpBorrowers.PerformLayout();
@@ -857,14 +965,17 @@
             this.flpActive.PerformLayout();
             this.flpInactive.ResumeLayout(false);
             this.flpInactive.PerformLayout();
-            this.divRight.ResumeLayout(false);
-            this.divRight.PerformLayout();
+            this.flpDataGrid.ResumeLayout(false);
+            this.flpDataGrid.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
-            this.flpSearch.ResumeLayout(false);
-            this.flpSearch.PerformLayout();
             this.searchContainer.ResumeLayout(false);
             this.searchContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
+            this.flpSearch.ResumeLayout(false);
+            this.flpSearch.PerformLayout();
+            this.flpGridHeader.ResumeLayout(false);
+            this.radioContainer.ResumeLayout(false);
+            this.radioContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -883,24 +994,12 @@
         private System.Windows.Forms.Label lblCategory2;
         private System.Windows.Forms.FlowLayoutPanel signout;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private System.Windows.Forms.Label lblParagraph;
-        private System.Windows.Forms.FlowLayoutPanel flpStatistics;
         private System.Windows.Forms.FlowLayoutPanel flpBorrowers;
-        private System.Windows.Forms.Label lblTotalBorrowers;
         private System.Windows.Forms.Label lblBorrowersCount;
         private System.Windows.Forms.FlowLayoutPanel flpActive;
-        private System.Windows.Forms.Label lblActive;
         private System.Windows.Forms.Label lblActiveCount;
         private System.Windows.Forms.FlowLayoutPanel flpInactive;
-        private System.Windows.Forms.Label lblInactive;
         private System.Windows.Forms.Label lblInactiveCount;
-        private System.Windows.Forms.FlowLayoutPanel divRight;
-        private System.Windows.Forms.Label lblSearch;
-        private System.Windows.Forms.FlowLayoutPanel searchContainer;
-        private System.Windows.Forms.PictureBox iconSearch;
-        private System.Windows.Forms.TextBox txtSearch;
-        private System.Windows.Forms.Label lblGridTitle;
-        internal System.Windows.Forms.Label lblBorrower;
         internal System.Windows.Forms.DataGridView dataGrid;
         internal System.Windows.Forms.Button btnViewBooks;
         internal System.Windows.Forms.Button btnViewBorrowers;
@@ -915,8 +1014,26 @@
         internal System.Windows.Forms.FlowLayoutPanel viewReports;
         internal System.Windows.Forms.FlowLayoutPanel viewTransactions;
         internal System.Windows.Forms.FlowLayoutPanel flpTitle;
-        internal System.Windows.Forms.FlowLayoutPanel flpContent;
-        internal System.Windows.Forms.FlowLayoutPanel flpSearch;
+        internal System.Windows.Forms.FlowLayoutPanel flpBorrowersUI;
         internal System.Windows.Forms.FlowLayoutPanel divLeft;
+        internal System.Windows.Forms.Label lblParagraph;
+        internal System.Windows.Forms.Label lblContext;
+        internal System.Windows.Forms.FlowLayoutPanel flpDataGrid;
+        private System.Windows.Forms.FlowLayoutPanel searchContainer;
+        private System.Windows.Forms.PictureBox iconSearch;
+        private System.Windows.Forms.TextBox txtSearch;
+        internal System.Windows.Forms.Label lblSearch;
+        internal System.Windows.Forms.FlowLayoutPanel flpSearch;
+        internal System.Windows.Forms.FlowLayoutPanel flpStatistics;
+        internal System.Windows.Forms.Label lblTotalBorrowers;
+        internal System.Windows.Forms.Label lblActive;
+        internal System.Windows.Forms.Label lblInactive;
+        internal System.Windows.Forms.Button btnAdd;
+        internal System.Windows.Forms.FlowLayoutPanel flpGridHeader;
+        internal System.Windows.Forms.Label lblGridTitle;
+        internal System.Windows.Forms.Panel radioContainer;
+        internal System.Windows.Forms.RadioButton rbAll;
+        internal System.Windows.Forms.RadioButton rbActive;
+        internal System.Windows.Forms.RadioButton rbInactive;
     }
 }
