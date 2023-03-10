@@ -22,6 +22,9 @@ namespace LibrarySystem
         public static string title;
         public static string author;
 
+        // For borrower info
+        public static string fullName;
+
         public string context;
 
         public Dashboard()
@@ -88,7 +91,12 @@ namespace LibrarySystem
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-
+            if(context == "borrowers")
+            {
+                BorrowerInfo info = new BorrowerInfo();
+                this.Hide();
+                info.ShowDialog();
+            }
         }
 
         private void RbAll_CheckedChanged(object sender, EventArgs e)
@@ -104,6 +112,26 @@ namespace LibrarySystem
         private void RbInactive_CheckedChanged(object sender, EventArgs e)
         {
             data.loadBorrowers(rbInactive.Text.ToLower());
+        }
+
+        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Get the currently selected row
+            DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
+
+            if (e.RowIndex >= 0)
+            {
+                // Get the currently selected data
+                // id = row.Cells["Username"].Value.ToString();
+                // title = row.Cells["Firstname"].Value.ToString();
+                // author = row.Cells["Lastname"].Value.ToString();
+
+                fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
+
+                BorrowerInfo info = new BorrowerInfo();
+                this.Hide();
+                info.ShowDialog();
+            }
         }
     }
 }
