@@ -20,8 +20,6 @@ namespace LibrarySystem
             this.dataGrid = dataGrid;
         }
 
-        // Quantity, Genre, 
-
         // Books - DQL
         public void loadAllBooks()
         {
