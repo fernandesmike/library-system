@@ -14,17 +14,22 @@ namespace LibrarySystem
     public partial class Dashboard : Form
     {
         private string connectionString;
-        private DataHelper data;
-        private UIHelper dashboardUI;
 
-        // Static variables used to extract data to other forms
+        // Helper classes
+        private DataHelper data;
+        private DashboardUIHelper dashboardUI;
+
+        // For book info
         public static string id;
         public static string title;
         public static string author;
 
         // For borrower info
+        public static string status;
+        public static string firstName;
         public static string fullName;
 
+        // For navigating between pages
         public string context;
 
         public Dashboard()
@@ -32,7 +37,7 @@ namespace LibrarySystem
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             data = new DataHelper(connectionString, dataGrid);
-            dashboardUI = new UIHelper(this);
+            dashboardUI = new DashboardUIHelper(this);
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -86,7 +91,14 @@ namespace LibrarySystem
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            data.searchBooks(txtSearch.Text.Trim());
+            if (context == "borrowers")
+            {
+                data.searchBorrowers(txtSearch.Text.Trim());
+            }
+            else if (context == "books")
+            {
+                data.searchBooks(txtSearch.Text.Trim());
+            }
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -122,11 +134,10 @@ namespace LibrarySystem
             if (e.RowIndex >= 0)
             {
                 // Get the currently selected data
-                // id = row.Cells["Username"].Value.ToString();
-                // title = row.Cells["Firstname"].Value.ToString();
-                // author = row.Cells["Lastname"].Value.ToString();
-
+                id = row.Cells["Borrower ID"].Value.ToString();
+                firstName = row.Cells["Firstname"].Value.ToString();
                 fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
+                status = row.Cells["Status"].Value.ToString();
 
                 BorrowerInfo info = new BorrowerInfo();
                 this.Hide();

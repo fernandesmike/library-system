@@ -14,13 +14,21 @@ namespace LibrarySystem
         private string conString;
         private DataGridView dataGrid;
 
+        // For screens with no data grids
+        public DataHelper(string con)
+        {
+            this.conString = con;
+        }
+
         public DataHelper(string con, DataGridView dataGrid)
         {
             this.conString = con;
             this.dataGrid = dataGrid;
         }
 
-        // Books - DQL
+
+        // Books - DQL //
+
         public void loadAllBooks()
         {
             try
@@ -108,7 +116,7 @@ namespace LibrarySystem
             }
         }
 
-        public void searchBooks(String searchQuery)
+        public void searchBooks(string searchQuery)
         {
             try
             {
@@ -136,7 +144,7 @@ namespace LibrarySystem
             }
         }
 
-        public void searchBooks(String searchQuery, String availability)
+        public void searchBooks(string searchQuery, string availability)
         {
             try
             {
@@ -165,7 +173,9 @@ namespace LibrarySystem
             }
         }
 
-        // Books - DML
+
+        // Books - DML //
+
         public void updateBook(string book_id, string availability)
         {
             try
@@ -190,14 +200,16 @@ namespace LibrarySystem
             }
         }
 
-        // Borrowers - DQL
+
+        // Borrowers - DQL //
+
         public void loadBorrowers()
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname  FROM tbl_borrower";
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status  FROM tbl_borrower";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -219,13 +231,13 @@ namespace LibrarySystem
             }
         }
 
-        public void loadBorrowers(String status)
+        public void loadBorrowers(string status)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname  FROM tbl_borrower WHERE status = @status";
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE status = @status";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -245,6 +257,34 @@ namespace LibrarySystem
             catch (Exception err)
             {
                 MessageBox.Show(err + "We can't load data from our server.");
+            }
+        }
+
+        public void searchBorrowers(String searchQuery)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@search", "%" + searchQuery + "%");
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable books = new DataTable();
+                        adapter.Fill(books);
+                        dataGrid.DataSource = books;
+                    }
+
+                    applyGridStyling();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " Cannot perform the operation!");
             }
         }
 
@@ -275,8 +315,31 @@ namespace LibrarySystem
 
         }
 
-        // Count borrowers by specified condition
-        public int countBorrowers(String status)
+
+        // Borrowers - DML //
+
+        public void changeStatus(string borrower_id, string changeTo)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_borrower SET status = @status WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@status", changeTo);
+                    cmd.Parameters.AddWithValue("@id", borrower_id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+            }
+        }
+
+        public int countBorrowers(string status)
         {
             int count;
 
@@ -303,7 +366,9 @@ namespace LibrarySystem
             }
 
         }
+
         // UI Styling
+
         private void applyGridStyling()
         {
             // UI styling of data grid

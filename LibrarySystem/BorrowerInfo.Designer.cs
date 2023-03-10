@@ -31,13 +31,26 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowerInfo));
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.infoContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblID = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
             this.lblUserType = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.viewBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.icoBorrower = new System.Windows.Forms.PictureBox();
             this.btnBack = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblCategory = new System.Windows.Forms.Label();
+            this.viewReports = new System.Windows.Forms.FlowLayoutPanel();
+            this.iconEdit = new System.Windows.Forms.PictureBox();
+            this.btnEdit = new System.Windows.Forms.Button();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.iconStatus = new System.Windows.Forms.PictureBox();
+            this.btnStatus = new System.Windows.Forms.Button();
+            this.lblWarning = new System.Windows.Forms.Label();
+            this.flpDelete = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnDelete = new System.Windows.Forms.Button();
             this.flpStatistics = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTotalBorrowed = new System.Windows.Forms.Label();
@@ -58,24 +71,18 @@
             this.rbBorrowed = new System.Windows.Forms.RadioButton();
             this.rbReturned = new System.Windows.Forms.RadioButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.viewReports = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconReports = new System.Windows.Forms.PictureBox();
-            this.btnEdit = new System.Windows.Forms.Button();
-            this.lblCategory = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnStatus = new System.Windows.Forms.Button();
-            this.lblWarning = new System.Windows.Forms.Label();
-            this.flpDelete = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.divLeft.SuspendLayout();
             this.viewBorrowers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).BeginInit();
             this.panel1.SuspendLayout();
+            this.viewReports.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconEdit)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconStatus)).BeginInit();
+            this.flpDelete.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.flpStatistics.SuspendLayout();
             this.flpBorrowers.SuspendLayout();
             this.flpActive.SuspendLayout();
@@ -84,19 +91,13 @@
             this.flpGridHeader.SuspendLayout();
             this.radioContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.viewReports.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconReports)).BeginInit();
-            this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.flpDelete.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // imgAvatar
             // 
             this.imgAvatar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.imgAvatar.Image = ((System.Drawing.Image)(resources.GetObject("imgAvatar.Image")));
-            this.imgAvatar.Location = new System.Drawing.Point(3, 0);
+            this.imgAvatar.Location = new System.Drawing.Point(3, 20);
             this.imgAvatar.Name = "imgAvatar";
             this.imgAvatar.Size = new System.Drawing.Size(399, 70);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -107,23 +108,35 @@
             // 
             this.infoContainer.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.infoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.infoContainer.Controls.Add(this.lblID);
             this.infoContainer.Controls.Add(this.lblUser);
             this.infoContainer.Controls.Add(this.lblUserType);
-            this.infoContainer.Controls.Add(this.label1);
+            this.infoContainer.Controls.Add(this.lblStatus);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.infoContainer.Location = new System.Drawing.Point(70, 73);
+            this.infoContainer.Location = new System.Drawing.Point(70, 93);
             this.infoContainer.Margin = new System.Windows.Forms.Padding(0);
             this.infoContainer.Name = "infoContainer";
             this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.infoContainer.Size = new System.Drawing.Size(261, 113);
+            this.infoContainer.Size = new System.Drawing.Size(261, 132);
             this.infoContainer.TabIndex = 25;
+            // 
+            // lblID
+            // 
+            this.lblID.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblID.Location = new System.Drawing.Point(3, 10);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(255, 24);
+            this.lblID.TabIndex = 28;
+            this.lblID.Text = "ID";
+            this.lblID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblUser
             // 
             this.lblUser.AutoEllipsis = true;
             this.lblUser.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblUser.Location = new System.Drawing.Point(3, 10);
+            this.lblUser.Location = new System.Drawing.Point(3, 34);
             this.lblUser.MinimumSize = new System.Drawing.Size(213, 0);
             this.lblUser.Name = "lblUser";
             this.lblUser.Size = new System.Drawing.Size(258, 24);
@@ -135,12 +148,24 @@
             // 
             this.lblUserType.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserType.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblUserType.Location = new System.Drawing.Point(3, 34);
+            this.lblUserType.Location = new System.Drawing.Point(3, 58);
             this.lblUserType.Name = "lblUserType";
             this.lblUserType.Size = new System.Drawing.Size(255, 24);
             this.lblUserType.TabIndex = 14;
             this.lblUserType.Text = "Borrower";
             this.lblUserType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
+            this.lblStatus.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblStatus.Location = new System.Drawing.Point(3, 92);
+            this.lblStatus.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(255, 24);
+            this.lblStatus.TabIndex = 27;
+            this.lblStatus.Text = "Account active";
+            this.lblStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // divLeft
             // 
@@ -220,8 +245,170 @@
             this.panel1.Location = new System.Drawing.Point(18, 85);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(402, 186);
+            this.panel1.Size = new System.Drawing.Size(402, 227);
             this.panel1.TabIndex = 29;
+            // 
+            // lblCategory
+            // 
+            this.lblCategory.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCategory.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblCategory.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblCategory.Location = new System.Drawing.Point(18, 345);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(3, 30, 3, 10);
+            this.lblCategory.Name = "lblCategory";
+            this.lblCategory.Size = new System.Drawing.Size(213, 24);
+            this.lblCategory.TabIndex = 41;
+            this.lblCategory.Text = "Actions";
+            // 
+            // viewReports
+            // 
+            this.viewReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.viewReports.Controls.Add(this.iconEdit);
+            this.viewReports.Controls.Add(this.btnEdit);
+            this.viewReports.Location = new System.Drawing.Point(18, 379);
+            this.viewReports.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.viewReports.Name = "viewReports";
+            this.viewReports.Size = new System.Drawing.Size(402, 50);
+            this.viewReports.TabIndex = 37;
+            // 
+            // iconEdit
+            // 
+            this.iconEdit.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconEdit.Image = ((System.Drawing.Image)(resources.GetObject("iconEdit.Image")));
+            this.iconEdit.Location = new System.Drawing.Point(3, 6);
+            this.iconEdit.Name = "iconEdit";
+            this.iconEdit.Size = new System.Drawing.Size(32, 32);
+            this.iconEdit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconEdit.TabIndex = 35;
+            this.iconEdit.TabStop = false;
+            // 
+            // btnEdit
+            // 
+            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
+            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnEdit.FlatAppearance.BorderSize = 0;
+            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEdit.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEdit.Location = new System.Drawing.Point(38, 0);
+            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
+            this.btnEdit.Name = "btnEdit";
+            this.btnEdit.Padding = new System.Windows.Forms.Padding(5);
+            this.btnEdit.Size = new System.Drawing.Size(364, 44);
+            this.btnEdit.TabIndex = 30;
+            this.btnEdit.Text = "Edit account";
+            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEdit.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this.iconStatus);
+            this.flowLayoutPanel1.Controls.Add(this.btnStatus);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 447);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 50);
+            this.flowLayoutPanel1.TabIndex = 42;
+            // 
+            // iconStatus
+            // 
+            this.iconStatus.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconStatus.Image = ((System.Drawing.Image)(resources.GetObject("iconStatus.Image")));
+            this.iconStatus.Location = new System.Drawing.Point(3, 6);
+            this.iconStatus.Name = "iconStatus";
+            this.iconStatus.Size = new System.Drawing.Size(32, 32);
+            this.iconStatus.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconStatus.TabIndex = 35;
+            this.iconStatus.TabStop = false;
+            // 
+            // btnStatus
+            // 
+            this.btnStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnStatus.BackColor = System.Drawing.Color.Transparent;
+            this.btnStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnStatus.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStatus.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnStatus.FlatAppearance.BorderSize = 0;
+            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStatus.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStatus.Location = new System.Drawing.Point(38, 0);
+            this.btnStatus.Margin = new System.Windows.Forms.Padding(0);
+            this.btnStatus.Name = "btnStatus";
+            this.btnStatus.Padding = new System.Windows.Forms.Padding(5);
+            this.btnStatus.Size = new System.Drawing.Size(364, 44);
+            this.btnStatus.TabIndex = 30;
+            this.btnStatus.Text = "Disable account";
+            this.btnStatus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnStatus.UseVisualStyleBackColor = false;
+            this.btnStatus.Click += new System.EventHandler(this.BtnStatus_Click);
+            // 
+            // lblWarning
+            // 
+            this.lblWarning.AutoSize = true;
+            this.lblWarning.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWarning.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblWarning.Location = new System.Drawing.Point(18, 530);
+            this.lblWarning.Margin = new System.Windows.Forms.Padding(3, 30, 3, 10);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(312, 48);
+            this.lblWarning.TabIndex = 44;
+            this.lblWarning.Text = "WARNING: \r\nDeleting accounts cannot be undone";
+            // 
+            // flpDelete
+            // 
+            this.flpDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpDelete.Controls.Add(this.pictureBox2);
+            this.flpDelete.Controls.Add(this.btnDelete);
+            this.flpDelete.Location = new System.Drawing.Point(18, 598);
+            this.flpDelete.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.flpDelete.Name = "flpDelete";
+            this.flpDelete.Size = new System.Drawing.Size(402, 50);
+            this.flpDelete.TabIndex = 43;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
+            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.FlatAppearance.BorderSize = 0;
+            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDelete.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnDelete.ForeColor = System.Drawing.Color.Red;
+            this.btnDelete.Location = new System.Drawing.Point(38, 0);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Padding = new System.Windows.Forms.Padding(5);
+            this.btnDelete.Size = new System.Drawing.Size(364, 44);
+            this.btnDelete.TabIndex = 30;
+            this.btnDelete.Text = "Delete account";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDelete.UseVisualStyleBackColor = false;
             // 
             // flpStatistics
             // 
@@ -482,179 +669,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(835, 429);
             this.dataGridView1.TabIndex = 41;
             // 
-            // viewReports
-            // 
-            this.viewReports.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.viewReports.Controls.Add(this.iconReports);
-            this.viewReports.Controls.Add(this.btnEdit);
-            this.viewReports.Location = new System.Drawing.Point(18, 338);
-            this.viewReports.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.viewReports.Name = "viewReports";
-            this.viewReports.Size = new System.Drawing.Size(402, 50);
-            this.viewReports.TabIndex = 37;
-            // 
-            // iconReports
-            // 
-            this.iconReports.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconReports.Image = ((System.Drawing.Image)(resources.GetObject("iconReports.Image")));
-            this.iconReports.Location = new System.Drawing.Point(3, 6);
-            this.iconReports.Name = "iconReports";
-            this.iconReports.Size = new System.Drawing.Size(32, 32);
-            this.iconReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconReports.TabIndex = 35;
-            this.iconReports.TabStop = false;
-            // 
-            // btnEdit
-            // 
-            this.btnEdit.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnEdit.BackColor = System.Drawing.Color.Transparent;
-            this.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEdit.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnEdit.FlatAppearance.BorderSize = 0;
-            this.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEdit.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEdit.Location = new System.Drawing.Point(38, 0);
-            this.btnEdit.Margin = new System.Windows.Forms.Padding(0);
-            this.btnEdit.Name = "btnEdit";
-            this.btnEdit.Padding = new System.Windows.Forms.Padding(5);
-            this.btnEdit.Size = new System.Drawing.Size(364, 44);
-            this.btnEdit.TabIndex = 30;
-            this.btnEdit.Text = "Edit account";
-            this.btnEdit.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnEdit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEdit.UseVisualStyleBackColor = false;
-            // 
-            // lblCategory
-            // 
-            this.lblCategory.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCategory.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblCategory.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblCategory.Location = new System.Drawing.Point(18, 304);
-            this.lblCategory.Margin = new System.Windows.Forms.Padding(3, 30, 3, 10);
-            this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(213, 24);
-            this.lblCategory.TabIndex = 41;
-            this.lblCategory.Text = "Actions";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel1.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel1.Controls.Add(this.btnStatus);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(18, 406);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(402, 50);
-            this.flowLayoutPanel1.TabIndex = 42;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnStatus
-            // 
-            this.btnStatus.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnStatus.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnStatus.BackColor = System.Drawing.Color.Transparent;
-            this.btnStatus.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnStatus.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnStatus.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnStatus.FlatAppearance.BorderSize = 0;
-            this.btnStatus.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnStatus.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnStatus.Location = new System.Drawing.Point(38, 0);
-            this.btnStatus.Margin = new System.Windows.Forms.Padding(0);
-            this.btnStatus.Name = "btnStatus";
-            this.btnStatus.Padding = new System.Windows.Forms.Padding(5);
-            this.btnStatus.Size = new System.Drawing.Size(364, 44);
-            this.btnStatus.TabIndex = 30;
-            this.btnStatus.Text = "Disable account";
-            this.btnStatus.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnStatus.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnStatus.UseVisualStyleBackColor = false;
-            // 
-            // lblWarning
-            // 
-            this.lblWarning.AutoSize = true;
-            this.lblWarning.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblWarning.Location = new System.Drawing.Point(18, 489);
-            this.lblWarning.Margin = new System.Windows.Forms.Padding(3, 30, 3, 10);
-            this.lblWarning.Name = "lblWarning";
-            this.lblWarning.Size = new System.Drawing.Size(312, 48);
-            this.lblWarning.TabIndex = 44;
-            this.lblWarning.Text = "WARNING: \r\nDeleting accounts cannot be undone";
-            // 
-            // flpDelete
-            // 
-            this.flpDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.flpDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpDelete.Controls.Add(this.pictureBox2);
-            this.flpDelete.Controls.Add(this.btnDelete);
-            this.flpDelete.Location = new System.Drawing.Point(18, 557);
-            this.flpDelete.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.flpDelete.Name = "flpDelete";
-            this.flpDelete.Size = new System.Drawing.Size(402, 50);
-            this.flpDelete.TabIndex = 43;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDelete.BackColor = System.Drawing.Color.Transparent;
-            this.btnDelete.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDelete.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDelete.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnDelete.FlatAppearance.BorderSize = 0;
-            this.btnDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDelete.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnDelete.ForeColor = System.Drawing.Color.Red;
-            this.btnDelete.Location = new System.Drawing.Point(38, 0);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Padding = new System.Windows.Forms.Padding(5);
-            this.btnDelete.Size = new System.Drawing.Size(364, 44);
-            this.btnDelete.TabIndex = 30;
-            this.btnDelete.Text = "Delete account";
-            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnDelete.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDelete.UseVisualStyleBackColor = false;
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.ForestGreen;
-            this.label1.Location = new System.Drawing.Point(3, 68);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 24);
-            this.label1.TabIndex = 27;
-            this.label1.Text = "Account active";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
             // BorrowerInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -678,6 +692,12 @@
             this.viewBorrowers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).EndInit();
             this.panel1.ResumeLayout(false);
+            this.viewReports.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconEdit)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.iconStatus)).EndInit();
+            this.flpDelete.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.flpStatistics.ResumeLayout(false);
             this.flpBorrowers.ResumeLayout(false);
             this.flpBorrowers.PerformLayout();
@@ -691,27 +711,18 @@
             this.radioContainer.ResumeLayout(false);
             this.radioContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.viewReports.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconReports)).EndInit();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.flpDelete.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.PictureBox imgAvatar;
         private System.Windows.Forms.FlowLayoutPanel infoContainer;
         internal System.Windows.Forms.Label lblUser;
-        private System.Windows.Forms.Label lblUserType;
         internal System.Windows.Forms.FlowLayoutPanel divLeft;
         internal System.Windows.Forms.FlowLayoutPanel viewBorrowers;
         internal System.Windows.Forms.PictureBox icoBorrower;
         internal System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Panel panel1;
         internal System.Windows.Forms.FlowLayoutPanel flpStatistics;
         private System.Windows.Forms.FlowLayoutPanel flpBorrowers;
         internal System.Windows.Forms.Label lblTotalBorrowed;
@@ -723,7 +734,6 @@
         internal System.Windows.Forms.Label lblReturned;
         private System.Windows.Forms.Label lblReturnCount;
         internal System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.Label lblDate;
         internal System.Windows.Forms.FlowLayoutPanel flpDataGrid;
         internal System.Windows.Forms.Label lblGridTitle;
         internal System.Windows.Forms.FlowLayoutPanel flpGridHeader;
@@ -733,16 +743,21 @@
         internal System.Windows.Forms.RadioButton rbReturned;
         private System.Windows.Forms.DataGridView dataGridView1;
         internal System.Windows.Forms.FlowLayoutPanel viewReports;
-        internal System.Windows.Forms.PictureBox iconReports;
+        internal System.Windows.Forms.PictureBox iconEdit;
         internal System.Windows.Forms.Button btnEdit;
-        private System.Windows.Forms.Label lblCategory;
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
-        internal System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.PictureBox iconStatus;
         internal System.Windows.Forms.Button btnStatus;
-        private System.Windows.Forms.Label lblWarning;
         internal System.Windows.Forms.FlowLayoutPanel flpDelete;
         internal System.Windows.Forms.PictureBox pictureBox2;
         internal System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Label label1;
+        internal System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.Label lblCategory;
+        internal System.Windows.Forms.Label lblWarning;
+        internal System.Windows.Forms.Label lblStatus;
+        internal System.Windows.Forms.PictureBox imgAvatar;
+        internal System.Windows.Forms.Label lblUserType;
+        internal System.Windows.Forms.Label lblDate;
+        internal System.Windows.Forms.Label lblID;
     }
 }
