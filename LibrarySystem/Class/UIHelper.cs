@@ -35,6 +35,9 @@ namespace LibrarySystem
             dashboard.lblGridTitle.Text = "All borrowers";
             dashboard.btnAdd.Text = " + Add borrowers";
 
+            dashboard.rbActive.Text = "Active";
+            dashboard.rbInactive.Text = "Inactive";
+
             dashboard.flpBorrowersUI.Visible = true;
 
             refreshDataGrid();
@@ -83,7 +86,7 @@ namespace LibrarySystem
             refreshDataGrid();
         }
 
-        public void refreshDataGrid()
+        private void refreshDataGrid()
         {
             dashboard.dataGrid.Visible = false;
             dashboard.dataGrid.Visible = true;

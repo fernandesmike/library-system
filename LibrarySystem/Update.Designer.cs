@@ -39,15 +39,15 @@
             this.titleContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
+            this.lblErrorTitle = new System.Windows.Forms.Label();
             this.authorContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.label1 = new System.Windows.Forms.Label();
             this.txtAuthor = new System.Windows.Forms.TextBox();
+            this.lblErrorAuthor = new System.Windows.Forms.Label();
             this.lblHeader = new System.Windows.Forms.Label();
             this.btnContainer = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblErrorTitle = new System.Windows.Forms.Label();
-            this.lblErrorAuthor = new System.Windows.Forms.Label();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.infoContainer.SuspendLayout();
@@ -63,7 +63,7 @@
             this.userInfoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.userInfoContainer.Controls.Add(this.pictureBox1);
             this.userInfoContainer.Controls.Add(this.infoContainer);
-            this.userInfoContainer.Location = new System.Drawing.Point(49, 76);
+            this.userInfoContainer.Location = new System.Drawing.Point(49, 73);
             this.userInfoContainer.Name = "userInfoContainer";
             this.userInfoContainer.Size = new System.Drawing.Size(504, 86);
             this.userInfoContainer.TabIndex = 27;
@@ -175,6 +175,20 @@
             this.txtTitle.Size = new System.Drawing.Size(498, 50);
             this.txtTitle.TabIndex = 19;
             // 
+            // lblErrorTitle
+            // 
+            this.lblErrorTitle.AutoSize = true;
+            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
+            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTitle.Location = new System.Drawing.Point(3, 87);
+            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.lblErrorTitle.Name = "lblErrorTitle";
+            this.lblErrorTitle.Size = new System.Drawing.Size(106, 19);
+            this.lblErrorTitle.TabIndex = 21;
+            this.lblErrorTitle.Text = "Error message";
+            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblErrorTitle.Visible = false;
+            // 
             // authorContainer
             // 
             this.authorContainer.AutoSize = true;
@@ -209,6 +223,20 @@
             this.txtAuthor.Name = "txtAuthor";
             this.txtAuthor.Size = new System.Drawing.Size(498, 50);
             this.txtAuthor.TabIndex = 19;
+            // 
+            // lblErrorAuthor
+            // 
+            this.lblErrorAuthor.AutoSize = true;
+            this.lblErrorAuthor.Font = new System.Drawing.Font("Outfit", 9F);
+            this.lblErrorAuthor.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorAuthor.Location = new System.Drawing.Point(3, 87);
+            this.lblErrorAuthor.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
+            this.lblErrorAuthor.Name = "lblErrorAuthor";
+            this.lblErrorAuthor.Size = new System.Drawing.Size(106, 19);
+            this.lblErrorAuthor.TabIndex = 21;
+            this.lblErrorAuthor.Text = "Error message";
+            this.lblErrorAuthor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblErrorAuthor.Visible = false;
             // 
             // lblHeader
             // 
@@ -258,34 +286,6 @@
             this.btnSave.Text = "Save changes";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
-            // 
-            // lblErrorTitle
-            // 
-            this.lblErrorTitle.AutoSize = true;
-            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
-            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTitle.Location = new System.Drawing.Point(3, 87);
-            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.lblErrorTitle.Name = "lblErrorTitle";
-            this.lblErrorTitle.Size = new System.Drawing.Size(106, 19);
-            this.lblErrorTitle.TabIndex = 21;
-            this.lblErrorTitle.Text = "Error message";
-            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblErrorTitle.Visible = false;
-            // 
-            // lblErrorAuthor
-            // 
-            this.lblErrorAuthor.AutoSize = true;
-            this.lblErrorAuthor.Font = new System.Drawing.Font("Outfit", 9F);
-            this.lblErrorAuthor.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorAuthor.Location = new System.Drawing.Point(3, 87);
-            this.lblErrorAuthor.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.lblErrorAuthor.Name = "lblErrorAuthor";
-            this.lblErrorAuthor.Size = new System.Drawing.Size(106, 19);
-            this.lblErrorAuthor.TabIndex = 21;
-            this.lblErrorAuthor.Text = "Error message";
-            this.lblErrorAuthor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblErrorAuthor.Visible = false;
             // 
             // Update
             // 
