@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace LibrarySystem
 {
-    class UIHelper
+    class DashboardUIHelper
     {
         private Dashboard dashboard;
 
-        public UIHelper(Dashboard dashboard)
+        public DashboardUIHelper(Dashboard dashboard)
         {
             this.dashboard = dashboard;
         }
@@ -86,10 +86,14 @@ namespace LibrarySystem
             refreshDataGrid();
         }
 
+        /// <summary>
+        /// Refresh the graphic rendering of the data grid. Prevents the texts in the data grid from overlapping
+        /// </summary>
         private void refreshDataGrid()
         {
             dashboard.dataGrid.Visible = false;
             dashboard.dataGrid.Visible = true;
         }
+
     }
 }

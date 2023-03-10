@@ -68,7 +68,8 @@
       <DependentUpon>BorrowerInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\DataHelper.cs" />
-    <Compile Include="Class\UIHelper.cs" />
+    <Compile Include="Class\DashboardUIHelper.cs" />
+    <Compile Include="Class\InfoUIHelper.cs" />
     <Compile Include="Delete.cs">
       <SubType>Form</SubType>
     </Compile>
