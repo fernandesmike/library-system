@@ -62,8 +62,6 @@ namespace LibrarySystem
 
             dashboard.flpBorrowersUI.Visible = true;
 
-            // Add books
-
             refreshDataGrid();
         }
 
@@ -85,7 +83,7 @@ namespace LibrarySystem
             refreshDataGrid();
         }
 
-        private void refreshDataGrid()
+        public void refreshDataGrid()
         {
             dashboard.dataGrid.Visible = false;
             dashboard.dataGrid.Visible = true;
