@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -79,12 +76,12 @@
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.searchContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.iconSearch = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -110,10 +107,10 @@
             this.flpDataGrid.SuspendLayout();
             this.flpGridHeader.SuspendLayout();
             this.radioContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.searchContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.flpSearch.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // divLeft
@@ -788,68 +785,6 @@
             this.rbInactive.UseVisualStyleBackColor = true;
             this.rbInactive.CheckedChanged += new System.EventHandler(this.RbInactive_CheckedChanged);
             // 
-            // dataGrid
-            // 
-            this.dataGrid.AllowUserToAddRows = false;
-            this.dataGrid.AllowUserToDeleteRows = false;
-            this.dataGrid.AllowUserToResizeColumns = false;
-            this.dataGrid.AllowUserToResizeRows = false;
-            this.dataGrid.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGrid.BackgroundColor = System.Drawing.Color.White;
-            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Outfit", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Desktop;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Menu;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Maroon;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Outfit", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGrid.EnableHeadersVisualStyles = false;
-            this.dataGrid.GridColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGrid.Location = new System.Drawing.Point(3, 102);
-            this.dataGrid.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.dataGrid.MultiSelect = false;
-            this.dataGrid.Name = "dataGrid";
-            this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkOrange;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Transparent;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGrid.RowHeadersVisible = false;
-            this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dataGrid.RowTemplate.DefaultCellStyle.BackColor = System.Drawing.Color.Transparent;
-            this.dataGrid.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGrid.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.dataGrid.RowTemplate.DefaultCellStyle.Padding = new System.Windows.Forms.Padding(10, 10, 5, 10);
-            this.dataGrid.RowTemplate.DefaultCellStyle.SelectionBackColor = System.Drawing.Color.WhiteSmoke;
-            this.dataGrid.RowTemplate.DefaultCellStyle.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            this.dataGrid.RowTemplate.DividerHeight = 1;
-            this.dataGrid.RowTemplate.Height = 40;
-            this.dataGrid.RowTemplate.ReadOnly = true;
-            this.dataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(1037, 362);
-            this.dataGrid.TabIndex = 0;
-            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
-            // 
             // searchContainer
             // 
             this.searchContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -915,6 +850,15 @@
             this.flpSearch.Size = new System.Drawing.Size(500, 88);
             this.flpSearch.TabIndex = 37;
             // 
+            // dataGrid
+            // 
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGrid.Location = new System.Drawing.Point(3, 95);
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.Size = new System.Drawing.Size(1038, 395);
+            this.dataGrid.TabIndex = 40;
+            this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick_1);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -970,12 +914,12 @@
             this.flpGridHeader.ResumeLayout(false);
             this.radioContainer.ResumeLayout(false);
             this.radioContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.searchContainer.ResumeLayout(false);
             this.searchContainer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.flpSearch.ResumeLayout(false);
             this.flpSearch.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -999,7 +943,6 @@
         private System.Windows.Forms.Label lblActiveCount;
         private System.Windows.Forms.FlowLayoutPanel flpInactive;
         private System.Windows.Forms.Label lblInactiveCount;
-        internal System.Windows.Forms.DataGridView dataGrid;
         internal System.Windows.Forms.Button btnViewBooks;
         internal System.Windows.Forms.Button btnViewBorrowers;
         internal System.Windows.Forms.Button btnViewReports;
@@ -1035,5 +978,6 @@
         internal System.Windows.Forms.RadioButton rbActive;
         internal System.Windows.Forms.RadioButton rbInactive;
         internal System.Windows.Forms.Label lblUser;
+        internal System.Windows.Forms.DataGridView dataGrid;
     }
 }

@@ -14,9 +14,11 @@ namespace LibrarySystem
 {
     public partial class BorrowerInfo : Form
     {
+
         private InfoUIHelper infoUI;
         private DataHelper data;
         private string connectionString;
+
 
         public BorrowerInfo()
         {
@@ -43,7 +45,7 @@ namespace LibrarySystem
             // Disable account
             if(Dashboard.status.ToLower() == "active")
             {
-                data.changeStatus(Dashboard.id, "inactive");
+                data.changeBorrowerStatus(Dashboard.id, "inactive");
                 infoUI.updateStatus("inactive");
                 Dashboard.status = "inactive";
             }
@@ -51,10 +53,37 @@ namespace LibrarySystem
             // Enable account
             else if (Dashboard.status.ToLower() == "inactive")
             {
-                data.changeStatus(Dashboard.id, "active");
+                data.changeBorrowerStatus(Dashboard.id, "active");
                 infoUI.updateStatus("active");
                 Dashboard.status = "active";
             }
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            // TODO:
+            // Update the message
+            // The message should warn if the user has pending books that is yet to be returned
+            flpConfirm.Visible = true;
+        }
+
+        private void BtnConfirm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            data.deleteBorrower(Dashboard.id);
+
+            Dashboard returnToDashboard = new Dashboard();
+            this.Close();
+            returnToDashboard.Show();
+        }
+
+        private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            flpConfirm.Visible = false;
+        }
+
+        // TODO: 
+        // fetch user statistics data
+        // fetch user transactions
+        // edit account
     }
 }
