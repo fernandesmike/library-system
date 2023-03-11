@@ -31,17 +31,17 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delete));
             this.header = new System.Windows.Forms.Label();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.picture = new System.Windows.Forms.PictureBox();
             this.infoContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblBookTitle = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblAuthor = new System.Windows.Forms.Label();
             this.bookIdContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblBookID = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             this.btnContainer = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.LinkLabel();
             this.btnDelete = new System.Windows.Forms.Button();
             this.userInfoContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.bookIdContainer.SuspendLayout();
             this.btnContainer.SuspendLayout();
@@ -65,7 +65,7 @@
             this.userInfoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.userInfoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.userInfoContainer.Controls.Add(this.pictureBox1);
+            this.userInfoContainer.Controls.Add(this.picture);
             this.userInfoContainer.Controls.Add(this.infoContainer);
             this.userInfoContainer.Controls.Add(this.bookIdContainer);
             this.userInfoContainer.Location = new System.Drawing.Point(49, 150);
@@ -73,22 +73,22 @@
             this.userInfoContainer.Size = new System.Drawing.Size(504, 86);
             this.userInfoContainer.TabIndex = 29;
             // 
-            // pictureBox1
+            // picture
             // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(80, 80);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 14;
-            this.pictureBox1.TabStop = false;
+            this.picture.Image = ((System.Drawing.Image)(resources.GetObject("picture.Image")));
+            this.picture.Location = new System.Drawing.Point(3, 3);
+            this.picture.Name = "picture";
+            this.picture.Size = new System.Drawing.Size(80, 80);
+            this.picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picture.TabIndex = 14;
+            this.picture.TabStop = false;
             // 
             // infoContainer
             // 
             this.infoContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.infoContainer.AutoSize = true;
             this.infoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.infoContainer.Controls.Add(this.lblBookTitle);
+            this.infoContainer.Controls.Add(this.lblTitle);
             this.infoContainer.Controls.Add(this.lblAuthor);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.infoContainer.Location = new System.Drawing.Point(101, 3);
@@ -98,16 +98,16 @@
             this.infoContainer.Size = new System.Drawing.Size(187, 80);
             this.infoContainer.TabIndex = 25;
             // 
-            // lblBookTitle
+            // lblTitle
             // 
-            this.lblBookTitle.AutoSize = true;
-            this.lblBookTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
-            this.lblBookTitle.Location = new System.Drawing.Point(3, 10);
-            this.lblBookTitle.Name = "lblBookTitle";
-            this.lblBookTitle.Size = new System.Drawing.Size(181, 25);
-            this.lblBookTitle.TabIndex = 15;
-            this.lblBookTitle.Text = "C++ Programming";
-            this.lblBookTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.Location = new System.Drawing.Point(3, 10);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(181, 25);
+            this.lblTitle.TabIndex = 15;
+            this.lblTitle.Text = "C++ Programming";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblAuthor
             // 
@@ -127,7 +127,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.bookIdContainer.AutoSize = true;
             this.bookIdContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.bookIdContainer.Controls.Add(this.lblBookID);
+            this.bookIdContainer.Controls.Add(this.lblID);
             this.bookIdContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.bookIdContainer.Location = new System.Drawing.Point(306, 3);
             this.bookIdContainer.Margin = new System.Windows.Forms.Padding(15, 3, 3, 3);
@@ -136,19 +136,19 @@
             this.bookIdContainer.Size = new System.Drawing.Size(183, 80);
             this.bookIdContainer.TabIndex = 26;
             // 
-            // lblBookID
+            // lblID
             // 
-            this.lblBookID.AutoSize = true;
-            this.lblBookID.Dock = System.Windows.Forms.DockStyle.Right;
-            this.lblBookID.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBookID.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblBookID.Location = new System.Drawing.Point(13, 15);
-            this.lblBookID.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
-            this.lblBookID.Name = "lblBookID";
-            this.lblBookID.Padding = new System.Windows.Forms.Padding(15, 10, 0, 0);
-            this.lblBookID.Size = new System.Drawing.Size(157, 34);
-            this.lblBookID.TabIndex = 16;
-            this.lblBookID.Text = "Book ID: 012931";
+            this.lblID.AutoSize = true;
+            this.lblID.Dock = System.Windows.Forms.DockStyle.Right;
+            this.lblID.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblID.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblID.Location = new System.Drawing.Point(13, 15);
+            this.lblID.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
+            this.lblID.Name = "lblID";
+            this.lblID.Padding = new System.Windows.Forms.Padding(15, 10, 0, 0);
+            this.lblID.Size = new System.Drawing.Size(157, 34);
+            this.lblID.TabIndex = 16;
+            this.lblID.Text = "Book ID: 012931";
             // 
             // btnContainer
             // 
@@ -203,7 +203,7 @@
             this.Load += new System.EventHandler(this.Delete_Load);
             this.userInfoContainer.ResumeLayout(false);
             this.userInfoContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picture)).EndInit();
             this.infoContainer.ResumeLayout(false);
             this.infoContainer.PerformLayout();
             this.bookIdContainer.ResumeLayout(false);
@@ -219,12 +219,12 @@
 
         private System.Windows.Forms.Label header;
         private System.Windows.Forms.FlowLayoutPanel userInfoContainer;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox picture;
         private System.Windows.Forms.FlowLayoutPanel infoContainer;
-        private System.Windows.Forms.Label lblBookTitle;
+        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblAuthor;
         private System.Windows.Forms.FlowLayoutPanel bookIdContainer;
-        private System.Windows.Forms.Label lblBookID;
+        private System.Windows.Forms.Label lblID;
         private System.Windows.Forms.Panel btnContainer;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.LinkLabel btnCancel;

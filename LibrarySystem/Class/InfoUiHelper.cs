@@ -12,10 +12,14 @@ namespace LibrarySystem
     class InfoUIHelper
     {
         private BorrowerInfo infoUI;
+        private DataHelper data;
+        private string connectionString;
 
         public InfoUIHelper(BorrowerInfo infoUI)
         {
+            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             this.infoUI = infoUI;
+            data = new DataHelper(connectionString);
         }
 
         /// <summary>
@@ -23,6 +27,7 @@ namespace LibrarySystem
         /// </summary>
         public void loadData()
         {
+
             DateTime currentDate = DateTime.Today;
 
             infoUI.lblID.Text = "ID: " + Dashboard.id;

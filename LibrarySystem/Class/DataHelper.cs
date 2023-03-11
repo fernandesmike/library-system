@@ -176,7 +176,7 @@ namespace LibrarySystem
 
         // Books - DML //
 
-        public void updateBook(string book_id, string availability)
+        public void updateBookStatus(string book_id, string availability)
         {
             try
             {
@@ -200,16 +200,13 @@ namespace LibrarySystem
             }
         }
 
-
-        // Borrowers - DQL //
-
         public void loadBorrowers()
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status  FROM tbl_borrower";
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -266,7 +263,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search";
+                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search OR lastname LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -315,30 +312,6 @@ namespace LibrarySystem
 
         }
 
-
-        // Borrowers - DML //
-
-        public void changeStatus(string borrower_id, string changeTo)
-        {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(conString))
-                {
-                    string command = "UPDATE tbl_borrower SET status = @status WHERE borrower_id = @id";
-                    con.Open();
-
-                    SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@status", changeTo);
-                    cmd.Parameters.AddWithValue("@id", borrower_id);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            catch (Exception err)
-            {
-                MessageBox.Show(err + " There was an error inserting the book!");
-            }
-        }
-
         public int countBorrowers(string status)
         {
             int count;
@@ -367,16 +340,54 @@ namespace LibrarySystem
 
         }
 
+        // Borrowers - DML //
+
+        public void changeBorrowerStatus(string borrower_id, string changeTo)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_borrower SET status = @status WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@status", changeTo);
+                    cmd.Parameters.AddWithValue("@id", borrower_id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+            }
+        }
+
+        
+        public void deleteBorrower(string id)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "DELETE from tbl_borrower WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+            }
+        }
+
         // UI Styling
 
         private void applyGridStyling()
         {
-            // UI styling of data grid
-            // Prevent dataGrid from rolling back to default header sizing when searching
-            dataGrid.Columns[0].Width = 60;
-            dataGrid.Columns[2].Width = 140;
-            dataGrid.Columns[0].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-
             // Refresh the grid
             dataGrid.Visible = false;
             dataGrid.Visible = true;

@@ -56,6 +56,10 @@ namespace LibrarySystem
             lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
             lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
 
+            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
+            dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -76,6 +80,7 @@ namespace LibrarySystem
             dashboardUI.showBorrowersUI();
 
             dataGrid.Visible = true;
+
         }
 
         private void BtnViewBooks_Click(object sender, EventArgs e)
@@ -105,9 +110,6 @@ namespace LibrarySystem
         {
             if(context == "borrowers")
             {
-                BorrowerInfo info = new BorrowerInfo();
-                this.Hide();
-                info.ShowDialog();
             }
         }
 
@@ -126,7 +128,7 @@ namespace LibrarySystem
             data.loadBorrowers(rbInactive.Text.ToLower());
         }
 
-        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void DataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             // Get the currently selected row
             DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];

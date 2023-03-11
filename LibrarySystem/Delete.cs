@@ -14,47 +14,53 @@ namespace LibrarySystem
     public partial class Delete : Form
     {
         private string connectionString;
+        private string context;
+        private DataHelper data;
 
-        public Delete()
+        public Delete(String context)
         {
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        }
 
-        private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            this.Close();
+            this.context = context;
+            data = new DataHelper(connectionString);
         }
 
         private void Delete_Load(object sender, EventArgs e)
         {
-            // Get the currently selected row
-            lblBookID.Text = "Book ID: " + Dashboard.id;
-            lblBookTitle.Text = Dashboard.title;
-            lblAuthor.Text = "by " + Dashboard.author;
+            Image user = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/user_avatar.ico");
+            Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
+
+            if (context.ToLower() == "borrower")
+            {
+                picture.Image = user;
+                header.Text = "Are you sure you want to delete\nthis borrower?";
+
+                lblID.Text = "Book ID: " + Dashboard.id;
+                lblTitle.Text = Dashboard.fullName;
+                lblAuthor.Text = "Borrower";
+            }
+            else if (context.ToLower() == "book")
+            {
+                picture.Image = book;
+                header.Text = "Are you sure you want to delete\nthis book?";
+
+                lblID.Text = "Book ID: " + Dashboard.id;
+                lblTitle.Text = Dashboard.title;
+                lblAuthor.Text = "by " + Dashboard.author;
+            }
+            
         }
 
         private void BtnDelete_Click(object sender, EventArgs e)
         {
-            try
-            {
-                using (SqlConnection con = new SqlConnection(connectionString))
-                {
-                    string command = "DELETE FROM tbl_books WHERE book_id = @id";
-                    con.Open();
+            data.deleteBorrower(Dashboard.id);
+            this.Close();
+        }
 
-                    SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@id", Dashboard.id);
-                    cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Book has been successfully deleted.");
-                    this.Close();
-                }
-            }
-            catch(Exception err)
-            {
-                MessageBox.Show(err + "Cannot remove the book.");
-            }
+        private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.Hide();
         }
     }
 }
