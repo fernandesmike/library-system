@@ -56,10 +56,6 @@ namespace LibrarySystem
             lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
             lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
 
-            dataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.None;
-            dataGrid.DefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
-
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -130,11 +126,11 @@ namespace LibrarySystem
 
         private void DataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-            // Get the currently selected row
-            DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
 
             if (e.RowIndex >= 0)
             {
+                DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
+
                 // Get the currently selected data
                 id = row.Cells["Borrower ID"].Value.ToString();
                 firstName = row.Cells["Firstname"].Value.ToString();
