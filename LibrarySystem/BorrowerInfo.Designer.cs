@@ -29,11 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowerInfo));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.infoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
             this.lblUser = new System.Windows.Forms.Label();
-            this.lblUserType = new System.Windows.Forms.Label();
+            this.lblType = new System.Windows.Forms.Label();
             this.lblStatus = new System.Windows.Forms.Label();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.viewBorrowers = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,6 +54,10 @@
             this.flpDelete = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.btnDelete = new System.Windows.Forms.Button();
+            this.flpConfirm = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblMessage = new System.Windows.Forms.Label();
+            this.btnConfirm = new System.Windows.Forms.LinkLabel();
+            this.btnCancel = new System.Windows.Forms.LinkLabel();
             this.flpStatistics = new System.Windows.Forms.FlowLayoutPanel();
             this.flpBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTotalBorrowed = new System.Windows.Forms.Label();
@@ -70,11 +77,7 @@
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.rbBorrowed = new System.Windows.Forms.RadioButton();
             this.rbReturned = new System.Windows.Forms.RadioButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.flpConfirm = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblMessage = new System.Windows.Forms.Label();
-            this.btnConfirm = new System.Windows.Forms.LinkLabel();
-            this.btnCancel = new System.Windows.Forms.LinkLabel();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.divLeft.SuspendLayout();
@@ -87,6 +90,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconStatus)).BeginInit();
             this.flpDelete.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.flpConfirm.SuspendLayout();
             this.flpStatistics.SuspendLayout();
             this.flpBorrowers.SuspendLayout();
             this.flpActive.SuspendLayout();
@@ -94,8 +98,7 @@
             this.flpDataGrid.SuspendLayout();
             this.flpGridHeader.SuspendLayout();
             this.radioContainer.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.flpConfirm.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // imgAvatar
@@ -115,14 +118,14 @@
             this.infoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.infoContainer.Controls.Add(this.lblID);
             this.infoContainer.Controls.Add(this.lblUser);
-            this.infoContainer.Controls.Add(this.lblUserType);
+            this.infoContainer.Controls.Add(this.lblType);
             this.infoContainer.Controls.Add(this.lblStatus);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.infoContainer.Location = new System.Drawing.Point(70, 72);
+            this.infoContainer.Location = new System.Drawing.Point(0, 72);
             this.infoContainer.Margin = new System.Windows.Forms.Padding(0);
             this.infoContainer.Name = "infoContainer";
             this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.infoContainer.Size = new System.Drawing.Size(261, 132);
+            this.infoContainer.Size = new System.Drawing.Size(399, 132);
             this.infoContainer.TabIndex = 25;
             // 
             // lblID
@@ -131,7 +134,7 @@
             this.lblID.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblID.Location = new System.Drawing.Point(3, 10);
             this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(255, 24);
+            this.lblID.Size = new System.Drawing.Size(396, 24);
             this.lblID.TabIndex = 28;
             this.lblID.Text = "ID";
             this.lblID.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -144,21 +147,21 @@
             this.lblUser.Location = new System.Drawing.Point(3, 34);
             this.lblUser.MinimumSize = new System.Drawing.Size(213, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(258, 24);
+            this.lblUser.Size = new System.Drawing.Size(396, 24);
             this.lblUser.TabIndex = 12;
             this.lblUser.Text = "Mike Andrew Fernandez";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // lblUserType
+            // lblType
             // 
-            this.lblUserType.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserType.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblUserType.Location = new System.Drawing.Point(3, 58);
-            this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(255, 24);
-            this.lblUserType.TabIndex = 14;
-            this.lblUserType.Text = "Borrower";
-            this.lblUserType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblType.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblType.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblType.Location = new System.Drawing.Point(3, 58);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(396, 24);
+            this.lblType.TabIndex = 14;
+            this.lblType.Text = "Borrower";
+            this.lblType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblStatus
             // 
@@ -167,7 +170,7 @@
             this.lblStatus.Location = new System.Drawing.Point(3, 92);
             this.lblStatus.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(255, 24);
+            this.lblStatus.Size = new System.Drawing.Size(396, 24);
             this.lblStatus.TabIndex = 27;
             this.lblStatus.Text = "Account active";
             this.lblStatus.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -417,6 +420,71 @@
             this.btnDelete.UseVisualStyleBackColor = false;
             this.btnDelete.Click += new System.EventHandler(this.BtnDelete_Click);
             // 
+            // flpConfirm
+            // 
+            this.flpConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpConfirm.Controls.Add(this.lblMessage);
+            this.flpConfirm.Controls.Add(this.btnConfirm);
+            this.flpConfirm.Controls.Add(this.btnCancel);
+            this.flpConfirm.Location = new System.Drawing.Point(18, 594);
+            this.flpConfirm.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.flpConfirm.Name = "flpConfirm";
+            this.flpConfirm.Size = new System.Drawing.Size(402, 149);
+            this.flpConfirm.TabIndex = 45;
+            this.flpConfirm.Visible = false;
+            // 
+            // lblMessage
+            // 
+            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblMessage.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblMessage.Location = new System.Drawing.Point(3, 10);
+            this.lblMessage.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblMessage.Name = "lblMessage";
+            this.lblMessage.Size = new System.Drawing.Size(399, 48);
+            this.lblMessage.TabIndex = 49;
+            this.lblMessage.Text = "Show current user transactions here before deleting";
+            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnConfirm
+            // 
+            this.btnConfirm.ActiveLinkColor = System.Drawing.Color.Brown;
+            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnConfirm.BackColor = System.Drawing.Color.Red;
+            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfirm.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
+            this.btnConfirm.LinkColor = System.Drawing.Color.White;
+            this.btnConfirm.Location = new System.Drawing.Point(3, 68);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.btnConfirm.Size = new System.Drawing.Size(399, 34);
+            this.btnConfirm.TabIndex = 50;
+            this.btnConfirm.TabStop = true;
+            this.btnConfirm.Text = "Yes, delete anyways";
+            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnConfirm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnConfirm_LinkClicked);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.ActiveLinkColor = System.Drawing.Color.Brown;
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancel.Font = new System.Drawing.Font("Outfit", 10.8F);
+            this.btnCancel.LinkColor = System.Drawing.SystemColors.GrayText;
+            this.btnCancel.Location = new System.Drawing.Point(3, 112);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
+            this.btnCancel.Size = new System.Drawing.Size(399, 34);
+            this.btnCancel.TabIndex = 51;
+            this.btnCancel.TabStop = true;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnCancel_LinkClicked);
+            // 
             // flpStatistics
             // 
             this.flpStatistics.AutoSize = true;
@@ -580,7 +648,7 @@
             this.flpDataGrid.BackColor = System.Drawing.Color.Transparent;
             this.flpDataGrid.Controls.Add(this.lblGridTitle);
             this.flpDataGrid.Controls.Add(this.flpGridHeader);
-            this.flpDataGrid.Controls.Add(this.dataGridView1);
+            this.flpDataGrid.Controls.Add(this.dataGrid);
             this.flpDataGrid.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             this.flpDataGrid.Location = new System.Drawing.Point(482, 223);
             this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
@@ -639,6 +707,7 @@
             this.rbAll.TabStop = true;
             this.rbAll.Text = "All ";
             this.rbAll.UseVisualStyleBackColor = true;
+            this.rbAll.CheckedChanged += new System.EventHandler(this.RbAll_CheckedChanged);
             // 
             // rbBorrowed
             // 
@@ -653,6 +722,7 @@
             this.rbBorrowed.TabIndex = 36;
             this.rbBorrowed.Text = "Borrowed";
             this.rbBorrowed.UseVisualStyleBackColor = true;
+            this.rbBorrowed.CheckedChanged += new System.EventHandler(this.RbBorrowed_CheckedChanged);
             // 
             // rbReturned
             // 
@@ -667,79 +737,64 @@
             this.rbReturned.TabIndex = 37;
             this.rbReturned.Text = "Returned";
             this.rbReturned.UseVisualStyleBackColor = true;
+            this.rbReturned.CheckedChanged += new System.EventHandler(this.RbReturned_CheckedChanged);
             // 
-            // dataGridView1
+            // dataGrid
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 95);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(835, 429);
-            this.dataGridView1.TabIndex = 41;
-            // 
-            // flpConfirm
-            // 
-            this.flpConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.flpConfirm.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpConfirm.Controls.Add(this.lblMessage);
-            this.flpConfirm.Controls.Add(this.btnConfirm);
-            this.flpConfirm.Controls.Add(this.btnCancel);
-            this.flpConfirm.Location = new System.Drawing.Point(18, 594);
-            this.flpConfirm.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
-            this.flpConfirm.Name = "flpConfirm";
-            this.flpConfirm.Size = new System.Drawing.Size(402, 149);
-            this.flpConfirm.TabIndex = 45;
-            this.flpConfirm.Visible = false;
-            // 
-            // lblMessage
-            // 
-            this.lblMessage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblMessage.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMessage.ForeColor = System.Drawing.Color.Red;
-            this.lblMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblMessage.Location = new System.Drawing.Point(3, 10);
-            this.lblMessage.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblMessage.Name = "lblMessage";
-            this.lblMessage.Size = new System.Drawing.Size(399, 48);
-            this.lblMessage.TabIndex = 49;
-            this.lblMessage.Text = "Show current user transactions here before deleting";
-            this.lblMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnConfirm
-            // 
-            this.btnConfirm.ActiveLinkColor = System.Drawing.Color.Brown;
-            this.btnConfirm.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnConfirm.BackColor = System.Drawing.Color.Red;
-            this.btnConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConfirm.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold);
-            this.btnConfirm.LinkColor = System.Drawing.Color.White;
-            this.btnConfirm.Location = new System.Drawing.Point(3, 68);
-            this.btnConfirm.Name = "btnConfirm";
-            this.btnConfirm.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.btnConfirm.Size = new System.Drawing.Size(399, 34);
-            this.btnConfirm.TabIndex = 50;
-            this.btnConfirm.TabStop = true;
-            this.btnConfirm.Text = "Yes, delete anyways";
-            this.btnConfirm.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnConfirm.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnConfirm_LinkClicked);
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.ActiveLinkColor = System.Drawing.Color.Brown;
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Font = new System.Drawing.Font("Outfit", 10.8F);
-            this.btnCancel.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.btnCancel.Location = new System.Drawing.Point(3, 112);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.btnCancel.Size = new System.Drawing.Size(399, 34);
-            this.btnCancel.TabIndex = 51;
-            this.btnCancel.TabStop = true;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnCancel.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnCancel_LinkClicked);
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.dataGrid.ColumnHeadersHeight = 40;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle11;
+            this.dataGrid.GridColor = System.Drawing.Color.LightGray;
+            this.dataGrid.Location = new System.Drawing.Point(3, 95);
+            this.dataGrid.MultiSelect = false;
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            this.dataGrid.RowHeadersVisible = false;
+            this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowTemplate.DividerHeight = 1;
+            this.dataGrid.RowTemplate.Height = 40;
+            this.dataGrid.RowTemplate.ReadOnly = true;
+            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrid.Size = new System.Drawing.Size(837, 429);
+            this.dataGrid.TabIndex = 42;
             // 
             // BorrowerInfo
             // 
@@ -770,6 +825,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconStatus)).EndInit();
             this.flpDelete.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.flpConfirm.ResumeLayout(false);
             this.flpStatistics.ResumeLayout(false);
             this.flpBorrowers.ResumeLayout(false);
             this.flpBorrowers.PerformLayout();
@@ -782,8 +838,7 @@
             this.flpGridHeader.ResumeLayout(false);
             this.radioContainer.ResumeLayout(false);
             this.radioContainer.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.flpConfirm.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -814,7 +869,6 @@
         internal System.Windows.Forms.RadioButton rbAll;
         internal System.Windows.Forms.RadioButton rbBorrowed;
         internal System.Windows.Forms.RadioButton rbReturned;
-        private System.Windows.Forms.DataGridView dataGridView1;
         internal System.Windows.Forms.FlowLayoutPanel viewReports;
         internal System.Windows.Forms.PictureBox iconEdit;
         internal System.Windows.Forms.Button btnEdit;
@@ -829,12 +883,13 @@
         internal System.Windows.Forms.Label lblWarning;
         internal System.Windows.Forms.Label lblStatus;
         internal System.Windows.Forms.PictureBox imgAvatar;
-        internal System.Windows.Forms.Label lblUserType;
+        internal System.Windows.Forms.Label lblType;
         internal System.Windows.Forms.Label lblDate;
         internal System.Windows.Forms.Label lblID;
         internal System.Windows.Forms.FlowLayoutPanel flpConfirm;
         internal System.Windows.Forms.Label lblMessage;
         private System.Windows.Forms.LinkLabel btnConfirm;
         private System.Windows.Forms.LinkLabel btnCancel;
+        internal System.Windows.Forms.DataGridView dataGrid;
     }
 }

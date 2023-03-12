@@ -40,6 +40,8 @@ namespace LibrarySystem
 
             dashboard.flpBorrowersUI.Visible = true;
 
+            dashboard.rbAll.Select();
+
             refreshDataGrid();
         }
 
@@ -60,10 +62,12 @@ namespace LibrarySystem
             dashboard.lblGridTitle.Text = "All books";
             dashboard.btnAdd.Text = " + Add books";
 
-            dashboard.rbActive.Text = "Borrowed";
-            dashboard.rbInactive.Text = "Returned";
+            dashboard.rbActive.Text = "Available";
+            dashboard.rbInactive.Text = "Borrowed";
 
             dashboard.flpBorrowersUI.Visible = true;
+
+            dashboard.rbAll.Select();
 
             refreshDataGrid();
         }

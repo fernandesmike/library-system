@@ -36,7 +36,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -65,7 +65,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE available = 1";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE available = 1";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -94,7 +94,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE available = 0";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE available = 0";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -122,7 +122,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE title LIKE @search";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -150,7 +150,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author FROM tbl_books WHERE title LIKE @search AND  available = @available";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search AND  available = @available";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -173,6 +173,60 @@ namespace LibrarySystem
             }
         }
 
+        public int countBooks()
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_books";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
+
+        public int countBooks(string available)
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_books WHERE available = @available";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@available", available);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
 
         // Books - DML //
 
@@ -182,7 +236,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "UPDATE tbl_books SET available = @availability WHERE id = @id";
+                    string command = "UPDATE tbl_books SET available = @availability WHERE book_id = @id";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -190,7 +244,7 @@ namespace LibrarySystem
                     cmd.Parameters.AddWithValue("@id", book_id);
                     cmd.ExecuteNonQuery();
 
-                    applyGridStyling();
+                    //applyGridStyling();
 
                 }
             }
@@ -285,6 +339,8 @@ namespace LibrarySystem
             }
         }
 
+        // Borrowers - DQL //
+
         public int countBorrowers()
         {
             int count;
@@ -362,7 +418,6 @@ namespace LibrarySystem
                 MessageBox.Show(err + " There was an error inserting the book!");
             }
         }
-
         
         public void deleteBorrower(string id)
         {
