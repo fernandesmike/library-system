@@ -61,11 +61,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Info.cs">
+    <Compile Include="DataDetails.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Info.Designer.cs">
-      <DependentUpon>Info.cs</DependentUpon>
+    <Compile Include="DataDetails.Designer.cs">
+      <DependentUpon>DataDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\DataHelper.cs" />
     <Compile Include="Class\DashboardUIHelper.cs" />
@@ -103,8 +103,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Info.resx">
-      <DependentUpon>Info.cs</DependentUpon>
+    <EmbeddedResource Include="DataDetails.resx">
+      <DependentUpon>DataDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Delete.resx">
       <DependentUpon>Delete.cs</DependentUpon>
