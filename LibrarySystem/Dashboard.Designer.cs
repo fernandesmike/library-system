@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -72,6 +73,7 @@
             this.lblInactive = new System.Windows.Forms.Label();
             this.lblInactiveCount = new System.Windows.Forms.Label();
             this.flpDataGrid = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblUpdateMessage = new System.Windows.Forms.Label();
             this.lblGridTitle = new System.Windows.Forms.Label();
             this.flpGridHeader = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -85,6 +87,7 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.lblSearch = new System.Windows.Forms.Label();
             this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
+            this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -670,15 +673,33 @@
             // 
             this.flpDataGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpDataGrid.BackColor = System.Drawing.Color.Transparent;
+            this.flpDataGrid.Controls.Add(this.lblUpdateMessage);
             this.flpDataGrid.Controls.Add(this.lblGridTitle);
             this.flpDataGrid.Controls.Add(this.flpGridHeader);
             this.flpDataGrid.Controls.Add(this.dataGrid);
+            this.flpDataGrid.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpDataGrid.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.flpDataGrid.Location = new System.Drawing.Point(0, 129);
-            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 15, 0, 0);
+            this.flpDataGrid.Location = new System.Drawing.Point(0, 124);
+            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.flpDataGrid.Name = "flpDataGrid";
             this.flpDataGrid.Size = new System.Drawing.Size(1041, 490);
             this.flpDataGrid.TabIndex = 36;
+            // 
+            // lblUpdateMessage
+            // 
+            this.lblUpdateMessage.AutoEllipsis = true;
+            this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
+            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
+            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
+            this.lblUpdateMessage.Name = "lblUpdateMessage";
+            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblUpdateMessage.Size = new System.Drawing.Size(1038, 31);
+            this.lblUpdateMessage.TabIndex = 45;
+            this.lblUpdateMessage.Text = "Update message goes here";
+            this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblUpdateMessage.Visible = false;
             // 
             // lblGridTitle
             // 
@@ -687,7 +708,7 @@
             this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblGridTitle.Location = new System.Drawing.Point(3, 5);
+            this.lblGridTitle.Location = new System.Drawing.Point(3, 36);
             this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.lblGridTitle.Name = "lblGridTitle";
             this.lblGridTitle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
@@ -701,7 +722,7 @@
             this.flpGridHeader.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpGridHeader.Controls.Add(this.btnAdd);
             this.flpGridHeader.Controls.Add(this.radioContainer);
-            this.flpGridHeader.Location = new System.Drawing.Point(3, 37);
+            this.flpGridHeader.Location = new System.Drawing.Point(3, 68);
             this.flpGridHeader.Name = "flpGridHeader";
             this.flpGridHeader.Size = new System.Drawing.Size(1035, 52);
             this.flpGridHeader.TabIndex = 38;
@@ -799,41 +820,41 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
-            this.dataGrid.Location = new System.Drawing.Point(3, 95);
+            this.dataGrid.Location = new System.Drawing.Point(3, 126);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -842,7 +863,7 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(1038, 395);
+            this.dataGrid.Size = new System.Drawing.Size(1038, 348);
             this.dataGrid.TabIndex = 40;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick_1);
             // 
@@ -910,6 +931,11 @@
             this.flpSearch.Name = "flpSearch";
             this.flpSearch.Size = new System.Drawing.Size(500, 88);
             this.flpSearch.TabIndex = 37;
+            // 
+            // tmHideMessage
+            // 
+            this.tmHideMessage.Interval = 2500;
+            this.tmHideMessage.Tick += new System.EventHandler(this.TmHideMessage_Tick);
             // 
             // Dashboard
             // 
@@ -1031,5 +1057,7 @@
         internal System.Windows.Forms.DataGridView dataGrid;
         internal System.Windows.Forms.FlowLayoutPanel flpBtnGrp1;
         private System.Windows.Forms.FlowLayoutPanel viewBorrowers;
+        internal System.Windows.Forms.Label lblUpdateMessage;
+        internal System.Windows.Forms.Timer tmHideMessage;
     }
 }

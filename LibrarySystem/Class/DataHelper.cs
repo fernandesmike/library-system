@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.Data;
+using System.Net;
 
 namespace LibrarySystem
 {
@@ -230,8 +231,10 @@ namespace LibrarySystem
 
         // Books - DML //
 
-        public void updateBookStatus(string book_id, string availability)
+        public int updateBookStatus(string book_id, string availability)
         {
+            int updatePerformed;
+
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -242,17 +245,46 @@ namespace LibrarySystem
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@availability", availability);
                     cmd.Parameters.AddWithValue("@id", book_id);
-                    cmd.ExecuteNonQuery();
+                    updatePerformed = cmd.ExecuteNonQuery();
 
                     //applyGridStyling();
 
+                    return updatePerformed;
                 }
             }
             catch (Exception err)
             {
                 MessageBox.Show(err + " There was an error inserting the book!");
+                return 0;
             }
         }
+
+        public int deleteBook(string id)
+        {
+            int queryPerformed;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "DELETE from tbl_books WHERE book_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+                return 0;
+            }
+        }
+
+        // Borrowers - DQL //
 
         public void loadBorrowers()
         {
@@ -339,8 +371,6 @@ namespace LibrarySystem
             }
         }
 
-        // Borrowers - DQL //
-
         public int countBorrowers()
         {
             int count;
@@ -419,8 +449,10 @@ namespace LibrarySystem
             }
         }
         
-        public void deleteBorrower(string id)
+        public int deleteBorrower(string id)
         {
+            int queryPerformed;
+
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -430,12 +462,16 @@ namespace LibrarySystem
 
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@id", id);
-                    cmd.ExecuteNonQuery();
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
                 }
             }
             catch (Exception err)
             {
                 MessageBox.Show(err + " There was an error inserting the book!");
+
+                return 0;
             }
         }
 

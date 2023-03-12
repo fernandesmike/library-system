@@ -29,6 +29,7 @@ namespace LibrarySystem
         public static string status;
         public static string firstName;
         public static string fullName;
+        public static string lastName;
 
         // For navigating between pages
         public string context;
@@ -39,6 +40,18 @@ namespace LibrarySystem
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             data = new DataHelper(connectionString, dataGrid);
             dashboardUI = new DashboardUIHelper(this);
+
+            this.context = "borrowers";
+        }
+
+        public Dashboard(string context)
+        {
+            InitializeComponent();
+            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            data = new DataHelper(connectionString, dataGrid);
+            dashboardUI = new DashboardUIHelper(this);
+
+            this.context = context;
         }
 
         private void Home_Load(object sender, EventArgs e)
@@ -46,20 +59,21 @@ namespace LibrarySystem
             // Greet the user
             lblUser.Text = Login.currentUser;
 
-            // Load the default dashboard UI
-            dashboardUI.showBorrowersUI();
-
-            // Populate the data grid everytime the form loads
-            data.loadBorrowers();
-            updateStatistics(context);
-
-            // Prevent the dashboard from showing the borrowersUI when the recent dialog is in the 
-            // context of books
             if (context == "books")
             {
                 dashboardUI.showBooksUI();
 
                 data.loadAllBooks();
+                updateStatistics(context);
+            }
+
+            else if (context == "borrowers")
+            {
+                // Load the default dashboard UI
+                dashboardUI.showBorrowersUI();
+
+                // Populate the data grid everytime the form loads
+                data.loadBorrowers();
                 updateStatistics(context);
             }
         }
@@ -168,6 +182,7 @@ namespace LibrarySystem
                     id = row.Cells["Borrower ID"].Value.ToString();
                     firstName = row.Cells["Firstname"].Value.ToString();
                     fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
+                    lastName = row.Cells["Lastname"].Value.ToString(); 
                     status = row.Cells["Status"].Value.ToString();
 
                     DataDetails info = new DataDetails(this.context);
@@ -210,6 +225,26 @@ namespace LibrarySystem
                 lblActiveCount.Text = Convert.ToString(data.countBooks("1"));
                 lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
             }
+        }
+
+        public void showQueryMessage(int status, string action)
+        {
+            if (status > 0)
+            {
+                dashboardUI.successBorrowerQueryMessage(action);
+            }
+            else if (status == 0)
+            {
+                dashboardUI.failedBorrowerQueryMessage(action);
+            }
+        }
+
+        // Method to automatically hide query messages
+        private void TmHideMessage_Tick(object sender, EventArgs e)
+        {
+            lblUpdateMessage.Visible = false;
+            lblUpdateMessage.Height = 1;
+            tmHideMessage.Enabled = false;
         }
     }
 }

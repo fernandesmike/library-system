@@ -21,7 +21,6 @@ namespace LibrarySystem
         private string context;
         private string connectionString;
 
-
         public DataDetails(string context)
         {
             InitializeComponent();
@@ -50,11 +49,16 @@ namespace LibrarySystem
             Dashboard returnToDashboard = new Dashboard();
             this.Close();
 
-            // This will prevent the dashboard from showing the default UI which is the borrowersUI
-            // when the dialog is in the context of books
-            returnToDashboard.context = "books";
+            if (context == "borrowers")
+            {
+                returnToDashboard.Show();
+            }
 
-            returnToDashboard.Show();
+            else if (context == "books")
+            {
+                returnToDashboard = new Dashboard(this.context);
+                returnToDashboard.Show();
+            }
         }
 
         private void BtnStatus_Click(object sender, EventArgs e)
@@ -109,12 +113,27 @@ namespace LibrarySystem
 
         private void BtnConfirm_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            data.deleteBorrower(Dashboard.id);
-
             Dashboard returnToDashboard = new Dashboard();
             this.Close();
-            returnToDashboard.Show();
 
+            int queryStatus;
+
+            if (context == "borrowers")
+            {
+                queryStatus = data.deleteBorrower(Dashboard.id);    
+
+                returnToDashboard.Show();
+                returnToDashboard.showQueryMessage(queryStatus, "delete");
+            }
+
+            else if ( context == "books")
+            {
+                queryStatus = data.deleteBook(Dashboard.id);
+
+                returnToDashboard = new Dashboard(this.context);
+                returnToDashboard.Show();
+                returnToDashboard.showQueryMessage(queryStatus, "delete");
+            }
         }
 
         private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -137,9 +156,39 @@ namespace LibrarySystem
 
         }
 
+        private void BtnEdit_Click(object sender, EventArgs e)
+        {
+            infoUI.showEdit(context);
+        }
+
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
+        {
+            // TODO:
+            // Using ExecuteNonQuery(), check if a data is successfully updated or not
+            // If a data is updated, show a control below datagrid and after several seconds make it invisible
+            // If not, display error on that control
+            Dashboard returnToDashboard = new Dashboard();
+            this.Close();
+
+            if (context == "borrowers")
+            {
+                returnToDashboard.Show();
+            }
+
+            else if (context == "books")
+            {
+                returnToDashboard = new Dashboard(this.context);
+                returnToDashboard.Show();
+            }
+        }
+
+        private void LblCancelEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            infoUI.hideEdit(context);
+        }  
+
         // TODO: 
         // fetch user statistics data
         // fetch user transactions
-        // edit account
     }
 }

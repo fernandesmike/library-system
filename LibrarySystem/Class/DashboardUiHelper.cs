@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Drawing;
 
 namespace LibrarySystem
 {
@@ -88,6 +89,50 @@ namespace LibrarySystem
             // Display all the necessary data
 
             refreshDataGrid();
+        }
+
+        public void successBorrowerQueryMessage(string action)
+        {
+            dashboard.lblUpdateMessage.Height = 31;
+            dashboard.lblUpdateMessage.Text = $"Successfully {action}d borrower {Dashboard.firstName}";
+            dashboard.lblUpdateMessage.BackColor = Color.ForestGreen;
+            dashboard.lblUpdateMessage.ForeColor = Color.White;
+            dashboard.lblUpdateMessage.Visible = true;
+
+            dashboard.tmHideMessage.Enabled = true;
+        }
+
+        public void failedBorrowerQueryMessage(string action)
+        {
+            dashboard.lblUpdateMessage.Height = 31;
+            dashboard.lblUpdateMessage.Text = $"Cannot {action} borrower {Dashboard.firstName}";
+            dashboard.lblUpdateMessage.BackColor = Color.Red;
+            dashboard.lblUpdateMessage.ForeColor = Color.White;
+            dashboard.lblUpdateMessage.Visible = true;
+
+            dashboard.tmHideMessage.Enabled = true;
+        }
+
+        public void successBookQueryMessage(string action)
+        {
+            dashboard.lblUpdateMessage.Height = 31;
+            dashboard.lblUpdateMessage.Text = $"Successfully {action}d book {Dashboard.title} by {Dashboard.author}";
+            dashboard.lblUpdateMessage.BackColor = Color.ForestGreen;
+            dashboard.lblUpdateMessage.ForeColor = Color.White;
+            dashboard.lblUpdateMessage.Visible = true;
+
+            dashboard.tmHideMessage.Enabled = true;
+        }
+
+        public void failedBookQueryMessage(string action)
+        {
+            dashboard.lblUpdateMessage.Height = 31;
+            dashboard.lblUpdateMessage.Text = $"Cannot {action} book {Dashboard.title} by {Dashboard.author}";
+            dashboard.lblUpdateMessage.BackColor = Color.Red;
+            dashboard.lblUpdateMessage.ForeColor = Color.White;
+            dashboard.lblUpdateMessage.Visible = true;
+
+            dashboard.tmHideMessage.Enabled = true;
         }
 
         /// <summary>
