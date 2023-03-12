@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 
 namespace LibrarySystem
 {
-    public partial class BorrowerInfo : Form
+    public partial class Info : Form
     {
 
         private InfoUIHelper infoUI;
@@ -22,7 +22,7 @@ namespace LibrarySystem
         private string connectionString;
 
 
-        public BorrowerInfo(string context)
+        public Info(string context)
         {
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";

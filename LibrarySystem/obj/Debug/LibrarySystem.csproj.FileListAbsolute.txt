@@ -1,7 +1,6 @@
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\bin\Debug\LibrarySystem.exe.config
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\bin\Debug\LibrarySystem.exe
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\bin\Debug\LibrarySystem.pdb
-C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.BorrowerInfo.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Delete.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Update.resources
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Dashboard.resources
@@ -12,3 +11,4 @@ C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySy
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.csproj.CoreCompileInputs.cache
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.exe
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.pdb
+C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Info.resources
