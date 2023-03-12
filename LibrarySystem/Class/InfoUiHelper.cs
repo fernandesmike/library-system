@@ -11,13 +11,13 @@ namespace LibrarySystem
 {
     class InfoUIHelper
     {
-        private BorrowerInfo infoUI;
+        private Info infoUI;
         private DataHelper data;
         private string connectionString;
 
         DateTime currentDate;
 
-        public InfoUIHelper(BorrowerInfo infoUI)
+        public InfoUIHelper(Info infoUI)
         {
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             this.infoUI = infoUI;
