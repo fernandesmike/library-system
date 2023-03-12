@@ -64,6 +64,68 @@ namespace LibrarySystem
             updateStatus(Dashboard.status, "books");
         }
 
+        public void showEdit(string context)
+        {
+            infoUI.flpEdit.Visible = true;
+
+            infoUI.flpStatistics.Visible = false;
+            infoUI.flpDataGrid.Visible = false;
+
+            infoUI.btnStatus.Enabled = false;
+            infoUI.btnDelete.Enabled = false;
+
+
+            if (context == "borrowers")
+            {
+                infoUI.lblTitle.Text = "Edit " + Dashboard.firstName  +"'s account";
+                infoUI.lblDate.Text = "Please provide the desired\ninformation below";
+
+                infoUI.lblFirst.Text = "ID Number";
+                infoUI.lblSecond.Text = "Firstname";
+                infoUI.lblThird.Text = "Lastname";
+
+                infoUI.txtFirst.Text = Dashboard.id.Trim();
+                infoUI.txtSecond.Text = Dashboard.firstName.Trim();
+                infoUI.txtThird.Text = Dashboard.lastName.Trim();
+            }
+
+            else if (context == "books")
+            {
+                infoUI.lblTitle.Text = "Edit book ";
+                infoUI.lblDate.Text = "Please provide the desired\ninformation below";
+
+                infoUI.lblFirst.Text = "Book ID";
+                infoUI.lblSecond.Text = "Title";
+                infoUI.lblThird.Text = "Author";
+
+                infoUI.txtFirst.Text = Dashboard.id.Trim();
+                infoUI.txtSecond.Text = Dashboard.title.Trim();
+                infoUI.txtThird.Text = Dashboard.author.Trim();
+            }
+        }
+
+        public void hideEdit(string context)
+        {
+            infoUI.flpEdit.Visible = false;
+
+            infoUI.flpStatistics.Visible = true;
+            infoUI.flpDataGrid.Visible = true;
+
+            infoUI.btnStatus.Enabled = true;
+            infoUI.btnDelete.Enabled = true;
+
+            if (context == "borrowers")
+            {
+                loadBorrowerData();
+            }
+
+            else if (context == "books")
+            {
+                loadBookData();
+            }
+
+        }
+
         public void updateStatus(string status, string context)
         {
             // TODO:
