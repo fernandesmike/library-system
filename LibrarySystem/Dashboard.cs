@@ -20,6 +20,7 @@ namespace LibrarySystem
         private DashboardUIHelper dashboardUI;
 
         // For book info
+        // Reusable (book or borrower ID)
         public static string id;
         public static string title;
         public static string author;
@@ -42,20 +43,25 @@ namespace LibrarySystem
 
         private void Home_Load(object sender, EventArgs e)
         {
+            // Greet the user
+            lblUser.Text = Login.currentUser;
 
             // Load the default dashboard UI
             dashboardUI.showBorrowersUI();
 
-            // Greet the user
-            lblUser.Text = Login.currentUser;
-
             // Populate the data grid everytime the form loads
             data.loadBorrowers();
+            updateStatistics(context);
 
-            lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
-            lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
-            lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
+            // Prevent the dashboard from showing the borrowersUI when the recent dialog is in the 
+            // context of books
+            if (context == "books")
+            {
+                dashboardUI.showBooksUI();
 
+                data.loadAllBooks();
+                updateStatistics(context);
+            }
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -72,17 +78,21 @@ namespace LibrarySystem
 
         private void BtnViewBorrowers_Click(object sender, EventArgs e)
         {
+            // Update statistics
             data.loadBorrowers();
             dashboardUI.showBorrowersUI();
 
             dataGrid.Visible = true;
 
+            updateStatistics(context);
         }
 
         private void BtnViewBooks_Click(object sender, EventArgs e)
         {
             data.loadAllBooks();
             dashboardUI.showBooksUI();
+
+            updateStatistics(context);
         }
 
         private void BtnViewReports_Click(object sender, EventArgs e)
@@ -111,35 +121,94 @@ namespace LibrarySystem
 
         private void RbAll_CheckedChanged(object sender, EventArgs e)
         {
-            data.loadBorrowers();
+            if (context == "borrowers")
+            {
+                data.loadBorrowers();
+            }
+            else if (context == "books")
+            {
+                data.loadAllBooks();
+            }
         }
 
         private void RbActive_CheckedChanged(object sender, EventArgs e)
         {
-            data.loadBorrowers(rbActive.Text.ToLower());
+            if (context == "borrowers")
+            {
+                data.loadBorrowers(rbActive.Text.ToLower());
+            }
+            else if (context == "books")
+            {
+                data.loadAvailableBooks();
+            }
+            
         }
 
         private void RbInactive_CheckedChanged(object sender, EventArgs e)
         {
-            data.loadBorrowers(rbInactive.Text.ToLower());
+            if (context == "borrowers")
+            {
+                data.loadBorrowers(rbInactive.Text.ToLower());
+            }
+            else if (context == "books")
+            {
+                data.loadBorrowedBooks();
+            }
         }
 
         private void DataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
-            if (e.RowIndex >= 0)
+            if (context == "borrowers")
             {
-                DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
 
-                // Get the currently selected data
-                id = row.Cells["Borrower ID"].Value.ToString();
-                firstName = row.Cells["Firstname"].Value.ToString();
-                fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
-                status = row.Cells["Status"].Value.ToString();
+                    // Get the currently selected data
+                    id = row.Cells["Borrower ID"].Value.ToString();
+                    firstName = row.Cells["Firstname"].Value.ToString();
+                    fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
+                    status = row.Cells["Status"].Value.ToString();
 
-                BorrowerInfo info = new BorrowerInfo();
-                this.Hide();
-                info.ShowDialog();
+                    BorrowerInfo info = new BorrowerInfo(this.context);
+                    this.Hide();
+                    info.ShowDialog();
+                }
+            }
+
+            else if (context == "books")
+            {
+                if (e.RowIndex >= 0)
+                {
+                    DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
+
+                    // Get the currently selected data
+                    id = row.Cells["ID"].Value.ToString();
+                    title = row.Cells["Book title"].Value.ToString();
+                    author = row.Cells["Author"].Value.ToString();
+                    status = row.Cells["Available"].Value.ToString();
+
+                    BorrowerInfo info = new BorrowerInfo(this.context);
+                    this.Hide();
+                    info.ShowDialog();
+                }
+            }
+            
+        }
+
+        public void updateStatistics(string context)
+        {
+            if (context == "borrowers")
+            {
+                lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
+                lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
+                lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
+            }
+            else if (context == "books")
+            {
+                lblBorrowersCount.Text = Convert.ToString(data.countBooks());
+                lblActiveCount.Text = Convert.ToString(data.countBooks("1"));
+                lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
             }
         }
     }
