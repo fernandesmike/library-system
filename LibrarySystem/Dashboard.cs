@@ -247,7 +247,7 @@ namespace LibrarySystem
 
             else if (this.context == "books")
             {
-                dashboardUI.bookQueryMessage(action, status, Dashboard.title, Dashboard.author);
+                dashboardUI.bookQueryMessage(action, status, Dashboard.title);
             }
         }
 

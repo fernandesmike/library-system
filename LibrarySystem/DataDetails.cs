@@ -167,18 +167,54 @@ namespace LibrarySystem
             // Using ExecuteNonQuery(), check if a data is successfully updated or not
             // If a data is updated, show a control below datagrid and after several seconds make it invisible
             // If not, display error on that control
-            Dashboard returnToDashboard = new Dashboard();
-            this.Close();
 
-            if (context == "borrowers")
+            // Get the original data values
+
+            string first = Dashboard.id;
+            string second = Dashboard.firstName;
+            string third = Dashboard.lastName;
+
+            // Get the new data values
+
+            string newFirst = txtFirst.Text.Trim();
+            string newSecond = txtSecond.Text.Trim();
+            string newThird = txtThird.Text.Trim();
+
+            if (newFirst == first && newSecond == second && newThird == third)
             {
-                returnToDashboard.Show();
+                infoUI.showErrorMessage();
             }
-
-            else if (context == "books")
+            else
             {
-                returnToDashboard = new Dashboard(this.context);
-                returnToDashboard.Show();
+                infoUI.hideErrorMessage();
+
+                if (context == "borrowers")
+                {
+                    // TODO:
+                    // Identify if the edit is for username or lastname
+                    Dashboard.id = newFirst;
+                    Dashboard.firstName = newSecond;
+                    Dashboard.lastName = newThird;
+                    Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
+
+                    data.updateBorrowerName(first, newSecond, newThird);
+
+                    infoUI.hideEdit(context);
+                    infoUI.loadBorrowerData();
+
+                }
+
+                else if (context == "books")
+                {
+                    Dashboard.id = newFirst;
+                    Dashboard.title = newSecond;
+                    Dashboard.author = newThird;
+
+                    data.updateBook(first, newSecond, newThird);
+
+                    infoUI.hideEdit(context);
+                    infoUI.loadBookData();
+                }
             }
         }
 

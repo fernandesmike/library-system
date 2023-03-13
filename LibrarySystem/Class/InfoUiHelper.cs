@@ -167,5 +167,19 @@ namespace LibrarySystem
                 infoUI.lblStatus.Text = "Unavailable";
             }
         }
+
+        // NOTE
+        // Make these two methods an interface
+        // Same methods also exist inside AddUIHelper class
+
+        public void showErrorMessage()
+        {
+            infoUI.lblEditError.Visible = true;
+        }
+
+        public void hideErrorMessage()
+        {
+            infoUI.lblEditError.Visible = false;
+        }
     }
 }

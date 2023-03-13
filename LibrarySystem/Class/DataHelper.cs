@@ -10,12 +10,33 @@ using System.Net;
 
 namespace LibrarySystem
 {
+    /*
+    ==========================================================================================================
+    DataHelper class handles all the query the system may perform
+        
+    Whenever we instantiate a DataHelper class, we must always pass the connection string and 
+    the reference to the data grid as an argument
+
+    NOTE:
+    We do have a different constuctor that will only accept a connection string this will only 
+    useful whenever we try to instantiate a DataHelper class inside a Form that doesn't contain a data grid
+    ==========================================================================================================
+    */
+
     class DataHelper
     {
         private string conString;
         private DataGridView dataGrid;
 
-        // For screens with no data grids
+        private int queryPerformed;
+
+        /*
+        =================
+        Constructors
+        =================
+        */
+
+
         public DataHelper(string con)
         {
             this.conString = con;
@@ -27,8 +48,13 @@ namespace LibrarySystem
             this.dataGrid = dataGrid;
         }
 
+      
+        /*
+        =============================
+        Book Data Query Language
+        =============================
+        */
 
-        // Books - DQL //
 
         public void loadAllBooks()
         {
@@ -201,6 +227,7 @@ namespace LibrarySystem
 
         }
 
+        // Count books by the specified availability
         public int countBooks(string available)
         {
             int count;
@@ -229,18 +256,23 @@ namespace LibrarySystem
 
         }
 
-        // Books - DML //
+
+        /*
+        =================================
+        Book Data Manipulation Language
+        =================================
+        */
+
 
         public int addBook(string title, string author)
         {
-            int queryPerformed;
+            // Split authors
+            // string[] authorsList = author.Split(',');
 
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    // TODO:
-                    // Handle multiple authors
                     con.Open();
                     string command = "INSERT INTO tbl_books(book_id, title, author) VALUES (NEXT VALUE FOR sequence_id, @title, @author)";
 
@@ -254,15 +286,40 @@ namespace LibrarySystem
             }
             catch (Exception err)
             {
-                MessageBox.Show(err + " There was an error creating your account!");
+                MessageBox.Show(err + " There was an error adding the book!");
+                return 0;
+            }
+        }
+
+        public int updateBook(string book_id, string title, string author)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_books SET title = @title, author = @author WHERE book_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    cmd.Parameters.AddWithValue("@id", book_id);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    //applyGridStyling();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
                 return 0;
             }
         }
 
         public int updateBookStatus(string book_id, string availability)
         {
-            int updatePerformed;
-
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -273,11 +330,11 @@ namespace LibrarySystem
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@availability", availability);
                     cmd.Parameters.AddWithValue("@id", book_id);
-                    updatePerformed = cmd.ExecuteNonQuery();
+                    queryPerformed = cmd.ExecuteNonQuery();
 
                     //applyGridStyling();
 
-                    return updatePerformed;
+                    return queryPerformed;
                 }
             }
             catch (Exception err)
@@ -289,8 +346,6 @@ namespace LibrarySystem
 
         public int deleteBook(string id)
         {
-            int queryPerformed;
-
             try
             {
                 using (SqlConnection con = new SqlConnection(conString))
@@ -312,7 +367,13 @@ namespace LibrarySystem
             }
         }
 
-        // Borrowers - DQL //
+
+        /*
+        ==============================
+        Borrowers Data Query Language
+        ==============================
+        */
+
 
         public void loadBorrowers()
         {
@@ -454,7 +515,13 @@ namespace LibrarySystem
 
         }
 
-        // Borrowers - DML //
+
+        /*
+        ======================================
+        Borrowers Data Manipulation Language
+        ======================================
+        */
+
 
         public int addBorrower(string firstName, string lastName)
         {
@@ -478,6 +545,84 @@ namespace LibrarySystem
             catch (Exception err)
             {
                 MessageBox.Show(err + " There was an error creating your account!");
+                return 0;
+            }
+        }
+
+        public int updateBorrowerFirstName(string id, string firstName)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_borrower SET firstname = @fName WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@fName", firstName);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    //applyGridStyling();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+                return 0;
+            }
+        }
+
+        public int updateBorrowerLastName(string id, string lastName)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_borrower SET lastname = @lName WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@fName", lastName);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    //applyGridStyling();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
+                return 0;
+            }
+        }
+
+        public int updateBorrowerName(string id, string firstName, string lastName)
+        {try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "UPDATE tbl_borrower SET firstname = @fName, lastname = @lName WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@fName", firstName);
+                    cmd.Parameters.AddWithValue("@lName", lastName);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    //applyGridStyling();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error inserting the book!");
                 return 0;
             }
         }
@@ -529,7 +674,13 @@ namespace LibrarySystem
             }
         }
 
-        // UI Styling
+
+        /*
+        ============
+        UI Styling
+        ============
+        */
+
 
         private void applyGridStyling()
         {

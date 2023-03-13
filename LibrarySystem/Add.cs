@@ -28,16 +28,10 @@ namespace LibrarySystem
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             this.context = context;
-
-            addUI = new AddUIHelper(this);
             this.dashboard = dashboard;
 
-            data = new DataHelper(connectionString);
-            dashboardUI = new DashboardUIHelper(this.dashboard);
-        }
+            addUI = new AddUIHelper(this);
 
-        private void Add_Load(object sender, EventArgs e)
-        {
             if (context == "borrowers")
             {
                 addUI.loadAddBorrowerUI();
@@ -50,6 +44,12 @@ namespace LibrarySystem
             }
         }
 
+        private void Add_Load(object sender, EventArgs e)
+        {
+            data = new DataHelper(connectionString);
+            dashboardUI = new DashboardUIHelper(this.dashboard);
+        }
+
         private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
@@ -57,19 +57,60 @@ namespace LibrarySystem
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            if (context == "borrowers")
+            int queryStatus;
+
+            if (validateFields())
             {
-                data.addBorrower(txtFirst.Text.Trim(), txtSecond.Text.Trim());
-                dashboardUI.showBorrowersUI();
+                addUI.hideErrorMessage();
+
+                if (context == "borrowers")
+                {
+                    // TODO
+                    // Check borrower already exists
+                    // Convert received input data and retrieved database data to lowerCase to avoid capitalization bug
+                    // Same goes with books
+
+                    queryStatus = data.addBorrower(txtFirst.Text.Trim(), txtSecond.Text.Trim());
+                    dashboardUI.showBorrowersUI();
+                    Dashboard.firstName = txtFirst.Text.Trim();
+                    dashboard.showQueryMessage(queryStatus, "adde");
+                }
+
+                else if (context == "books")
+                {
+                    queryStatus = data.addBook(txtFirst.Text.Trim(), txtSecond.Text.Trim());
+                    dashboardUI.showBooksUI();
+                    Dashboard.title = txtFirst.Text.Trim();
+                    dashboard.showQueryMessage(queryStatus, "adde");
+                }
+
+                this.Close();
             }
 
-            else if (context == "books")
+            else
             {
-                data.addBook(txtFirst.Text.Trim(), txtSecond.Text.Trim());
-                dashboardUI.showBooksUI();
+                addUI.showErrorMessage();
+            }
+        }
+
+        private bool validateFields()
+        {
+            bool valid = false;
+
+            string first = txtFirst.Text.Trim();
+            string second = txtSecond.Text.Trim();
+
+            if ((first == "" && second == "") || (first == "" || second == ""))
+            {
+                valid = false;
             }
 
-            this.Close();
+            else
+            {
+                valid = true;
+            }
+
+            return valid;
         }
     }
 }
