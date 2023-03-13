@@ -37,14 +37,13 @@
             this.titleContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFirst = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
-            this.lblErrorTitle = new System.Windows.Forms.Label();
             this.authorContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblSecond = new System.Windows.Forms.Label();
             this.txtSecond = new System.Windows.Forms.TextBox();
-            this.lblErrorAuthor = new System.Windows.Forms.Label();
             this.btnContainer = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lblErrorTitle = new System.Windows.Forms.Label();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.infoContainer.SuspendLayout();
@@ -61,10 +60,11 @@
             this.userInfoContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.userInfoContainer.Controls.Add(this.image);
             this.userInfoContainer.Controls.Add(this.infoContainer);
+            this.userInfoContainer.Controls.Add(this.lblErrorTitle);
             this.userInfoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.userInfoContainer.Location = new System.Drawing.Point(49, 27);
             this.userInfoContainer.Name = "userInfoContainer";
-            this.userInfoContainer.Size = new System.Drawing.Size(507, 172);
+            this.userInfoContainer.Size = new System.Drawing.Size(507, 222);
             this.userInfoContainer.TabIndex = 27;
             // 
             // image
@@ -120,11 +120,10 @@
             this.titleContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.titleContainer.Controls.Add(this.lblFirst);
             this.titleContainer.Controls.Add(this.txtFirst);
-            this.titleContainer.Controls.Add(this.lblErrorTitle);
             this.titleContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.titleContainer.Location = new System.Drawing.Point(49, 229);
+            this.titleContainer.Location = new System.Drawing.Point(49, 267);
             this.titleContainer.Name = "titleContainer";
-            this.titleContainer.Size = new System.Drawing.Size(504, 116);
+            this.titleContainer.Size = new System.Drawing.Size(504, 87);
             this.titleContainer.TabIndex = 29;
             // 
             // lblFirst
@@ -149,31 +148,16 @@
             this.txtFirst.Size = new System.Drawing.Size(498, 50);
             this.txtFirst.TabIndex = 19;
             // 
-            // lblErrorTitle
-            // 
-            this.lblErrorTitle.AutoSize = true;
-            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
-            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTitle.Location = new System.Drawing.Point(3, 87);
-            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.lblErrorTitle.Name = "lblErrorTitle";
-            this.lblErrorTitle.Size = new System.Drawing.Size(106, 19);
-            this.lblErrorTitle.TabIndex = 21;
-            this.lblErrorTitle.Text = "Error message";
-            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblErrorTitle.Visible = false;
-            // 
             // authorContainer
             // 
             this.authorContainer.AutoSize = true;
             this.authorContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.authorContainer.Controls.Add(this.lblSecond);
             this.authorContainer.Controls.Add(this.txtSecond);
-            this.authorContainer.Controls.Add(this.lblErrorAuthor);
             this.authorContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.authorContainer.Location = new System.Drawing.Point(49, 353);
+            this.authorContainer.Location = new System.Drawing.Point(49, 386);
             this.authorContainer.Name = "authorContainer";
-            this.authorContainer.Size = new System.Drawing.Size(504, 116);
+            this.authorContainer.Size = new System.Drawing.Size(504, 87);
             this.authorContainer.TabIndex = 30;
             // 
             // lblSecond
@@ -197,20 +181,6 @@
             this.txtSecond.Name = "txtSecond";
             this.txtSecond.Size = new System.Drawing.Size(498, 50);
             this.txtSecond.TabIndex = 19;
-            // 
-            // lblErrorAuthor
-            // 
-            this.lblErrorAuthor.AutoSize = true;
-            this.lblErrorAuthor.Font = new System.Drawing.Font("Outfit", 9F);
-            this.lblErrorAuthor.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorAuthor.Location = new System.Drawing.Point(3, 87);
-            this.lblErrorAuthor.Margin = new System.Windows.Forms.Padding(3, 0, 3, 10);
-            this.lblErrorAuthor.Name = "lblErrorAuthor";
-            this.lblErrorAuthor.Size = new System.Drawing.Size(106, 19);
-            this.lblErrorAuthor.TabIndex = 21;
-            this.lblErrorAuthor.Text = "Error message";
-            this.lblErrorAuthor.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblErrorAuthor.Visible = false;
             // 
             // btnContainer
             // 
@@ -248,6 +218,19 @@
             this.btnSave.Text = "Add borrower";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
+            // lblErrorTitle
+            // 
+            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
+            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTitle.Location = new System.Drawing.Point(3, 182);
+            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblErrorTitle.Name = "lblErrorTitle";
+            this.lblErrorTitle.Size = new System.Drawing.Size(501, 30);
+            this.lblErrorTitle.TabIndex = 27;
+            this.lblErrorTitle.Text = "Error message";
+            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorTitle.Visible = false;
             // 
             // Add
             // 
@@ -292,9 +275,8 @@
         internal System.Windows.Forms.Label lblFirst;
         internal System.Windows.Forms.TextBox txtFirst;
         internal System.Windows.Forms.TextBox txtSecond;
-        internal System.Windows.Forms.Label lblErrorTitle;
-        internal System.Windows.Forms.Label lblErrorAuthor;
         internal System.Windows.Forms.Button btnSave;
         internal System.Windows.Forms.LinkLabel btnCancel;
+        internal System.Windows.Forms.Label lblErrorTitle;
     }
 }

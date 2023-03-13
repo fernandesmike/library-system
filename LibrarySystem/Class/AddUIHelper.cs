@@ -45,5 +45,16 @@ namespace LibrarySystem.Class
 
             addUI.btnSave.Text = "Add book";
         }
+
+        public void showErrorMessage()
+        {
+            addUI.lblErrorTitle.Visible = true;
+            addUI.lblErrorTitle.Text = "All fields are required";
+        }
+
+        public void hideErrorMessage()
+        {
+            addUI.lblErrorTitle.Visible = false;
+        }
     }
 }

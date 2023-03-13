@@ -110,7 +110,7 @@ namespace LibrarySystem
 
         }
 
-        public void bookQueryMessage(string action, int status, string title, string author)
+        public void bookQueryMessage(string action, int status, string title)
         {
             dashboard.lblUpdateMessage.Visible = true;
             dashboard.tmHideMessage.Enabled = true;
@@ -118,16 +118,17 @@ namespace LibrarySystem
             if (status > 0)
             {
                 successStyling();
-                dashboard.lblUpdateMessage.Text = $"Successfully {action}d book {title} by {author}";
+                dashboard.lblUpdateMessage.Text = $"Successfully {action}d book {title}";
             }
 
             else
             {
                 failedStyling();
-                dashboard.lblUpdateMessage.Text = $"Cannot {action} book {title} by {author}";
+                dashboard.lblUpdateMessage.Text = $"Cannot {action} book {title}";
             }
 
         }
+
         public void successStyling()
         {
             dashboard.lblUpdateMessage.Height = 31;
