@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LibrarySystem.Class;
 
 namespace LibrarySystem
 {
@@ -18,6 +19,7 @@ namespace LibrarySystem
         // Helper classes
         private DataHelper data;
         private DashboardUIHelper dashboardUI;
+        private Add addUI;
 
         // For book info
         // Reusable (book or borrower ID)
@@ -128,8 +130,17 @@ namespace LibrarySystem
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            if(context == "borrowers")
+            addUI = new Add(this, this.context);
+            addUI.ShowDialog();
+
+            if (context == "borrowers")
             {
+                data.loadBorrowers();
+            }
+
+            else if (context == "books")
+            {
+                data.loadAllBooks();
             }
         }
 
@@ -229,13 +240,14 @@ namespace LibrarySystem
 
         public void showQueryMessage(int status, string action)
         {
-            if (status > 0)
+            if (this.context == "borrowers")
             {
-                dashboardUI.successBorrowerQueryMessage(action);
+                dashboardUI.borrowerQueryMessage(action, status, Dashboard.firstName);
             }
-            else if (status == 0)
+
+            else if (this.context == "books")
             {
-                dashboardUI.failedBorrowerQueryMessage(action);
+                dashboardUI.bookQueryMessage(action, status, Dashboard.title, Dashboard.author);
             }
         }
 
