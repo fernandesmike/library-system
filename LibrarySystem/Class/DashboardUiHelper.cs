@@ -91,48 +91,55 @@ namespace LibrarySystem
             refreshDataGrid();
         }
 
-        public void successBorrowerQueryMessage(string action)
+        public void borrowerQueryMessage(string action, int status, string name)
+        {
+            dashboard.lblUpdateMessage.Visible = true;
+            dashboard.tmHideMessage.Enabled = true;
+
+            if (status > 0)
+            {
+                successStyling();
+                dashboard.lblUpdateMessage.Text = $"Successfully {action}d borrower {name}";
+            }
+
+            else
+            {
+                failedStyling();
+                dashboard.lblUpdateMessage.Text = $"Cannot {action} borrower {name}";
+            }
+
+        }
+
+        public void bookQueryMessage(string action, int status, string title, string author)
+        {
+            dashboard.lblUpdateMessage.Visible = true;
+            dashboard.tmHideMessage.Enabled = true;
+
+            if (status > 0)
+            {
+                successStyling();
+                dashboard.lblUpdateMessage.Text = $"Successfully {action}d book {title} by {author}";
+            }
+
+            else
+            {
+                failedStyling();
+                dashboard.lblUpdateMessage.Text = $"Cannot {action} book {title} by {author}";
+            }
+
+        }
+        public void successStyling()
         {
             dashboard.lblUpdateMessage.Height = 31;
-            dashboard.lblUpdateMessage.Text = $"Successfully {action}d borrower {Dashboard.firstName}";
             dashboard.lblUpdateMessage.BackColor = Color.ForestGreen;
             dashboard.lblUpdateMessage.ForeColor = Color.White;
-            dashboard.lblUpdateMessage.Visible = true;
-
-            dashboard.tmHideMessage.Enabled = true;
         }
 
-        public void failedBorrowerQueryMessage(string action)
+        public void failedStyling()
         {
             dashboard.lblUpdateMessage.Height = 31;
-            dashboard.lblUpdateMessage.Text = $"Cannot {action} borrower {Dashboard.firstName}";
             dashboard.lblUpdateMessage.BackColor = Color.Red;
             dashboard.lblUpdateMessage.ForeColor = Color.White;
-            dashboard.lblUpdateMessage.Visible = true;
-
-            dashboard.tmHideMessage.Enabled = true;
-        }
-
-        public void successBookQueryMessage(string action)
-        {
-            dashboard.lblUpdateMessage.Height = 31;
-            dashboard.lblUpdateMessage.Text = $"Successfully {action}d book {Dashboard.title} by {Dashboard.author}";
-            dashboard.lblUpdateMessage.BackColor = Color.ForestGreen;
-            dashboard.lblUpdateMessage.ForeColor = Color.White;
-            dashboard.lblUpdateMessage.Visible = true;
-
-            dashboard.tmHideMessage.Enabled = true;
-        }
-
-        public void failedBookQueryMessage(string action)
-        {
-            dashboard.lblUpdateMessage.Height = 31;
-            dashboard.lblUpdateMessage.Text = $"Cannot {action} book {Dashboard.title} by {Dashboard.author}";
-            dashboard.lblUpdateMessage.BackColor = Color.Red;
-            dashboard.lblUpdateMessage.ForeColor = Color.White;
-            dashboard.lblUpdateMessage.Visible = true;
-
-            dashboard.tmHideMessage.Enabled = true;
         }
 
         /// <summary>

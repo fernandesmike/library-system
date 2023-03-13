@@ -231,6 +231,34 @@ namespace LibrarySystem
 
         // Books - DML //
 
+        public int addBook(string title, string author)
+        {
+            int queryPerformed;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    // TODO:
+                    // Handle multiple authors
+                    con.Open();
+                    string command = "INSERT INTO tbl_books(book_id, title, author) VALUES (NEXT VALUE FOR sequence_id, @title, @author)";
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error creating your account!");
+                return 0;
+            }
+        }
+
         public int updateBookStatus(string book_id, string availability)
         {
             int updatePerformed;
@@ -292,7 +320,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -320,7 +348,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE status = @status";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE status = @status";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -427,6 +455,32 @@ namespace LibrarySystem
         }
 
         // Borrowers - DML //
+
+        public int addBorrower(string firstName, string lastName)
+        {
+            int queryPerformed;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    con.Open();
+                    string command = "INSERT INTO tbl_borrower(borrower_id, firstname, lastname) VALUES (NEXT VALUE FOR sequence_id, @fName, @lName)";
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@fName", firstName);
+                    cmd.Parameters.AddWithValue("@lName", lastName);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error creating your account!");
+                return 0;
+            }
+        }
 
         public void changeBorrowerStatus(string borrower_id, string changeTo)
         {
