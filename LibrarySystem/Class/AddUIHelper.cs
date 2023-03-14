@@ -10,6 +10,7 @@ using System.Drawing;
 namespace LibrarySystem.Class
 {
     class AddUIHelper : IErrorController
+
     {
         private Add addUI;
 
@@ -55,6 +56,16 @@ namespace LibrarySystem.Class
         public void hideErrorMessage()
         {
             addUI.lblErrorTitle.Visible = false;
+        }
+
+        public void showBorrowerExistMessage()
+        {
+            addUI.lblErrorTitle.Text = "This borrower already exist";
+        }
+
+        public void showBookExistMessage()
+        {
+            addUI.lblErrorTitle.Text = "This book already exist";
         }
     }
 }

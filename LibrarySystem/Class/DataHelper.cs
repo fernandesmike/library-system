@@ -256,7 +256,33 @@ namespace LibrarySystem
 
         }
 
+        public int checkIfBookExist(string title, string author)
+        {
+            int result;
 
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_books WHERE LOWER(title) = LOWER(@title) AND LOWER(author) = LOWER(@author)";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    cmd.ExecuteNonQuery();
+
+                    result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return result;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error connecting to our server!");
+                return 0;
+            }
+        }
         /*
         =================================
         Book Data Manipulation Language
@@ -438,7 +464,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', username AS Username, firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search OR lastname LIKE @search";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search OR lastname LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -513,6 +539,34 @@ namespace LibrarySystem
                 return 0;
             }
 
+        }
+
+        public int checkIfBorrowerExist(string firstname, string lastname)
+        {
+            int result;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_borrower WHERE LOWER(firstname) = LOWER(@firstname) AND LOWER(lastname) = LOWER(@lastname)";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@firstname", firstname);
+                    cmd.Parameters.AddWithValue("@lastname", lastname);
+                    cmd.ExecuteNonQuery();
+
+                    result = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return result;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error connecting to our server!");
+                return 0;
+            }
         }
 
 
