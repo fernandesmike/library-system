@@ -59,32 +59,54 @@ namespace LibrarySystem
         {
             int queryStatus;
 
+            string first = txtFirst.Text.Trim();
+            string second = txtSecond.Text.Trim();
+
             if (validateFields())
             {
                 addUI.hideErrorMessage();
 
                 if (context == "borrowers")
                 {
-                    // TODO
-                    // Check borrower already exists
-                    // Convert received input data and retrieved database data to lowerCase to avoid capitalization bug
-                    // Same goes with books
+                    if (data.checkIfBorrowerExist(first, second) < 1)
+                    {
+                        addUI.hideErrorMessage();
 
-                    queryStatus = data.addBorrower(txtFirst.Text.Trim(), txtSecond.Text.Trim());
-                    dashboardUI.showBorrowersUI();
-                    Dashboard.firstName = txtFirst.Text.Trim();
-                    dashboard.showQueryMessage(queryStatus, "adde");
+                        queryStatus = data.addBorrower(first, second);
+                        dashboardUI.showBorrowersUI();
+                        Dashboard.firstName = txtFirst.Text.Trim();
+                        dashboard.showQueryMessage(queryStatus, "adde");
+
+                        this.Close();
+                    }
+
+                    else
+                    {
+                        addUI.showErrorMessage();
+                        addUI.showBorrowerExistMessage();
+                    }
                 }
 
                 else if (context == "books")
                 {
-                    queryStatus = data.addBook(txtFirst.Text.Trim(), txtSecond.Text.Trim());
-                    dashboardUI.showBooksUI();
-                    Dashboard.title = txtFirst.Text.Trim();
-                    dashboard.showQueryMessage(queryStatus, "adde");
-                }
+                    if (data.checkIfBookExist(first, second) < 1)
+                    {
+                        addUI.hideErrorMessage();
 
-                this.Close();
+                        queryStatus = data.addBook(first, second);
+                        dashboardUI.showBooksUI();
+                        Dashboard.title = txtFirst.Text.Trim();
+                        dashboard.showQueryMessage(queryStatus, "adde");
+
+                        this.Close();
+                    }
+
+                    else
+                    {
+                        addUI.showErrorMessage();
+                        addUI.showBookExistMessage();
+                    }
+                }
             }
 
             else
