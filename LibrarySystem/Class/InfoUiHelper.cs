@@ -6,10 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using LibrarySystem.Class;
 
 namespace LibrarySystem
 {
-    class InfoUIHelper
+    class InfoUIHelper : IErrorController
     {
         private DataDetails infoUI;
         private DataHelper data;
@@ -78,7 +79,7 @@ namespace LibrarySystem
             if (context == "borrowers")
             {
                 infoUI.lblTitle.Text = "Edit " + Dashboard.firstName  +"'s account";
-                infoUI.lblDate.Text = "Please provide the desired\ninformation below";
+                infoUI.lblDate.Text = "Please provide the desired information\nbelow";
 
                 infoUI.lblFirst.Text = "ID Number";
                 infoUI.lblSecond.Text = "Firstname";
@@ -151,6 +152,7 @@ namespace LibrarySystem
                 infoUI.btnStatus.Text = "Enable account";
                 infoUI.lblStatus.Text = "Account disabled";
             }
+
             else if (status == "1")
             {
                 infoUI.iconStatus.Image = disabled;

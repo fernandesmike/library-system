@@ -9,7 +9,7 @@ using System.Drawing;
 
 namespace LibrarySystem.Class
 {
-    class AddUIHelper
+    class AddUIHelper : IErrorController
     {
         private Add addUI;
 

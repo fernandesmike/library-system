@@ -79,6 +79,7 @@
             this.rbReturned = new System.Windows.Forms.RadioButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.flpEdit = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblEditError = new System.Windows.Forms.Label();
             this.flpDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFirst = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
@@ -91,7 +92,6 @@
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblCancelEdit = new System.Windows.Forms.LinkLabel();
-            this.lblEditError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.divLeft.SuspendLayout();
@@ -785,7 +785,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -828,6 +828,21 @@
             this.flpEdit.Size = new System.Drawing.Size(840, 536);
             this.flpEdit.TabIndex = 40;
             this.flpEdit.Visible = false;
+            // 
+            // lblEditError
+            // 
+            this.lblEditError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditError.ForeColor = System.Drawing.Color.Red;
+            this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditError.Location = new System.Drawing.Point(3, 10);
+            this.lblEditError.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblEditError.Name = "lblEditError";
+            this.lblEditError.Size = new System.Drawing.Size(485, 48);
+            this.lblEditError.TabIndex = 53;
+            this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
+            this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditError.Visible = false;
             // 
             // flpDetails
             // 
@@ -990,33 +1005,18 @@
             this.lblCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCancelEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblCancelEdit_LinkClicked);
             // 
-            // lblEditError
-            // 
-            this.lblEditError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditError.ForeColor = System.Drawing.Color.Red;
-            this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Location = new System.Drawing.Point(3, 10);
-            this.lblEditError.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblEditError.Name = "lblEditError";
-            this.lblEditError.Size = new System.Drawing.Size(485, 48);
-            this.lblEditError.TabIndex = 53;
-            this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
-            this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Visible = false;
-            // 
             // DataDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 753);
-            this.Controls.Add(this.flpEdit);
             this.Controls.Add(this.flpDataGrid);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.flpStatistics);
             this.Controls.Add(this.divLeft);
+            this.Controls.Add(this.flpEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "DataDetails";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
