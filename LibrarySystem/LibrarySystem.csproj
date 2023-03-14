@@ -62,6 +62,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class\AddUIHelper.cs" />
+    <Compile Include="Class\IErrorController.cs" />
     <Compile Include="DataDetails.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,12 +72,6 @@
     <Compile Include="Class\DataHelper.cs" />
     <Compile Include="Class\DashboardUIHelper.cs" />
     <Compile Include="Class\InfoUIHelper.cs" />
-    <Compile Include="Delete.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Delete.Designer.cs">
-      <DependentUpon>Delete.cs</DependentUpon>
-    </Compile>
     <Compile Include="Class\PasswordHandler.cs" />
     <Compile Include="Add.cs">
       <SubType>Form</SubType>
@@ -106,9 +101,6 @@
     </Compile>
     <EmbeddedResource Include="DataDetails.resx">
       <DependentUpon>DataDetails.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Delete.resx">
-      <DependentUpon>Delete.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
