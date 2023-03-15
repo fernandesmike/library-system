@@ -11,5 +11,9 @@ namespace LibrarySystem.Class
         void showErrorMessage();
 
         void hideErrorMessage();
+
+        void showBorrowerExistMessage();
+
+        void showBookExistMessage();
     }
 }

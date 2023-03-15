@@ -179,44 +179,83 @@ namespace LibrarySystem
 
             int status;
 
-            if (newSecond == second && newThird == third)
+            if (newSecond == "" || newThird == "")
+            {
+                detailsUI.showErrorMessage();
+                lblEditError.Text = "Please provide valid information";
+            }
+
+            else if (newSecond == second && newThird == third)
             {
                 detailsUI.showErrorMessage();
             }
+
             else
             {
                 detailsUI.hideErrorMessage();
 
                 if (context == "borrowers")
                 {
-                    Dashboard.firstName = newSecond;
-                    Dashboard.lastName = newThird;
-                    Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
-
                     // Identify if changes has conflict to existing data
-                    status = data.updateBorrowerName(first, newSecond, newThird);
-
-                    if (status > 0)
+                    if (data.checkIfBorrowerExist(newSecond, newThird) > 0)
                     {
-                        detailsUI.hideEdit(context);
-                        detailsUI.loadBorrowerData();
+                        detailsUI.showErrorMessage();
+                        detailsUI.showBorrowerExistMessage();
                     }
-
+                    // If there is no conflict, perform the operation
                     else
                     {
-                    }
+                        Dashboard.firstName = newSecond;
+                        Dashboard.lastName = newThird;
+                        Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
 
+                        status = data.updateBorrowerName(first, newSecond, newThird);
+
+                        if (status > 0)
+                        {
+
+                            // If the update is successfull, notify to the UI
+                            detailsUI.hideEdit(context);
+                            detailsUI.loadBorrowerData();
+                            detailsUI.showUpdateMessage(status);
+                        }
+
+                        else
+                        {
+                            detailsUI.showUpdateMessage(status);
+                        }
+                    }
                 }
 
                 else if (context == "books")
                 {
-                    Dashboard.title = newSecond;
-                    Dashboard.author = newThird;
+                    // Identify if changes has conflict to existing data
+                    if (data.checkIfBookExist(newSecond, newThird) > 0)
+                    {
+                        detailsUI.showErrorMessage();
+                        detailsUI.showBookExistMessage();
+                    }
+                    // If there is no conflict, perform the operation
+                    else
+                    {
+                        Dashboard.title = newSecond;
+                        Dashboard.author = newThird;
 
-                    data.updateBook(first, newSecond, newThird);
+                        status = data.updateBook(first, newSecond, newThird);
 
-                    detailsUI.hideEdit(context);
-                    detailsUI.loadBookData();
+                        if (status > 0)
+                        {
+
+                            detailsUI.hideEdit(context);
+                            detailsUI.loadBookData();
+                            detailsUI.showUpdateMessage(status);
+                        }
+
+                        else
+                        {
+                            detailsUI.showUpdateMessage(status);
+                        }
+                    }
                 }
             }
         }
@@ -224,7 +263,15 @@ namespace LibrarySystem
         private void LblCancelEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             detailsUI.hideEdit(context);
-        }  
+            detailsUI.hideErrorMessage();
+        }
+
+        private void TmHideMessage_Tick(object sender, EventArgs e)
+        {
+            lblUpdateMessage.Visible = false;
+            lblUpdateMessage.Height = 1;
+            tmHideMessage.Enabled = false;
+        }
 
         // TODO: 
         // fetch user statistics data

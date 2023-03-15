@@ -183,5 +183,37 @@ namespace LibrarySystem
         {
             detailsUI.lblEditError.Visible = false;
         }
+
+        public void showBorrowerExistMessage()
+        {
+            detailsUI.lblEditError.Text = "The desired changes has conflict with another\nborrower";
+        }
+
+        public void showBookExistMessage()
+        {
+            detailsUI.lblEditError.Text = "The desired changes has conflict with another\nbook";
+        }
+
+        public void showUpdateMessage(int status)
+        {
+            detailsUI.lblUpdateMessage.Visible = true;
+            detailsUI.tmHideMessage.Enabled = true;
+
+            if (status > 0)
+            {
+                detailsUI.lblUpdateMessage.Height = 31;
+                detailsUI.lblUpdateMessage.BackColor = Color.ForestGreen;
+                detailsUI.lblUpdateMessage.ForeColor = Color.White;
+                detailsUI.lblUpdateMessage.Text = "Changes has been saved";
+            }
+
+            else
+            {
+                detailsUI.lblUpdateMessage.Height = 31;
+                detailsUI.lblUpdateMessage.BackColor = Color.Red;
+                detailsUI.lblUpdateMessage.ForeColor = Color.White;
+                detailsUI.lblUpdateMessage.Text = "No changes have been made";
+            }
+        }
     }
 }
