@@ -196,7 +196,7 @@ namespace LibrarySystem
                     lastName = row.Cells["Lastname"].Value.ToString(); 
                     status = row.Cells["Status"].Value.ToString();
 
-                    DataDetails info = new DataDetails(this.context);
+                    Details info = new Details(this.context);
                     this.Hide();
                     info.ShowDialog();
                 }
@@ -214,7 +214,7 @@ namespace LibrarySystem
                     author = row.Cells["Author"].Value.ToString();
                     status = row.Cells["Available"].Value.ToString();
 
-                    DataDetails info = new DataDetails(this.context);
+                    Details info = new Details(this.context);
                     this.Hide();
                     info.ShowDialog();
                 }

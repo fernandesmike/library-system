@@ -1,6 +1,6 @@
 ﻿namespace LibrarySystem
 {
-    partial class DataDetails
+    partial class Details
     {
         /// <summary>
         /// Required designer variable.
@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataDetails));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
             this.infoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblID = new System.Windows.Forms.Label();
@@ -71,6 +72,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDate = new System.Windows.Forms.Label();
             this.flpDataGrid = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblUpdateMessage = new System.Windows.Forms.Label();
             this.lblGridTitle = new System.Windows.Forms.Label();
             this.flpGridHeader = new System.Windows.Forms.FlowLayoutPanel();
             this.radioContainer = new System.Windows.Forms.Panel();
@@ -79,7 +81,6 @@
             this.rbReturned = new System.Windows.Forms.RadioButton();
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.flpEdit = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblEditError = new System.Windows.Forms.Label();
             this.flpDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFirst = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
@@ -87,12 +88,12 @@
             this.txtSecond = new System.Windows.Forms.TextBox();
             this.lblThird = new System.Windows.Forms.Label();
             this.txtThird = new System.Windows.Forms.TextBox();
+            this.lblEditError = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblCancelEdit = new System.Windows.Forms.LinkLabel();
-            this.lblUpdateMessage = new System.Windows.Forms.Label();
+            this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.divLeft.SuspendLayout();
@@ -678,6 +679,22 @@
             this.flpDataGrid.Size = new System.Drawing.Size(840, 524);
             this.flpDataGrid.TabIndex = 39;
             // 
+            // lblUpdateMessage
+            // 
+            this.lblUpdateMessage.AutoEllipsis = true;
+            this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
+            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
+            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
+            this.lblUpdateMessage.Name = "lblUpdateMessage";
+            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblUpdateMessage.Size = new System.Drawing.Size(834, 31);
+            this.lblUpdateMessage.TabIndex = 46;
+            this.lblUpdateMessage.Text = "Update message goes here";
+            this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblUpdateMessage.Visible = false;
+            // 
             // lblGridTitle
             // 
             this.lblGridTitle.AutoEllipsis = true;
@@ -772,41 +789,41 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle8;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(3, 126);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -827,24 +844,9 @@
             this.flpEdit.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpEdit.Location = new System.Drawing.Point(482, 110);
             this.flpEdit.Name = "flpEdit";
-            this.flpEdit.Size = new System.Drawing.Size(840, 536);
+            this.flpEdit.Size = new System.Drawing.Size(840, 586);
             this.flpEdit.TabIndex = 40;
             this.flpEdit.Visible = false;
-            // 
-            // lblEditError
-            // 
-            this.lblEditError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditError.ForeColor = System.Drawing.Color.Red;
-            this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Location = new System.Drawing.Point(3, 10);
-            this.lblEditError.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblEditError.Name = "lblEditError";
-            this.lblEditError.Size = new System.Drawing.Size(485, 48);
-            this.lblEditError.TabIndex = 53;
-            this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
-            this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Visible = false;
             // 
             // flpDetails
             // 
@@ -875,6 +877,7 @@
             // 
             // txtFirst
             // 
+            this.txtFirst.Enabled = false;
             this.txtFirst.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtFirst.Location = new System.Drawing.Point(3, 34);
             this.txtFirst.Margin = new System.Windows.Forms.Padding(3, 10, 3, 25);
@@ -923,13 +926,27 @@
             this.txtThird.Size = new System.Drawing.Size(479, 57);
             this.txtThird.TabIndex = 10;
             // 
+            // lblEditError
+            // 
+            this.lblEditError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditError.ForeColor = System.Drawing.Color.Red;
+            this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditError.Location = new System.Drawing.Point(3, 10);
+            this.lblEditError.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblEditError.Name = "lblEditError";
+            this.lblEditError.Size = new System.Drawing.Size(485, 48);
+            this.lblEditError.TabIndex = 53;
+            this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
+            this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblEditError.Visible = false;
+            // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel3.Controls.Add(this.btnSaveChanges);
-            this.flowLayoutPanel3.Controls.Add(this.linkLabel1);
             this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 427);
             this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
@@ -970,24 +987,6 @@
             this.btnSaveChanges.UseVisualStyleBackColor = false;
             this.btnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
-            // linkLabel1
-            // 
-            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.Brown;
-            this.linkLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.linkLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.linkLabel1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.linkLabel1.Font = new System.Drawing.Font("Outfit", 10.8F);
-            this.linkLabel1.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.linkLabel1.Location = new System.Drawing.Point(3, 54);
-            this.linkLabel1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.linkLabel1.Size = new System.Drawing.Size(399, 34);
-            this.linkLabel1.TabIndex = 52;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Cancel";
-            this.linkLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblCancelEdit
             // 
             this.lblCancelEdit.ActiveLinkColor = System.Drawing.Color.Brown;
@@ -1007,36 +1006,25 @@
             this.lblCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCancelEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblCancelEdit_LinkClicked);
             // 
-            // lblUpdateMessage
+            // tmHideMessage
             // 
-            this.lblUpdateMessage.AutoEllipsis = true;
-            this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
-            this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
-            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
-            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
-            this.lblUpdateMessage.Name = "lblUpdateMessage";
-            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblUpdateMessage.Size = new System.Drawing.Size(834, 31);
-            this.lblUpdateMessage.TabIndex = 46;
-            this.lblUpdateMessage.Text = "Update message goes here";
-            this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblUpdateMessage.Visible = false;
+            this.tmHideMessage.Interval = 2500;
+            this.tmHideMessage.Tick += new System.EventHandler(this.TmHideMessage_Tick);
             // 
-            // DataDetails
+            // Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 753);
-            this.Controls.Add(this.flpDataGrid);
             this.Controls.Add(this.lblDate);
             this.Controls.Add(this.lblTitle);
-            this.Controls.Add(this.flpStatistics);
             this.Controls.Add(this.divLeft);
+            this.Controls.Add(this.flpStatistics);
+            this.Controls.Add(this.flpDataGrid);
             this.Controls.Add(this.flpEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Name = "DataDetails";
+            this.Name = "Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BorrowerInfo";
             this.Load += new System.EventHandler(this.BorrowerInfo_Load);
@@ -1134,11 +1122,11 @@
         internal System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.Button btnSaveChanges;
         internal System.Windows.Forms.FlowLayoutPanel flpEdit;
-        private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.LinkLabel lblCancelEdit;
         internal System.Windows.Forms.Label lblThird;
         internal System.Windows.Forms.TextBox txtThird;
         internal System.Windows.Forms.Label lblEditError;
         internal System.Windows.Forms.Label lblUpdateMessage;
+        internal System.Windows.Forms.Timer tmHideMessage;
     }
 }

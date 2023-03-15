@@ -63,15 +63,15 @@
   <ItemGroup>
     <Compile Include="Class\AddUIHelper.cs" />
     <Compile Include="Class\IErrorController.cs" />
-    <Compile Include="DataDetails.cs">
+    <Compile Include="Details.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DataDetails.Designer.cs">
-      <DependentUpon>DataDetails.cs</DependentUpon>
+    <Compile Include="Details.Designer.cs">
+      <DependentUpon>Details.cs</DependentUpon>
     </Compile>
     <Compile Include="Class\DataHelper.cs" />
     <Compile Include="Class\DashboardUIHelper.cs" />
-    <Compile Include="Class\InfoUIHelper.cs" />
+    <Compile Include="Class\DetailsUIHelper.cs" />
     <Compile Include="Class\PasswordHandler.cs" />
     <Compile Include="Add.cs">
       <SubType>Form</SubType>
@@ -99,8 +99,8 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="DataDetails.resx">
-      <DependentUpon>DataDetails.cs</DependentUpon>
+    <EmbeddedResource Include="Details.resx">
+      <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Add.resx">
       <DependentUpon>Add.cs</DependentUpon>

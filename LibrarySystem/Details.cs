@@ -12,22 +12,22 @@ using System.Data.SqlClient;
 
 namespace LibrarySystem
 {
-    public partial class DataDetails : Form
+    public partial class Details : Form
     {
 
-        private InfoUIHelper infoUI;
+        private DetailsUIHelper detailsUI;
         private DataHelper data;
 
         private string context;
         private string connectionString;
 
-        public DataDetails(string context)
+        public Details(string context)
         {
             InitializeComponent();
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             data = new DataHelper(connectionString);
 
-            infoUI = new InfoUIHelper(this);
+            detailsUI = new DetailsUIHelper(this);
 
             this.context = context;
         }
@@ -36,11 +36,11 @@ namespace LibrarySystem
         {
             if(context == "borrowers")
             {
-                infoUI.loadBorrowerData();
+                detailsUI.loadBorrowerData();
             }
             else if(context == "books")
             {
-                infoUI.loadBookData();
+                detailsUI.loadBookData();
             }
         }
 
@@ -70,7 +70,7 @@ namespace LibrarySystem
                 if (Dashboard.status.ToLower() == "active")
                 {
                     data.changeBorrowerStatus(Dashboard.id, "inactive");
-                    infoUI.updateStatus("inactive", context);
+                    detailsUI.updateStatus("inactive", context);
                     Dashboard.status = "inactive";
                 }
 
@@ -78,7 +78,7 @@ namespace LibrarySystem
                 else if (Dashboard.status.ToLower() == "inactive")
                 {
                     data.changeBorrowerStatus(Dashboard.id, "active");
-                    infoUI.updateStatus("active", context);
+                    detailsUI.updateStatus("active", context);
                     Dashboard.status = "active";
                 }
             }
@@ -88,7 +88,7 @@ namespace LibrarySystem
                 if (Dashboard.status == "0")
                 {
                     data.updateBookStatus(Dashboard.id, "1");
-                    infoUI.updateStatus("1", context);
+                    detailsUI.updateStatus("1", context);
                     Dashboard.status = "1";
                 }
 
@@ -96,7 +96,7 @@ namespace LibrarySystem
                 else if (Dashboard.status == "1")
                 {
                     data.updateBookStatus(Dashboard.id, "0");
-                    infoUI.updateStatus("0", context);
+                    detailsUI.updateStatus("0", context);
                     Dashboard.status = "0";
                 }
             }
@@ -158,7 +158,7 @@ namespace LibrarySystem
 
         private void BtnEdit_Click(object sender, EventArgs e)
         {
-            infoUI.showEdit(context);
+            detailsUI.showEdit(context);
         }
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
@@ -174,62 +174,104 @@ namespace LibrarySystem
             string third = Dashboard.lastName;
 
             // Get the new data values
-            string newFirst = txtFirst.Text.Trim();
             string newSecond = txtSecond.Text.Trim();
             string newThird = txtThird.Text.Trim();
 
             int status;
 
-            if (newFirst == first && newSecond == second && newThird == third)
+            if (newSecond == "" || newThird == "")
             {
-                infoUI.showErrorMessage();
+                detailsUI.showErrorMessage();
+                lblEditError.Text = "Please provide valid information";
             }
+
+            else if (newSecond == second && newThird == third)
+            {
+                detailsUI.showErrorMessage();
+            }
+
             else
             {
-                infoUI.hideErrorMessage();
+                detailsUI.hideErrorMessage();
 
                 if (context == "borrowers")
                 {
-                    // TODO:
-                    // Identify if the edit is for username or lastname
-                    Dashboard.id = newFirst;
-                    Dashboard.firstName = newSecond;
-                    Dashboard.lastName = newThird;
-                    Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
-
-                    status = data.updateBorrowerName(first, newSecond, newThird);
-
-                    if (status > 0)
+                    // Identify if changes has conflict to existing data
+                    if (data.checkIfBorrowerExist(newSecond, newThird) > 0)
                     {
-                        infoUI.hideEdit(context);
-                        infoUI.loadBorrowerData();
+                        detailsUI.showErrorMessage();
+                        detailsUI.showBorrowerExistMessage();
                     }
-
+                    // If there is no conflict, perform the operation
                     else
                     {
+                        Dashboard.firstName = newSecond;
+                        Dashboard.lastName = newThird;
+                        Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
 
+                        status = data.updateBorrowerName(first, newSecond, newThird);
+
+                        if (status > 0)
+                        {
+
+                            // If the update is successfull, notify to the UI
+                            detailsUI.hideEdit(context);
+                            detailsUI.loadBorrowerData();
+                            detailsUI.showUpdateMessage(status);
+                        }
+
+                        else
+                        {
+                            detailsUI.showUpdateMessage(status);
+                        }
                     }
-
                 }
 
                 else if (context == "books")
                 {
-                    Dashboard.id = newFirst;
-                    Dashboard.title = newSecond;
-                    Dashboard.author = newThird;
+                    // Identify if changes has conflict to existing data
+                    if (data.checkIfBookExist(newSecond, newThird) > 0)
+                    {
+                        detailsUI.showErrorMessage();
+                        detailsUI.showBookExistMessage();
+                    }
+                    // If there is no conflict, perform the operation
+                    else
+                    {
+                        Dashboard.title = newSecond;
+                        Dashboard.author = newThird;
 
-                    data.updateBook(first, newSecond, newThird);
+                        status = data.updateBook(first, newSecond, newThird);
 
-                    infoUI.hideEdit(context);
-                    infoUI.loadBookData();
+                        if (status > 0)
+                        {
+
+                            detailsUI.hideEdit(context);
+                            detailsUI.loadBookData();
+                            detailsUI.showUpdateMessage(status);
+                        }
+
+                        else
+                        {
+                            detailsUI.showUpdateMessage(status);
+                        }
+                    }
                 }
             }
         }
 
         private void LblCancelEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            infoUI.hideEdit(context);
-        }  
+            detailsUI.hideEdit(context);
+            detailsUI.hideErrorMessage();
+        }
+
+        private void TmHideMessage_Tick(object sender, EventArgs e)
+        {
+            lblUpdateMessage.Visible = false;
+            lblUpdateMessage.Height = 1;
+            tmHideMessage.Enabled = false;
+        }
 
         // TODO: 
         // fetch user statistics data
