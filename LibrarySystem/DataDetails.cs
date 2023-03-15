@@ -169,16 +169,16 @@ namespace LibrarySystem
             // If not, display error on that control
 
             // Get the original data values
-
             string first = Dashboard.id;
             string second = Dashboard.firstName;
             string third = Dashboard.lastName;
 
             // Get the new data values
-
             string newFirst = txtFirst.Text.Trim();
             string newSecond = txtSecond.Text.Trim();
             string newThird = txtThird.Text.Trim();
+
+            int status;
 
             if (newFirst == first && newSecond == second && newThird == third)
             {
@@ -197,10 +197,18 @@ namespace LibrarySystem
                     Dashboard.lastName = newThird;
                     Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
 
-                    data.updateBorrowerName(first, newSecond, newThird);
+                    status = data.updateBorrowerName(first, newSecond, newThird);
 
-                    infoUI.hideEdit(context);
-                    infoUI.loadBorrowerData();
+                    if (status > 0)
+                    {
+                        infoUI.hideEdit(context);
+                        infoUI.loadBorrowerData();
+                    }
+
+                    else
+                    {
+
+                    }
 
                 }
 

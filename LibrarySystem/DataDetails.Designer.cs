@@ -92,6 +92,7 @@
             this.btnSaveChanges = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.lblCancelEdit = new System.Windows.Forms.LinkLabel();
+            this.lblUpdateMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
             this.infoContainer.SuspendLayout();
             this.divLeft.SuspendLayout();
@@ -665,6 +666,7 @@
             // 
             this.flpDataGrid.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpDataGrid.BackColor = System.Drawing.Color.Transparent;
+            this.flpDataGrid.Controls.Add(this.lblUpdateMessage);
             this.flpDataGrid.Controls.Add(this.lblGridTitle);
             this.flpDataGrid.Controls.Add(this.flpGridHeader);
             this.flpDataGrid.Controls.Add(this.dataGrid);
@@ -683,7 +685,7 @@
             this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblGridTitle.Location = new System.Drawing.Point(3, 5);
+            this.lblGridTitle.Location = new System.Drawing.Point(3, 36);
             this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.lblGridTitle.Name = "lblGridTitle";
             this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
@@ -696,7 +698,7 @@
             // 
             this.flpGridHeader.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpGridHeader.Controls.Add(this.radioContainer);
-            this.flpGridHeader.Location = new System.Drawing.Point(3, 37);
+            this.flpGridHeader.Location = new System.Drawing.Point(3, 68);
             this.flpGridHeader.Name = "flpGridHeader";
             this.flpGridHeader.Size = new System.Drawing.Size(1035, 52);
             this.flpGridHeader.TabIndex = 38;
@@ -792,7 +794,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
-            this.dataGrid.Location = new System.Drawing.Point(3, 95);
+            this.dataGrid.Location = new System.Drawing.Point(3, 126);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -813,7 +815,7 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(837, 422);
+            this.dataGrid.Size = new System.Drawing.Size(837, 391);
             this.dataGrid.TabIndex = 42;
             // 
             // flpEdit
@@ -1005,6 +1007,22 @@
             this.lblCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblCancelEdit.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LblCancelEdit_LinkClicked);
             // 
+            // lblUpdateMessage
+            // 
+            this.lblUpdateMessage.AutoEllipsis = true;
+            this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
+            this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
+            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
+            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
+            this.lblUpdateMessage.Name = "lblUpdateMessage";
+            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            this.lblUpdateMessage.Size = new System.Drawing.Size(834, 31);
+            this.lblUpdateMessage.TabIndex = 46;
+            this.lblUpdateMessage.Text = "Update message goes here";
+            this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblUpdateMessage.Visible = false;
+            // 
             // DataDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1121,5 +1139,6 @@
         internal System.Windows.Forms.Label lblThird;
         internal System.Windows.Forms.TextBox txtThird;
         internal System.Windows.Forms.Label lblEditError;
+        internal System.Windows.Forms.Label lblUpdateMessage;
     }
 }
