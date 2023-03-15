@@ -10,18 +10,18 @@ using LibrarySystem.Class;
 
 namespace LibrarySystem
 {
-    class InfoUIHelper : IErrorController
+    class DetailsUIHelper : IErrorController
     {
-        private Details infoUI;
+        private Details detailsUI;
         private DataHelper data;
         private string connectionString;
 
         DateTime currentDate;
 
-        public InfoUIHelper(Details infoUI)
+        public DetailsUIHelper(Details detailsUI)
         {
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            this.infoUI = infoUI;
+            this.detailsUI = detailsUI;
             data = new DataHelper(connectionString);
             currentDate = DateTime.Today;
         }
@@ -32,17 +32,17 @@ namespace LibrarySystem
         public void loadBorrowerData()
         {
             Image borrower = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/user_avatar.ico");
-            infoUI.imgAvatar.Image = borrower;
+            detailsUI.imgAvatar.Image = borrower;
 
-            infoUI.lblID.Text = "ID: " + Dashboard.id;
-            infoUI.lblUser.Text = Dashboard.fullName;
-            infoUI.lblType.Text = "Borrower";
-            infoUI.lblTitle.Text = Dashboard.firstName + "'s statistics";
-            infoUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
+            detailsUI.lblID.Text = "ID: " + Dashboard.id;
+            detailsUI.lblUser.Text = Dashboard.fullName;
+            detailsUI.lblType.Text = "Borrower";
+            detailsUI.lblTitle.Text = Dashboard.firstName + "'s statistics";
+            detailsUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
 
-            infoUI.lblWarning.Text = "WARNING:\nDeleting accounts cannot be undone!";
-            infoUI.btnEdit.Text = "Edit account";
-            infoUI.btnDelete.Text = "Delete account";
+            detailsUI.lblWarning.Text = "WARNING:\nDeleting accounts cannot be undone!";
+            detailsUI.btnEdit.Text = "Edit account";
+            detailsUI.btnDelete.Text = "Delete account";
 
             updateStatus(Dashboard.status, "borrowers");
         }
@@ -50,70 +50,70 @@ namespace LibrarySystem
         public void loadBookData()
         {
             Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
-            infoUI.imgAvatar.Image = book;
+            detailsUI.imgAvatar.Image = book;
 
-            infoUI.lblID.Text = "ID: " + Dashboard.id;
-            infoUI.lblUser.Text = Dashboard.title;
-            infoUI.lblType.Text = "by " + Dashboard.author;
-            infoUI.lblTitle.Text = Dashboard.title + "'s statistics";
-            infoUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
+            detailsUI.lblID.Text = "ID: " + Dashboard.id;
+            detailsUI.lblUser.Text = Dashboard.title;
+            detailsUI.lblType.Text = "by " + Dashboard.author;
+            detailsUI.lblTitle.Text = Dashboard.title + "'s statistics";
+            detailsUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
 
-            infoUI.lblWarning.Text = "WARNING:\nDeleting books cannot be undone!";
-            infoUI.btnEdit.Text = "Edit book";
-            infoUI.btnDelete.Text = "Delete book";
+            detailsUI.lblWarning.Text = "WARNING:\nDeleting books cannot be undone!";
+            detailsUI.btnEdit.Text = "Edit book";
+            detailsUI.btnDelete.Text = "Delete book";
 
             updateStatus(Dashboard.status, "books");
         }
 
         public void showEdit(string context)
         {
-            infoUI.flpEdit.Visible = true;
+            detailsUI.flpEdit.Visible = true;
 
-            infoUI.flpStatistics.Visible = false;
-            infoUI.flpDataGrid.Visible = false;
+            detailsUI.flpStatistics.Visible = false;
+            detailsUI.flpDataGrid.Visible = false;
 
-            infoUI.btnStatus.Enabled = false;
-            infoUI.btnDelete.Enabled = false;
+            detailsUI.btnStatus.Enabled = false;
+            detailsUI.btnDelete.Enabled = false;
 
 
             if (context == "borrowers")
             {
-                infoUI.lblTitle.Text = "Edit " + Dashboard.firstName  +"'s account";
-                infoUI.lblDate.Text = "Please provide the desired information\nbelow";
+                detailsUI.lblTitle.Text = "Edit " + Dashboard.firstName  +"'s account";
+                detailsUI.lblDate.Text = "Please provide the desired information\nbelow";
 
-                infoUI.lblFirst.Text = "ID Number";
-                infoUI.lblSecond.Text = "Firstname";
-                infoUI.lblThird.Text = "Lastname";
+                detailsUI.lblFirst.Text = "ID Number";
+                detailsUI.lblSecond.Text = "Firstname";
+                detailsUI.lblThird.Text = "Lastname";
 
-                infoUI.txtFirst.Text = Dashboard.id.Trim();
-                infoUI.txtSecond.Text = Dashboard.firstName.Trim();
-                infoUI.txtThird.Text = Dashboard.lastName.Trim();
+                detailsUI.txtFirst.Text = Dashboard.id.Trim();
+                detailsUI.txtSecond.Text = Dashboard.firstName.Trim();
+                detailsUI.txtThird.Text = Dashboard.lastName.Trim();
             }
 
             else if (context == "books")
             {
-                infoUI.lblTitle.Text = "Edit book ";
-                infoUI.lblDate.Text = "Please provide the desired\ninformation below";
+                detailsUI.lblTitle.Text = "Edit book ";
+                detailsUI.lblDate.Text = "Please provide the desired\ninformation below";
 
-                infoUI.lblFirst.Text = "Book ID";
-                infoUI.lblSecond.Text = "Title";
-                infoUI.lblThird.Text = "Author";
+                detailsUI.lblFirst.Text = "Book ID";
+                detailsUI.lblSecond.Text = "Title";
+                detailsUI.lblThird.Text = "Author";
 
-                infoUI.txtFirst.Text = Dashboard.id.Trim();
-                infoUI.txtSecond.Text = Dashboard.title.Trim();
-                infoUI.txtThird.Text = Dashboard.author.Trim();
+                detailsUI.txtFirst.Text = Dashboard.id.Trim();
+                detailsUI.txtSecond.Text = Dashboard.title.Trim();
+                detailsUI.txtThird.Text = Dashboard.author.Trim();
             }
         }
 
         public void hideEdit(string context)
         {
-            infoUI.flpEdit.Visible = false;
+            detailsUI.flpEdit.Visible = false;
 
-            infoUI.flpStatistics.Visible = true;
-            infoUI.flpDataGrid.Visible = true;
+            detailsUI.flpStatistics.Visible = true;
+            detailsUI.flpDataGrid.Visible = true;
 
-            infoUI.btnStatus.Enabled = true;
-            infoUI.btnDelete.Enabled = true;
+            detailsUI.btnStatus.Enabled = true;
+            detailsUI.btnDelete.Enabled = true;
 
             if (context == "borrowers")
             {
@@ -138,35 +138,35 @@ namespace LibrarySystem
 
             if (status.ToUpper() == "ACTIVE")
             {
-                infoUI.iconStatus.Image = disabled;
-                infoUI.lblStatus.ForeColor = Color.ForestGreen;
-                infoUI.btnStatus.Text = "Disable account";
-                infoUI.lblStatus.Text = "Account active";
+                detailsUI.iconStatus.Image = disabled;
+                detailsUI.lblStatus.ForeColor = Color.ForestGreen;
+                detailsUI.btnStatus.Text = "Disable account";
+                detailsUI.lblStatus.Text = "Account active";
 
             }
 
             else if (status.ToUpper() == "INACTIVE")
             {
-                infoUI.iconStatus.Image = enabled;
-                infoUI.lblStatus.ForeColor = Color.Red;
-                infoUI.btnStatus.Text = "Enable account";
-                infoUI.lblStatus.Text = "Account disabled";
+                detailsUI.iconStatus.Image = enabled;
+                detailsUI.lblStatus.ForeColor = Color.Red;
+                detailsUI.btnStatus.Text = "Enable account";
+                detailsUI.lblStatus.Text = "Account disabled";
             }
 
             else if (status == "1")
             {
-                infoUI.iconStatus.Image = disabled;
-                infoUI.lblStatus.ForeColor = Color.ForestGreen;
-                infoUI.btnStatus.Text = "Mark Unavailable";
-                infoUI.lblStatus.Text = "Available";
+                detailsUI.iconStatus.Image = disabled;
+                detailsUI.lblStatus.ForeColor = Color.ForestGreen;
+                detailsUI.btnStatus.Text = "Mark Unavailable";
+                detailsUI.lblStatus.Text = "Available";
             }
 
             else if (status == "0")
             {
-                infoUI.iconStatus.Image = enabled;
-                infoUI.lblStatus.ForeColor = Color.Red;
-                infoUI.btnStatus.Text = "Mark available";
-                infoUI.lblStatus.Text = "Unavailable";
+                detailsUI.iconStatus.Image = enabled;
+                detailsUI.lblStatus.ForeColor = Color.Red;
+                detailsUI.btnStatus.Text = "Mark available";
+                detailsUI.lblStatus.Text = "Unavailable";
             }
         }
 
@@ -176,12 +176,12 @@ namespace LibrarySystem
 
         public void showErrorMessage()
         {
-            infoUI.lblEditError.Visible = true;
+            detailsUI.lblEditError.Visible = true;
         }
 
         public void hideErrorMessage()
         {
-            infoUI.lblEditError.Visible = false;
+            detailsUI.lblEditError.Visible = false;
         }
     }
 }

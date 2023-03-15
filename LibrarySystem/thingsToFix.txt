@@ -1,0 +1,5 @@
+Verify the changes to be made first if it already exists
+The UI should show appropriate message "The changes you've made has conflict to existing user named <BorrowerName>"
+The same goes with books
+
+Do not allow editing of ID
