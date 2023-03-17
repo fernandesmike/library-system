@@ -61,6 +61,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BorrowerUI\BookDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BorrowerUI\BookDetails.Designer.cs">
+      <DependentUpon>BookDetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="BorrowerUI\Borrower.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -112,6 +118,9 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BorrowerUI\BookDetails.resx">
+      <DependentUpon>BookDetails.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BorrowerUI\Borrower.resx">
       <DependentUpon>Borrower.cs</DependentUpon>
     </EmbeddedResource>
