@@ -1,4 +1,6 @@
 .vs/
+obj/
+bin/
 LibrarySystem/obj/
 LibrarySystem/bin/
 LibrarySystem/.vs/
