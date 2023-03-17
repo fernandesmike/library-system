@@ -16,5 +16,9 @@ namespace LibrarySystem
         {
             InitializeComponent();
         }
+
+        private void Borrower_Load(object sender, EventArgs e)
+        {
+        }
     }
 }

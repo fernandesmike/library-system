@@ -68,6 +68,7 @@
       <DependentUpon>Borrower.cs</DependentUpon>
     </Compile>
     <Compile Include="UIHelpers\AddUIHelper.cs" />
+    <Compile Include="UIHelpers\BorrowerUIHelper.cs" />
     <Compile Include="UIHelpers\IErrorController.cs" />
     <Compile Include="AdminUI\Details.cs">
       <SubType>Form</SubType>

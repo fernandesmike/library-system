@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Borrower));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -40,9 +43,6 @@
             this.viewBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.icoBorrower = new System.Windows.Forms.PictureBox();
             this.btnDashboard = new System.Windows.Forms.Button();
-            this.viewBooks = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconBook = new System.Windows.Forms.PictureBox();
-            this.btnBooks = new System.Windows.Forms.Button();
             this.flpBtnGrp2 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblCategory2 = new System.Windows.Forms.Label();
             this.viewReports = new System.Windows.Forms.FlowLayoutPanel();
@@ -51,9 +51,27 @@
             this.signout = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.LinkLabel();
-            this.flpTitle = new System.Windows.Forms.FlowLayoutPanel();
+            this.btnBooks = new System.Windows.Forms.Button();
+            this.iconBook = new System.Windows.Forms.PictureBox();
+            this.viewBooks = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpTop = new System.Windows.Forms.FlowLayoutPanel();
+            this.pbIllustration = new System.Windows.Forms.PictureBox();
+            this.flpGreetings = new System.Windows.Forms.FlowLayoutPanel();
             this.lblContext = new System.Windows.Forms.Label();
             this.lblParagraph = new System.Windows.Forms.Label();
+            this.flpJourney = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnJourney = new System.Windows.Forms.Button();
+            this.pbConfetti = new System.Windows.Forms.PictureBox();
+            this.lblGridTitle = new System.Windows.Forms.Label();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btnBorrow = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblBorrowTitle = new System.Windows.Forms.Label();
+            this.lblBorrowSecondary = new System.Windows.Forms.Label();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -61,14 +79,24 @@
             this.flpBtnGrp1.SuspendLayout();
             this.viewBorrowers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).BeginInit();
-            this.viewBooks.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconBook)).BeginInit();
             this.flpBtnGrp2.SuspendLayout();
             this.viewReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconReports)).BeginInit();
             this.signout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            this.flpTitle.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBook)).BeginInit();
+            this.viewBooks.SuspendLayout();
+            this.flpTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIllustration)).BeginInit();
+            this.flpGreetings.SuspendLayout();
+            this.flpJourney.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfetti)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
+            this.panel1.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // divLeft
@@ -226,53 +254,6 @@
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDashboard.UseVisualStyleBackColor = false;
             // 
-            // viewBooks
-            // 
-            this.viewBooks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewBooks.AutoSize = true;
-            this.viewBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.viewBooks.Controls.Add(this.iconBook);
-            this.viewBooks.Controls.Add(this.btnBooks);
-            this.viewBooks.Location = new System.Drawing.Point(0, 105);
-            this.viewBooks.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.viewBooks.Name = "viewBooks";
-            this.viewBooks.Size = new System.Drawing.Size(219, 44);
-            this.viewBooks.TabIndex = 37;
-            // 
-            // iconBook
-            // 
-            this.iconBook.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconBook.Image = ((System.Drawing.Image)(resources.GetObject("iconBook.Image")));
-            this.iconBook.Location = new System.Drawing.Point(3, 6);
-            this.iconBook.Name = "iconBook";
-            this.iconBook.Size = new System.Drawing.Size(32, 32);
-            this.iconBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconBook.TabIndex = 35;
-            this.iconBook.TabStop = false;
-            // 
-            // btnBooks
-            // 
-            this.btnBooks.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnBooks.BackColor = System.Drawing.Color.Transparent;
-            this.btnBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBooks.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBooks.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnBooks.FlatAppearance.BorderSize = 0;
-            this.btnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBooks.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBooks.Location = new System.Drawing.Point(38, 0);
-            this.btnBooks.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBooks.Name = "btnBooks";
-            this.btnBooks.Padding = new System.Windows.Forms.Padding(5);
-            this.btnBooks.Size = new System.Drawing.Size(175, 44);
-            this.btnBooks.TabIndex = 36;
-            this.btnBooks.Text = "My books";
-            this.btnBooks.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBooks.UseVisualStyleBackColor = false;
-            // 
             // flpBtnGrp2
             // 
             this.flpBtnGrp2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
@@ -384,31 +365,102 @@
             this.btnLogout.Text = "Signout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // flpTitle
+            // btnBooks
             // 
-            this.flpTitle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.flpTitle.AutoSize = true;
-            this.flpTitle.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpTitle.Controls.Add(this.lblContext);
-            this.flpTitle.Controls.Add(this.lblParagraph);
-            this.flpTitle.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpTitle.Location = new System.Drawing.Point(285, 21);
-            this.flpTitle.Margin = new System.Windows.Forms.Padding(0);
-            this.flpTitle.Name = "flpTitle";
-            this.flpTitle.Size = new System.Drawing.Size(278, 72);
-            this.flpTitle.TabIndex = 34;
+            this.btnBooks.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBooks.BackColor = System.Drawing.Color.Transparent;
+            this.btnBooks.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBooks.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBooks.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnBooks.FlatAppearance.BorderSize = 0;
+            this.btnBooks.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBooks.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBooks.Location = new System.Drawing.Point(38, 0);
+            this.btnBooks.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBooks.Name = "btnBooks";
+            this.btnBooks.Padding = new System.Windows.Forms.Padding(5);
+            this.btnBooks.Size = new System.Drawing.Size(175, 44);
+            this.btnBooks.TabIndex = 36;
+            this.btnBooks.Text = "My books";
+            this.btnBooks.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBooks.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBooks.UseVisualStyleBackColor = false;
+            // 
+            // iconBook
+            // 
+            this.iconBook.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.iconBook.Image = ((System.Drawing.Image)(resources.GetObject("iconBook.Image")));
+            this.iconBook.Location = new System.Drawing.Point(3, 6);
+            this.iconBook.Name = "iconBook";
+            this.iconBook.Size = new System.Drawing.Size(32, 32);
+            this.iconBook.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.iconBook.TabIndex = 35;
+            this.iconBook.TabStop = false;
+            // 
+            // viewBooks
+            // 
+            this.viewBooks.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.viewBooks.AutoSize = true;
+            this.viewBooks.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.viewBooks.Controls.Add(this.iconBook);
+            this.viewBooks.Controls.Add(this.btnBooks);
+            this.viewBooks.Location = new System.Drawing.Point(0, 105);
+            this.viewBooks.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.viewBooks.Name = "viewBooks";
+            this.viewBooks.Size = new System.Drawing.Size(219, 44);
+            this.viewBooks.TabIndex = 37;
+            // 
+            // flpTop
+            // 
+            this.flpTop.AutoSize = true;
+            this.flpTop.BackColor = System.Drawing.Color.White;
+            this.flpTop.Controls.Add(this.pbIllustration);
+            this.flpTop.Controls.Add(this.flpGreetings);
+            this.flpTop.Controls.Add(this.pbConfetti);
+            this.flpTop.Location = new System.Drawing.Point(283, 18);
+            this.flpTop.Name = "flpTop";
+            this.flpTop.Size = new System.Drawing.Size(1038, 193);
+            this.flpTop.TabIndex = 38;
+            // 
+            // pbIllustration
+            // 
+            this.pbIllustration.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbIllustration.Image = ((System.Drawing.Image)(resources.GetObject("pbIllustration.Image")));
+            this.pbIllustration.Location = new System.Drawing.Point(3, 17);
+            this.pbIllustration.Name = "pbIllustration";
+            this.pbIllustration.Size = new System.Drawing.Size(227, 159);
+            this.pbIllustration.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pbIllustration.TabIndex = 37;
+            this.pbIllustration.TabStop = false;
+            // 
+            // flpGreetings
+            // 
+            this.flpGreetings.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flpGreetings.AutoSize = true;
+            this.flpGreetings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpGreetings.Controls.Add(this.lblContext);
+            this.flpGreetings.Controls.Add(this.lblParagraph);
+            this.flpGreetings.Controls.Add(this.flpJourney);
+            this.flpGreetings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpGreetings.Location = new System.Drawing.Point(253, 23);
+            this.flpGreetings.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.flpGreetings.Name = "flpGreetings";
+            this.flpGreetings.Size = new System.Drawing.Size(276, 147);
+            this.flpGreetings.TabIndex = 38;
             // 
             // lblContext
             // 
             this.lblContext.AutoEllipsis = true;
             this.lblContext.AutoSize = true;
-            this.lblContext.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold);
+            this.lblContext.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
             this.lblContext.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblContext.Location = new System.Drawing.Point(3, 0);
             this.lblContext.Name = "lblContext";
-            this.lblContext.Size = new System.Drawing.Size(173, 38);
+            this.lblContext.Size = new System.Drawing.Size(161, 25);
             this.lblContext.TabIndex = 12;
-            this.lblContext.Text = "Dashboard";
+            this.lblContext.Text = "Good day, Mike ";
             this.lblContext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblParagraph
@@ -416,20 +468,251 @@
             this.lblParagraph.AutoSize = true;
             this.lblParagraph.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParagraph.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblParagraph.Location = new System.Drawing.Point(3, 48);
+            this.lblParagraph.Location = new System.Drawing.Point(3, 35);
             this.lblParagraph.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
             this.lblParagraph.Name = "lblParagraph";
-            this.lblParagraph.Size = new System.Drawing.Size(272, 24);
+            this.lblParagraph.Size = new System.Drawing.Size(270, 48);
             this.lblParagraph.TabIndex = 14;
-            this.lblParagraph.Text = "Manage your books and profile";
+            this.lblParagraph.Text = "View your reading journey and \r\ntransactions history\r\n";
             this.lblParagraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flpJourney
+            // 
+            this.flpJourney.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpJourney.AutoSize = true;
+            this.flpJourney.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpJourney.Controls.Add(this.pictureBox2);
+            this.flpJourney.Controls.Add(this.btnJourney);
+            this.flpJourney.Location = new System.Drawing.Point(0, 103);
+            this.flpJourney.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flpJourney.Name = "flpJourney";
+            this.flpJourney.Size = new System.Drawing.Size(276, 44);
+            this.flpJourney.TabIndex = 38;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnJourney
+            // 
+            this.btnJourney.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnJourney.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnJourney.BackColor = System.Drawing.Color.Transparent;
+            this.btnJourney.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnJourney.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnJourney.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnJourney.FlatAppearance.BorderSize = 0;
+            this.btnJourney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnJourney.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnJourney.Location = new System.Drawing.Point(38, 0);
+            this.btnJourney.Margin = new System.Windows.Forms.Padding(0);
+            this.btnJourney.Name = "btnJourney";
+            this.btnJourney.Padding = new System.Windows.Forms.Padding(5);
+            this.btnJourney.Size = new System.Drawing.Size(175, 44);
+            this.btnJourney.TabIndex = 36;
+            this.btnJourney.Text = "My journey";
+            this.btnJourney.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnJourney.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnJourney.UseVisualStyleBackColor = false;
+            // 
+            // pbConfetti
+            // 
+            this.pbConfetti.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbConfetti.Image = ((System.Drawing.Image)(resources.GetObject("pbConfetti.Image")));
+            this.pbConfetti.Location = new System.Drawing.Point(539, 3);
+            this.pbConfetti.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.pbConfetti.Name = "pbConfetti";
+            this.pbConfetti.Size = new System.Drawing.Size(472, 187);
+            this.pbConfetti.TabIndex = 39;
+            this.pbConfetti.TabStop = false;
+            // 
+            // lblGridTitle
+            // 
+            this.lblGridTitle.AutoEllipsis = true;
+            this.lblGridTitle.AutoSize = true;
+            this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblGridTitle.Location = new System.Drawing.Point(282, 414);
+            this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.lblGridTitle.Name = "lblGridTitle";
+            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblGridTitle.Size = new System.Drawing.Size(162, 24);
+            this.lblGridTitle.TabIndex = 41;
+            this.lblGridTitle.Text = "Borrowed books";
+            this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // dataGrid
+            // 
+            this.dataGrid.AllowUserToAddRows = false;
+            this.dataGrid.AllowUserToDeleteRows = false;
+            this.dataGrid.AllowUserToResizeColumns = false;
+            this.dataGrid.AllowUserToResizeRows = false;
+            this.dataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle40.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            this.dataGrid.ColumnHeadersHeight = 40;
+            this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle41.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle41;
+            this.dataGrid.GridColor = System.Drawing.Color.LightGray;
+            this.dataGrid.Location = new System.Drawing.Point(286, 455);
+            this.dataGrid.MultiSelect = false;
+            this.dataGrid.Name = "dataGrid";
+            this.dataGrid.ReadOnly = true;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle42.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            this.dataGrid.RowHeadersVisible = false;
+            this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowTemplate.DividerHeight = 1;
+            this.dataGrid.RowTemplate.Height = 40;
+            this.dataGrid.RowTemplate.ReadOnly = true;
+            this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGrid.Size = new System.Drawing.Size(1038, 136);
+            this.dataGrid.TabIndex = 42;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.Cornsilk;
+            this.panel1.Controls.Add(this.flowLayoutPanel2);
+            this.panel1.Controls.Add(this.flowLayoutPanel1);
+            this.panel1.Location = new System.Drawing.Point(283, 232);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1038, 139);
+            this.panel1.TabIndex = 43;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoSize = true;
+            this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel1.Controls.Add(this.pictureBox3);
+            this.flowLayoutPanel1.Controls.Add(this.btnBorrow);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(818, 44);
+            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(196, 44);
+            this.flowLayoutPanel1.TabIndex = 39;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 35;
+            this.pictureBox3.TabStop = false;
+            // 
+            // btnBorrow
+            // 
+            this.btnBorrow.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBorrow.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBorrow.BackColor = System.Drawing.Color.Transparent;
+            this.btnBorrow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBorrow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBorrow.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnBorrow.FlatAppearance.BorderSize = 0;
+            this.btnBorrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBorrow.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBorrow.Location = new System.Drawing.Point(38, 0);
+            this.btnBorrow.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBorrow.Name = "btnBorrow";
+            this.btnBorrow.Padding = new System.Windows.Forms.Padding(5);
+            this.btnBorrow.Size = new System.Drawing.Size(158, 44);
+            this.btnBorrow.TabIndex = 36;
+            this.btnBorrow.Text = "Borrow a book";
+            this.btnBorrow.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBorrow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBorrow.UseVisualStyleBackColor = false;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flowLayoutPanel2.AutoSize = true;
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.Controls.Add(this.lblBorrowTitle);
+            this.flowLayoutPanel2.Controls.Add(this.lblBorrowSecondary);
+            this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(20, 25);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(346, 83);
+            this.flowLayoutPanel2.TabIndex = 40;
+            // 
+            // lblBorrowTitle
+            // 
+            this.lblBorrowTitle.AutoEllipsis = true;
+            this.lblBorrowTitle.AutoSize = true;
+            this.lblBorrowTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
+            this.lblBorrowTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblBorrowTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblBorrowTitle.Name = "lblBorrowTitle";
+            this.lblBorrowTitle.Size = new System.Drawing.Size(239, 25);
+            this.lblBorrowTitle.TabIndex = 12;
+            this.lblBorrowTitle.Text = "Looking for a new book?";
+            this.lblBorrowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // lblBorrowSecondary
+            // 
+            this.lblBorrowSecondary.AutoSize = true;
+            this.lblBorrowSecondary.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBorrowSecondary.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblBorrowSecondary.Location = new System.Drawing.Point(3, 35);
+            this.lblBorrowSecondary.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblBorrowSecondary.Name = "lblBorrowSecondary";
+            this.lblBorrowSecondary.Size = new System.Drawing.Size(340, 48);
+            this.lblBorrowSecondary.TabIndex = 14;
+            this.lblBorrowSecondary.Text = "Borrow any books you want and start it\r\nreading";
+            this.lblBorrowSecondary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Borrower
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1342, 753);
-            this.Controls.Add(this.flpTitle);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.lblGridTitle);
+            this.Controls.Add(this.dataGrid);
+            this.Controls.Add(this.flpTop);
             this.Controls.Add(this.divLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -437,6 +720,7 @@
             this.Name = "Borrower";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
+            this.Load += new System.EventHandler(this.Borrower_Load);
             this.divLeft.ResumeLayout(false);
             this.divLeft.PerformLayout();
             this.userInfoContainer.ResumeLayout(false);
@@ -446,15 +730,28 @@
             this.flpBtnGrp1.PerformLayout();
             this.viewBorrowers.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).EndInit();
-            this.viewBooks.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconBook)).EndInit();
             this.flpBtnGrp2.ResumeLayout(false);
             this.viewReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconReports)).EndInit();
             this.signout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            this.flpTitle.ResumeLayout(false);
-            this.flpTitle.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.iconBook)).EndInit();
+            this.viewBooks.ResumeLayout(false);
+            this.flpTop.ResumeLayout(false);
+            this.flpTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbIllustration)).EndInit();
+            this.flpGreetings.ResumeLayout(false);
+            this.flpGreetings.PerformLayout();
+            this.flpJourney.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbConfetti)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,9 +770,6 @@
         private System.Windows.Forms.FlowLayoutPanel viewBorrowers;
         internal System.Windows.Forms.PictureBox icoBorrower;
         internal System.Windows.Forms.Button btnDashboard;
-        internal System.Windows.Forms.FlowLayoutPanel viewBooks;
-        internal System.Windows.Forms.PictureBox iconBook;
-        internal System.Windows.Forms.Button btnBooks;
         private System.Windows.Forms.FlowLayoutPanel flpBtnGrp2;
         private System.Windows.Forms.Label lblCategory2;
         internal System.Windows.Forms.FlowLayoutPanel viewReports;
@@ -484,8 +778,26 @@
         private System.Windows.Forms.FlowLayoutPanel signout;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.LinkLabel btnLogout;
-        internal System.Windows.Forms.FlowLayoutPanel flpTitle;
+        internal System.Windows.Forms.FlowLayoutPanel viewBooks;
+        internal System.Windows.Forms.PictureBox iconBook;
+        internal System.Windows.Forms.Button btnBooks;
+        private System.Windows.Forms.FlowLayoutPanel flpTop;
+        private System.Windows.Forms.PictureBox pbIllustration;
+        internal System.Windows.Forms.FlowLayoutPanel flpGreetings;
         internal System.Windows.Forms.Label lblContext;
         internal System.Windows.Forms.Label lblParagraph;
+        internal System.Windows.Forms.FlowLayoutPanel flpJourney;
+        internal System.Windows.Forms.PictureBox pictureBox2;
+        internal System.Windows.Forms.Button btnJourney;
+        private System.Windows.Forms.PictureBox pbConfetti;
+        internal System.Windows.Forms.Label lblGridTitle;
+        internal System.Windows.Forms.DataGridView dataGrid;
+        private System.Windows.Forms.Panel panel1;
+        internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        internal System.Windows.Forms.Label lblBorrowTitle;
+        internal System.Windows.Forms.Label lblBorrowSecondary;
+        internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        internal System.Windows.Forms.PictureBox pictureBox3;
+        internal System.Windows.Forms.Button btnBorrow;
     }
 }
