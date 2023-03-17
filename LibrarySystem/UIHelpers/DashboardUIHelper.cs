@@ -35,11 +35,15 @@ namespace LibrarySystem
             // Grid header
             dashboard.lblGridTitle.Text = "All borrowers";
             dashboard.btnAdd.Text = " + Add borrowers";
+            dashboard.btnAdd.Enabled = true;
 
             dashboard.rbActive.Text = "Active";
             dashboard.rbInactive.Text = "Inactive";
 
+            dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
+            dashboard.flpSearch.Visible = true;
+            dashboard.flpReports.Visible = false;
 
             dashboard.rbAll.Select();
 
@@ -62,11 +66,14 @@ namespace LibrarySystem
 
             dashboard.lblGridTitle.Text = "All books";
             dashboard.btnAdd.Text = " + Add books";
+            dashboard.btnAdd.Enabled = true;
 
             dashboard.rbActive.Text = "Available";
             dashboard.rbInactive.Text = "Borrowed";
 
+            dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
+            dashboard.flpReports.Visible = false;
 
             dashboard.rbAll.Select();
 
@@ -79,10 +86,12 @@ namespace LibrarySystem
             dashboard.context = "reports";
 
             dashboard.lblContext.Text = "Reports";
-            dashboard.lblParagraph.Text = "View and generate system reports \nand inventories";
+            dashboard.lblParagraph.Text = "View and generate system reports";
             dashboard.lblSearch.Text = "Search reports";
 
-            dashboard.flpBorrowersUI.Visible = false;
+            dashboard.radioContainer.Visible = false;
+            dashboard.flpReports.Visible = true;
+            dashboard.flpReports.BringToFront();
 
             // Display simple, graphical reports
             // Include date filters

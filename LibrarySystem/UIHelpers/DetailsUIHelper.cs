@@ -170,10 +170,6 @@ namespace LibrarySystem
             }
         }
 
-        // NOTE
-        // Make these two methods an interface
-        // Same methods also exist inside AddUIHelper class
-
         public void showErrorMessage()
         {
             detailsUI.lblEditError.Visible = true;

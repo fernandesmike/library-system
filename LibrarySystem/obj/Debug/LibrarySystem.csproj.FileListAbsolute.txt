@@ -10,5 +10,7 @@ C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySy
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.exe
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.pdb
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Add.resources
-C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.csprojAssemblyReference.cache
 C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Details.resources
+C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Test.resources
+C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.Borrower.resources
+C:\Users\ferna\OneDrive\Desktop\Application Development\DBSYS - Prelim\LibrarySystem\obj\Debug\LibrarySystem.csprojAssemblyReference.cache

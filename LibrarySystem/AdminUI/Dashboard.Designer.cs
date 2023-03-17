@@ -52,9 +52,6 @@
             this.viewReports = new System.Windows.Forms.FlowLayoutPanel();
             this.iconReports = new System.Windows.Forms.PictureBox();
             this.btnViewReports = new System.Windows.Forms.Button();
-            this.viewTransactions = new System.Windows.Forms.FlowLayoutPanel();
-            this.iconTransactions = new System.Windows.Forms.PictureBox();
-            this.btnViewTransactions = new System.Windows.Forms.Button();
             this.signout = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.btnLogout = new System.Windows.Forms.LinkLabel();
@@ -88,6 +85,18 @@
             this.lblSearch = new System.Windows.Forms.Label();
             this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
             this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
+            this.flpReports = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpBottom = new System.Windows.Forms.FlowLayoutPanel();
+            this.flpExport = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblExport = new System.Windows.Forms.Label();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnReportSheet = new System.Windows.Forms.Button();
+            this.flpBackup = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblBackup = new System.Windows.Forms.Label();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBackup = new System.Windows.Forms.Button();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -100,8 +109,6 @@
             this.flpBtnGrp2.SuspendLayout();
             this.viewReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconReports)).BeginInit();
-            this.viewTransactions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.iconTransactions)).BeginInit();
             this.signout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.flpTitle.SuspendLayout();
@@ -117,6 +124,14 @@
             this.searchContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.flpSearch.SuspendLayout();
+            this.flpReports.SuspendLayout();
+            this.flpBottom.SuspendLayout();
+            this.flpExport.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.flpBackup.SuspendLayout();
+            this.flowLayoutPanel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // divLeft
@@ -330,12 +345,11 @@
             this.flpBtnGrp2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpBtnGrp2.Controls.Add(this.lblCategory2);
             this.flpBtnGrp2.Controls.Add(this.viewReports);
-            this.flpBtnGrp2.Controls.Add(this.viewTransactions);
             this.flpBtnGrp2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpBtnGrp2.Location = new System.Drawing.Point(18, 389);
             this.flpBtnGrp2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
             this.flpBtnGrp2.Name = "flpBtnGrp2";
-            this.flpBtnGrp2.Size = new System.Drawing.Size(219, 149);
+            this.flpBtnGrp2.Size = new System.Drawing.Size(219, 95);
             this.flpBtnGrp2.TabIndex = 36;
             // 
             // lblCategory2
@@ -395,53 +409,6 @@
             this.btnViewReports.UseVisualStyleBackColor = false;
             this.btnViewReports.Click += new System.EventHandler(this.BtnViewReports_Click);
             // 
-            // viewTransactions
-            // 
-            this.viewTransactions.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.viewTransactions.AutoSize = true;
-            this.viewTransactions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.viewTransactions.Controls.Add(this.iconTransactions);
-            this.viewTransactions.Controls.Add(this.btnViewTransactions);
-            this.viewTransactions.Location = new System.Drawing.Point(0, 105);
-            this.viewTransactions.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.viewTransactions.Name = "viewTransactions";
-            this.viewTransactions.Size = new System.Drawing.Size(219, 44);
-            this.viewTransactions.TabIndex = 37;
-            // 
-            // iconTransactions
-            // 
-            this.iconTransactions.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.iconTransactions.Image = ((System.Drawing.Image)(resources.GetObject("iconTransactions.Image")));
-            this.iconTransactions.Location = new System.Drawing.Point(3, 6);
-            this.iconTransactions.Name = "iconTransactions";
-            this.iconTransactions.Size = new System.Drawing.Size(32, 32);
-            this.iconTransactions.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.iconTransactions.TabIndex = 35;
-            this.iconTransactions.TabStop = false;
-            // 
-            // btnViewTransactions
-            // 
-            this.btnViewTransactions.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnViewTransactions.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnViewTransactions.BackColor = System.Drawing.Color.Transparent;
-            this.btnViewTransactions.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnViewTransactions.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnViewTransactions.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnViewTransactions.FlatAppearance.BorderSize = 0;
-            this.btnViewTransactions.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewTransactions.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewTransactions.Location = new System.Drawing.Point(38, 0);
-            this.btnViewTransactions.Margin = new System.Windows.Forms.Padding(0);
-            this.btnViewTransactions.Name = "btnViewTransactions";
-            this.btnViewTransactions.Padding = new System.Windows.Forms.Padding(5);
-            this.btnViewTransactions.Size = new System.Drawing.Size(175, 44);
-            this.btnViewTransactions.TabIndex = 36;
-            this.btnViewTransactions.Text = "Transactions";
-            this.btnViewTransactions.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnViewTransactions.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnViewTransactions.UseVisualStyleBackColor = false;
-            // 
             // signout
             // 
             this.signout.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
@@ -449,8 +416,8 @@
             this.signout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.signout.Controls.Add(this.pictureBox4);
             this.signout.Controls.Add(this.btnLogout);
-            this.signout.Location = new System.Drawing.Point(15, 691);
-            this.signout.Margin = new System.Windows.Forms.Padding(0, 150, 0, 0);
+            this.signout.Location = new System.Drawing.Point(15, 687);
+            this.signout.Margin = new System.Windows.Forms.Padding(0, 200, 0, 0);
             this.signout.Name = "signout";
             this.signout.Size = new System.Drawing.Size(225, 38);
             this.signout.TabIndex = 38;
@@ -711,8 +678,8 @@
             this.lblGridTitle.Location = new System.Drawing.Point(3, 36);
             this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.lblGridTitle.Name = "lblGridTitle";
-            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.lblGridTitle.Size = new System.Drawing.Size(149, 24);
+            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
+            this.lblGridTitle.Size = new System.Drawing.Size(139, 24);
             this.lblGridTitle.TabIndex = 39;
             this.lblGridTitle.Text = "All borrowers";
             this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -835,7 +802,7 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
@@ -937,12 +904,189 @@
             this.tmHideMessage.Interval = 3000;
             this.tmHideMessage.Tick += new System.EventHandler(this.TmHideMessage_Tick);
             // 
+            // flpReports
+            // 
+            this.flpReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpReports.Controls.Add(this.flpBottom);
+            this.flpReports.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpReports.Location = new System.Drawing.Point(286, 120);
+            this.flpReports.Name = "flpReports";
+            this.flpReports.Size = new System.Drawing.Size(1050, 135);
+            this.flpReports.TabIndex = 39;
+            // 
+            // flpBottom
+            // 
+            this.flpBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flpBottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpBottom.Controls.Add(this.flpExport);
+            this.flpBottom.Controls.Add(this.flpBackup);
+            this.flpBottom.Location = new System.Drawing.Point(3, 0);
+            this.flpBottom.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flpBottom.Name = "flpBottom";
+            this.flpBottom.Size = new System.Drawing.Size(1047, 135);
+            this.flpBottom.TabIndex = 39;
+            // 
+            // flpExport
+            // 
+            this.flpExport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpExport.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flpExport.Controls.Add(this.lblExport);
+            this.flpExport.Controls.Add(this.flowLayoutPanel3);
+            this.flpExport.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpExport.Location = new System.Drawing.Point(3, 3);
+            this.flpExport.Name = "flpExport";
+            this.flpExport.Padding = new System.Windows.Forms.Padding(10);
+            this.flpExport.Size = new System.Drawing.Size(520, 122);
+            this.flpExport.TabIndex = 31;
+            // 
+            // lblExport
+            // 
+            this.lblExport.AutoSize = true;
+            this.lblExport.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExport.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblExport.Location = new System.Drawing.Point(13, 20);
+            this.lblExport.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblExport.Name = "lblExport";
+            this.lblExport.Size = new System.Drawing.Size(272, 24);
+            this.lblExport.TabIndex = 37;
+            this.lblExport.Text = "Generate latest system reports";
+            this.lblExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel3.Controls.Add(this.pictureBox2);
+            this.flowLayoutPanel3.Controls.Add(this.btnReportSheet);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(13, 59);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(272, 50);
+            this.flowLayoutPanel3.TabIndex = 38;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
+            this.pictureBox2.ErrorImage = null;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
+            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnReportSheet
+            // 
+            this.btnReportSheet.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnReportSheet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnReportSheet.BackColor = System.Drawing.Color.Transparent;
+            this.btnReportSheet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnReportSheet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportSheet.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnReportSheet.FlatAppearance.BorderSize = 0;
+            this.btnReportSheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportSheet.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportSheet.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnReportSheet.Location = new System.Drawing.Point(38, 0);
+            this.btnReportSheet.Margin = new System.Windows.Forms.Padding(0);
+            this.btnReportSheet.Name = "btnReportSheet";
+            this.btnReportSheet.Padding = new System.Windows.Forms.Padding(5);
+            this.btnReportSheet.Size = new System.Drawing.Size(175, 44);
+            this.btnReportSheet.TabIndex = 30;
+            this.btnReportSheet.Text = "Spreadsheet";
+            this.btnReportSheet.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnReportSheet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportSheet.UseVisualStyleBackColor = false;
+            // 
+            // flpBackup
+            // 
+            this.flpBackup.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.flpBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpBackup.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flpBackup.Controls.Add(this.lblBackup);
+            this.flpBackup.Controls.Add(this.flowLayoutPanel2);
+            this.flpBackup.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpBackup.Location = new System.Drawing.Point(546, 3);
+            this.flpBackup.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
+            this.flpBackup.Name = "flpBackup";
+            this.flpBackup.Padding = new System.Windows.Forms.Padding(10);
+            this.flpBackup.Size = new System.Drawing.Size(498, 122);
+            this.flpBackup.TabIndex = 32;
+            // 
+            // lblBackup
+            // 
+            this.lblBackup.AutoSize = true;
+            this.lblBackup.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBackup.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblBackup.Location = new System.Drawing.Point(13, 20);
+            this.lblBackup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblBackup.Name = "lblBackup";
+            this.lblBackup.Size = new System.Drawing.Size(334, 24);
+            this.lblBackup.TabIndex = 37;
+            this.lblBackup.Text = "Create a new system database backup\r\n";
+            this.lblBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel2.Controls.Add(this.btnBackup);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(13, 59);
+            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(334, 50);
+            this.flowLayoutPanel2.TabIndex = 38;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.ErrorImage = null;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
+            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 35;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnBackup
+            // 
+            this.btnBackup.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnBackup.BackColor = System.Drawing.Color.Transparent;
+            this.btnBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBackup.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnBackup.FlatAppearance.BorderSize = 0;
+            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBackup.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBackup.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.btnBackup.Location = new System.Drawing.Point(38, 0);
+            this.btnBackup.Margin = new System.Windows.Forms.Padding(0);
+            this.btnBackup.Name = "btnBackup";
+            this.btnBackup.Padding = new System.Windows.Forms.Padding(5);
+            this.btnBackup.Size = new System.Drawing.Size(175, 44);
+            this.btnBackup.TabIndex = 30;
+            this.btnBackup.Text = "Create backup";
+            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnBackup.UseVisualStyleBackColor = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 753);
+            this.Controls.Add(this.flpReports);
             this.Controls.Add(this.flpSearch);
             this.Controls.Add(this.flpBorrowersUI);
             this.Controls.Add(this.flpTitle);
@@ -969,11 +1113,8 @@
             this.viewBooks.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconBook)).EndInit();
             this.flpBtnGrp2.ResumeLayout(false);
-            this.flpBtnGrp2.PerformLayout();
             this.viewReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconReports)).EndInit();
-            this.viewTransactions.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.iconTransactions)).EndInit();
             this.signout.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.flpTitle.ResumeLayout(false);
@@ -998,6 +1139,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.flpSearch.ResumeLayout(false);
             this.flpSearch.PerformLayout();
+            this.flpReports.ResumeLayout(false);
+            this.flpBottom.ResumeLayout(false);
+            this.flpExport.ResumeLayout(false);
+            this.flpExport.PerformLayout();
+            this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.flpBackup.ResumeLayout(false);
+            this.flpBackup.PerformLayout();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1023,14 +1174,11 @@
         internal System.Windows.Forms.Button btnViewBooks;
         internal System.Windows.Forms.Button btnViewBorrowers;
         internal System.Windows.Forms.Button btnViewReports;
-        internal System.Windows.Forms.Button btnViewTransactions;
         internal System.Windows.Forms.PictureBox icoBorrower;
         internal System.Windows.Forms.PictureBox iconBook;
         internal System.Windows.Forms.PictureBox iconReports;
-        internal System.Windows.Forms.PictureBox iconTransactions;
         internal System.Windows.Forms.FlowLayoutPanel viewBooks;
         internal System.Windows.Forms.FlowLayoutPanel viewReports;
-        internal System.Windows.Forms.FlowLayoutPanel viewTransactions;
         internal System.Windows.Forms.FlowLayoutPanel flpTitle;
         internal System.Windows.Forms.FlowLayoutPanel flpBorrowersUI;
         internal System.Windows.Forms.FlowLayoutPanel divLeft;
@@ -1059,5 +1207,17 @@
         private System.Windows.Forms.FlowLayoutPanel viewBorrowers;
         internal System.Windows.Forms.Label lblUpdateMessage;
         internal System.Windows.Forms.Timer tmHideMessage;
+        internal System.Windows.Forms.FlowLayoutPanel flpReports;
+        private System.Windows.Forms.FlowLayoutPanel flpBottom;
+        private System.Windows.Forms.FlowLayoutPanel flpExport;
+        internal System.Windows.Forms.Label lblExport;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        internal System.Windows.Forms.PictureBox pictureBox2;
+        internal System.Windows.Forms.Button btnReportSheet;
+        private System.Windows.Forms.FlowLayoutPanel flpBackup;
+        internal System.Windows.Forms.Label lblBackup;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        internal System.Windows.Forms.PictureBox pictureBox1;
+        internal System.Windows.Forms.Button btnBackup;
     }
 }

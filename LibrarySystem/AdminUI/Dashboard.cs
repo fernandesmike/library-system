@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-using LibrarySystem.Class;
 
 namespace LibrarySystem
 {
@@ -22,7 +21,7 @@ namespace LibrarySystem
         private Add addUI;
 
         // For book info
-        // Reusable (book or borrower ID)
+        // id is reusable (book or borrower ID)
         public static string id;
         public static string title;
         public static string author;
@@ -258,5 +257,6 @@ namespace LibrarySystem
             lblUpdateMessage.Height = 1;
             tmHideMessage.Enabled = false;
         }
+
     }
 }

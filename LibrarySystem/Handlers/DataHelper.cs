@@ -283,6 +283,8 @@ namespace LibrarySystem
                 return 0;
             }
         }
+        
+        
         /*
         =================================
         Book Data Manipulation Language
@@ -656,7 +658,8 @@ namespace LibrarySystem
         }
 
         public int updateBorrowerName(string id, string firstName, string lastName)
-        {try
+        {
+            try
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
