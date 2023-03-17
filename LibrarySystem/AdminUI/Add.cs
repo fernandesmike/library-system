@@ -76,6 +76,7 @@ namespace LibrarySystem
                         dashboardUI.showBorrowersUI();
                         Dashboard.firstName = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");
+                        dashboard.updateStatistics(this.context);
 
                         this.Close();
                     }
@@ -97,6 +98,7 @@ namespace LibrarySystem
                         dashboardUI.showBooksUI();
                         Dashboard.title = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");
+                        dashboard.updateStatistics(this.context);
 
                         this.Close();
                     }

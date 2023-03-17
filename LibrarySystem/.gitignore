@@ -3,4 +3,5 @@ obj/
 bin/
 LibrarySystem/obj/
 LibrarySystem/bin/
+LibrarySystem/bin/Debug
 LibrarySystem/.vs/

@@ -8,13 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace LibrarySystem.BorrowerUI
+namespace LibrarySystem
 {
-    public partial class BookDetails : Form
+    public partial class Borrow : Form
     {
-        public BookDetails()
+        public Borrow()
         {
             InitializeComponent();
+        }
+
+        private void Borrow_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnBack_Click(object sender, EventArgs e)
+        {
+            Borrower returnToHome = new Borrower();
+            this.Close();
+            returnToHome.Show();
         }
     }
 }

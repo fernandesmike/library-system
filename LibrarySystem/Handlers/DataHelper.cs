@@ -149,7 +149,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search OR author LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);

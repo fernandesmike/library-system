@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Borrower));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -57,10 +57,10 @@
             this.flpTop = new System.Windows.Forms.FlowLayoutPanel();
             this.pbIllustration = new System.Windows.Forms.PictureBox();
             this.flpGreetings = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblContext = new System.Windows.Forms.Label();
+            this.lblTopTitle = new System.Windows.Forms.Label();
             this.lblParagraph = new System.Windows.Forms.Label();
             this.flpJourney = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbJourney = new System.Windows.Forms.PictureBox();
             this.btnJourney = new System.Windows.Forms.Button();
             this.pbConfetti = new System.Windows.Forms.PictureBox();
             this.panelBorrow = new System.Windows.Forms.Panel();
@@ -72,7 +72,7 @@
             this.btnBorrow = new System.Windows.Forms.Button();
             this.flpDataGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.panelGridHeader = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAll = new System.Windows.Forms.Button();
             this.lblGridTitle = new System.Windows.Forms.Label();
             this.flpGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.dataGrid = new System.Windows.Forms.DataGridView();
@@ -94,7 +94,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbIllustration)).BeginInit();
             this.flpGreetings.SuspendLayout();
             this.flpJourney.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJourney)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfetti)).BeginInit();
             this.panelBorrow.SuspendLayout();
             this.flowLayoutPanel2.SuspendLayout();
@@ -260,6 +260,7 @@
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnHome.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnHome.UseVisualStyleBackColor = false;
+            this.btnHome.Click += new System.EventHandler(this.BtnHome_Click);
             // 
             // viewBooks
             // 
@@ -447,7 +448,7 @@
             this.flpGreetings.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.flpGreetings.AutoSize = true;
             this.flpGreetings.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpGreetings.Controls.Add(this.lblContext);
+            this.flpGreetings.Controls.Add(this.lblTopTitle);
             this.flpGreetings.Controls.Add(this.lblParagraph);
             this.flpGreetings.Controls.Add(this.flpJourney);
             this.flpGreetings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
@@ -457,18 +458,18 @@
             this.flpGreetings.Size = new System.Drawing.Size(276, 147);
             this.flpGreetings.TabIndex = 38;
             // 
-            // lblContext
+            // lblTopTitle
             // 
-            this.lblContext.AutoEllipsis = true;
-            this.lblContext.AutoSize = true;
-            this.lblContext.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
-            this.lblContext.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblContext.Location = new System.Drawing.Point(3, 0);
-            this.lblContext.Name = "lblContext";
-            this.lblContext.Size = new System.Drawing.Size(161, 25);
-            this.lblContext.TabIndex = 12;
-            this.lblContext.Text = "Good day, Mike ";
-            this.lblContext.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblTopTitle.AutoEllipsis = true;
+            this.lblTopTitle.AutoSize = true;
+            this.lblTopTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
+            this.lblTopTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTopTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTopTitle.Name = "lblTopTitle";
+            this.lblTopTitle.Size = new System.Drawing.Size(161, 25);
+            this.lblTopTitle.TabIndex = 12;
+            this.lblTopTitle.Text = "Good day, Mike ";
+            this.lblTopTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // lblParagraph
             // 
@@ -489,7 +490,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.flpJourney.AutoSize = true;
             this.flpJourney.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpJourney.Controls.Add(this.pictureBox2);
+            this.flpJourney.Controls.Add(this.pbJourney);
             this.flpJourney.Controls.Add(this.btnJourney);
             this.flpJourney.Location = new System.Drawing.Point(0, 103);
             this.flpJourney.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
@@ -497,16 +498,16 @@
             this.flpJourney.Size = new System.Drawing.Size(276, 44);
             this.flpJourney.TabIndex = 38;
             // 
-            // pictureBox2
+            // pbJourney
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
+            this.pbJourney.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pbJourney.Image = ((System.Drawing.Image)(resources.GetObject("pbJourney.Image")));
+            this.pbJourney.Location = new System.Drawing.Point(3, 6);
+            this.pbJourney.Name = "pbJourney";
+            this.pbJourney.Size = new System.Drawing.Size(32, 32);
+            this.pbJourney.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbJourney.TabIndex = 35;
+            this.pbJourney.TabStop = false;
             // 
             // btnJourney
             // 
@@ -650,35 +651,35 @@
             // panelGridHeader
             // 
             this.panelGridHeader.BackColor = System.Drawing.Color.Transparent;
-            this.panelGridHeader.Controls.Add(this.button1);
+            this.panelGridHeader.Controls.Add(this.btnAll);
             this.panelGridHeader.Controls.Add(this.lblGridTitle);
             this.panelGridHeader.Location = new System.Drawing.Point(3, 3);
             this.panelGridHeader.Name = "panelGridHeader";
             this.panelGridHeader.Size = new System.Drawing.Size(1038, 54);
             this.panelGridHeader.TabIndex = 45;
             // 
-            // button1
+            // btnAll
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Outfit SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkGreen;
-            this.button1.Location = new System.Drawing.Point(887, 5);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Padding = new System.Windows.Forms.Padding(5);
-            this.button1.Size = new System.Drawing.Size(151, 44);
-            this.button1.TabIndex = 43;
-            this.button1.Text = "View all";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnAll.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnAll.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnAll.BackColor = System.Drawing.Color.Transparent;
+            this.btnAll.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAll.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAll.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnAll.FlatAppearance.BorderSize = 0;
+            this.btnAll.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAll.Font = new System.Drawing.Font("Outfit SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAll.ForeColor = System.Drawing.Color.DarkGreen;
+            this.btnAll.Location = new System.Drawing.Point(887, 5);
+            this.btnAll.Margin = new System.Windows.Forms.Padding(0);
+            this.btnAll.Name = "btnAll";
+            this.btnAll.Padding = new System.Windows.Forms.Padding(5);
+            this.btnAll.Size = new System.Drawing.Size(151, 44);
+            this.btnAll.TabIndex = 43;
+            this.btnAll.Text = "View all";
+            this.btnAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnAll.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAll.UseVisualStyleBackColor = false;
             // 
             // lblGridTitle
             // 
@@ -715,41 +716,41 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            dataGridViewCellStyle23.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(3, 3);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -799,7 +800,7 @@
             this.flpGreetings.ResumeLayout(false);
             this.flpGreetings.PerformLayout();
             this.flpJourney.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbJourney)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbConfetti)).EndInit();
             this.panelBorrow.ResumeLayout(false);
             this.panelBorrow.PerformLayout();
@@ -844,10 +845,10 @@
         private System.Windows.Forms.FlowLayoutPanel flpTop;
         private System.Windows.Forms.PictureBox pbIllustration;
         internal System.Windows.Forms.FlowLayoutPanel flpGreetings;
-        internal System.Windows.Forms.Label lblContext;
+        internal System.Windows.Forms.Label lblTopTitle;
         internal System.Windows.Forms.Label lblParagraph;
         internal System.Windows.Forms.FlowLayoutPanel flpJourney;
-        internal System.Windows.Forms.PictureBox pictureBox2;
+        internal System.Windows.Forms.PictureBox pbJourney;
         internal System.Windows.Forms.Button btnJourney;
         private System.Windows.Forms.PictureBox pbConfetti;
         private System.Windows.Forms.Panel panelBorrow;
@@ -859,7 +860,7 @@
         internal System.Windows.Forms.Button btnBorrow;
         private System.Windows.Forms.FlowLayoutPanel flpDataGrid;
         private System.Windows.Forms.Panel panelGridHeader;
-        internal System.Windows.Forms.Button button1;
+        internal System.Windows.Forms.Button btnAll;
         internal System.Windows.Forms.Label lblGridTitle;
         private System.Windows.Forms.FlowLayoutPanel flpGrid;
         internal System.Windows.Forms.DataGridView dataGrid;
