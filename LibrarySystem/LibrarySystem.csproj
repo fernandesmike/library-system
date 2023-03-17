@@ -61,28 +61,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class\AddUIHelper.cs" />
-    <Compile Include="Class\IErrorController.cs" />
-    <Compile Include="Details.cs">
+    <Compile Include="BorrowerUI\Borrower.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Details.Designer.cs">
+    <Compile Include="BorrowerUI\Borrower.Designer.cs">
+      <DependentUpon>Borrower.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIHelpers\AddUIHelper.cs" />
+    <Compile Include="UIHelpers\IErrorController.cs" />
+    <Compile Include="AdminUI\Details.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminUI\Details.Designer.cs">
       <DependentUpon>Details.cs</DependentUpon>
     </Compile>
-    <Compile Include="Class\DataHelper.cs" />
-    <Compile Include="Class\DashboardUIHelper.cs" />
-    <Compile Include="Class\DetailsUIHelper.cs" />
-    <Compile Include="Class\PasswordHandler.cs" />
-    <Compile Include="Add.cs">
+    <Compile Include="Handlers\DataHelper.cs" />
+    <Compile Include="UIHelpers\DashboardUIHelper.cs" />
+    <Compile Include="UIHelpers\DetailsUIHelper.cs" />
+    <Compile Include="Handlers\PasswordHandler.cs" />
+    <Compile Include="AdminUI\Add.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add.Designer.cs">
+    <Compile Include="AdminUI\Add.Designer.cs">
       <DependentUpon>Add.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard.cs">
+    <Compile Include="AdminUI\Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard.Designer.cs">
+    <Compile Include="AdminUI\Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Login.cs">
@@ -99,13 +105,22 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Details.resx">
+    <Compile Include="Test.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Test.Designer.cs">
+      <DependentUpon>Test.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BorrowerUI\Borrower.resx">
+      <DependentUpon>Borrower.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminUI\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add.resx">
+    <EmbeddedResource Include="AdminUI\Add.resx">
       <DependentUpon>Add.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard.resx">
+    <EmbeddedResource Include="AdminUI\Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
@@ -122,6 +137,9 @@
     </Compile>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Test.resx">
+      <DependentUpon>Test.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -148,5 +166,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
