@@ -34,6 +34,7 @@
             this.infoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.lblDescription = new System.Windows.Forms.Label();
+            this.lblErrorTitle = new System.Windows.Forms.Label();
             this.titleContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFirst = new System.Windows.Forms.Label();
             this.txtFirst = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.btnContainer = new System.Windows.Forms.Panel();
             this.btnCancel = new System.Windows.Forms.LinkLabel();
             this.btnSave = new System.Windows.Forms.Button();
-            this.lblErrorTitle = new System.Windows.Forms.Label();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.infoContainer.SuspendLayout();
@@ -113,6 +113,19 @@
             this.lblDescription.TabIndex = 16;
             this.lblDescription.Text = "Please provide the necessary borrower details below";
             this.lblDescription.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblErrorTitle
+            // 
+            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
+            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorTitle.Location = new System.Drawing.Point(3, 182);
+            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblErrorTitle.Name = "lblErrorTitle";
+            this.lblErrorTitle.Size = new System.Drawing.Size(501, 30);
+            this.lblErrorTitle.TabIndex = 27;
+            this.lblErrorTitle.Text = "Error message";
+            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblErrorTitle.Visible = false;
             // 
             // titleContainer
             // 
@@ -219,19 +232,6 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // lblErrorTitle
-            // 
-            this.lblErrorTitle.Font = new System.Drawing.Font("Outfit", 9F);
-            this.lblErrorTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorTitle.Location = new System.Drawing.Point(3, 182);
-            this.lblErrorTitle.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblErrorTitle.Name = "lblErrorTitle";
-            this.lblErrorTitle.Size = new System.Drawing.Size(501, 30);
-            this.lblErrorTitle.TabIndex = 27;
-            this.lblErrorTitle.Text = "Error message";
-            this.lblErrorTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblErrorTitle.Visible = false;
-            // 
             // Add
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -245,7 +245,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.Name = "Add";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add";
             this.Load += new System.EventHandler(this.Add_Load);
             this.userInfoContainer.ResumeLayout(false);

@@ -17,13 +17,11 @@ namespace LibrarySystem
 
         public void loadHomeUI()
         {
-
+            borrower.flpTop.Visible = true;
         }
 
-        public void testUI()
+        public void loadProfileUI()
         {
-            borrower.lblGridTitle.Text = "TEST TANGINA";
-
         }
     }
 }

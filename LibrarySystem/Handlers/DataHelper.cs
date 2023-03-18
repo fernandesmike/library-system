@@ -182,7 +182,7 @@ namespace LibrarySystem
 
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@search", "%" + searchQuery + "%");
-                    cmd.Parameters.AddWithValue("@available", "%" + availability + "%");
+                    cmd.Parameters.AddWithValue("@available", availability);
 
                     using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
                     {
@@ -283,8 +283,84 @@ namespace LibrarySystem
                 return 0;
             }
         }
-        
-        
+
+        /// <summary>
+        /// Retrieves the data of the specified book
+        /// </summary>
+        /// <param name="id">The ID of the desired book</param>
+        /// <returns>Returns an array of string containing the information of the specified book</returns>
+        public string[] getBookDetails(int id)
+        {
+            string[] bookDetails = new string[3];
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT title, author FROM tbl_books WHERE book_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@id", id);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            bookDetails[0] = id.ToString();
+                            bookDetails[1] = reader.GetString(0);
+                            bookDetails[2] = reader.GetString(1);
+                        }
+                        return bookDetails;
+                    }
+                }
+            }
+
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " Cannot perform the operation!");
+                return bookDetails;
+            }
+        }
+
+        public int getBookID(string title, string author)
+        {
+            int id;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT book_id FROM tbl_books WHERE title = @title AND author = @author";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            id = reader.GetInt32(reader.GetOrdinal("book_id"));
+                        }
+                        else
+                        {
+                            id = -1;
+                        }
+                    }
+                }
+
+                return id;
+            }
+
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " Cannot perform the operation!");
+                return 0;
+            }
+        }
+
         /*
         =================================
         Book Data Manipulation Language

@@ -67,11 +67,11 @@
     <Compile Include="BorrowerUI\Books.Designer.cs">
       <DependentUpon>Books.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowerUI\Borrow.cs">
+    <Compile Include="BorrowerUI\BorrowBook.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowerUI\Borrow.Designer.cs">
-      <DependentUpon>Borrow.cs</DependentUpon>
+    <Compile Include="BorrowerUI\BorrowBook.Designer.cs">
+      <DependentUpon>BorrowBook.cs</DependentUpon>
     </Compile>
     <Compile Include="BorrowerUI\Borrower.cs">
       <SubType>Form</SubType>
@@ -79,15 +79,10 @@
     <Compile Include="BorrowerUI\Borrower.Designer.cs">
       <DependentUpon>Borrower.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowerUI\Profile.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BorrowerUI\Profile.Designer.cs">
-      <DependentUpon>Profile.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Handlers\DataViews.cs" />
     <Compile Include="UIHelpers\AddUIHelper.cs" />
     <Compile Include="UIHelpers\BorrowerUIHelper.cs" />
-    <Compile Include="UIHelpers\BorrowUIHelper.cs" />
+    <Compile Include="UIHelpers\BorrowBookUIHelper.cs" />
     <Compile Include="UIHelpers\IErrorController.cs" />
     <Compile Include="AdminUI\Details.cs">
       <SubType>Form</SubType>
@@ -131,8 +126,11 @@
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="BorrowerUI\Borrow.resx">
-      <DependentUpon>Borrow.cs</DependentUpon>
+    <EmbeddedResource Include="BorrowerUI\Books.resx">
+      <DependentUpon>Books.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BorrowerUI\BorrowBook.resx">
+      <DependentUpon>BorrowBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowerUI\Borrower.resx">
       <DependentUpon>Borrower.cs</DependentUpon>
