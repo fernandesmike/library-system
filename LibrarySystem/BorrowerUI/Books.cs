@@ -53,7 +53,7 @@ namespace LibrarySystem
             data.updateBookStatus(this.book_id.ToString(), "1");
             this.Close();
 
-            // Show updates tot the Borrower UI
+            // Show updates to the Borrower UI
             borrower.lblUpdateMessage.Visible = true;
             borrower.lblUpdateMessage.Height = 31;
             borrower.tmHideMessage.Enabled = true;
