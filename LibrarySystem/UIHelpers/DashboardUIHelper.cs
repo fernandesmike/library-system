@@ -43,6 +43,8 @@ namespace LibrarySystem
             dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
             dashboard.flpSearch.Visible = true;
+            dashboard.flpDataGrid.Visible = true;
+
             dashboard.flpReports.Visible = false;
 
             dashboard.rbAll.Select();
@@ -73,6 +75,8 @@ namespace LibrarySystem
 
             dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
+            dashboard.flpDataGrid.Visible = true;
+
             dashboard.flpReports.Visible = false;
 
             dashboard.rbAll.Select();
@@ -90,8 +94,9 @@ namespace LibrarySystem
             dashboard.lblSearch.Text = "Search reports";
 
             dashboard.radioContainer.Visible = false;
+            dashboard.flpDataGrid.Visible = false;
+            dashboard.flpBorrowersUI.Visible = false;
             dashboard.flpReports.Visible = true;
-            dashboard.flpReports.BringToFront();
 
             // Display simple, graphical reports
             // Include date filters

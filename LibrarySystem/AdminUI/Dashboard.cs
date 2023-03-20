@@ -113,6 +113,7 @@ namespace LibrarySystem
         private void BtnViewReports_Click(object sender, EventArgs e)
         {
             dashboardUI.showReportsUI();
+            updateAllStatistics();
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -235,6 +236,18 @@ namespace LibrarySystem
                 lblActiveCount.Text = Convert.ToString(data.countBooks("1"));
                 lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
             }
+        }
+
+        public void updateAllStatistics()
+        {
+            lblTotalBorrowerCount.Text = Convert.ToString(data.countBorrowers());
+            lblActiveBorrowerCount.Text = Convert.ToString(data.countBorrowers("active"));
+            lblInactiveBorrowerCount.Text = Convert.ToString(data.countBorrowers("inactive"));
+
+            lblTotalBooksCount.Text = Convert.ToString(data.countBooks());
+            lblActiveBookCounts.Text = Convert.ToString(data.countBooks("1"));
+            lblInactiveBooks.Text = Convert.ToString(data.countBooks("0"));
+            lblInactiveBorrowerCount.Text = "Inactive borrowers";
         }
 
         public void showQueryMessage(int status, string action)

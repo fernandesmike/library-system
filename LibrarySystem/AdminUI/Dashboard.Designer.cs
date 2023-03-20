@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -86,17 +86,26 @@
             this.flpSearch = new System.Windows.Forms.FlowLayoutPanel();
             this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
             this.flpReports = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpBottom = new System.Windows.Forms.FlowLayoutPanel();
-            this.flpExport = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblExport = new System.Windows.Forms.Label();
+            this.flpBookStats = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.btnReportSheet = new System.Windows.Forms.Button();
-            this.flpBackup = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblBackup = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnBackup = new System.Windows.Forms.Button();
+            this.lblBorrowerCount = new System.Windows.Forms.Label();
+            this.lblTotalBorrowerCount = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblActiveBorrowersCount = new System.Windows.Forms.Label();
+            this.lblActiveBorrowerCount = new System.Windows.Forms.Label();
+            this.flowLayoutPanel5 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblInactiveBorrowerCount = new System.Windows.Forms.Label();
+            this.lblTotalInactiveCount = new System.Windows.Forms.Label();
+            this.flpBorrowerStats = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel7 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalBooks = new System.Windows.Forms.Label();
+            this.lblTotalBooksCount = new System.Windows.Forms.Label();
+            this.flowLayoutPanel8 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalActiveBooks = new System.Windows.Forms.Label();
+            this.lblActiveBookCounts = new System.Windows.Forms.Label();
+            this.flowLayoutPanel9 = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblTotalInactiveBook = new System.Windows.Forms.Label();
+            this.lblInactiveBooks = new System.Windows.Forms.Label();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -125,13 +134,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.flpSearch.SuspendLayout();
             this.flpReports.SuspendLayout();
-            this.flpBottom.SuspendLayout();
-            this.flpExport.SuspendLayout();
+            this.flpBookStats.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.flpBackup.SuspendLayout();
-            this.flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel4.SuspendLayout();
+            this.flowLayoutPanel5.SuspendLayout();
+            this.flpBorrowerStats.SuspendLayout();
+            this.flowLayoutPanel7.SuspendLayout();
+            this.flowLayoutPanel8.SuspendLayout();
+            this.flowLayoutPanel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // divLeft
@@ -787,41 +797,41 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(3, 126);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -906,179 +916,286 @@
             // 
             // flpReports
             // 
+            this.flpReports.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.flpReports.AutoSize = true;
             this.flpReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpReports.Controls.Add(this.flpBottom);
+            this.flpReports.Controls.Add(this.flpBookStats);
+            this.flpReports.Controls.Add(this.flpBorrowerStats);
             this.flpReports.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpReports.Location = new System.Drawing.Point(286, 120);
+            this.flpReports.Location = new System.Drawing.Point(286, 129);
+            this.flpReports.Margin = new System.Windows.Forms.Padding(0);
             this.flpReports.Name = "flpReports";
-            this.flpReports.Size = new System.Drawing.Size(1050, 135);
-            this.flpReports.TabIndex = 39;
+            this.flpReports.Size = new System.Drawing.Size(1044, 245);
+            this.flpReports.TabIndex = 34;
             // 
-            // flpBottom
+            // flpBookStats
             // 
-            this.flpBottom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.flpBottom.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpBottom.Controls.Add(this.flpExport);
-            this.flpBottom.Controls.Add(this.flpBackup);
-            this.flpBottom.Location = new System.Drawing.Point(3, 0);
-            this.flpBottom.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
-            this.flpBottom.Name = "flpBottom";
-            this.flpBottom.Size = new System.Drawing.Size(1047, 135);
-            this.flpBottom.TabIndex = 39;
-            // 
-            // flpExport
-            // 
-            this.flpExport.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpExport.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpExport.Controls.Add(this.lblExport);
-            this.flpExport.Controls.Add(this.flowLayoutPanel3);
-            this.flpExport.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpExport.Location = new System.Drawing.Point(3, 3);
-            this.flpExport.Name = "flpExport";
-            this.flpExport.Padding = new System.Windows.Forms.Padding(10);
-            this.flpExport.Size = new System.Drawing.Size(520, 122);
-            this.flpExport.TabIndex = 31;
-            // 
-            // lblExport
-            // 
-            this.lblExport.AutoSize = true;
-            this.lblExport.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExport.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblExport.Location = new System.Drawing.Point(13, 20);
-            this.lblExport.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblExport.Name = "lblExport";
-            this.lblExport.Size = new System.Drawing.Size(272, 24);
-            this.lblExport.TabIndex = 37;
-            this.lblExport.Text = "Generate latest system reports";
-            this.lblExport.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.flpBookStats.AutoSize = true;
+            this.flpBookStats.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpBookStats.Controls.Add(this.flowLayoutPanel3);
+            this.flpBookStats.Controls.Add(this.flowLayoutPanel4);
+            this.flpBookStats.Controls.Add(this.flowLayoutPanel5);
+            this.flpBookStats.Location = new System.Drawing.Point(3, 3);
+            this.flpBookStats.Name = "flpBookStats";
+            this.flpBookStats.Size = new System.Drawing.Size(1038, 108);
+            this.flpBookStats.TabIndex = 36;
             // 
             // flowLayoutPanel3
             // 
-            this.flowLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel3.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel3.Controls.Add(this.pictureBox2);
-            this.flowLayoutPanel3.Controls.Add(this.btnReportSheet);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(13, 59);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
+            this.flowLayoutPanel3.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel3.Controls.Add(this.lblBorrowerCount);
+            this.flowLayoutPanel3.Controls.Add(this.lblTotalBorrowerCount);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(272, 50);
-            this.flowLayoutPanel3.TabIndex = 38;
+            this.flowLayoutPanel3.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel3.TabIndex = 30;
             // 
-            // pictureBox2
+            // lblBorrowerCount
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
-            this.pictureBox2.ErrorImage = null;
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.InitialImage")));
-            this.pictureBox2.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 35;
-            this.pictureBox2.TabStop = false;
+            this.lblBorrowerCount.AutoSize = true;
+            this.lblBorrowerCount.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBorrowerCount.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblBorrowerCount.Location = new System.Drawing.Point(33, 15);
+            this.lblBorrowerCount.Name = "lblBorrowerCount";
+            this.lblBorrowerCount.Size = new System.Drawing.Size(148, 24);
+            this.lblBorrowerCount.TabIndex = 29;
+            this.lblBorrowerCount.Text = "Total borrowers";
+            this.lblBorrowerCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // btnReportSheet
+            // lblTotalBorrowerCount
             // 
-            this.btnReportSheet.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnReportSheet.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnReportSheet.BackColor = System.Drawing.Color.Transparent;
-            this.btnReportSheet.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnReportSheet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReportSheet.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnReportSheet.FlatAppearance.BorderSize = 0;
-            this.btnReportSheet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportSheet.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReportSheet.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnReportSheet.Location = new System.Drawing.Point(38, 0);
-            this.btnReportSheet.Margin = new System.Windows.Forms.Padding(0);
-            this.btnReportSheet.Name = "btnReportSheet";
-            this.btnReportSheet.Padding = new System.Windows.Forms.Padding(5);
-            this.btnReportSheet.Size = new System.Drawing.Size(175, 44);
-            this.btnReportSheet.TabIndex = 30;
-            this.btnReportSheet.Text = "Spreadsheet";
-            this.btnReportSheet.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnReportSheet.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnReportSheet.UseVisualStyleBackColor = false;
+            this.lblTotalBorrowerCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTotalBorrowerCount.AutoEllipsis = true;
+            this.lblTotalBorrowerCount.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBorrowerCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalBorrowerCount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblTotalBorrowerCount.Location = new System.Drawing.Point(33, 49);
+            this.lblTotalBorrowerCount.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblTotalBorrowerCount.Name = "lblTotalBorrowerCount";
+            this.lblTotalBorrowerCount.Size = new System.Drawing.Size(259, 38);
+            this.lblTotalBorrowerCount.TabIndex = 30;
+            this.lblTotalBorrowerCount.Text = "25";
+            this.lblTotalBorrowerCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // flpBackup
+            // flowLayoutPanel4
             // 
-            this.flpBackup.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.flpBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flpBackup.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.flpBackup.Controls.Add(this.lblBackup);
-            this.flpBackup.Controls.Add(this.flowLayoutPanel2);
-            this.flpBackup.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpBackup.Location = new System.Drawing.Point(546, 3);
-            this.flpBackup.Margin = new System.Windows.Forms.Padding(20, 3, 3, 3);
-            this.flpBackup.Name = "flpBackup";
-            this.flpBackup.Padding = new System.Windows.Forms.Padding(10);
-            this.flpBackup.Size = new System.Drawing.Size(498, 122);
-            this.flpBackup.TabIndex = 32;
+            this.flowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel4.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel4.Controls.Add(this.lblActiveBorrowersCount);
+            this.flowLayoutPanel4.Controls.Add(this.lblActiveBorrowerCount);
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(358, 3);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel4.TabIndex = 32;
             // 
-            // lblBackup
+            // lblActiveBorrowersCount
             // 
-            this.lblBackup.AutoSize = true;
-            this.lblBackup.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBackup.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblBackup.Location = new System.Drawing.Point(13, 20);
-            this.lblBackup.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
-            this.lblBackup.Name = "lblBackup";
-            this.lblBackup.Size = new System.Drawing.Size(334, 24);
-            this.lblBackup.TabIndex = 37;
-            this.lblBackup.Text = "Create a new system database backup\r\n";
-            this.lblBackup.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblActiveBorrowersCount.AutoSize = true;
+            this.lblActiveBorrowersCount.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveBorrowersCount.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblActiveBorrowersCount.Location = new System.Drawing.Point(33, 15);
+            this.lblActiveBorrowersCount.Name = "lblActiveBorrowersCount";
+            this.lblActiveBorrowersCount.Size = new System.Drawing.Size(156, 24);
+            this.lblActiveBorrowersCount.TabIndex = 29;
+            this.lblActiveBorrowersCount.Text = "Active borrowers";
+            this.lblActiveBorrowersCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // flowLayoutPanel2
+            // lblActiveBorrowerCount
             // 
-            this.flowLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.flowLayoutPanel2.BackColor = System.Drawing.Color.Transparent;
-            this.flowLayoutPanel2.Controls.Add(this.pictureBox1);
-            this.flowLayoutPanel2.Controls.Add(this.btnBackup);
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(13, 59);
-            this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 3);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(334, 50);
-            this.flowLayoutPanel2.TabIndex = 38;
+            this.lblActiveBorrowerCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblActiveBorrowerCount.AutoEllipsis = true;
+            this.lblActiveBorrowerCount.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveBorrowerCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblActiveBorrowerCount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblActiveBorrowerCount.Location = new System.Drawing.Point(33, 49);
+            this.lblActiveBorrowerCount.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblActiveBorrowerCount.Name = "lblActiveBorrowerCount";
+            this.lblActiveBorrowerCount.Size = new System.Drawing.Size(259, 38);
+            this.lblActiveBorrowerCount.TabIndex = 30;
+            this.lblActiveBorrowerCount.Text = "23";
+            this.lblActiveBorrowerCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // flowLayoutPanel5
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
-            this.pictureBox1.ErrorImage = null;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 35;
-            this.pictureBox1.TabStop = false;
+            this.flowLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel5.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel5.Controls.Add(this.lblInactiveBorrowerCount);
+            this.flowLayoutPanel5.Controls.Add(this.lblTotalInactiveCount);
+            this.flowLayoutPanel5.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel5.Location = new System.Drawing.Point(713, 3);
+            this.flowLayoutPanel5.Name = "flowLayoutPanel5";
+            this.flowLayoutPanel5.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel5.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel5.TabIndex = 33;
             // 
-            // btnBackup
+            // lblInactiveBorrowerCount
             // 
-            this.btnBackup.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.btnBackup.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnBackup.BackColor = System.Drawing.Color.Transparent;
-            this.btnBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBackup.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBackup.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
-            this.btnBackup.FlatAppearance.BorderSize = 0;
-            this.btnBackup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBackup.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBackup.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnBackup.Location = new System.Drawing.Point(38, 0);
-            this.btnBackup.Margin = new System.Windows.Forms.Padding(0);
-            this.btnBackup.Name = "btnBackup";
-            this.btnBackup.Padding = new System.Windows.Forms.Padding(5);
-            this.btnBackup.Size = new System.Drawing.Size(175, 44);
-            this.btnBackup.TabIndex = 30;
-            this.btnBackup.Text = "Create backup";
-            this.btnBackup.TextAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.btnBackup.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnBackup.UseVisualStyleBackColor = false;
+            this.lblInactiveBorrowerCount.AutoSize = true;
+            this.lblInactiveBorrowerCount.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveBorrowerCount.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblInactiveBorrowerCount.Location = new System.Drawing.Point(33, 15);
+            this.lblInactiveBorrowerCount.Name = "lblInactiveBorrowerCount";
+            this.lblInactiveBorrowerCount.Size = new System.Drawing.Size(169, 24);
+            this.lblInactiveBorrowerCount.TabIndex = 29;
+            this.lblInactiveBorrowerCount.Text = "Inactive borrowers";
+            this.lblInactiveBorrowerCount.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTotalInactiveCount
+            // 
+            this.lblTotalInactiveCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTotalInactiveCount.AutoEllipsis = true;
+            this.lblTotalInactiveCount.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalInactiveCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalInactiveCount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblTotalInactiveCount.Location = new System.Drawing.Point(33, 49);
+            this.lblTotalInactiveCount.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblTotalInactiveCount.Name = "lblTotalInactiveCount";
+            this.lblTotalInactiveCount.Size = new System.Drawing.Size(259, 38);
+            this.lblTotalInactiveCount.TabIndex = 30;
+            this.lblTotalInactiveCount.Text = "2";
+            this.lblTotalInactiveCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flpBorrowerStats
+            // 
+            this.flpBorrowerStats.AutoSize = true;
+            this.flpBorrowerStats.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpBorrowerStats.Controls.Add(this.flowLayoutPanel7);
+            this.flpBorrowerStats.Controls.Add(this.flowLayoutPanel8);
+            this.flpBorrowerStats.Controls.Add(this.flowLayoutPanel9);
+            this.flpBorrowerStats.Location = new System.Drawing.Point(3, 134);
+            this.flpBorrowerStats.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.flpBorrowerStats.Name = "flpBorrowerStats";
+            this.flpBorrowerStats.Size = new System.Drawing.Size(1038, 108);
+            this.flpBorrowerStats.TabIndex = 37;
+            // 
+            // flowLayoutPanel7
+            // 
+            this.flowLayoutPanel7.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel7.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel7.Controls.Add(this.lblTotalBooks);
+            this.flowLayoutPanel7.Controls.Add(this.lblTotalBooksCount);
+            this.flowLayoutPanel7.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel7.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel7.Name = "flowLayoutPanel7";
+            this.flowLayoutPanel7.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel7.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel7.TabIndex = 30;
+            // 
+            // lblTotalBooks
+            // 
+            this.lblTotalBooks.AutoSize = true;
+            this.lblTotalBooks.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBooks.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblTotalBooks.Location = new System.Drawing.Point(33, 15);
+            this.lblTotalBooks.Name = "lblTotalBooks";
+            this.lblTotalBooks.Size = new System.Drawing.Size(109, 24);
+            this.lblTotalBooks.TabIndex = 29;
+            this.lblTotalBooks.Text = "Total books";
+            this.lblTotalBooks.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblTotalBooksCount
+            // 
+            this.lblTotalBooksCount.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTotalBooksCount.AutoEllipsis = true;
+            this.lblTotalBooksCount.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalBooksCount.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTotalBooksCount.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblTotalBooksCount.Location = new System.Drawing.Point(33, 49);
+            this.lblTotalBooksCount.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblTotalBooksCount.Name = "lblTotalBooksCount";
+            this.lblTotalBooksCount.Size = new System.Drawing.Size(259, 38);
+            this.lblTotalBooksCount.TabIndex = 30;
+            this.lblTotalBooksCount.Text = "25";
+            this.lblTotalBooksCount.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel8
+            // 
+            this.flowLayoutPanel8.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel8.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel8.Controls.Add(this.lblTotalActiveBooks);
+            this.flowLayoutPanel8.Controls.Add(this.lblActiveBookCounts);
+            this.flowLayoutPanel8.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel8.Location = new System.Drawing.Point(358, 3);
+            this.flowLayoutPanel8.Margin = new System.Windows.Forms.Padding(30, 3, 30, 3);
+            this.flowLayoutPanel8.Name = "flowLayoutPanel8";
+            this.flowLayoutPanel8.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel8.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel8.TabIndex = 32;
+            // 
+            // lblTotalActiveBooks
+            // 
+            this.lblTotalActiveBooks.AutoSize = true;
+            this.lblTotalActiveBooks.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalActiveBooks.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblTotalActiveBooks.Location = new System.Drawing.Point(33, 15);
+            this.lblTotalActiveBooks.Name = "lblTotalActiveBooks";
+            this.lblTotalActiveBooks.Size = new System.Drawing.Size(117, 24);
+            this.lblTotalActiveBooks.TabIndex = 29;
+            this.lblTotalActiveBooks.Text = "Active books";
+            this.lblTotalActiveBooks.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblActiveBookCounts
+            // 
+            this.lblActiveBookCounts.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblActiveBookCounts.AutoEllipsis = true;
+            this.lblActiveBookCounts.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActiveBookCounts.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblActiveBookCounts.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblActiveBookCounts.Location = new System.Drawing.Point(33, 49);
+            this.lblActiveBookCounts.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblActiveBookCounts.Name = "lblActiveBookCounts";
+            this.lblActiveBookCounts.Size = new System.Drawing.Size(259, 38);
+            this.lblActiveBookCounts.TabIndex = 30;
+            this.lblActiveBookCounts.Text = "23";
+            this.lblActiveBookCounts.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // flowLayoutPanel9
+            // 
+            this.flowLayoutPanel9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel9.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel9.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.flowLayoutPanel9.Controls.Add(this.lblTotalInactiveBook);
+            this.flowLayoutPanel9.Controls.Add(this.lblInactiveBooks);
+            this.flowLayoutPanel9.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel9.Location = new System.Drawing.Point(713, 3);
+            this.flowLayoutPanel9.Name = "flowLayoutPanel9";
+            this.flowLayoutPanel9.Padding = new System.Windows.Forms.Padding(30, 15, 30, 15);
+            this.flowLayoutPanel9.Size = new System.Drawing.Size(322, 102);
+            this.flowLayoutPanel9.TabIndex = 33;
+            // 
+            // lblTotalInactiveBook
+            // 
+            this.lblTotalInactiveBook.AutoSize = true;
+            this.lblTotalInactiveBook.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalInactiveBook.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblTotalInactiveBook.Location = new System.Drawing.Point(33, 15);
+            this.lblTotalInactiveBook.Name = "lblTotalInactiveBook";
+            this.lblTotalInactiveBook.Size = new System.Drawing.Size(142, 24);
+            this.lblTotalInactiveBook.TabIndex = 29;
+            this.lblTotalInactiveBook.Text = "Returned books";
+            this.lblTotalInactiveBook.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblInactiveBooks
+            // 
+            this.lblInactiveBooks.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblInactiveBooks.AutoEllipsis = true;
+            this.lblInactiveBooks.Font = new System.Drawing.Font("Outfit", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInactiveBooks.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblInactiveBooks.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblInactiveBooks.Location = new System.Drawing.Point(33, 49);
+            this.lblInactiveBooks.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblInactiveBooks.Name = "lblInactiveBooks";
+            this.lblInactiveBooks.Size = new System.Drawing.Size(259, 38);
+            this.lblInactiveBooks.TabIndex = 30;
+            this.lblInactiveBooks.Text = "2";
+            this.lblInactiveBooks.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // Dashboard
             // 
@@ -1086,8 +1203,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1342, 753);
-            this.Controls.Add(this.flpBorrowersUI);
             this.Controls.Add(this.flpReports);
+            this.Controls.Add(this.flpBorrowersUI);
             this.Controls.Add(this.flpSearch);
             this.Controls.Add(this.flpTitle);
             this.Controls.Add(this.divLeft);
@@ -1140,15 +1257,21 @@
             this.flpSearch.ResumeLayout(false);
             this.flpSearch.PerformLayout();
             this.flpReports.ResumeLayout(false);
-            this.flpBottom.ResumeLayout(false);
-            this.flpExport.ResumeLayout(false);
-            this.flpExport.PerformLayout();
+            this.flpReports.PerformLayout();
+            this.flpBookStats.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.flpBackup.ResumeLayout(false);
-            this.flpBackup.PerformLayout();
-            this.flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel3.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            this.flowLayoutPanel4.PerformLayout();
+            this.flowLayoutPanel5.ResumeLayout(false);
+            this.flowLayoutPanel5.PerformLayout();
+            this.flpBorrowerStats.ResumeLayout(false);
+            this.flowLayoutPanel7.ResumeLayout(false);
+            this.flowLayoutPanel7.PerformLayout();
+            this.flowLayoutPanel8.ResumeLayout(false);
+            this.flowLayoutPanel8.PerformLayout();
+            this.flowLayoutPanel9.ResumeLayout(false);
+            this.flowLayoutPanel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1208,16 +1331,25 @@
         internal System.Windows.Forms.Label lblUpdateMessage;
         internal System.Windows.Forms.Timer tmHideMessage;
         internal System.Windows.Forms.FlowLayoutPanel flpReports;
-        private System.Windows.Forms.FlowLayoutPanel flpBottom;
-        private System.Windows.Forms.FlowLayoutPanel flpExport;
-        internal System.Windows.Forms.Label lblExport;
+        internal System.Windows.Forms.FlowLayoutPanel flpBookStats;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
-        internal System.Windows.Forms.PictureBox pictureBox2;
-        internal System.Windows.Forms.Button btnReportSheet;
-        private System.Windows.Forms.FlowLayoutPanel flpBackup;
-        internal System.Windows.Forms.Label lblBackup;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
-        internal System.Windows.Forms.PictureBox pictureBox1;
-        internal System.Windows.Forms.Button btnBackup;
+        internal System.Windows.Forms.Label lblBorrowerCount;
+        private System.Windows.Forms.Label lblTotalBorrowerCount;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        internal System.Windows.Forms.Label lblActiveBorrowersCount;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel5;
+        internal System.Windows.Forms.Label lblInactiveBorrowerCount;
+        internal System.Windows.Forms.FlowLayoutPanel flpBorrowerStats;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel7;
+        internal System.Windows.Forms.Label lblTotalBooks;
+        private System.Windows.Forms.Label lblTotalBooksCount;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel8;
+        internal System.Windows.Forms.Label lblTotalActiveBooks;
+        private System.Windows.Forms.Label lblActiveBookCounts;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel9;
+        internal System.Windows.Forms.Label lblTotalInactiveBook;
+        internal System.Windows.Forms.Label lblActiveBorrowerCount;
+        internal System.Windows.Forms.Label lblTotalInactiveCount;
+        internal System.Windows.Forms.Label lblInactiveBooks;
     }
 }
