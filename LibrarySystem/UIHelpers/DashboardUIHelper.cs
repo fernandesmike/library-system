@@ -46,8 +46,7 @@ namespace LibrarySystem
             dashboard.flpBorrowersUI.Visible = true;
             dashboard.flpSearch.Visible = true;
             dashboard.flpDataGrid.Visible = true;
-
-            dashboard.flpReports.Visible = false;
+            dashboard.flpSearch.Visible = true;
 
             dashboard.rbAll.Select();
 
@@ -65,8 +64,8 @@ namespace LibrarySystem
             dashboard.lblSearch.Text = "Search books";
 
             dashboard.lblTotalBorrowers.Text = "Total books";
-            dashboard.lblActive.Text = "Borrowed books";
-            dashboard.lblInactive.Text = "Returned books";
+            dashboard.lblActive.Text = "Available books";
+            dashboard.lblInactive.Text = "Borrowed books";
 
             dashboard.lblGridTitle.Text = "All books";
             dashboard.btnAdd.Text = " + Add books";
@@ -78,8 +77,7 @@ namespace LibrarySystem
             dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
             dashboard.flpDataGrid.Visible = true;
-
-            dashboard.flpReports.Visible = false;
+            dashboard.flpSearch.Visible = true;
 
             dashboard.rbAll.Select();
 
@@ -95,12 +93,17 @@ namespace LibrarySystem
             dashboard.lblParagraph.Text = "View and generate system reports";
             dashboard.lblSearch.Text = "Search reports";
 
-            dashboard.radioContainer.Visible = false;
-            dashboard.flpDataGrid.Visible = false;
-            dashboard.flpBorrowersUI.Visible = false;
-            dashboard.flpReports.Visible = true;
-            dashboard.lblDateToday.Text = $"As of {currentDate.ToString("dd MMMM, yyy")}";
+            dashboard.lblTotalBorrowers.Text = "Total borrowers";
+            dashboard.lblActive.Text = "Total books";
+            dashboard.lblInactive.Text = "Total transactions";
+            dashboard.lblGridTitle.Text = "All transactions";
 
+            dashboard.btnAdd.Text = " ";
+            dashboard.btnAdd.Enabled = false;
+
+            dashboard.radioContainer.Visible = false;
+            dashboard.flpSearch.Visible = false;
+            
             // Display simple, graphical reports
             // Include date filters
             // Display all the necessary data
