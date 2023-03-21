@@ -10,10 +10,12 @@ namespace LibrarySystem
     class DashboardUIHelper
     {
         private Dashboard dashboard;
+        DateTime currentDate;
 
         public DashboardUIHelper(Dashboard dashboard)
         {
             this.dashboard = dashboard;
+            currentDate = DateTime.Today;
         }
 
         // Borrower helper methods
@@ -97,6 +99,7 @@ namespace LibrarySystem
             dashboard.flpDataGrid.Visible = false;
             dashboard.flpBorrowersUI.Visible = false;
             dashboard.flpReports.Visible = true;
+            dashboard.lblDateToday.Text = $"As of {currentDate.ToString("dd MMMM, yyy")}";
 
             // Display simple, graphical reports
             // Include date filters

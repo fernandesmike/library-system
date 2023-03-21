@@ -34,7 +34,7 @@ namespace LibrarySystem
 
         // For navigating between pages
         public string context;
-
+        
         public Dashboard()
         {
             InitializeComponent();
@@ -271,5 +271,9 @@ namespace LibrarySystem
             tmHideMessage.Enabled = false;
         }
 
+        private void operationsPerfomedToday()
+        {
+
+        }
     }
 }
