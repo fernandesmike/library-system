@@ -22,6 +22,8 @@ namespace LibrarySystem
         private string connectionString;
         private string context;
 
+        private DateTime currentDate;
+
         public Add(Dashboard dashboard, string context)
         {
             InitializeComponent();
@@ -29,6 +31,8 @@ namespace LibrarySystem
 
             this.context = context;
             this.dashboard = dashboard;
+
+            currentDate = DateTime.Today;
 
             addUI = new AddUIHelper(this);
 
@@ -58,6 +62,7 @@ namespace LibrarySystem
         private void BtnSave_Click(object sender, EventArgs e)
         {
             int queryStatus;
+            string date = $"{currentDate.Year}-{currentDate.Month}-{currentDate.Day}";
 
             string first = txtFirst.Text.Trim();
             string second = txtSecond.Text.Trim();
@@ -72,7 +77,7 @@ namespace LibrarySystem
                     {
                         addUI.hideErrorMessage();
 
-                        queryStatus = data.addBorrower(first, second);
+                        queryStatus = data.addBorrower(first, second, date);
                         dashboardUI.showBorrowersUI();
                         Dashboard.firstName = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");
@@ -94,7 +99,7 @@ namespace LibrarySystem
                     {
                         addUI.hideErrorMessage();
 
-                        queryStatus = data.addBook(first, second);
+                        queryStatus = data.addBook(first, second, date);
                         dashboardUI.showBooksUI();
                         Dashboard.title = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");

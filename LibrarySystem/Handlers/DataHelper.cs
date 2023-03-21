@@ -63,7 +63,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, date_added AS [Added last], available AS Available FROM tbl_books";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -92,7 +92,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE available = 1";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, date_added AS [Added last], available AS Available FROM tbl_books WHERE available = 1";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -121,7 +121,7 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     // Retrieve only the available books
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE available = 0";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, date_added AS [Added last], available AS Available FROM tbl_books WHERE available = 0";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -149,7 +149,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search OR author LIKE @search";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, date_added AS [Added last], available AS Available FROM tbl_books WHERE title LIKE @search OR author LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -177,7 +177,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, available AS Available FROM tbl_books WHERE title LIKE @search AND  available = @available";
+                    string command = "SELECT book_id AS ID, title AS [Book title], author AS Author, date_added AS [Added last], available AS Available FROM tbl_books WHERE title LIKE @search AND  available = @available";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -368,7 +368,7 @@ namespace LibrarySystem
         */
 
 
-        public int addBook(string title, string author)
+        public int addBook(string title, string author, string date)
         {
             // Split authors
             // string[] authorsList = author.Split(',');
@@ -378,11 +378,12 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     con.Open();
-                    string command = "INSERT INTO tbl_books(book_id, title, author) VALUES (NEXT VALUE FOR sequence_id, @title, @author)";
+                    string command = "INSERT INTO tbl_books(book_id, title, author, date_added) VALUES (NEXT VALUE FOR sequence_id, @title, @author, @date)";
 
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@title", title);
                     cmd.Parameters.AddWithValue("@author", author);
+                    cmd.Parameters.AddWithValue("@date", date);
                     queryPerformed = cmd.ExecuteNonQuery();
 
                     return queryPerformed;
@@ -485,7 +486,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status, date_added AS [Added last] FROM tbl_borrower";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -513,7 +514,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE status = @status";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status, date_added AS [Added last] FROM tbl_borrower WHERE status = @status";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -542,7 +543,7 @@ namespace LibrarySystem
             {
                 using (SqlConnection con = new SqlConnection(conString))
                 {
-                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status FROM tbl_borrower WHERE firstname LIKE @search OR lastname LIKE @search";
+                    string command = "SELECT borrower_id AS 'Borrower ID', firstname AS Firstname, lastname AS Lastname, status AS Status, date_added AS [Added last] FROM tbl_borrower WHERE firstname LIKE @search OR lastname LIKE @search";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
@@ -655,7 +656,7 @@ namespace LibrarySystem
         */
 
 
-        public int addBorrower(string firstName, string lastName)
+        public int addBorrower(string firstName, string lastName, string date)
         {
             int queryPerformed;
 
@@ -664,11 +665,12 @@ namespace LibrarySystem
                 using (SqlConnection con = new SqlConnection(conString))
                 {
                     con.Open();
-                    string command = "INSERT INTO tbl_borrower(borrower_id, firstname, lastname) VALUES (NEXT VALUE FOR sequence_id, @fName, @lName)";
+                    string command = "INSERT INTO tbl_borrower(borrower_id, firstname, lastname, date_added) VALUES (NEXT VALUE FOR sequence_id, @fName, @lName, @date)";
 
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@fName", firstName);
                     cmd.Parameters.AddWithValue("@lName", lastName);
+                    cmd.Parameters.AddWithValue("@date", date);
                     queryPerformed = cmd.ExecuteNonQuery();
 
                     return queryPerformed;
