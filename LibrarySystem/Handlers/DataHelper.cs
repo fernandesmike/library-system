@@ -810,12 +810,76 @@ namespace LibrarySystem
         }
 
 
+        public void loadBorrowerReports(string dateToday)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    // Retrieve only the available books
+                    string command = "SELECT firstname AS [Firstname], lastname AS [Lastname], status AS [Status]" +
+                                     "FROM tbl_borrower " +
+                                     "WHERE date_added = @date";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@date", dateToday);
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable books = new DataTable();
+                        adapter.Fill(books);
+                        dataGrid.DataSource = books;
+                    }
+
+                    applyGridStyling();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+            }
+        }
+
+        public void loadBookReports(string dateToday)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    // Retrieve only the available books
+                    string command = "SELECT title AS [Book title], author AS [Book author]" +
+                                     "FROM tbl_books " +
+                                     "WHERE date_added = @date";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@date", dateToday);
+                    cmd.ExecuteNonQuery();
+
+                    using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                    {
+                        DataTable books = new DataTable();
+                        adapter.Fill(books);
+                        dataGrid.DataSource = books;
+                    }
+
+                    applyGridStyling();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+            }
+        }
+
+
         /*
         ============
         UI Styling
         ============
         */
-
 
         private void applyGridStyling()
         {

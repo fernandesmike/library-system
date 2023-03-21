@@ -32,6 +32,8 @@ namespace LibrarySystem
         public static string fullName;
         public static string lastName;
 
+        private DateTime today;
+
         // For navigating between pages
         public string context;
         
@@ -43,6 +45,7 @@ namespace LibrarySystem
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = "borrowers";
+            today = DateTime.Today;
         }
 
         public Dashboard(string context)
@@ -53,10 +56,13 @@ namespace LibrarySystem
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = context;
+            today = DateTime.Today;
+
         }
 
         private void Home_Load(object sender, EventArgs e)
         {
+
             // Greet the user
             lblUser.Text = Login.currentUser;
 
@@ -112,7 +118,9 @@ namespace LibrarySystem
 
         private void BtnViewReports_Click(object sender, EventArgs e)
         {
+            data.loadBorrowerReports(today.ToString("yyyy-MM-dd"));
             dashboardUI.showReportsUI();
+            updateStatistics(context);
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
@@ -145,6 +153,7 @@ namespace LibrarySystem
 
         private void RbAll_CheckedChanged(object sender, EventArgs e)
         {
+
             if (context == "borrowers")
             {
                 data.loadBorrowers();
@@ -165,7 +174,11 @@ namespace LibrarySystem
             {
                 data.loadAvailableBooks();
             }
-            
+            else if (context == "reports")
+            {
+                data.loadBorrowerReports(today.ToString("yyyy-MM-dd"));
+            }
+
         }
 
         private void RbInactive_CheckedChanged(object sender, EventArgs e)
@@ -177,6 +190,10 @@ namespace LibrarySystem
             else if (context == "books")
             {
                 data.loadBorrowedBooks();
+            }
+            else if (context == "reports")
+            {
+                data.loadBookReports(today.ToString("yyyy-MM-dd"));
             }
         }
 
@@ -229,10 +246,18 @@ namespace LibrarySystem
                 lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
                 lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
             }
+
             else if (context == "books")
             {
                 lblBorrowersCount.Text = Convert.ToString(data.countBooks());
                 lblActiveCount.Text = Convert.ToString(data.countBooks("1"));
+                lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
+            }
+
+            else if (context == "reports")
+            {
+                lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
+                lblActiveCount.Text = Convert.ToString(data.countBooks());
                 lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
             }
         }
@@ -261,6 +286,20 @@ namespace LibrarySystem
         private void operationsPerfomedToday()
         {
 
+        }
+
+        private void DatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (rbActive.Checked)
+            {
+                data.loadBorrowerReports(datePicker.Value.Date.ToString());
+                MessageBox.Show(datePicker.Value.ToString());
+            }
+
+            else if (rbInactive.Checked)
+            {
+                data.loadBookReports(datePicker.Value.Date.ToString());
+            }
         }
     }
 }

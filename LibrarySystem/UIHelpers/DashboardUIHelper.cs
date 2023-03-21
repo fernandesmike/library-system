@@ -39,9 +39,12 @@ namespace LibrarySystem
             dashboard.btnAdd.Text = " + Add borrowers";
             dashboard.btnAdd.Enabled = true;
 
+            // Radio buttons
+            dashboard.rbAll.Visible = true;
             dashboard.rbActive.Text = "Active";
             dashboard.rbInactive.Text = "Inactive";
 
+            // Containers
             dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;
             dashboard.flpSearch.Visible = true;
@@ -71,7 +74,7 @@ namespace LibrarySystem
             dashboard.lblGridTitle.Text = "All books";
             dashboard.btnAdd.Text = " + Add books";
             dashboard.btnAdd.Enabled = true;
-
+            dashboard.rbAll.Visible = true;
             dashboard.rbActive.Text = "Available";
             dashboard.rbInactive.Text = "Borrowed";
 
@@ -100,16 +103,18 @@ namespace LibrarySystem
             dashboard.lblInactive.Text = "Total transactions";
             dashboard.lblGridTitle.Text = "All transactions";
 
+            dashboard.rbAll.Visible = false;
+            dashboard.rbActive.Text = "Borrowers";
+            dashboard.rbInactive.Text = "Books";
+
             dashboard.btnAdd.Text = " ";
             dashboard.btnAdd.Enabled = false;
 
-            dashboard.radioContainer.Visible = false;
+            dashboard.radioContainer.Visible = true;
             dashboard.flpSearch.Visible = false;
             dashboard.datePicker.Visible = true;
-            
-            // Display simple, graphical reports
-            // Include date filters
-            // Display all the necessary data
+
+            dashboard.rbActive.Select();
 
             refreshDataGrid();
         }
