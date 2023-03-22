@@ -101,7 +101,7 @@ namespace LibrarySystem
             dashboard.lblTotalBorrowers.Text = "Total borrowers";
             dashboard.lblActive.Text = "Total books";
             dashboard.lblInactive.Text = "Total transactions";
-            dashboard.lblGridTitle.Text = "All transactions";
+            dashboard.lblGridTitle.Text = "Transactions today";
 
             dashboard.rbAll.Visible = false;
             dashboard.rbActive.Text = "Borrowers";

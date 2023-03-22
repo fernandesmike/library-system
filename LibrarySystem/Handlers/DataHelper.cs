@@ -256,6 +256,34 @@ namespace LibrarySystem
 
         }
 
+        public int countBooksToday(string today)
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_books WHERE date_added = @date";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@date", today);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
+
         public int checkIfBookExist(string title, string author)
         {
             int result;
@@ -605,6 +633,34 @@ namespace LibrarySystem
 
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@status", status);
+                    cmd.ExecuteNonQuery();
+
+                    count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                    return count;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "We can't load data from our server.");
+                return 0;
+            }
+
+        }
+
+        public int countBorrowersToday(string today)
+        {
+            int count;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(conString))
+                {
+                    string command = "SELECT COUNT(*) FROM tbl_borrower WHERE date_added = @date";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@date", today);
                     cmd.ExecuteNonQuery();
 
                     count = Convert.ToInt32(cmd.ExecuteScalar());

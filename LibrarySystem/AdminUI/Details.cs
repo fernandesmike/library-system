@@ -32,16 +32,22 @@ namespace LibrarySystem
             this.context = context;
         }
 
-        private void BorrowerInfo_Load(object sender, EventArgs e)
+        private async void BorrowerInfo_Load(object sender, EventArgs e)
         {
-            if(context == "borrowers")
+            await Task.Run(() =>
             {
-                detailsUI.loadBorrowerData();
-            }
-            else if(context == "books")
-            {
-                detailsUI.loadBookData();
-            }
+                this.Invoke((MethodInvoker)delegate
+               {
+                   if (context == "borrowers")
+                   {
+                       detailsUI.loadBorrowerData();
+                   }
+                   else if (context == "books")
+                   {
+                       detailsUI.loadBookData();
+                   }
+               });
+            });
         }
 
         private void BtnBack_Click(object sender, EventArgs e)

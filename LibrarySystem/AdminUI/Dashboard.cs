@@ -45,7 +45,11 @@ namespace LibrarySystem
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = "borrowers";
-            today = DateTime.Today;
+
+            // Set default date to the date today
+            today = DateTime.Today.Date;
+            datePicker.MaxDate = today;
+            datePicker.Value = today.Date;
         }
 
         public Dashboard(string context)
@@ -56,33 +60,42 @@ namespace LibrarySystem
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = context;
-            today = DateTime.Today;
-
+            
+            // Set default date to the date today
+            today = DateTime.Today.Date;
+            datePicker.MaxDate = today;
+            datePicker.Value = today.Date;
         }
 
-        private void Home_Load(object sender, EventArgs e)
+        private async void Home_Load(object sender, EventArgs e)
         {
 
             // Greet the user
             lblUser.Text = Login.currentUser;
 
-            if (context == "books")
+            await Task.Run(() =>
             {
-                dashboardUI.showBooksUI();
+                this.Invoke((MethodInvoker) delegate
+                {
+                    if (context == "books")
+                    {
+                        dashboardUI.showBooksUI();
 
-                data.loadAllBooks();
-                updateStatistics(context);
-            }
+                        data.loadAllBooks();
+                        updateStatistics(context);
+                    }
 
-            else if (context == "borrowers")
-            {
-                // Load the default dashboard UI
-                dashboardUI.showBorrowersUI();
+                    else if (context == "borrowers")
+                    {
+                        // Load the default dashboard UI
+                        dashboardUI.showBorrowersUI();
 
-                // Populate the data grid everytime the form loads
-                data.loadBorrowers();
-                updateStatistics(context);
-            }
+                        // Populate the data grid everytime the form loads
+                        data.loadBorrowers();
+                        updateStatistics(context);
+                    }
+                });
+            });
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -118,7 +131,7 @@ namespace LibrarySystem
 
         private void BtnViewReports_Click(object sender, EventArgs e)
         {
-            data.loadBorrowerReports(today.ToString("yyyy-MM-dd"));
+            data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
             dashboardUI.showReportsUI();
             updateStatistics(context);
         }
@@ -176,7 +189,7 @@ namespace LibrarySystem
             }
             else if (context == "reports")
             {
-                data.loadBorrowerReports(today.ToString("yyyy-MM-dd"));
+                data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
             }
 
         }
@@ -193,7 +206,7 @@ namespace LibrarySystem
             }
             else if (context == "reports")
             {
-                data.loadBookReports(today.ToString("yyyy-MM-dd"));
+                data.loadBookReports(today.Date.ToString("yyyy-MM-dd"));
             }
         }
 
@@ -258,7 +271,7 @@ namespace LibrarySystem
             {
                 lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
                 lblActiveCount.Text = Convert.ToString(data.countBooks());
-                lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
+                lblInactiveCount.Text = Convert.ToString(data.countBooksToday(today.Date.ToString("yyyy-MM-dd")) + data.countBorrowersToday(today.Date.ToString("yyyy-MM-dd")));
             }
         }
 
@@ -283,22 +296,21 @@ namespace LibrarySystem
             tmHideMessage.Enabled = false;
         }
 
-        private void operationsPerfomedToday()
-        {
-
-        }
-
         private void DatePicker_ValueChanged(object sender, EventArgs e)
         {
+            lblBorrowersCount.Text = Convert.ToString(data.countBorrowersToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
+            lblActiveCount.Text = Convert.ToString(data.countBooksToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
+            lblInactiveCount.Text = Convert.ToString(data.countBooksToday(datePicker.Value.Date.ToString("yyyy-MM-dd")) + data.countBorrowersToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
+
             if (rbActive.Checked)
             {
-                data.loadBorrowerReports(datePicker.Value.Date.ToString());
-                MessageBox.Show(datePicker.Value.ToString());
+                data.loadBorrowerReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
+
             }
 
             else if (rbInactive.Checked)
             {
-                data.loadBookReports(datePicker.Value.Date.ToString());
+                data.loadBookReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
             }
         }
     }
