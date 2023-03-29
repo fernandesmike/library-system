@@ -79,8 +79,11 @@
     <Compile Include="BorrowerUI\Borrower.Designer.cs">
       <DependentUpon>Borrower.cs</DependentUpon>
     </Compile>
-    <Compile Include="Handlers\BookDataHelper.cs" />
     <Compile Include="Handlers\DataViews.cs" />
+    <Compile Include="Repository\BookRepository.cs" />
+    <Compile Include="Repository\BorrowerRepository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="UIHelpers\AddUIHelper.cs" />
     <Compile Include="UIHelpers\BorrowerUIHelper.cs" />
     <Compile Include="UIHelpers\BorrowBookUIHelper.cs" />
