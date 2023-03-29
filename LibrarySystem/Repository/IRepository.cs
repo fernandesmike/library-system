@@ -26,5 +26,12 @@ namespace LibrarySystem.Repository
          checkIfExist
         */
 
+        void loadAll();
+
+        int delete(string dataId);
+
+        int updateStatus(string bookId, int status);
+
+        void refreshDataGrid();
     }
 }

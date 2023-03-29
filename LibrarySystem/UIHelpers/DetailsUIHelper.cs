@@ -44,6 +44,8 @@ namespace LibrarySystem
             detailsUI.btnEdit.Text = "Edit account";
             detailsUI.btnDelete.Text = "Delete account";
 
+            detailsUI.flpBorrow.Visible = false;
+
             updateStatus(Dashboard.status, "borrowers");
         }
 
@@ -61,6 +63,8 @@ namespace LibrarySystem
             detailsUI.lblWarning.Text = "WARNING:\nDeleting books cannot be undone!";
             detailsUI.btnEdit.Text = "Edit book";
             detailsUI.btnDelete.Text = "Delete book";
+
+            detailsUI.flpBorrow.Visible = true;
 
             updateStatus(Dashboard.status, "books");
         }

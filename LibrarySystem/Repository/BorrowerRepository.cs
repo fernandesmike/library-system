@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace LibrarySystem.Repository
 {
-    class BorrowerRepository : IRepository
+    class BorrowerRepository
     {
-        private string connection;
+        private readonly string connection;
         private DataGridView dataGrid;
 
         private int queryPerformed;
@@ -25,6 +25,10 @@ namespace LibrarySystem.Repository
             this.dataGrid = dataGrid;
         }
 
+        public void loadAll()
+        {
+
+        }
         /*
          * changeUsername
          * changePassword
@@ -32,5 +36,10 @@ namespace LibrarySystem.Repository
          * changeFirstName
          * changeLastName
         */
+        public void refreshDataGrid()
+        {
+            dataGrid.Visible = false;
+            dataGrid.Visible = true;
+        }
     }
 }
