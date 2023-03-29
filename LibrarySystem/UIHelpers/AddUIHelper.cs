@@ -21,7 +21,9 @@ namespace LibrarySystem.Class
 
         public void loadAddBorrowerUI()
         {
-            Image borrower = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/user_avatar.ico");
+            // Lab path
+            // Z:/QQ412/Fernandez, Mike Andrew/library-system/Assets
+            Image borrower = Image.FromFile(@"Z:/QQ412/Fernandez, Mike Andrew/library-system/Assets/Component Icons/user_avatar.ico");
             addUI.image.Image = borrower;
 
             addUI.lblTitle.Text = "Add borrower";
@@ -35,7 +37,7 @@ namespace LibrarySystem.Class
 
         public void loadAddBookUI()
         {
-            Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
+            Image book = Image.FromFile(@"Z:/QQ412/Fernandez, Mike Andrew/library-system/Assets/book_open.ico");
             addUI.image.Image = book;
 
             addUI.lblTitle.Text = "Add book";
