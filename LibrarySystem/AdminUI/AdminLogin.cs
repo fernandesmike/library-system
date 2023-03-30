@@ -10,31 +10,30 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using LibrarySystem.AdminUI;
 
-namespace LibrarySystem
+namespace LibrarySystem.AdminUI
 {
-    public partial class Login : Form
+    public partial class AdminLogin : Form
     {
         // Fetch the current user of the form
         public static string currentUser;
 
         private readonly string connection;
 
-        public Login()
+        public AdminLogin()
         {
             InitializeComponent();
-            //TODO: Change the connection string
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
-        private void Login_Load(object sender, EventArgs e)
+        private void AdminLogin_Load(object sender, EventArgs e)
         {
         }
 
-        private void LnkToReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void BtnBorrowerLogin_Click(object sender, EventArgs e)
         {
-            Register register = new Register();
-            register.Show();
+            Login login = new Login();
             this.Hide();
+            login.Show();
         }
 
         private void BtnLogin_Click(object sender, EventArgs e)
@@ -48,9 +47,9 @@ namespace LibrarySystem
                 {
                     using (SqlConnection con = new SqlConnection(connection))
                     {
-                        string command = "SELECT borrower_password " +
-                                         "FROM tbl_borrower " +
-                                         "WHERE borrower_username = @username";
+                        string command = "SELECT admin_password " +
+                                         "FROM tbl_admin " +
+                                         "WHERE admin_username = @username";
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand(command, con);
@@ -64,18 +63,18 @@ namespace LibrarySystem
                                 lblErrorName.Visible = false;
 
                                 // Get the stored hash of the corresponding user
-                                string storedHash = reader.GetString(0);
+                                string storedPassword = reader.GetString(0);
 
                                 // If password is correct, proceed to login
-                                if (PasswordHandler.ValidatePassword(txtPass.Text.Trim(), storedHash))
+                                if (txtPass.Text.Trim().Equals(storedPassword))
                                 {
                                     // Used to contain the current user
                                     currentUser = txtUsername.Text;
 
-                                    Borrower borrower = new Borrower();
-                                    borrower.Show();
+                                    Dashboard home = new Dashboard();
+                                    home.Show();
                                     this.Hide();
-                                    
+
                                 }
                                 else
                                 {
@@ -95,18 +94,11 @@ namespace LibrarySystem
                         }
                     }
                 }
-                catch(Exception err)
+                catch (Exception err)
                 {
                     MessageBox.Show(err.Message + "There was an error connecting to our server!");
                 }
             }
-        }
-
-        private void BtnAdminLogin_Click(object sender, EventArgs e)
-        {
-            AdminLogin admin = new AdminLogin();
-            admin.Show();
-            this.Hide();
         }
 
         private bool validateFields()

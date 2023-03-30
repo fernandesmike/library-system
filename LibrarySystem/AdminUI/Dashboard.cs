@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LibrarySystem.AdminUI;
 
 namespace LibrarySystem
 {
@@ -107,7 +108,7 @@ namespace LibrarySystem
         {
 
             // Greet the user
-            lblUser.Text = Login.currentUser;
+            lblUser.Text = AdminLogin.currentUser;
             
             await Task.Run(() =>
             {

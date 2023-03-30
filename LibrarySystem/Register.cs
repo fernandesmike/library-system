@@ -13,18 +13,21 @@ namespace LibrarySystem
 {
     public partial class Register : Form
     {
-        String connectionString;
+        private readonly string connection;
+        private readonly DateTime date;
 
         public Register()
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            //TODO: Change connection string
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            date = DateTime.Today;
         }
 
         private void Register_Load(object sender, EventArgs e)
         {
-            txtPass.Enabled = false;
-            txtConfirmPass.Enabled = false;
+            txtPassword.Enabled = false;
             btnRegister.Enabled = false;
         }
 
@@ -42,25 +45,26 @@ namespace LibrarySystem
             {
                 // Errors
                 lblErrorPass.Visible = false;
-                lblErrorName.Visible = true;
-                lblErrorName.Text = "Username should be at least 6 characters";
+                lblErrorUsername.Visible = true;
+                lblErrorUsername.Text = "Username should be at least 6 characters";
 
                 // Textfields & Buttons
-                txtPass.Enabled = false;
-                txtConfirmPass.Enabled = false;
+                txtPassword.Enabled = false;
                 btnRegister.Enabled = false;
 
                 // Textfields
-                txtPass.Clear();
-                txtConfirmPass.Clear();
+                txtPassword.Clear();
+                lblErrorPass.Visible = false;
             }
             else
             {
                 try
                 {
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(connection))
                     {
-                        string command = "SELECT * FROM tbl_user WHERE username = @username";
+                        string command = "SELECT * " +
+                                         "FROM tbl_borrower " +
+                                         "WHERE borrower_username = @username";
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand(command, con);
@@ -73,28 +77,25 @@ namespace LibrarySystem
                             {
                                 // Errors
                                 lblErrorPass.Visible = false;
-                                lblErrorName.Visible = true;
-                                lblErrorName.Text = "This username is already taken";
+                                lblErrorUsername.Visible = true;
+                                lblErrorUsername.Text = "This username is already taken";
 
                                 // Textfields & Buttons
-                                txtPass.Enabled = false;
-                                txtConfirmPass.Enabled = false;
+                                txtPassword.Enabled = false;
                                 btnRegister.Enabled = false;
 
                                 // Textfield contents
-                                txtPass.Clear();
-                                txtConfirmPass.Clear();
+                                txtPassword.Clear();
                             }
                             // If the username is available, proceed with passwords
                             else
                             {
                                 // Errors
                                 lblErrorPass.Visible = false;
-                                lblErrorName.Visible = false;
+                                lblErrorUsername.Visible = false;
 
                                 // Textfields & Buttons
-                                txtPass.Enabled = true;
-                                txtConfirmPass.Enabled = true;
+                                txtPassword.Enabled = true;
                                 btnRegister.Enabled = true;
                             }
                         }
@@ -107,19 +108,9 @@ namespace LibrarySystem
             }
         }
 
-        private void TxtPass_TextChanged(object sender, EventArgs e)
-        {
-            validatePass();
-        }
-
-        private void TxtConfirmPass_TextChanged(object sender, EventArgs e)
-        {
-           validatePass();
-        }
-
         private void BtnRegister_Click(object sender, EventArgs e)
         {
-            bool valid = validatePass();
+            bool valid = validateFields();
 
             if (valid)
             {
@@ -127,15 +118,19 @@ namespace LibrarySystem
 
                 try
                 {
-                    using (SqlConnection con = new SqlConnection(connectionString))
+                    using (SqlConnection con = new SqlConnection(connection))
                     {
                         con.Open();
 
                         // Create a hashed password before storing it to DB
-                        string hashedPass = PasswordHandler.HashPassword(txtConfirmPass.Text.Trim());
-                        string command = "INSERT INTO tbl_user(Id, username, password) VALUES (NEXT VALUE FOR sequence_id, @username, @pass)";
+                        string hashedPass = PasswordHandler.HashPassword(txtPassword.Text.Trim());
+                        string command = "INSERT INTO tbl_borrower(borrower_id, borrower_fname, borrower_lname, date_registered, borrower_username, borrower_password) " +
+                                         "VALUES (NEXT VALUE FOR seq_borrower_id, @fname, @lname, @date, @username, @pass)";
 
                         SqlCommand cmd = new SqlCommand(command, con);
+                        cmd.Parameters.AddWithValue("@fname", txtFirstname.Text.Trim());
+                        cmd.Parameters.AddWithValue("@lname", txtLastname.Text.Trim());
+                        cmd.Parameters.AddWithValue("@date", date.ToString("yyyy-MM-d"));
                         cmd.Parameters.AddWithValue("@username", txtUsername.Text.Trim());
                         cmd.Parameters.AddWithValue("@pass", hashedPass);
                         cmd.ExecuteNonQuery();
@@ -145,56 +140,39 @@ namespace LibrarySystem
                     }
 
                     Login.currentUser = txtUsername.Text.Trim();
-                    Dashboard home = new Dashboard();
+                    Borrower borrow = new Borrower();
                     this.Close();
-                    home.Show();
+                    borrow.Show();
 
                     txtUsername.Clear();
-                    txtPass.Clear();
-                    txtConfirmPass.Clear();
+                    txtFirstname.Clear();
+                    txtPassword.Clear();
+                    txtLastname.Clear();
                 }
                 catch(Exception err)
                 {
                     MessageBox.Show(err + " There was an error creating your account!");
                 }
             }
-            else
-            {
-                btnRegister.Enabled = false;
-            }
         }
-        private bool validatePass()
+
+        private bool validateFields()
         {
             bool isValid = false;
 
-            if (txtPass.Text.Trim() == "" || txtConfirmPass.Text.Trim() == "")
+            if (string.IsNullOrWhiteSpace(txtFirstname.Text) || string.IsNullOrWhiteSpace(txtLastname.Text))
             {
                 isValid = false;
-                lblErrorPass.Visible = true;
-                lblErrorPass.Text = "Please provide a password";
-                btnRegister.Enabled = false;
 
-            }
-            else if (txtPass.Text.Trim() == txtConfirmPass.Text.Trim())
-            {
-                // Errors
+                lblNameError.Visible = true;
+                lblNameError.Text = "Please provide your firstname and lastname";
+
                 lblErrorPass.Visible = false;
-
-                // Buttons
-                btnRegister.Enabled = true;
-
-                isValid = true;
             }
             else
             {
-                // Errors
-                lblErrorPass.Visible = true;
-                lblErrorPass.Text = "Passwords do not match";
-
-                // Buttons
-                btnRegister.Enabled = false;
-
-                isValid = false;
+                lblNameError.Visible = false;
+                isValid = true;
             }
 
             return isValid;
