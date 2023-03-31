@@ -77,7 +77,7 @@
             this.btnLogin.Margin = new System.Windows.Forms.Padding(2);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(273, 46);
-            this.btnLogin.TabIndex = 27;
+            this.btnLogin.TabIndex = 3;
             this.btnLogin.Text = "Sign in";
             this.btnLogin.UseVisualStyleBackColor = true;
             this.btnLogin.Click += new System.EventHandler(this.BtnLogin_Click);
@@ -91,7 +91,7 @@
             this.txtPass.Name = "txtPass";
             this.txtPass.PasswordChar = '*';
             this.txtPass.Size = new System.Drawing.Size(274, 47);
-            this.txtPass.TabIndex = 26;
+            this.txtPass.TabIndex = 2;
             // 
             // txtUsername
             // 
@@ -101,7 +101,7 @@
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(274, 47);
-            this.txtUsername.TabIndex = 25;
+            this.txtUsername.TabIndex = 1;
             // 
             // lblPassword
             // 
@@ -165,7 +165,7 @@
             this.btnBorrowerLogin.Name = "btnBorrowerLogin";
             this.btnBorrowerLogin.Padding = new System.Windows.Forms.Padding(4);
             this.btnBorrowerLogin.Size = new System.Drawing.Size(269, 36);
-            this.btnBorrowerLogin.TabIndex = 31;
+            this.btnBorrowerLogin.TabIndex = 4;
             this.btnBorrowerLogin.Text = "Login as borrower";
             this.btnBorrowerLogin.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnBorrowerLogin.UseVisualStyleBackColor = false;
@@ -187,9 +187,10 @@
             this.Controls.Add(this.paragraph);
             this.Controls.Add(this.header);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "AdminLogin";
+            this.Text = "Admin";
             this.Load += new System.EventHandler(this.AdminLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.appLogo)).EndInit();
             this.ResumeLayout(false);

@@ -9,33 +9,47 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LibrarySystem.Class;
+using LibrarySystem.Repository;
 
 namespace LibrarySystem
 {
     public partial class Add : Form
     {
-        private DataHelper data;
-        private AddUIHelper addUI;
-        private Dashboard dashboard;
-        private DashboardUIHelper dashboardUI;
+        // Data Repositories
+        private readonly BookRepository book;
+        private readonly BorrowerRepository borrower;
 
-        private string connectionString;
+        // UI Helpers
+        private readonly AddUIHelper addUI;
+        private readonly Dashboard dashboard;
+        private readonly DashboardUIHelper dashboardUI;
+
+
+        private string connection;
         private string context;
 
-        private DateTime currentDate;
+        private DateTime today;
 
         public Add(Dashboard dashboard, string context)
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             this.context = context;
             this.dashboard = dashboard;
 
-            currentDate = DateTime.Today;
-
+            dashboardUI = new DashboardUIHelper(this.dashboard);
             addUI = new AddUIHelper(this);
 
+            today = DateTime.Today;
+
+            book = new BookRepository(connection);
+            borrower = new BorrowerRepository(connection);
+
+        }
+
+        private void Add_Load(object sender, EventArgs e)
+        {
             if (context == "borrowers")
             {
                 addUI.loadAddBorrowerUI();
@@ -48,12 +62,6 @@ namespace LibrarySystem
             }
         }
 
-        private void Add_Load(object sender, EventArgs e)
-        {
-            data = new DataHelper(connectionString);
-            dashboardUI = new DashboardUIHelper(this.dashboard);
-        }
-
         private void BtnCancel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             this.Close();
@@ -62,10 +70,10 @@ namespace LibrarySystem
         private void BtnSave_Click(object sender, EventArgs e)
         {
             int queryStatus;
-            string date = $"{currentDate.Year}-{currentDate.Month}-{currentDate.Day}";
 
             string first = txtFirst.Text.Trim();
             string second = txtSecond.Text.Trim();
+            string username = txtUsername.Text.Trim();
 
             if (validateFields())
             {
@@ -73,23 +81,23 @@ namespace LibrarySystem
 
                 if (context == "borrowers")
                 {
-                    if (data.checkIfBorrowerExist(first, second) < 1)
+                    if (borrower.checkIfExist(first, second, username))
                     {
-                        addUI.hideErrorMessage();
-
-                        queryStatus = data.addBorrower(first, second, date);
-                        dashboardUI.showBorrowersUI();
-                        Dashboard.firstName = txtFirst.Text.Trim();
-                        dashboard.showQueryMessage(queryStatus, "adde");
-                        dashboard.updateStatistics(this.context);
-
+                        addUI.showErrorMessage();
+                        addUI.showBorrowerExistMessage();
+                        
                         this.Close();
                     }
 
                     else
                     {
-                        addUI.showErrorMessage();
-                        addUI.showBorrowerExistMessage();
+                        addUI.hideErrorMessage();
+
+                        queryStatus = borrower.add(username, first, second, today.ToString("yyyy-MM-d"));
+                        dashboardUI.showBorrowersUI();
+                        Dashboard.firstName = txtFirst.Text.Trim();
+                        dashboard.showQueryMessage(queryStatus, "adde");
+                        dashboard.updateStatistics(this.context);
                     }
                 }
 
@@ -99,7 +107,7 @@ namespace LibrarySystem
                     {
                         addUI.hideErrorMessage();
 
-                        queryStatus = data.addBook(first, second, date);
+                        queryStatus = book.add(first, second, today.ToString("yyyy-MM-d"), quantities);
                         dashboardUI.showBooksUI();
                         Dashboard.title = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");

@@ -9,40 +9,52 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using LibrarySystem.AdminUI;
+using LibrarySystem.Repository;
+using LibrarySystem.Enums;
 
 namespace LibrarySystem
 {
     public partial class Dashboard : Form
     {
-        private string connectionString;
+        private DateTime today;
+        private readonly string connection;
 
-        // Helper classes
-        private DataHelper data;
-        private DashboardUIHelper dashboardUI;
+        // Helper classes & Enums
+        private readonly DashboardUIHelper dashboardUI;
         private Add addUI;
+
+        // Data repositories
+        private readonly BookRepository book;
+        private readonly BorrowerRepository borrower;
 
         // For book info
         // id is reusable (book or borrower ID)
         public static string id;
         public static string title;
         public static string author;
+        public static string dateAdded;
 
         // For borrower info
         public static string status;
         public static string firstName;
         public static string fullName;
         public static string lastName;
-
-        private DateTime today;
+        public static string registrationDate;
+        public static string username;
 
         // For navigating between pages
         public string context;
-        
+
         public Dashboard()
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            data = new DataHelper(connectionString, dataGrid);
+
+            // Data & Repositories
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            book = new BookRepository(connection, dataGrid);
+            borrower = new BorrowerRepository(connection, dataGrid);
+
+            // Dashboard UI helper & Enums
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = "borrowers";
@@ -51,31 +63,15 @@ namespace LibrarySystem
             today = DateTime.Today.Date;
             datePicker.MaxDate = today;
             datePicker.Value = today.Date;
-
-            if (context == "books")
-            {
-                dashboardUI.showBooksUI();
-
-                //data.loadAllBooks();
-                //updateStatistics(context);
-            }
-
-            else if (context == "borrowers")
-            {
-                // Load the default dashboard UI
-                dashboardUI.showBorrowersUI();
-
-                // Populate the data grid everytime the form loads
-                //data.loadBorrowers();
-                //updateStatistics(context);
-            }
         }
 
         public Dashboard(string context)
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            data = new DataHelper(connectionString, dataGrid);
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            book = new BookRepository(connection, dataGrid);
+            borrower = new BorrowerRepository(connection, dataGrid);
+
             dashboardUI = new DashboardUIHelper(this);
 
             this.context = context;
@@ -84,24 +80,6 @@ namespace LibrarySystem
             today = DateTime.Today.Date;
             datePicker.MaxDate = today;
             datePicker.Value = today.Date;
-
-            if (context == "books")
-            {
-                dashboardUI.showBooksUI();
-
-                //data.loadAllBooks();
-                //updateStatistics(context);
-            }
-
-            else if (context == "borrowers")
-            {
-                // Load the default dashboard UI
-                dashboardUI.showBorrowersUI();
-
-                // Populate the data grid everytime the form loads
-                //data.loadBorrowers();
-                //updateStatistics(context);
-            }
         }
 
         private async void Home_Load(object sender, EventArgs e)
@@ -114,25 +92,33 @@ namespace LibrarySystem
             {
                 this.Invoke((MethodInvoker) delegate
                 {
-                    if (context == "books")
-                    {
-                        dashboardUI.showBooksUI();
+                    dashboardUI.showBooksUI();
+                    book.loadAll();
+                    updateStatistics(context);
 
-                        data.loadAllBooks();
-                        updateStatistics(context);
-                    }
-
-                    else if (context == "borrowers")
-                    {
-                        // Load the default dashboard UI
-                        dashboardUI.showBorrowersUI();
-
-                        // Populate the data grid everytime the form loads
-                        data.loadBorrowers();
-                        updateStatistics(context);
-                    }
+                    dashboardUI.showBorrowersUI();
+                    borrower.loadAll();
+                    updateStatistics(context);
                 });
             });
+
+            if (context == "books")
+            {
+                dashboardUI.showBooksUI();
+
+                book.loadAll();
+                updateStatistics(context);
+            }
+
+            else if (context == "borrowers")
+            {
+                // Load the default dashboard UI
+                dashboardUI.showBorrowersUI();
+
+                // Populate the data grid everytime the form loads
+                borrower.loadAll();
+                updateStatistics(context);
+            }
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -150,7 +136,7 @@ namespace LibrarySystem
         private void BtnViewBorrowers_Click(object sender, EventArgs e)
         {
             // Update statistics
-            data.loadBorrowers();
+            borrower.loadAll();
             dashboardUI.showBorrowersUI();
 
             dataGrid.Visible = true;
@@ -160,7 +146,7 @@ namespace LibrarySystem
 
         private void BtnViewBooks_Click(object sender, EventArgs e)
         {
-            data.loadAllBooks();
+            book.loadAll();
             dashboardUI.showBooksUI();
 
             updateStatistics(context);
@@ -168,7 +154,8 @@ namespace LibrarySystem
 
         private void BtnViewReports_Click(object sender, EventArgs e)
         {
-            data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
+            //TODO: Update reports
+            //data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
             dashboardUI.showReportsUI();
             updateStatistics(context);
         }
@@ -177,11 +164,11 @@ namespace LibrarySystem
         {
             if (context == "borrowers")
             {
-                data.searchBorrowers(txtSearch.Text.Trim());
+                borrower.search(txtSearch.Text.Trim());
             }
             else if (context == "books")
             {
-                data.searchBooks(txtSearch.Text.Trim());
+                book.search(txtSearch.Text.Trim());
             }
         }
 
@@ -192,12 +179,12 @@ namespace LibrarySystem
 
             if (context == "borrowers")
             {
-                data.loadBorrowers();
+                borrower.loadAll();
             }
 
             else if (context == "books")
             {
-                data.loadAllBooks();
+                book.loadAll();
             }
         }
 
@@ -206,11 +193,11 @@ namespace LibrarySystem
 
             if (context == "borrowers")
             {
-                data.loadBorrowers();
+                borrower.loadAll();
             }
             else if (context == "books")
             {
-                data.loadAllBooks();
+                book.loadAll();
             }
         }
 
@@ -218,15 +205,16 @@ namespace LibrarySystem
         {
             if (context == "borrowers")
             {
-                data.loadBorrowers(rbActive.Text.ToLower());
+                borrower.loadActive();
             }
             else if (context == "books")
             {
-                data.loadAvailableBooks();
+                book.loadActive();
             }
             else if (context == "reports")
             {
-                data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
+                //TODO: Update reports
+                //data.loadBorrowerReports(today.Date.ToString("yyyy-MM-dd"));
             }
 
         }
@@ -235,15 +223,15 @@ namespace LibrarySystem
         {
             if (context == "borrowers")
             {
-                data.loadBorrowers(rbInactive.Text.ToLower());
+                borrower.loadInactive();
             }
             else if (context == "books")
             {
-                data.loadBorrowedBooks();
+                book.loadInactive();
             }
             else if (context == "reports")
             {
-                data.loadBookReports(today.Date.ToString("yyyy-MM-dd"));
+                //data.loadBookReports(today.Date.ToString("yyyy-MM-dd"));
             }
         }
 
@@ -261,6 +249,9 @@ namespace LibrarySystem
                     fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
                     lastName = row.Cells["Lastname"].Value.ToString(); 
                     status = row.Cells["Status"].Value.ToString();
+                    registrationDate = status = row.Cells["Registration date"].Value.ToString();
+                    username = status = row.Cells["Username"].Value.ToString();
+
 
                     Details info = new Details(this.context);
                     this.Hide();
@@ -279,6 +270,7 @@ namespace LibrarySystem
                     title = row.Cells["Book title"].Value.ToString();
                     author = row.Cells["Author"].Value.ToString();
                     status = row.Cells["Available"].Value.ToString();
+                    dateAdded = row.Cells["Added last"].Value.ToString();
 
                     Details info = new Details(this.context);
                     this.Hide();
@@ -292,23 +284,24 @@ namespace LibrarySystem
         {
             if (context == "borrowers")
             {
-                lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
-                lblActiveCount.Text = Convert.ToString(data.countBorrowers("active"));
-                lblInactiveCount.Text = Convert.ToString(data.countBorrowers("inactive"));
+                lblBorrowersCount.Text = Convert.ToString(borrower.count());
+                lblActiveCount.Text = Convert.ToString(borrower.countByStatus((int)Status.ACTIVE));
+                lblInactiveCount.Text = Convert.ToString(borrower.countByStatus((int)Status.INACTIVE));
             }
 
             else if (context == "books")
             {
-                lblBorrowersCount.Text = Convert.ToString(data.countBooks());
-                lblActiveCount.Text = Convert.ToString(data.countBooks("1"));
-                lblInactiveCount.Text = Convert.ToString(data.countBooks("0"));
+                lblBorrowersCount.Text = Convert.ToString(book.count());
+                lblActiveCount.Text = Convert.ToString(book.countByStatus((int)Status.ACTIVE));
+                lblInactiveCount.Text = Convert.ToString(book.countByStatus((int)Status.INACTIVE));
             }
 
             else if (context == "reports")
             {
-                lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
-                lblActiveCount.Text = Convert.ToString(data.countBooks());
-                lblInactiveCount.Text = Convert.ToString(data.countBooksToday(today.Date.ToString("yyyy-MM-dd")) + data.countBorrowersToday(today.Date.ToString("yyyy-MM-dd")));
+                //TODO: Update reports
+                //lblBorrowersCount.Text = Convert.ToString(data.countBorrowers());
+                //lblActiveCount.Text = Convert.ToString(data.countBooks());
+                //lblInactiveCount.Text = Convert.ToString(data.countBooksToday(today.Date.ToString("yyyy-MM-dd")) + data.countBorrowersToday(today.Date.ToString("yyyy-MM-dd")));
             }
         }
 
@@ -338,16 +331,16 @@ namespace LibrarySystem
             //lblBorrowersCount.Text = Convert.ToString(data.countBorrowersToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
             //lblActiveCount.Text = Convert.ToString(data.countBooksToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
             //lblInactiveCount.Text = Convert.ToString(data.countBooksToday(datePicker.Value.Date.ToString("yyyy-MM-dd")) + data.countBorrowersToday(datePicker.Value.Date.ToString("yyyy-MM-dd")));
-
+            //TODO: Update reports
             if (rbActive.Checked)
             {
-                data.loadBorrowerReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
+                //data.loadBorrowerReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
 
             }
 
             else if (rbInactive.Checked)
             {
-                data.loadBookReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
+                //data.loadBookReports(datePicker.Value.Date.ToString("yyyy-MM-dd"));
             }
         }
     }

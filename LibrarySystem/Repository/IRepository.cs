@@ -28,9 +28,19 @@ namespace LibrarySystem.Repository
 
         void loadAll();
 
-        int delete(string dataId);
+        void loadActive();
 
-        int updateStatus(string bookId, int status);
+        void loadInactive();
+
+        int count();
+
+        int countByStatus(int status);
+
+        int delete(string id);
+
+        int updateStatus(string id, int status);
+
+        void search(string searchQuery);
 
         void refreshDataGrid();
     }

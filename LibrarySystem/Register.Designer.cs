@@ -54,7 +54,7 @@
             this.lnkToLogin.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lnkToLogin.Name = "lnkToLogin";
             this.lnkToLogin.Size = new System.Drawing.Size(227, 19);
-            this.lnkToLogin.TabIndex = 15;
+            this.lnkToLogin.TabIndex = 6;
             this.lnkToLogin.TabStop = true;
             this.lnkToLogin.Text = "Already have an account? Sign in";
             this.lnkToLogin.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LnkToLogin_LinkClicked);
@@ -66,7 +66,7 @@
             this.btnRegister.Margin = new System.Windows.Forms.Padding(2);
             this.btnRegister.Name = "btnRegister";
             this.btnRegister.Size = new System.Drawing.Size(416, 46);
-            this.btnRegister.TabIndex = 14;
+            this.btnRegister.TabIndex = 5;
             this.btnRegister.Text = "Create account";
             this.btnRegister.UseVisualStyleBackColor = true;
             this.btnRegister.Click += new System.EventHandler(this.BtnRegister_Click);
@@ -79,7 +79,7 @@
             this.txtFirstname.Multiline = true;
             this.txtFirstname.Name = "txtFirstname";
             this.txtFirstname.Size = new System.Drawing.Size(197, 47);
-            this.txtFirstname.TabIndex = 13;
+            this.txtFirstname.TabIndex = 1;
             // 
             // txtUsername
             // 
@@ -89,7 +89,7 @@
             this.txtUsername.Multiline = true;
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(416, 47);
-            this.txtUsername.TabIndex = 12;
+            this.txtUsername.TabIndex = 3;
             this.txtUsername.TextChanged += new System.EventHandler(this.TxtUsername_TextChanged);
             // 
             // lblFirstname
@@ -147,7 +147,7 @@
             this.txtPassword.Name = "txtPassword";
             this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(416, 47);
-            this.txtPassword.TabIndex = 17;
+            this.txtPassword.TabIndex = 4;
             // 
             // lblPassword
             // 
@@ -196,7 +196,7 @@
             this.txtLastname.Multiline = true;
             this.txtLastname.Name = "txtLastname";
             this.txtLastname.Size = new System.Drawing.Size(197, 47);
-            this.txtLastname.TabIndex = 21;
+            this.txtLastname.TabIndex = 2;
             // 
             // lblLastname
             // 
