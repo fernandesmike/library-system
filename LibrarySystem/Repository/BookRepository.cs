@@ -328,6 +328,7 @@ namespace LibrarySystem.Repository
                 return 0;
             }
         }
+
         public int delete(string id)
         {
             try
@@ -369,8 +370,6 @@ namespace LibrarySystem.Repository
                         cmd.Parameters.AddWithValue("@id", bookId);
                         queryPerformed = cmd.ExecuteNonQuery();
                     }
-
-                    refreshDataGrid();
 
                     return queryPerformed;
                 }

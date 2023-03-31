@@ -44,7 +44,8 @@ namespace LibrarySystem.Class
             addUI.lblDescription.Text = "Please provide the necessary book details below";
 
             addUI.lblFirst.Text = "Title";
-            addUI.lblSecond.Text = "Author (comma separated for multiple authors)";
+            addUI.lblSecond.Text = "Author";
+            addUI.lblUsername.Text = "Book quantity";
 
             addUI.btnSave.Text = "Add book";
         }
@@ -62,7 +63,7 @@ namespace LibrarySystem.Class
 
         public void showBorrowerExistMessage()
         {
-            addUI.lblErrorTitle.Text = "This borrower already exist";
+            addUI.lblErrorTitle.Text = "This username already exist";
         }
 
         public void showBookExistMessage()

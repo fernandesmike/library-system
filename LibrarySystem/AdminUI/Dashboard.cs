@@ -33,6 +33,7 @@ namespace LibrarySystem
         public static string title;
         public static string author;
         public static string dateAdded;
+        public static string quantities;
 
         // For borrower info
         public static string status;
@@ -68,7 +69,7 @@ namespace LibrarySystem
         public Dashboard(string context)
         {
             InitializeComponent();
-            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             book = new BookRepository(connection, dataGrid);
             borrower = new BorrowerRepository(connection, dataGrid);
 
@@ -92,33 +93,35 @@ namespace LibrarySystem
             {
                 this.Invoke((MethodInvoker) delegate
                 {
-                    dashboardUI.showBooksUI();
-                    book.loadAll();
-                    updateStatistics(context);
+                    if (context == "books")
+                    {
+                        dashboardUI.showBooksUI();
 
-                    dashboardUI.showBorrowersUI();
-                    borrower.loadAll();
-                    updateStatistics(context);
+                        book.loadAll();
+                        updateStatistics(context);
+                    }
+
+                    else if (context == "borrowers")
+                    {
+                        // Load the default dashboard UI
+                        dashboardUI.showBorrowersUI();
+
+                        // Populate the data grid everytime the form loads
+                        borrower.loadAll();
+                        updateStatistics(context);
+                    }
                 });
             });
 
-            if (context == "books")
-            {
-                dashboardUI.showBooksUI();
+            /*
+            dashboardUI.showBooksUI();
+            book.loadAll();
+            updateStatistics(context);
 
-                book.loadAll();
-                updateStatistics(context);
-            }
-
-            else if (context == "borrowers")
-            {
-                // Load the default dashboard UI
-                dashboardUI.showBorrowersUI();
-
-                // Populate the data grid everytime the form loads
-                borrower.loadAll();
-                updateStatistics(context);
-            }
+            dashboardUI.showBorrowersUI();
+            borrower.loadAll();
+            updateStatistics(context);
+             */
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -249,8 +252,8 @@ namespace LibrarySystem
                     fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
                     lastName = row.Cells["Lastname"].Value.ToString(); 
                     status = row.Cells["Status"].Value.ToString();
-                    registrationDate = status = row.Cells["Registration date"].Value.ToString();
-                    username = status = row.Cells["Username"].Value.ToString();
+                    registrationDate = row.Cells["Registration date"].Value.ToString();
+                    username = row.Cells["Username"].Value.ToString();
 
 
                     Details info = new Details(this.context);
@@ -269,8 +272,9 @@ namespace LibrarySystem
                     id = row.Cells["ID"].Value.ToString();
                     title = row.Cells["Book title"].Value.ToString();
                     author = row.Cells["Author"].Value.ToString();
-                    status = row.Cells["Available"].Value.ToString();
+                    status = row.Cells["Status"].Value.ToString();
                     dateAdded = row.Cells["Added last"].Value.ToString();
+                    quantities = row.Cells["Total copies"].Value.ToString();
 
                     Details info = new Details(this.context);
                     this.Hide();

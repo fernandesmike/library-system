@@ -74,6 +74,7 @@ namespace LibrarySystem
             string first = txtFirst.Text.Trim();
             string second = txtSecond.Text.Trim();
             string username = txtUsername.Text.Trim();
+            int quantity = 1;
 
             if (validateFields())
             {
@@ -81,7 +82,7 @@ namespace LibrarySystem
 
                 if (context == "borrowers")
                 {
-                    if (borrower.checkIfExist(first, second, username))
+                    if (borrower.checkIfExist(username))
                     {
                         addUI.showErrorMessage();
                         addUI.showBorrowerExistMessage();
@@ -113,13 +114,32 @@ namespace LibrarySystem
                     {
                         addUI.hideErrorMessage();
 
-                        queryStatus = book.add(first, second, today.ToString("yyyy-MM-d"), int.Parse(username));
-                        dashboardUI.showBooksUI();
-                        Dashboard.title = txtFirst.Text.Trim();
-                        dashboard.showQueryMessage(queryStatus, "adde");
-                        dashboard.updateStatistics(this.context);
+                        if(int.TryParse(username, out quantity))
+                        {
+                            if(quantity < 1)
+                            {
+                                lblQuantityError.Visible = true;
+                                lblQuantityError.Text = "Please enter a valid book quantity";
+                            }
 
-                        this.Close();
+                            else
+                            {
+                                lblQuantityError.Visible = false;
+                                queryStatus = book.add(first, second, today.ToString("yyyy-MM-d"), quantity);
+                                dashboardUI.showBooksUI();
+                                Dashboard.title = txtFirst.Text.Trim();
+                                dashboard.showQueryMessage(queryStatus, "adde");
+                                dashboard.updateStatistics(this.context);
+
+                                this.Close();
+                            }
+                        }
+
+                        else
+                        {
+                            lblQuantityError.Visible = true;
+                            lblQuantityError.Text = "Please enter a valid book quantity";
+                        }
                     }
                 }
             }
@@ -141,18 +161,20 @@ namespace LibrarySystem
             if ((first == "" && second == "" && username == "" ) || (first == "" || second == "" || username == ""))
             {
                 valid = false;
+                lblQuantityError.Visible = false;
             }
 
-            else if (username.Length < 6)
+            else if (username.Length < 6 && context == "borrowers")
             {
                 valid = false;
                 lblQuantityError.Visible = true;
-                lblQuantityError.Text = "Usernames should be greater than 6 characters"
+                lblQuantityError.Text = "Usernames should be greater than 6 characters";
             }
 
             else
             {
                 valid = true;
+                lblQuantityError.Visible = false;
             }
 
             return valid;

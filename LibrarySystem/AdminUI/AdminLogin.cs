@@ -49,7 +49,8 @@ namespace LibrarySystem.AdminUI
                     {
                         string command = "SELECT admin_password " +
                                          "FROM tbl_admin " +
-                                         "WHERE admin_username = @username";
+                                         "WHERE admin_username = @username " +
+                                         "COLLATE SQL_Latin1_General_CP1_CS_AS";
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand(command, con);

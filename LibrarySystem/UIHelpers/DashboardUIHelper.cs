@@ -69,14 +69,14 @@ namespace LibrarySystem
 
             dashboard.lblTotalBorrowers.Text = "Total books";
             dashboard.lblActive.Text = "Available books";
-            dashboard.lblInactive.Text = "Borrowed books";
+            dashboard.lblInactive.Text = "Inactive books";
 
             dashboard.lblGridTitle.Text = "All books";
             dashboard.btnAdd.Text = " + Add books";
             dashboard.btnAdd.Enabled = true;
             dashboard.rbAll.Visible = true;
-            dashboard.rbActive.Text = "Available";
-            dashboard.rbInactive.Text = "Borrowed";
+            dashboard.rbActive.Text = "Active";
+            dashboard.rbInactive.Text = "Inactive";
 
             dashboard.radioContainer.Visible = true;
             dashboard.flpBorrowersUI.Visible = true;

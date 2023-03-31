@@ -9,23 +9,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using LibrarySystem.Repository;
+using LibrarySystem.Enums;
 
 namespace LibrarySystem
 {
     public partial class Details : Form
     {
+        // Data Repositories
+        private readonly BookRepository book;
+        private readonly BorrowerRepository borrower;
 
-        private DetailsUIHelper detailsUI;
-        private DataHelper data;
+        private readonly DetailsUIHelper detailsUI;
 
         private string context;
-        private string connectionString;
+        private string connection;
 
         public Details(string context)
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-            data = new DataHelper(connectionString);
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
+            book = new BookRepository(connection);
+            borrower = new BorrowerRepository(connection);
 
             detailsUI = new DetailsUIHelper(this);
 
@@ -36,7 +42,7 @@ namespace LibrarySystem
         {
             await Task.Run(() =>
             {
-                this.Invoke((MethodInvoker)delegate
+                this.Invoke((MethodInvoker) delegate
                {
                    if (context == "borrowers")
                    {
@@ -48,6 +54,7 @@ namespace LibrarySystem
                    }
                });
             });
+            MessageBox.Show("" + Dashboard.status);
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -73,19 +80,19 @@ namespace LibrarySystem
             if (context == "borrowers")
             {
                 // Disable account
-                if (Dashboard.status.ToLower() == "active")
+                if (Dashboard.status == "1")
                 {
-                    data.changeBorrowerStatus(Dashboard.id, "inactive");
+                    borrower.updateStatus(Dashboard.id, (int) Status.INACTIVE);
                     detailsUI.updateStatus("inactive", context);
-                    Dashboard.status = "inactive";
+                    Dashboard.status = "0";
                 }
 
                 // Enable account
-                else if (Dashboard.status.ToLower() == "inactive")
+                else if (Dashboard.status == "0")
                 {
-                    data.changeBorrowerStatus(Dashboard.id, "active");
+                    borrower.updateStatus(Dashboard.id, (int) Status.ACTIVE);
                     detailsUI.updateStatus("active", context);
-                    Dashboard.status = "active";
+                    Dashboard.status = "1";
                 }
             }
 
@@ -94,7 +101,7 @@ namespace LibrarySystem
                 // Disable account
                 if (Dashboard.status == "0")
                 {
-                    data.updateBookStatus(Dashboard.id, "1");
+                    book.updateStatus(Dashboard.id, (int) Status.ACTIVE);
                     detailsUI.updateStatus("1", context);
                     Dashboard.status = "1";
                 }
@@ -102,7 +109,7 @@ namespace LibrarySystem
                 // Enable account
                 else if (Dashboard.status == "1")
                 {
-                    data.updateBookStatus(Dashboard.id, "0");
+                    book.updateStatus(Dashboard.id, (int) Status.INACTIVE);
                     detailsUI.updateStatus("0", context);
                     Dashboard.status = "0";
                 }
@@ -127,7 +134,7 @@ namespace LibrarySystem
 
             if (context == "borrowers")
             {
-                queryStatus = data.deleteBorrower(Dashboard.id);    
+                queryStatus = borrower.delete(Dashboard.id);
 
                 returnToDashboard.Show();
                 returnToDashboard.showQueryMessage(queryStatus, "delete");
@@ -135,7 +142,7 @@ namespace LibrarySystem
 
             else if ( context == "books")
             {
-                queryStatus = data.deleteBook(Dashboard.id);
+                queryStatus = book.delete(Dashboard.id);
 
                 returnToDashboard = new Dashboard(this.context);
                 returnToDashboard.Show();
@@ -170,6 +177,7 @@ namespace LibrarySystem
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
+            /*
             // TODO:
             // Using ExecuteNonQuery(), check if a data is successfully updated or not
             // If a data is updated, show a control below datagrid and after several seconds make it invisible
@@ -203,6 +211,7 @@ namespace LibrarySystem
 
                 if (context == "borrowers")
                 {
+                    //TODO: Update queries
                     // Identify if changes has conflict to existing data
                     if (data.checkIfBorrowerExist(newSecond, newThird) > 0)
                     {
@@ -264,7 +273,7 @@ namespace LibrarySystem
                         }
                     }
                 }
-            }
+            }*/
         }
 
         private void LblCancelEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -279,9 +288,5 @@ namespace LibrarySystem
             lblUpdateMessage.Height = 1;
             tmHideMessage.Enabled = false;
         }
-
-        // TODO: 
-        // fetch user statistics data
-        // fetch user transactions
     }
 }

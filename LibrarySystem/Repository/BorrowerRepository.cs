@@ -226,7 +226,7 @@ namespace LibrarySystem.Repository
 
         }
 
-        public bool checkIfExist(string firstname, string lastname, string username)
+        public bool checkIfExist(string username)
         {
             int result = 0;
 
@@ -236,15 +236,12 @@ namespace LibrarySystem.Repository
                 {
                     string command = "SELECT COUNT(*) " +
                                      "FROM tbl_borrower " +
-                                     "WHERE LOWER(borrower_fname) = @firstname " +
-                                     "AND LOWER(borrower_lname) = @lastname " +
-                                     "AND LOWER(borrower_username) = @username";
+                                     "WHERE borrower_username = @username " +
+                                     "COLLATE SQL_Latin1_General_CP1_CS_AS";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@firstname", firstname.ToLower());
-                    cmd.Parameters.AddWithValue("@lastname", lastname.ToLower());
-                    cmd.Parameters.AddWithValue("@username", username.ToLower());
+                    cmd.Parameters.AddWithValue("@username", username);
                     cmd.ExecuteNonQuery();
 
                     result = Convert.ToInt32(cmd.ExecuteScalar());
@@ -288,9 +285,31 @@ namespace LibrarySystem.Repository
                 return 0;
             }
         }
+
         public int delete(string borrowerId)
         {
-            return 0;
+            int queryPerformed;
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "DELETE from tbl_borrower WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error deleting the borrower");
+
+                return 0;
+            }
         }
 
         public int updateStatus(string borrowerId, int status)

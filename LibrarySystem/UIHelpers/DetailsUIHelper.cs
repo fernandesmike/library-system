@@ -16,14 +16,14 @@ namespace LibrarySystem
         private DataHelper data;
         private string connectionString;
 
-        DateTime currentDate;
+        private DateTime date;
 
         public DetailsUIHelper(Details detailsUI)
         {
             connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             this.detailsUI = detailsUI;
             data = new DataHelper(connectionString);
-            currentDate = DateTime.Today;
+            date = DateTime.Today;
         }
 
         /// <summary>
@@ -31,14 +31,15 @@ namespace LibrarySystem
         /// </summary>
         public void loadBorrowerData()
         {
-            Image borrower = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/user_avatar.ico");
-            detailsUI.imgAvatar.Image = borrower;
+            //TODO: Change lab path
+            //Image borrower = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/user_avatar.ico");
+            //detailsUI.imgAvatar.Image = borrower;
 
             detailsUI.lblID.Text = "ID: " + Dashboard.id;
             detailsUI.lblUser.Text = Dashboard.fullName;
-            detailsUI.lblType.Text = "Borrower";
+            detailsUI.lblType.Text = Dashboard.username;
             detailsUI.lblTitle.Text = Dashboard.firstName + "'s statistics";
-            detailsUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
+            detailsUI.lblDate.Text = $"Registered {Dashboard.registrationDate}";
 
             detailsUI.lblWarning.Text = "WARNING:\nDeleting accounts cannot be undone!";
             detailsUI.btnEdit.Text = "Edit account";
@@ -51,14 +52,14 @@ namespace LibrarySystem
 
         public void loadBookData()
         {
-            Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
-            detailsUI.imgAvatar.Image = book;
+            //Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
+            //detailsUI.imgAvatar.Image = book;
 
             detailsUI.lblID.Text = "ID: " + Dashboard.id;
             detailsUI.lblUser.Text = Dashboard.title;
             detailsUI.lblType.Text = "by " + Dashboard.author;
             detailsUI.lblTitle.Text = Dashboard.title + "'s statistics";
-            detailsUI.lblDate.Text = "As of " + currentDate.ToString("dd MMMM, yyy");
+            detailsUI.lblDate.Text = $"Added {Dashboard.dateAdded}";
 
             detailsUI.lblWarning.Text = "WARNING:\nDeleting books cannot be undone!";
             detailsUI.btnEdit.Text = "Edit book";
@@ -133,44 +134,47 @@ namespace LibrarySystem
 
         public void updateStatus(string status, string context)
         {
-            // TODO:
-            // Update this to support UI changes depending on context
-
-            // The full path of the ico
+            //TODO: Change to lab path
             Image enabled = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/onswitch.ico");
             Image disabled = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/Component Icons/off.ico");
 
-            if (status.ToUpper() == "ACTIVE")
+            if (context == "borrowers")
             {
-                detailsUI.iconStatus.Image = disabled;
-                detailsUI.lblStatus.ForeColor = Color.ForestGreen;
-                detailsUI.btnStatus.Text = "Disable account";
-                detailsUI.lblStatus.Text = "Account active";
+                if (status == "1")
+                {
+                    detailsUI.iconStatus.Image = disabled;
+                    detailsUI.lblStatus.ForeColor = Color.ForestGreen;
+                    detailsUI.btnStatus.Text = "Disable account";
+                    detailsUI.lblStatus.Text = "Account active";
 
+                }
+
+                else if (status == "0")
+                {
+                    detailsUI.iconStatus.Image = enabled;
+                    detailsUI.lblStatus.ForeColor = Color.Red;
+                    detailsUI.btnStatus.Text = "Enable account";
+                    detailsUI.lblStatus.Text = "Account disabled";
+                }
             }
 
-            else if (status.ToUpper() == "INACTIVE")
+            else if (context == "books")
             {
-                detailsUI.iconStatus.Image = enabled;
-                detailsUI.lblStatus.ForeColor = Color.Red;
-                detailsUI.btnStatus.Text = "Enable account";
-                detailsUI.lblStatus.Text = "Account disabled";
-            }
+                if (status == "1")
+                {
+                    detailsUI.iconStatus.Image = disabled;
+                    detailsUI.lblStatus.ForeColor = Color.ForestGreen;
+                    detailsUI.btnStatus.Text = "Mark Unavailable";
+                    detailsUI.lblStatus.Text = "Available";
+                }
 
-            else if (status == "1")
-            {
-                detailsUI.iconStatus.Image = disabled;
-                detailsUI.lblStatus.ForeColor = Color.ForestGreen;
-                detailsUI.btnStatus.Text = "Mark Unavailable";
-                detailsUI.lblStatus.Text = "Available";
-            }
-
-            else if (status == "0")
-            {
-                detailsUI.iconStatus.Image = enabled;
-                detailsUI.lblStatus.ForeColor = Color.Red;
-                detailsUI.btnStatus.Text = "Mark available";
-                detailsUI.lblStatus.Text = "Unavailable";
+                else if (status == "0")
+                {
+                    detailsUI.iconStatus.Image = enabled;
+                    detailsUI.lblStatus.ForeColor = Color.Red;
+                    detailsUI.btnStatus.Text = "Mark available";
+                    detailsUI.lblStatus.Text = "Unavailable";
+                }
             }
         }
 

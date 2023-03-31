@@ -85,6 +85,7 @@
     <Compile Include="BorrowerUI\Borrower.Designer.cs">
       <DependentUpon>Borrower.cs</DependentUpon>
     </Compile>
+    <Compile Include="Enums\Context.cs" />
     <Compile Include="Enums\Status.cs" />
     <Compile Include="Handlers\DataViews.cs" />
     <Compile Include="Repository\BookRepository.cs" />

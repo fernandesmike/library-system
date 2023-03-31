@@ -50,7 +50,8 @@ namespace LibrarySystem
                     {
                         string command = "SELECT borrower_password " +
                                          "FROM tbl_borrower " +
-                                         "WHERE borrower_username = @username";
+                                         "WHERE borrower_username = @username " +
+                                         "COLLATE SQL_Latin1_General_CP1_CS_AS";
                         con.Open();
 
                         SqlCommand cmd = new SqlCommand(command, con);
