@@ -83,7 +83,7 @@ namespace LibrarySystem
                 if (Dashboard.status == "1")
                 {
                     borrower.updateStatus(Dashboard.id, (int) Status.INACTIVE);
-                    detailsUI.updateStatus("inactive", context);
+                    detailsUI.updateStatus("0", context);
                     Dashboard.status = "0";
                 }
 
@@ -91,7 +91,7 @@ namespace LibrarySystem
                 else if (Dashboard.status == "0")
                 {
                     borrower.updateStatus(Dashboard.id, (int) Status.ACTIVE);
-                    detailsUI.updateStatus("active", context);
+                    detailsUI.updateStatus("1", context);
                     Dashboard.status = "1";
                 }
             }
