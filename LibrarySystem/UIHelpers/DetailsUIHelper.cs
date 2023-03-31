@@ -52,6 +52,7 @@ namespace LibrarySystem
 
         public void loadBookData()
         {
+            //TODO: Change to lab path
             //Image book = Image.FromFile(@"C:/Users/ferna/OneDrive/Desktop/Application Development/DBSYS - Prelim/Assets/book_open.ico");
             //detailsUI.imgAvatar.Image = book;
 

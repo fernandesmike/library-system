@@ -51,6 +51,7 @@ namespace LibrarySystem
             InitializeComponent();
 
             // Data & Repositories
+            //TODO: Change data source
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             book = new BookRepository(connection, dataGrid);
             borrower = new BorrowerRepository(connection, dataGrid);
@@ -112,16 +113,6 @@ namespace LibrarySystem
                     }
                 });
             });
-
-            /*
-            dashboardUI.showBooksUI();
-            book.loadAll();
-            updateStatistics(context);
-
-            dashboardUI.showBorrowersUI();
-            borrower.loadAll();
-            updateStatistics(context);
-             */
         }
 
         private void HomeForm_FormClosing(object sender, FormClosingEventArgs e)

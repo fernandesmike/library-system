@@ -21,7 +21,7 @@ namespace LibrarySystem.Class
 
         public void loadAddBorrowerUI()
         {
-            // Lab path
+            // TODO: Lab path
             // Z:/QQ412/Fernandez, Mike Andrew/library-system/Assets
             //Image borrower = Image.FromFile(@"Z:/QQ412/Fernandez, Mike Andrew/library-system/Assets/Component Icons/user_avatar.ico");
             //addUI.image.Image = borrower;

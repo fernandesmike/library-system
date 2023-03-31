@@ -22,6 +22,7 @@ namespace LibrarySystem.AdminUI
         public AdminLogin()
         {
             InitializeComponent();
+            //TODO: Change path
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
         }
 
