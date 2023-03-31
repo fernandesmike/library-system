@@ -47,6 +47,7 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.lblUsername = new System.Windows.Forms.Label();
             this.txtUsername = new System.Windows.Forms.TextBox();
+            this.lblQuantityError = new System.Windows.Forms.Label();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image)).BeginInit();
             this.infoContainer.SuspendLayout();
@@ -142,7 +143,7 @@
             this.titleContainer.Controls.Add(this.lblFirst);
             this.titleContainer.Controls.Add(this.txtFirst);
             this.titleContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.titleContainer.Location = new System.Drawing.Point(37, 224);
+            this.titleContainer.Location = new System.Drawing.Point(37, 201);
             this.titleContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.titleContainer.Name = "titleContainer";
             this.titleContainer.Size = new System.Drawing.Size(378, 71);
@@ -178,7 +179,7 @@
             this.authorContainer.Controls.Add(this.lblSecond);
             this.authorContainer.Controls.Add(this.txtSecond);
             this.authorContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.authorContainer.Location = new System.Drawing.Point(37, 321);
+            this.authorContainer.Location = new System.Drawing.Point(37, 298);
             this.authorContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.authorContainer.Name = "authorContainer";
             this.authorContainer.Size = new System.Drawing.Size(378, 71);
@@ -213,7 +214,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnContainer.Controls.Add(this.btnCancel);
             this.btnContainer.Controls.Add(this.btnSave);
-            this.btnContainer.Location = new System.Drawing.Point(37, 505);
+            this.btnContainer.Location = new System.Drawing.Point(37, 509);
             this.btnContainer.Margin = new System.Windows.Forms.Padding(2, 24, 2, 2);
             this.btnContainer.Name = "btnContainer";
             this.btnContainer.Size = new System.Drawing.Size(378, 42);
@@ -252,11 +253,12 @@
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.lblUsername);
             this.flowLayoutPanel1.Controls.Add(this.txtUsername);
+            this.flowLayoutPanel1.Controls.Add(this.lblQuantityError);
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(37, 410);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(37, 387);
             this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(378, 71);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(380, 103);
             this.flowLayoutPanel1.TabIndex = 33;
             // 
             // lblUsername
@@ -267,9 +269,9 @@
             this.lblUsername.Location = new System.Drawing.Point(2, 0);
             this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(67, 18);
+            this.lblUsername.Size = new System.Drawing.Size(74, 18);
             this.lblUsername.TabIndex = 18;
-            this.lblUsername.Text = "Book title";
+            this.lblUsername.Text = "Username";
             this.lblUsername.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // txtUsername
@@ -281,6 +283,19 @@
             this.txtUsername.Name = "txtUsername";
             this.txtUsername.Size = new System.Drawing.Size(374, 41);
             this.txtUsername.TabIndex = 19;
+            // 
+            // lblQuantityError
+            // 
+            this.lblQuantityError.Font = new System.Drawing.Font("Outfit", 9F);
+            this.lblQuantityError.ForeColor = System.Drawing.Color.Red;
+            this.lblQuantityError.Location = new System.Drawing.Point(2, 71);
+            this.lblQuantityError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
+            this.lblQuantityError.Name = "lblQuantityError";
+            this.lblQuantityError.Size = new System.Drawing.Size(376, 24);
+            this.lblQuantityError.TabIndex = 28;
+            this.lblQuantityError.Text = "Please enter valid quantity";
+            this.lblQuantityError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblQuantityError.Visible = false;
             // 
             // Add
             // 
@@ -335,5 +350,6 @@
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         internal System.Windows.Forms.Label lblUsername;
         internal System.Windows.Forms.TextBox txtUsername;
+        internal System.Windows.Forms.Label lblQuantityError;
     }
 }

@@ -236,15 +236,15 @@ namespace LibrarySystem.Repository
                 {
                     string command = "SELECT COUNT(*) " +
                                      "FROM tbl_borrower " +
-                                     "WHERE LOWER(borrower_firstname) = LOWER(@firstname) " +
-                                     "AND LOWER(borrower_lastname) = LOWER(@lastname)" +
-                                     "AND LOWER(borrower_username) = LOWER(@username)";
+                                     "WHERE LOWER(borrower_fname) = @firstname " +
+                                     "AND LOWER(borrower_lname) = @lastname " +
+                                     "AND LOWER(borrower_username) = @username";
                     con.Open();
 
                     SqlCommand cmd = new SqlCommand(command, con);
-                    cmd.Parameters.AddWithValue("@firstname", firstname);
-                    cmd.Parameters.AddWithValue("@lastname", lastname);
-                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@firstname", firstname.ToLower());
+                    cmd.Parameters.AddWithValue("@lastname", lastname.ToLower());
+                    cmd.Parameters.AddWithValue("@username", username.ToLower());
                     cmd.ExecuteNonQuery();
 
                     result = Convert.ToInt32(cmd.ExecuteScalar());
@@ -267,13 +267,15 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     con.Open();
+                    string hashedPass = PasswordHandler.HashPassword(username.Replace(" ", ""));
                     string command = "INSERT INTO tbl_borrower(borrower_id, borrower_fname, borrower_lname, date_registered, borrower_username, borrower_password) " +
-                                     "VALUES (NEXT VALUE FOR seq_borrower_id, @fname, @lname, @date, @username, @username)";
+                                     "VALUES (NEXT VALUE FOR seq_borrower_id, @fname, @lname, @date, @username, @hashedPass)";
                     SqlCommand cmd = new SqlCommand(command, con);
                     cmd.Parameters.AddWithValue("@username", username);
                     cmd.Parameters.AddWithValue("@fname", firstname);
                     cmd.Parameters.AddWithValue("@lname", lastname);
                     cmd.Parameters.AddWithValue("@date", registrationDate);
+                    cmd.Parameters.AddWithValue("@hashedPass", hashedPass);
 
                     queryPerformed = cmd.ExecuteNonQuery();
 

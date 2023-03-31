@@ -33,7 +33,7 @@ namespace LibrarySystem
         public Add(Dashboard dashboard, string context)
         {
             InitializeComponent();
-            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
             this.context = context;
             this.dashboard = dashboard;
@@ -85,8 +85,6 @@ namespace LibrarySystem
                     {
                         addUI.showErrorMessage();
                         addUI.showBorrowerExistMessage();
-                        
-                        this.Close();
                     }
 
                     else
@@ -98,28 +96,30 @@ namespace LibrarySystem
                         Dashboard.firstName = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");
                         dashboard.updateStatistics(this.context);
+
+                        this.Close();
                     }
                 }
 
                 else if (context == "books")
                 {
-                    if (data.checkIfBookExist(first, second) < 1)
+                    if (book.checkIfExist(first, second))
+                    {
+                        addUI.showErrorMessage();
+                        addUI.showBookExistMessage();
+                    }
+
+                    else
                     {
                         addUI.hideErrorMessage();
 
-                        queryStatus = book.add(first, second, today.ToString("yyyy-MM-d"), quantities);
+                        queryStatus = book.add(first, second, today.ToString("yyyy-MM-d"), int.Parse(username));
                         dashboardUI.showBooksUI();
                         Dashboard.title = txtFirst.Text.Trim();
                         dashboard.showQueryMessage(queryStatus, "adde");
                         dashboard.updateStatistics(this.context);
 
                         this.Close();
-                    }
-
-                    else
-                    {
-                        addUI.showErrorMessage();
-                        addUI.showBookExistMessage();
                     }
                 }
             }
@@ -136,10 +136,18 @@ namespace LibrarySystem
 
             string first = txtFirst.Text.Trim();
             string second = txtSecond.Text.Trim();
+            string username = txtUsername.Text.Trim();
 
-            if ((first == "" && second == "") || (first == "" || second == ""))
+            if ((first == "" && second == "" && username == "" ) || (first == "" || second == "" || username == ""))
             {
                 valid = false;
+            }
+
+            else if (username.Length < 6)
+            {
+                valid = false;
+                lblQuantityError.Visible = true;
+                lblQuantityError.Text = "Usernames should be greater than 6 characters"
             }
 
             else
