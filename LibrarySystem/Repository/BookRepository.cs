@@ -74,7 +74,12 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     //TODO: Load the book_id, title, author, borrower, and borrow_date 
-                    string command = "";
+                    string command = "SELECT tbl_borrow_book.borrow_id AS [Borrowing ID], " +
+                                     "CONCAT (tbl_book.book_title + ' by ' + tbl_book.book_author AS Book, " +
+                                     "CONCAT (tbl_borrower.borrower_fname + ' ' + tbl_borrower_lname AS [Borrowed by], " +
+                                     "tbl_borrow_book.date_borrowed AS Borrowed last, " +
+                                     "tbl_borrow_book.date_deadline AS Deadline " +
+                                     "FROM tbl_borrow_book";
                     con.Open();
 
                     using (SqlCommand cmd = new SqlCommand(command, con))
@@ -450,19 +455,20 @@ namespace LibrarySystem.Repository
             }
         }
 
-        public int updateQuantities(int quantity)
+        public int increaseQuantity(int bookId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = @quantity ";
+                                     "SET book_quantities = book_quantities + 1" +
+                                     "WHERE book_id = @bookId ";
                     con.Open();
 
                     using (SqlCommand cmd = new SqlCommand(command, con))
                     {
-                        cmd.Parameters.AddWithValue("@quantity", quantity);
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
                         queryPerformed = cmd.ExecuteNonQuery();
                     }
 
@@ -473,7 +479,130 @@ namespace LibrarySystem.Repository
             }
             catch (Exception err)
             {
-                MessageBox.Show(err + " There was an error updating the book status");
+                MessageBox.Show(err + " There was an error updating the book quantity");
+                return 0;
+            }
+
+        }
+
+        public int increaseQuantity(int bookId, int increaseAmount)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_book " +
+                                     "SET book_quantities = book_quantities + @increaseAmt" +
+                                     "WHERE book_id = @bookId ";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        cmd.Parameters.AddWithValue("@increaseAmt", increaseAmount);
+                        queryPerformed = cmd.ExecuteNonQuery();
+                    }
+
+                    refreshDataGrid();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating the book quantity");
+                return 0;
+            }
+
+        }
+
+        public int decreaseQuantity(int bookId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_book " +
+                                     "SET book_quantities = book_quantities - 1" +
+                                     "WHERE book_id = @bookId ";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        queryPerformed = cmd.ExecuteNonQuery();
+                    }
+
+                    refreshDataGrid();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating the book quantity");
+                return 0;
+            }
+
+        }
+
+        public int decreaseQuantity(int bookId, int decreaseAmount)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_book " +
+                                     "SET book_quantities = book_quantities - @decreaseAmt" +
+                                     "WHERE book_id = @bookId ";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        cmd.Parameters.AddWithValue("@decreaseAmt", decreaseAmount);
+                        queryPerformed = cmd.ExecuteNonQuery();
+                    }
+
+                    refreshDataGrid();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating the book quantity");
+                return 0;
+            }
+
+        }
+
+        public int updateQuantity(int bookId, int bookQuantity)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_book " +
+                                     "SET book_quantities = @newQuantity" +
+                                     "WHERE book_id = @bookId ";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.Parameters.AddWithValue("@bookId", bookId);
+                        cmd.Parameters.AddWithValue("@newQuantity", bookQuantity);
+                        queryPerformed = cmd.ExecuteNonQuery();
+                    }
+
+                    refreshDataGrid();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating the book quantity");
                 return 0;
             }
 

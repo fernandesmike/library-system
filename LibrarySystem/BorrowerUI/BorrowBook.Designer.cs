@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.viewBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.icoBorrower = new System.Windows.Forms.PictureBox();
@@ -64,6 +64,7 @@
             this.lblQuantity = new System.Windows.Forms.Label();
             this.txtQuantities = new System.Windows.Forms.TextBox();
             this.lblAvailableCopies = new System.Windows.Forms.Label();
+            this.lblQuantityError = new System.Windows.Forms.Label();
             this.divLeft.SuspendLayout();
             this.viewBorrowers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).BeginInit();
@@ -246,7 +247,7 @@
             this.lblCategory.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCategory.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblCategory.Location = new System.Drawing.Point(13, 424);
+            this.lblCategory.Location = new System.Drawing.Point(13, 450);
             this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
             this.lblCategory.Name = "lblCategory";
             this.lblCategory.Size = new System.Drawing.Size(160, 20);
@@ -259,7 +260,7 @@
             this.viewReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.viewReports.Controls.Add(this.iconEdit);
             this.viewReports.Controls.Add(this.btnBorrow);
-            this.viewReports.Location = new System.Drawing.Point(13, 452);
+            this.viewReports.Location = new System.Drawing.Point(13, 478);
             this.viewReports.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.viewReports.Name = "viewReports";
             this.viewReports.Size = new System.Drawing.Size(302, 41);
@@ -321,42 +322,42 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle16.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle17.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(2, 2);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle18.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -504,12 +505,13 @@
             this.titleContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.titleContainer.Controls.Add(this.lblQuantity);
             this.titleContainer.Controls.Add(this.txtQuantities);
+            this.titleContainer.Controls.Add(this.lblQuantityError);
             this.titleContainer.Controls.Add(this.lblAvailableCopies);
             this.titleContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.titleContainer.Location = new System.Drawing.Point(13, 309);
             this.titleContainer.Margin = new System.Windows.Forms.Padding(2);
             this.titleContainer.Name = "titleContainer";
-            this.titleContainer.Size = new System.Drawing.Size(182, 105);
+            this.titleContainer.Size = new System.Drawing.Size(201, 131);
             this.titleContainer.TabIndex = 44;
             // 
             // lblQuantity
@@ -542,13 +544,27 @@
             this.lblAvailableCopies.AutoSize = true;
             this.lblAvailableCopies.Font = new System.Drawing.Font("Outfit", 10F);
             this.lblAvailableCopies.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblAvailableCopies.Location = new System.Drawing.Point(2, 79);
+            this.lblAvailableCopies.Location = new System.Drawing.Point(2, 105);
             this.lblAvailableCopies.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
             this.lblAvailableCopies.Name = "lblAvailableCopies";
             this.lblAvailableCopies.Size = new System.Drawing.Size(178, 18);
             this.lblAvailableCopies.TabIndex = 20;
             this.lblAvailableCopies.Text = "Number of copies available";
             this.lblAvailableCopies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // lblQuantityError
+            // 
+            this.lblQuantityError.AutoSize = true;
+            this.lblQuantityError.Font = new System.Drawing.Font("Outfit", 10F);
+            this.lblQuantityError.ForeColor = System.Drawing.Color.Red;
+            this.lblQuantityError.Location = new System.Drawing.Point(2, 79);
+            this.lblQuantityError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
+            this.lblQuantityError.Name = "lblQuantityError";
+            this.lblQuantityError.Size = new System.Drawing.Size(197, 18);
+            this.lblQuantityError.TabIndex = 21;
+            this.lblQuantityError.Text = "Please provide a valid quantity";
+            this.lblQuantityError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.lblQuantityError.Visible = false;
             // 
             // BorrowBook
             // 
@@ -626,5 +642,6 @@
         internal System.Windows.Forms.Label lblQuantity;
         internal System.Windows.Forms.TextBox txtQuantities;
         internal System.Windows.Forms.Label lblAvailableCopies;
+        internal System.Windows.Forms.Label lblQuantityError;
     }
 }

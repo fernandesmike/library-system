@@ -18,9 +18,14 @@ namespace LibrarySystem
         // Data repository & UI Helpers
         private readonly BorrowBookUIHelper borrowerUI;
         private readonly BookRepository book;
+        private readonly BorrowingRepository transaction;
 
         // Book information
-        String id, title, author, copies;
+        String title, author;
+        int bookId, copies;
+
+        private readonly DateTime today;
+        private readonly DateTime returnDate;
 
         public BorrowBook()
         {
@@ -29,6 +34,10 @@ namespace LibrarySystem
 
             borrowerUI = new BorrowBookUIHelper(this);
             book = new BookRepository(connection, dataGrid);
+            transaction = new BorrowingRepository(connection, dataGrid);
+
+            today = DateTime.Today;
+            returnDate = today.AddDays(7);
 
         }
 
@@ -51,12 +60,12 @@ namespace LibrarySystem
                 DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
 
                 // Get the currently selected data
-                id = row.Cells["ID"].Value.ToString();
+                bookId = Int32.Parse(row.Cells["ID"].Value.ToString());
                 title = row.Cells["Book title"].Value.ToString();
                 author = row.Cells["Author"].Value.ToString();
-                copies = row.Cells["Available copies"].Value.ToString();
+                copies = Int32.Parse(row.Cells["Available copies"].Value.ToString());
 
-                borrowerUI.displayBookToBorrow(id, title, author, copies);
+                borrowerUI.displayBookToBorrow(bookId.ToString(), title, author, copies.ToString());
             }
         }
 
@@ -70,8 +79,40 @@ namespace LibrarySystem
             // TODO:
             // Update the status of the book
             // And add the book to the borrower's collection
-            borrowerUI.showMessage(title);
-            borrowerUI.resetUI();
+            if(validateQuantity(txtQuantities.Text.Trim(), copies))
+            {
+                // Borrow the book 
+                transaction.borrowBook(bookId, Borrower.borrowerId, today.ToString("yyyy-MM-d"), returnDate.ToString("yyyy-MM-d"), copies);
+                book.decreaseQuantity(copies);
+
+                borrowerUI.showMessage(title);
+                borrowerUI.resetUI();
+            }
+
+        }
+
+        private bool validateQuantity(string quantity, int availableCopies)
+        {
+            bool valid = false;
+            int _quantity = 0;
+
+            // Check if the specified quantity is actually a number
+            if (int.TryParse(quantity, out _quantity))
+            {
+                // If it is, then check if it exceeds the maxium copy the current book has
+                if(_quantity < 0 || _quantity > availableCopies)
+                {
+                    valid = false;
+                    borrowerUI.showInvalidQuantityMessage(availableCopies);
+                }
+                else
+                {
+                    valid = true;
+                    borrowerUI.hideQuantityErrorMessage();
+                }
+            }
+
+            return valid;
         }
 
         private void TmHideMessage_Tick(object sender, EventArgs e)

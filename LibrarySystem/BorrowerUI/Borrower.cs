@@ -20,6 +20,7 @@ namespace LibrarySystem
         private readonly BorrowerRepository borrower;
         private readonly BookRepository book;
 
+        public static int borrowerId;
         public static string bookId;
         public static string bookTitle;
         public static string bookAuthor;
@@ -35,6 +36,7 @@ namespace LibrarySystem
             borrower = new BorrowerRepository(connection, dataGrid);
 
             borrowerUI = new BorrowerUIHelper(this);
+            borrowerId = Login.currentUserId;
         }
 
         private async void Borrower_Load(object sender, EventArgs e)
@@ -48,7 +50,7 @@ namespace LibrarySystem
                 {
                     borrowerUI.loadHomeUI();
                     //TODO: Load borrowed books
-                    book.loadAvailable();
+                    book.loadBorrowed();
                 });
             });
         }

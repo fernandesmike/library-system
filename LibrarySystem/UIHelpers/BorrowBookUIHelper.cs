@@ -51,5 +51,22 @@ namespace LibrarySystem
             borrowUI.tmHideMessage.Enabled = true;
         }
 
+        public void showNotQuantityMessage()
+        {
+            borrowUI.lblQuantityError.Visible = true;
+            borrowUI.lblQuantityError.Text = "Please enter a valid quantity";
+        }
+
+        public void showInvalidQuantityMessage(int availableCopies)
+        {
+
+            borrowUI.lblQuantityError.Visible = true;
+            borrowUI.lblQuantityError.Text = $"You can only borrow 1 up to {availableCopies} copies of this book";
+        }
+
+        public void hideQuantityErrorMessage()
+        {
+            borrowUI.lblQuantityError.Visible = false;
+        }
     }
 }
