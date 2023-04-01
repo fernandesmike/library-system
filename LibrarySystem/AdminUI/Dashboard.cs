@@ -45,7 +45,6 @@ namespace LibrarySystem
 
         // For navigating between pages
         public string context;
-
         public Dashboard()
         {
             InitializeComponent();
@@ -86,7 +85,6 @@ namespace LibrarySystem
 
         private async void Home_Load(object sender, EventArgs e)
         {
-
             // Greet the user
             lblUser.Text = AdminLogin.currentUser;
             
@@ -132,8 +130,6 @@ namespace LibrarySystem
             // Update statistics
             borrower.loadAll();
             dashboardUI.showBorrowersUI();
-
-            dataGrid.Visible = true;
 
             updateStatistics(context);
         }
@@ -231,6 +227,9 @@ namespace LibrarySystem
 
         private void DataGrid_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
+            string _retrievedDate;
+            string[] _onlyDate;
+
             if (context == "borrowers")
             {
                 if (e.RowIndex >= 0)
@@ -243,9 +242,14 @@ namespace LibrarySystem
                     fullName = row.Cells["Firstname"].Value.ToString() + " " + row.Cells["Lastname"].Value.ToString();
                     lastName = row.Cells["Lastname"].Value.ToString(); 
                     status = row.Cells["Status"].Value.ToString();
-                    registrationDate = row.Cells["Registration date"].Value.ToString();
                     username = row.Cells["Username"].Value.ToString();
 
+                    // Get only the date, remove the time
+                    // MAGIC! ( -___-   )
+                    _retrievedDate = row.Cells["Registration date"].Value.ToString();
+                    _onlyDate = _retrievedDate.Split(' ');
+
+                    registrationDate = _onlyDate[0];
 
                     Details info = new Details(this.context);
                     this.Hide();

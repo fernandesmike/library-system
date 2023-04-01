@@ -25,6 +25,8 @@ namespace LibrarySystem
         private string context;
         private string connection;
 
+        private int _newQuantity = 0;
+
         public Details(string context)
         {
             InitializeComponent();
@@ -55,7 +57,6 @@ namespace LibrarySystem
                    }
                });
             });
-            MessageBox.Show("" + Dashboard.status);
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -178,103 +179,89 @@ namespace LibrarySystem
 
         private void BtnSaveChanges_Click(object sender, EventArgs e)
         {
-            /*
-            // TODO:
-            // Using ExecuteNonQuery(), check if a data is successfully updated or not
-            // If a data is updated, show a control below datagrid and after several seconds make it invisible
-            // If not, display error on that control
-
             // Get the original data values
             string first = Dashboard.id;
             string second = Dashboard.firstName;
             string third = Dashboard.lastName;
+            string username = Dashboard.username;
+            string quantity = Dashboard.quantities;
 
             // Get the new data values
             string newSecond = txtSecond.Text.Trim();
             string newThird = txtThird.Text.Trim();
+            string newUsernameOrQuantity = txtUsername.Text.Trim();
 
             int status;
 
-            if (newSecond == "" || newThird == "")
-            {
-                detailsUI.showErrorMessage();
-                lblEditError.Text = "Please provide valid information";
-            }
+           
+        }
 
-            else if (newSecond == second && newThird == third)
-            {
-                detailsUI.showErrorMessage();
-            }
+        private bool validateFields()
+        {
+            bool valid = false;
 
-            else
+            if(context == "borrowers")
             {
-                detailsUI.hideErrorMessage();
-
-                if (context == "borrowers")
+                if(string.IsNullOrWhiteSpace(txtSecond.Text) || string.IsNullOrWhiteSpace(txtThird.Text))
                 {
-                    //TODO: Update queries
-                    // Identify if changes has conflict to existing data
-                    if (data.checkIfBorrowerExist(newSecond, newThird) > 0)
-                    {
-                        detailsUI.showErrorMessage();
-                        detailsUI.showBorrowerExistMessage();
-                    }
-                    // If there is no conflict, perform the operation
-                    else
-                    {
-                        Dashboard.firstName = newSecond;
-                        Dashboard.lastName = newThird;
-                        Dashboard.fullName = $"{Dashboard.firstName} {Dashboard.lastName}";
+                    lblEditError.Visible = true;
+                    lblEditError.Text = "Cannot accept an empty name or username";
+                    valid = false;
+                }
 
-                        status = data.updateBorrowerName(first, newSecond, newThird);
+                else if (string.IsNullOrWhiteSpace(txtUsername.Text) || txtUsername.Text.Length < 6)
+                {
+                    lblEditError.Visible = true;
+                    lblEditError.Text = "Usernames should be greater than 6 characters";
+                    valid = false;
+                }
 
-                        if (status > 0)
+                else
+                {
+                    valid = true;
+                }
+            }
+
+            else if (context == "books")
+            {
+                if (string.IsNullOrWhiteSpace(txtSecond.Text) || string.IsNullOrWhiteSpace(txtThird.Text))
+                {
+                    lblEditError.Visible = true;
+                    lblEditError.Text = "Please provide both book title and author";
+                    valid = false;
+                }
+
+                else if (string.IsNullOrWhiteSpace(txtUsername.Text))
+                {
+                    if (int.TryParse(txtUsername.Text, out _newQuantity))
+                    {
+                        lblEditError.Visible = true;
+                        lblEditError.Text = "Please enter a valid book quantity";
+                        valid = false;
+
+                        if (_newQuantity < 1)
                         {
-
-                            // If the update is successfull, notify to the UI
-                            detailsUI.hideEdit(context);
-                            detailsUI.loadBorrowerData();
-                            detailsUI.showUpdateMessage(status);
+                            lblEditError.Visible = true;
+                            lblEditError.Text = "Please enter a valid book quantity";
+                            valid = false;
                         }
 
                         else
                         {
-                            detailsUI.showUpdateMessage(status);
+                            lblEditError.Visible = false;
+                            valid = true;
                         }
                     }
-                }
-
-                else if (context == "books")
-                {
-                    // Identify if changes has conflict to existing data
-                    if (data.checkIfBookExist(newSecond, newThird) > 0)
-                    {
-                        detailsUI.showErrorMessage();
-                        detailsUI.showBookExistMessage();
-                    }
-                    // If there is no conflict, perform the operation
+                    
                     else
                     {
-                        Dashboard.title = newSecond;
-                        Dashboard.author = newThird;
-
-                        status = data.updateBook(first, newSecond, newThird);
-
-                        if (status > 0)
-                        {
-
-                            detailsUI.hideEdit(context);
-                            detailsUI.loadBookData();
-                            detailsUI.showUpdateMessage(status);
-                        }
-
-                        else
-                        {
-                            detailsUI.showUpdateMessage(status);
-                        }
+                        lblEditError.Visible = false;
+                        valid = true;
                     }
                 }
-            }*/
+            }
+
+            return valid;
         }
 
         private void LblCancelEdit_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

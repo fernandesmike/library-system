@@ -12,7 +12,7 @@ namespace LibrarySystem.Repository
     class BookRepository : IRepository
     {
         private readonly string connection;
-        private DataGridView dataGrid;
+        private readonly DataGridView dataGrid;
 
         private int queryPerformed;
 
@@ -178,6 +178,44 @@ namespace LibrarySystem.Repository
 
         }
 
+        public void loadAvailable()
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    // TODO: Try to use enums for status here
+                    string command = "SELECT book_id AS ID, " +
+                                     "book_title AS [Book title], " +
+                                     "book_author AS Author, " +
+                                     "book_quantities AS [Available copies] " +
+                                     "FROM tbl_book " +
+                                     "WHERE book_status = 1 " +
+                                     "AND book_quantities > 0";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.ExecuteNonQuery();
+
+                        using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
+                        using (DataTable books = new DataTable())
+                        {
+                            adapter.Fill(books);
+                            dataGrid.DataSource = books;
+                        }
+                    }
+
+                    refreshDataGrid();
+                }
+            }
+
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "There was a problem loading available books");
+            }
+        }
+
         public int count()
         {
             int count;
@@ -325,6 +363,36 @@ namespace LibrarySystem.Repository
             catch (Exception err)
             {
                 MessageBox.Show(err + " There was an error adding the book!");
+                return 0;
+            }
+        }
+
+        public int update(string bookId, string title, string author, int quantities)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_book " +
+                                     "SET book_title = @title, " +
+                                     "book_author = @author, " +
+                                     "book_quantities = @quantities " +
+                                     "WHERE book_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@title", title);
+                    cmd.Parameters.AddWithValue("@author", author);
+                    cmd.Parameters.AddWithValue("@id", bookId);
+                    cmd.Parameters.AddWithValue("@quantities", quantities);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating the book!");
                 return 0;
             }
         }

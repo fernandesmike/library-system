@@ -13,17 +13,10 @@ namespace LibrarySystem
     class DetailsUIHelper : IErrorController
     {
         private Details detailsUI;
-        private DataHelper data;
-        private string connectionString;
-
-        private DateTime date;
 
         public DetailsUIHelper(Details detailsUI)
         {
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             this.detailsUI = detailsUI;
-            data = new DataHelper(connectionString);
-            date = DateTime.Today;
         }
 
         /// <summary>
@@ -45,8 +38,6 @@ namespace LibrarySystem
             detailsUI.btnEdit.Text = "Edit account";
             detailsUI.btnDelete.Text = "Delete account";
 
-            detailsUI.flpBorrow.Visible = false;
-
             updateStatus(Dashboard.status, "borrowers");
         }
 
@@ -60,13 +51,11 @@ namespace LibrarySystem
             detailsUI.lblUser.Text = Dashboard.title;
             detailsUI.lblType.Text = "by " + Dashboard.author;
             detailsUI.lblTitle.Text = Dashboard.title + "'s statistics";
-            detailsUI.lblDate.Text = $"Added {Dashboard.dateAdded}";
+            detailsUI.lblDate.Text = $"Available copies: {Dashboard.quantities}";
 
             detailsUI.lblWarning.Text = "WARNING:\nDeleting books cannot be undone!";
             detailsUI.btnEdit.Text = "Edit book";
             detailsUI.btnDelete.Text = "Delete book";
-
-            detailsUI.flpBorrow.Visible = true;
 
             updateStatus(Dashboard.status, "books");
         }
@@ -85,29 +74,33 @@ namespace LibrarySystem
             if (context == "borrowers")
             {
                 detailsUI.lblTitle.Text = "Edit " + Dashboard.firstName  +"'s account";
-                detailsUI.lblDate.Text = "Please provide the desired information\nbelow";
+                detailsUI.lblDate.Text = "Please provide the desired information below";
 
                 detailsUI.lblFirst.Text = "ID Number";
                 detailsUI.lblSecond.Text = "Firstname";
                 detailsUI.lblThird.Text = "Lastname";
+                detailsUI.lblUsername.Text = "Username";
 
                 detailsUI.txtFirst.Text = Dashboard.id.Trim();
                 detailsUI.txtSecond.Text = Dashboard.firstName.Trim();
                 detailsUI.txtThird.Text = Dashboard.lastName.Trim();
+                detailsUI.txtUsername.Text = Dashboard.username.Trim();
             }
 
             else if (context == "books")
             {
                 detailsUI.lblTitle.Text = "Edit book ";
-                detailsUI.lblDate.Text = "Please provide the desired\ninformation below";
+                detailsUI.lblDate.Text = "Please provide the desired information below";
 
                 detailsUI.lblFirst.Text = "Book ID";
                 detailsUI.lblSecond.Text = "Title";
                 detailsUI.lblThird.Text = "Author";
-
+                detailsUI.lblUsername.Text = "Book Quantity";
+                
                 detailsUI.txtFirst.Text = Dashboard.id.Trim();
                 detailsUI.txtSecond.Text = Dashboard.title.Trim();
                 detailsUI.txtThird.Text = Dashboard.author.Trim();
+                detailsUI.txtUsername.Text = Dashboard.quantities;
             }
         }
 

@@ -12,7 +12,7 @@ namespace LibrarySystem.Repository
     class BorrowerRepository : IRepository
     {
         private readonly string connection;
-        private DataGridView dataGrid;
+        private readonly DataGridView dataGrid;
 
         private int queryPerformed;
 
@@ -282,6 +282,36 @@ namespace LibrarySystem.Repository
             catch (Exception err)
             {
                 MessageBox.Show(err + " There was an error adding the borrower!");
+                return 0;
+            }
+        }
+
+        public int update(string borrowerId, string username, string firstname, string lastname)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_borrower " +
+                                     "SET borrower_fname = @fname," +
+                                     "borrower_lname = @lname," +
+                                     "borrower_username = @username " +
+                                     "WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    cmd.Parameters.AddWithValue("@username", username);
+                    cmd.Parameters.AddWithValue("@fname", firstname);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    queryPerformed = cmd.ExecuteNonQuery();
+
+                    return queryPerformed;
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + $"Error updating status of borrower {borrowerId}");
                 return 0;
             }
         }

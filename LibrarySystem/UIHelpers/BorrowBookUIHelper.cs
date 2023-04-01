@@ -22,18 +22,21 @@ namespace LibrarySystem
             borrowUI.lblBookTitle.Text = "Please select a book";
             borrowUI.lblBookAuthor.Text = "-";
             borrowUI.lblBookAuthor.Visible = true;
+            borrowUI.txtQuantities.Enabled = false;
 
             borrowUI.lblMessage.Text = "Please select a book to borrow";
 
             borrowUI.btnBorrow.Enabled = false;
         }
 
-        public void displayBookToBorrow(string id, string title, string author)
+        public void displayBookToBorrow(string id, string title, string author, string copies)
         {
             borrowUI.lblID.Text = $"Book ID: {id}";
             borrowUI.lblBookTitle.Text = $"{title}";
             borrowUI.lblBookAuthor.Text = $"by {author}";
+            borrowUI.lblAvailableCopies.Text = $"{copies} copies are available";
             borrowUI.lblBookAuthor.Visible = true;
+            borrowUI.txtQuantities.Enabled = true;
 
             borrowUI.lblMessage.Text = "You are about to borrow the book";
 

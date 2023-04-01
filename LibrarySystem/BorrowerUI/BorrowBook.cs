@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,27 +13,28 @@ namespace LibrarySystem
 {
     public partial class BorrowBook : Form
     {
-        private string connectionString;
+        private readonly string connection;
 
-        private BorrowBookUIHelper borrowerUI;
-        private DataHelper data;
-        private DataViews dataView;
+        // Data repository & UI Helpers
+        private readonly BorrowBookUIHelper borrowerUI;
+        private readonly BookRepository book;
 
         // Book information
-        String id, title, author;
+        String id, title, author, copies;
 
         public BorrowBook()
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+
             borrowerUI = new BorrowBookUIHelper(this);
-            data = new DataHelper(connectionString, dataGrid);
-            dataView = new DataViews(connectionString, dataGrid);
+            book = new BookRepository(connection, dataGrid);
+
         }
 
         private void Borrow_Load(object sender, EventArgs e)
         {
-            dataView.displayBooks();
+            book.loadAvailable();
         }
 
         private void BtnBack_Click(object sender, EventArgs e)
@@ -52,14 +54,15 @@ namespace LibrarySystem
                 id = row.Cells["ID"].Value.ToString();
                 title = row.Cells["Book title"].Value.ToString();
                 author = row.Cells["Author"].Value.ToString();
+                copies = row.Cells["Available copies"].Value.ToString();
 
-                borrowerUI.displayBookToBorrow(id, title, author);
+                borrowerUI.displayBookToBorrow(id, title, author, copies);
             }
         }
 
         private void TxtSearch_TextChanged(object sender, EventArgs e)
         {
-            data.searchBooks(txtSearch.Text.Trim(), "1");
+            book.search(txtSearch.Text.Trim());
         }
 
         private void BtnBorrow_Click(object sender, EventArgs e)
@@ -67,8 +70,6 @@ namespace LibrarySystem
             // TODO:
             // Update the status of the book
             // And add the book to the borrower's collection
-            data.updateBookStatus(id, "0");
-            dataView.displayBooks();
             borrowerUI.showMessage(title);
             borrowerUI.resetUI();
         }

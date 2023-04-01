@@ -33,15 +33,15 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flpDataGrid = new System.Windows.Forms.FlowLayoutPanel();
             this.lblUpdateMessage = new System.Windows.Forms.Label();
-            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.radioContainer = new System.Windows.Forms.Panel();
             this.rbAll = new System.Windows.Forms.RadioButton();
             this.lblGridTitle = new System.Windows.Forms.Label();
             this.rbActive = new System.Windows.Forms.RadioButton();
             this.rbInactive = new System.Windows.Forms.RadioButton();
+            this.dataGrid = new System.Windows.Forms.DataGridView();
             this.flpDataGrid.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.radioContainer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // flpDataGrid
@@ -53,10 +53,10 @@
             this.flpDataGrid.Controls.Add(this.dataGrid);
             this.flpDataGrid.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flpDataGrid.ForeColor = System.Drawing.SystemColors.InactiveCaption;
-            this.flpDataGrid.Location = new System.Drawing.Point(175, 71);
-            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.flpDataGrid.Location = new System.Drawing.Point(131, 58);
+            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(0, 8, 0, 0);
             this.flpDataGrid.Name = "flpDataGrid";
-            this.flpDataGrid.Size = new System.Drawing.Size(1041, 453);
+            this.flpDataGrid.Size = new System.Drawing.Size(781, 368);
             this.flpDataGrid.TabIndex = 37;
             // 
             // lblUpdateMessage
@@ -65,15 +65,89 @@
             this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
             this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
-            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
-            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
+            this.lblUpdateMessage.Location = new System.Drawing.Point(2, 0);
+            this.lblUpdateMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(160, 25);
             this.lblUpdateMessage.Name = "lblUpdateMessage";
-            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblUpdateMessage.Size = new System.Drawing.Size(1038, 31);
+            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.lblUpdateMessage.Size = new System.Drawing.Size(778, 25);
             this.lblUpdateMessage.TabIndex = 45;
             this.lblUpdateMessage.Text = "Update message goes here";
             this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.lblUpdateMessage.Visible = false;
+            // 
+            // radioContainer
+            // 
+            this.radioContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.radioContainer.Controls.Add(this.rbAll);
+            this.radioContainer.Controls.Add(this.lblGridTitle);
+            this.radioContainer.Controls.Add(this.rbActive);
+            this.radioContainer.Controls.Add(this.rbInactive);
+            this.radioContainer.Location = new System.Drawing.Point(2, 27);
+            this.radioContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioContainer.Name = "radioContainer";
+            this.radioContainer.Size = new System.Drawing.Size(774, 37);
+            this.radioContainer.TabIndex = 46;
+            // 
+            // rbAll
+            // 
+            this.rbAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbAll.AutoSize = true;
+            this.rbAll.Checked = true;
+            this.rbAll.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbAll.ForeColor = System.Drawing.Color.ForestGreen;
+            this.rbAll.Location = new System.Drawing.Point(571, 8);
+            this.rbAll.Margin = new System.Windows.Forms.Padding(0, 2, 2, 2);
+            this.rbAll.Name = "rbAll";
+            this.rbAll.Size = new System.Drawing.Size(42, 19);
+            this.rbAll.TabIndex = 35;
+            this.rbAll.TabStop = true;
+            this.rbAll.Text = "All ";
+            this.rbAll.UseVisualStyleBackColor = true;
+            // 
+            // lblGridTitle
+            // 
+            this.lblGridTitle.AutoEllipsis = true;
+            this.lblGridTitle.AutoSize = true;
+            this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.lblGridTitle.Location = new System.Drawing.Point(2, 6);
+            this.lblGridTitle.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
+            this.lblGridTitle.Name = "lblGridTitle";
+            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
+            this.lblGridTitle.Size = new System.Drawing.Size(114, 19);
+            this.lblGridTitle.TabIndex = 39;
+            this.lblGridTitle.Text = "All borrowers";
+            this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // rbActive
+            // 
+            this.rbActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbActive.AutoSize = true;
+            this.rbActive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbActive.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.rbActive.Location = new System.Drawing.Point(629, 8);
+            this.rbActive.Margin = new System.Windows.Forms.Padding(0, 2, 2, 2);
+            this.rbActive.Name = "rbActive";
+            this.rbActive.Size = new System.Drawing.Size(67, 19);
+            this.rbActive.TabIndex = 36;
+            this.rbActive.Text = "Inactive";
+            this.rbActive.UseVisualStyleBackColor = true;
+            // 
+            // rbInactive
+            // 
+            this.rbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.rbInactive.AutoSize = true;
+            this.rbInactive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbInactive.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.rbInactive.Location = new System.Drawing.Point(713, 8);
+            this.rbInactive.Margin = new System.Windows.Forms.Padding(0, 2, 2, 2);
+            this.rbInactive.Name = "rbInactive";
+            this.rbInactive.Size = new System.Drawing.Size(60, 19);
+            this.rbInactive.TabIndex = 37;
+            this.rbInactive.Text = "Active ";
+            this.rbInactive.UseVisualStyleBackColor = true;
             // 
             // dataGrid
             // 
@@ -108,7 +182,8 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
-            this.dataGrid.Location = new System.Drawing.Point(3, 85);
+            this.dataGrid.Location = new System.Drawing.Point(2, 68);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -129,93 +204,23 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(1038, 354);
+            this.dataGrid.Size = new System.Drawing.Size(778, 288);
             this.dataGrid.TabIndex = 40;
-            // 
-            // radioContainer
-            // 
-            this.radioContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.radioContainer.Controls.Add(this.rbAll);
-            this.radioContainer.Controls.Add(this.lblGridTitle);
-            this.radioContainer.Controls.Add(this.rbActive);
-            this.radioContainer.Controls.Add(this.rbInactive);
-            this.radioContainer.Location = new System.Drawing.Point(3, 34);
-            this.radioContainer.Name = "radioContainer";
-            this.radioContainer.Size = new System.Drawing.Size(1032, 45);
-            this.radioContainer.TabIndex = 46;
-            // 
-            // rbAll
-            // 
-            this.rbAll.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbAll.AutoSize = true;
-            this.rbAll.Checked = true;
-            this.rbAll.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbAll.ForeColor = System.Drawing.Color.ForestGreen;
-            this.rbAll.Location = new System.Drawing.Point(761, 10);
-            this.rbAll.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.rbAll.Name = "rbAll";
-            this.rbAll.Size = new System.Drawing.Size(52, 23);
-            this.rbAll.TabIndex = 35;
-            this.rbAll.TabStop = true;
-            this.rbAll.Text = "All ";
-            this.rbAll.UseVisualStyleBackColor = true;
-            // 
-            // lblGridTitle
-            // 
-            this.lblGridTitle.AutoEllipsis = true;
-            this.lblGridTitle.AutoSize = true;
-            this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblGridTitle.Location = new System.Drawing.Point(3, 8);
-            this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.lblGridTitle.Name = "lblGridTitle";
-            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.lblGridTitle.Size = new System.Drawing.Size(139, 24);
-            this.lblGridTitle.TabIndex = 39;
-            this.lblGridTitle.Text = "All borrowers";
-            this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // rbActive
-            // 
-            this.rbActive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbActive.AutoSize = true;
-            this.rbActive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbActive.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.rbActive.Location = new System.Drawing.Point(839, 10);
-            this.rbActive.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.rbActive.Name = "rbActive";
-            this.rbActive.Size = new System.Drawing.Size(83, 23);
-            this.rbActive.TabIndex = 36;
-            this.rbActive.Text = "Inactive";
-            this.rbActive.UseVisualStyleBackColor = true;
-            // 
-            // rbInactive
-            // 
-            this.rbInactive.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.rbInactive.AutoSize = true;
-            this.rbInactive.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbInactive.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.rbInactive.Location = new System.Drawing.Point(951, 10);
-            this.rbInactive.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
-            this.rbInactive.Name = "rbInactive";
-            this.rbInactive.Size = new System.Drawing.Size(75, 23);
-            this.rbInactive.TabIndex = 37;
-            this.rbInactive.Text = "Active ";
-            this.rbInactive.UseVisualStyleBackColor = true;
             // 
             // Test
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1408, 675);
+            this.ClientSize = new System.Drawing.Size(1056, 548);
             this.Controls.Add(this.flpDataGrid);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "Test";
             this.Text = "Test";
             this.flpDataGrid.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.radioContainer.ResumeLayout(false);
             this.radioContainer.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGrid)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LibrarySystem.Repository;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +13,12 @@ namespace LibrarySystem
 {
     public partial class Borrower : Form
     {
-        private string connectionString;
+        private readonly string connection;
 
-        // Helper classes
-        private BorrowerUIHelper borrowerUI;
-        private DataHelper data;
-        private DataViews dataView;
+        // Data repositories & UI helpers
+        private readonly BorrowerUIHelper borrowerUI;
+        private readonly BorrowerRepository borrower;
+        private readonly BookRepository book;
 
         public static string bookId;
         public static string bookTitle;
@@ -29,10 +30,11 @@ namespace LibrarySystem
         public Borrower()
         {
             InitializeComponent();
-            connectionString = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            book = new BookRepository(connection, dataGrid);
+            borrower = new BorrowerRepository(connection, dataGrid);
+
             borrowerUI = new BorrowerUIHelper(this);
-            data = new DataHelper(connectionString, dataGrid);
-            dataView = new DataViews(connectionString, dataGrid);
         }
 
         private async void Borrower_Load(object sender, EventArgs e)
@@ -45,8 +47,8 @@ namespace LibrarySystem
                 this.Invoke((MethodInvoker) delegate
                 {
                     borrowerUI.loadHomeUI();
-                    //data.loadAvailableBooks();
-                    dataView.displayBorrowedBooks();
+                    //TODO: Load borrowed books
+                    book.loadAvailable();
                 });
             });
         }
@@ -74,12 +76,16 @@ namespace LibrarySystem
             {
                 DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
 
+                bookId = row.Cells["ID"].Value.ToString();
                 bookTitle = row.Cells["Book title"].Value.ToString();
                 bookAuthor = row.Cells["Author"].Value.ToString();
+                bookCopies = row.Cells["Available copeis"].Value.ToString();
 
-                Books bookDetails = new Books(data.getBookID(bookTitle, bookAuthor), this);
-                bookDetails.ShowDialog();
-                dataView.displayBorrowedBooks();
+                //Books bookDetails = new Books(data.getBookID(bookTitle, bookAuthor), this);
+                //bookDetails.ShowDialog();
+
+                //Load borrowed books
+                //dataView.displayBorrowedBooks();
             }
         }
 
@@ -88,6 +94,13 @@ namespace LibrarySystem
             lblUpdateMessage.Visible = false;
             lblUpdateMessage.Height = 1;
             tmHideMessage.Enabled = false;
+        }
+
+        private void BtnLogout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Login login = new Login();
+            this.Hide();
+            login.Show();
         }
     }
 }

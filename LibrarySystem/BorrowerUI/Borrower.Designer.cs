@@ -131,10 +131,11 @@
             this.divLeft.Dock = System.Windows.Forms.DockStyle.Left;
             this.divLeft.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.divLeft.Location = new System.Drawing.Point(0, 0);
-            this.divLeft.MaximumSize = new System.Drawing.Size(620, 0);
+            this.divLeft.Margin = new System.Windows.Forms.Padding(2);
+            this.divLeft.MaximumSize = new System.Drawing.Size(465, 0);
             this.divLeft.Name = "divLeft";
-            this.divLeft.Padding = new System.Windows.Forms.Padding(15, 15, 15, 0);
-            this.divLeft.Size = new System.Drawing.Size(256, 753);
+            this.divLeft.Padding = new System.Windows.Forms.Padding(11, 12, 11, 0);
+            this.divLeft.Size = new System.Drawing.Size(192, 612);
             this.divLeft.TabIndex = 24;
             // 
             // userInfoContainer
@@ -145,9 +146,10 @@
             this.userInfoContainer.Controls.Add(this.imgAvatar);
             this.userInfoContainer.Controls.Add(this.infoContainer);
             this.userInfoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.userInfoContainer.Location = new System.Drawing.Point(19, 18);
+            this.userInfoContainer.Location = new System.Drawing.Point(14, 14);
+            this.userInfoContainer.Margin = new System.Windows.Forms.Padding(2);
             this.userInfoContainer.Name = "userInfoContainer";
-            this.userInfoContainer.Size = new System.Drawing.Size(216, 156);
+            this.userInfoContainer.Size = new System.Drawing.Size(162, 126);
             this.userInfoContainer.TabIndex = 26;
             this.userInfoContainer.WrapContents = false;
             // 
@@ -155,9 +157,10 @@
             // 
             this.imgAvatar.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.imgAvatar.Image = ((System.Drawing.Image)(resources.GetObject("imgAvatar.Image")));
-            this.imgAvatar.Location = new System.Drawing.Point(73, 3);
+            this.imgAvatar.Location = new System.Drawing.Point(55, 2);
+            this.imgAvatar.Margin = new System.Windows.Forms.Padding(2);
             this.imgAvatar.Name = "imgAvatar";
-            this.imgAvatar.Size = new System.Drawing.Size(70, 70);
+            this.imgAvatar.Size = new System.Drawing.Size(52, 57);
             this.imgAvatar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.imgAvatar.TabIndex = 14;
             this.imgAvatar.TabStop = false;
@@ -169,11 +172,11 @@
             this.infoContainer.Controls.Add(this.lblUser);
             this.infoContainer.Controls.Add(this.lblUserType);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.infoContainer.Location = new System.Drawing.Point(0, 76);
+            this.infoContainer.Location = new System.Drawing.Point(0, 61);
             this.infoContainer.Margin = new System.Windows.Forms.Padding(0);
             this.infoContainer.Name = "infoContainer";
-            this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 10, 0, 10);
-            this.infoContainer.Size = new System.Drawing.Size(216, 80);
+            this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
+            this.infoContainer.Size = new System.Drawing.Size(162, 65);
             this.infoContainer.TabIndex = 25;
             // 
             // lblUser
@@ -181,9 +184,10 @@
             this.lblUser.AutoEllipsis = true;
             this.lblUser.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUser.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblUser.Location = new System.Drawing.Point(3, 10);
+            this.lblUser.Location = new System.Drawing.Point(2, 8);
+            this.lblUser.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUser.Name = "lblUser";
-            this.lblUser.Size = new System.Drawing.Size(213, 30);
+            this.lblUser.Size = new System.Drawing.Size(160, 24);
             this.lblUser.TabIndex = 12;
             this.lblUser.Text = "Welcome, Mike!";
             this.lblUser.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -192,9 +196,10 @@
             // 
             this.lblUserType.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUserType.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblUserType.Location = new System.Drawing.Point(3, 40);
+            this.lblUserType.Location = new System.Drawing.Point(2, 32);
+            this.lblUserType.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblUserType.Name = "lblUserType";
-            this.lblUserType.Size = new System.Drawing.Size(213, 24);
+            this.lblUserType.Size = new System.Drawing.Size(160, 20);
             this.lblUserType.TabIndex = 14;
             this.lblUserType.Text = "Borrower";
             this.lblUserType.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -208,10 +213,10 @@
             this.flpBtnGrp1.Controls.Add(this.viewHome);
             this.flpBtnGrp1.Controls.Add(this.viewReports);
             this.flpBtnGrp1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpBtnGrp1.Location = new System.Drawing.Point(18, 207);
-            this.flpBtnGrp1.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.flpBtnGrp1.Location = new System.Drawing.Point(13, 166);
+            this.flpBtnGrp1.Margin = new System.Windows.Forms.Padding(2, 24, 2, 2);
             this.flpBtnGrp1.Name = "flpBtnGrp1";
-            this.flpBtnGrp1.Size = new System.Drawing.Size(219, 151);
+            this.flpBtnGrp1.Size = new System.Drawing.Size(164, 122);
             this.flpBtnGrp1.TabIndex = 35;
             // 
             // lblCategory
@@ -219,10 +224,10 @@
             this.lblCategory.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCategory.ForeColor = System.Drawing.SystemColors.GrayText;
             this.lblCategory.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.lblCategory.Location = new System.Drawing.Point(3, 0);
-            this.lblCategory.Margin = new System.Windows.Forms.Padding(3, 0, 3, 15);
+            this.lblCategory.Location = new System.Drawing.Point(2, 0);
+            this.lblCategory.Margin = new System.Windows.Forms.Padding(2, 0, 2, 12);
             this.lblCategory.Name = "lblCategory";
-            this.lblCategory.Size = new System.Drawing.Size(213, 24);
+            this.lblCategory.Size = new System.Drawing.Size(160, 20);
             this.lblCategory.TabIndex = 39;
             this.lblCategory.Text = "Transaction";
             // 
@@ -233,9 +238,10 @@
             this.viewHome.BackColor = System.Drawing.Color.Transparent;
             this.viewHome.Controls.Add(this.icoBorrower);
             this.viewHome.Controls.Add(this.btnHome);
-            this.viewHome.Location = new System.Drawing.Point(3, 42);
+            this.viewHome.Location = new System.Drawing.Point(2, 34);
+            this.viewHome.Margin = new System.Windows.Forms.Padding(2);
             this.viewHome.Name = "viewHome";
-            this.viewHome.Size = new System.Drawing.Size(213, 50);
+            this.viewHome.Size = new System.Drawing.Size(160, 41);
             this.viewHome.TabIndex = 35;
             // 
             // icoBorrower
@@ -245,9 +251,10 @@
             this.icoBorrower.ErrorImage = null;
             this.icoBorrower.Image = ((System.Drawing.Image)(resources.GetObject("icoBorrower.Image")));
             this.icoBorrower.InitialImage = ((System.Drawing.Image)(resources.GetObject("icoBorrower.InitialImage")));
-            this.icoBorrower.Location = new System.Drawing.Point(3, 6);
+            this.icoBorrower.Location = new System.Drawing.Point(2, 5);
+            this.icoBorrower.Margin = new System.Windows.Forms.Padding(2);
             this.icoBorrower.Name = "icoBorrower";
-            this.icoBorrower.Size = new System.Drawing.Size(32, 32);
+            this.icoBorrower.Size = new System.Drawing.Size(24, 26);
             this.icoBorrower.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.icoBorrower.TabIndex = 35;
             this.icoBorrower.TabStop = false;
@@ -264,11 +271,11 @@
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnHome.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.btnHome.Location = new System.Drawing.Point(38, 0);
+            this.btnHome.Location = new System.Drawing.Point(28, 0);
             this.btnHome.Margin = new System.Windows.Forms.Padding(0);
             this.btnHome.Name = "btnHome";
-            this.btnHome.Padding = new System.Windows.Forms.Padding(5);
-            this.btnHome.Size = new System.Drawing.Size(175, 44);
+            this.btnHome.Padding = new System.Windows.Forms.Padding(4);
+            this.btnHome.Size = new System.Drawing.Size(131, 36);
             this.btnHome.TabIndex = 30;
             this.btnHome.Text = "Home";
             this.btnHome.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -282,18 +289,20 @@
             this.viewReports.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.viewReports.Controls.Add(this.iconReports);
             this.viewReports.Controls.Add(this.btnViewProfile);
-            this.viewReports.Location = new System.Drawing.Point(3, 98);
+            this.viewReports.Location = new System.Drawing.Point(2, 79);
+            this.viewReports.Margin = new System.Windows.Forms.Padding(2);
             this.viewReports.Name = "viewReports";
-            this.viewReports.Size = new System.Drawing.Size(213, 50);
+            this.viewReports.Size = new System.Drawing.Size(160, 41);
             this.viewReports.TabIndex = 40;
             // 
             // iconReports
             // 
             this.iconReports.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.iconReports.Image = ((System.Drawing.Image)(resources.GetObject("iconReports.Image")));
-            this.iconReports.Location = new System.Drawing.Point(3, 6);
+            this.iconReports.Location = new System.Drawing.Point(2, 5);
+            this.iconReports.Margin = new System.Windows.Forms.Padding(2);
             this.iconReports.Name = "iconReports";
-            this.iconReports.Size = new System.Drawing.Size(32, 32);
+            this.iconReports.Size = new System.Drawing.Size(24, 26);
             this.iconReports.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.iconReports.TabIndex = 35;
             this.iconReports.TabStop = false;
@@ -309,11 +318,11 @@
             this.btnViewProfile.FlatAppearance.BorderSize = 0;
             this.btnViewProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewProfile.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnViewProfile.Location = new System.Drawing.Point(38, 0);
+            this.btnViewProfile.Location = new System.Drawing.Point(28, 0);
             this.btnViewProfile.Margin = new System.Windows.Forms.Padding(0);
             this.btnViewProfile.Name = "btnViewProfile";
-            this.btnViewProfile.Padding = new System.Windows.Forms.Padding(5);
-            this.btnViewProfile.Size = new System.Drawing.Size(175, 44);
+            this.btnViewProfile.Padding = new System.Windows.Forms.Padding(4);
+            this.btnViewProfile.Size = new System.Drawing.Size(131, 36);
             this.btnViewProfile.TabIndex = 30;
             this.btnViewProfile.Text = "Profile";
             this.btnViewProfile.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -327,10 +336,10 @@
             this.flpBtnGrp2.AutoSize = true;
             this.flpBtnGrp2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpBtnGrp2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpBtnGrp2.Location = new System.Drawing.Point(18, 391);
-            this.flpBtnGrp2.Margin = new System.Windows.Forms.Padding(3, 30, 3, 3);
+            this.flpBtnGrp2.Location = new System.Drawing.Point(13, 314);
+            this.flpBtnGrp2.Margin = new System.Windows.Forms.Padding(2, 24, 2, 2);
             this.flpBtnGrp2.Name = "flpBtnGrp2";
-            this.flpBtnGrp2.Size = new System.Drawing.Size(219, 0);
+            this.flpBtnGrp2.Size = new System.Drawing.Size(164, 0);
             this.flpBtnGrp2.TabIndex = 36;
             // 
             // signout
@@ -340,19 +349,20 @@
             this.signout.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.signout.Controls.Add(this.pictureBox4);
             this.signout.Controls.Add(this.btnLogout);
-            this.signout.Location = new System.Drawing.Point(15, 594);
-            this.signout.Margin = new System.Windows.Forms.Padding(0, 200, 0, 0);
+            this.signout.Location = new System.Drawing.Point(11, 478);
+            this.signout.Margin = new System.Windows.Forms.Padding(0, 162, 0, 0);
             this.signout.Name = "signout";
-            this.signout.Size = new System.Drawing.Size(225, 38);
+            this.signout.Size = new System.Drawing.Size(168, 30);
             this.signout.TabIndex = 38;
             // 
             // pictureBox4
             // 
             this.pictureBox4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox4.Location = new System.Drawing.Point(2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox4.Size = new System.Drawing.Size(24, 26);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 35;
             this.pictureBox4.TabStop = false;
@@ -365,14 +375,16 @@
             this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogout.Font = new System.Drawing.Font("Outfit", 10.8F);
             this.btnLogout.LinkColor = System.Drawing.Color.Red;
-            this.btnLogout.Location = new System.Drawing.Point(41, 0);
+            this.btnLogout.Location = new System.Drawing.Point(30, 0);
+            this.btnLogout.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.btnLogout.Name = "btnLogout";
-            this.btnLogout.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.btnLogout.Size = new System.Drawing.Size(181, 38);
+            this.btnLogout.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
+            this.btnLogout.Size = new System.Drawing.Size(136, 30);
             this.btnLogout.TabIndex = 29;
             this.btnLogout.TabStop = true;
             this.btnLogout.Text = "Signout";
             this.btnLogout.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.BtnLogout_LinkClicked);
             // 
             // flpTop
             // 
@@ -381,18 +393,20 @@
             this.flpTop.Controls.Add(this.pbIllustration);
             this.flpTop.Controls.Add(this.flpGreetings);
             this.flpTop.Controls.Add(this.pbConfetti);
-            this.flpTop.Location = new System.Drawing.Point(283, 18);
+            this.flpTop.Location = new System.Drawing.Point(212, 15);
+            this.flpTop.Margin = new System.Windows.Forms.Padding(2);
             this.flpTop.Name = "flpTop";
-            this.flpTop.Size = new System.Drawing.Size(1038, 193);
+            this.flpTop.Size = new System.Drawing.Size(778, 157);
             this.flpTop.TabIndex = 38;
             // 
             // pbIllustration
             // 
             this.pbIllustration.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbIllustration.Image = ((System.Drawing.Image)(resources.GetObject("pbIllustration.Image")));
-            this.pbIllustration.Location = new System.Drawing.Point(3, 17);
+            this.pbIllustration.Location = new System.Drawing.Point(2, 13);
+            this.pbIllustration.Margin = new System.Windows.Forms.Padding(2);
             this.pbIllustration.Name = "pbIllustration";
-            this.pbIllustration.Size = new System.Drawing.Size(227, 159);
+            this.pbIllustration.Size = new System.Drawing.Size(170, 129);
             this.pbIllustration.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbIllustration.TabIndex = 37;
             this.pbIllustration.TabStop = false;
@@ -406,10 +420,10 @@
             this.flpGreetings.Controls.Add(this.lblParagraph);
             this.flpGreetings.Controls.Add(this.flpJourney);
             this.flpGreetings.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpGreetings.Location = new System.Drawing.Point(253, 23);
-            this.flpGreetings.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.flpGreetings.Location = new System.Drawing.Point(189, 19);
+            this.flpGreetings.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.flpGreetings.Name = "flpGreetings";
-            this.flpGreetings.Size = new System.Drawing.Size(276, 147);
+            this.flpGreetings.Size = new System.Drawing.Size(217, 118);
             this.flpGreetings.TabIndex = 38;
             // 
             // lblTopTitle
@@ -418,9 +432,10 @@
             this.lblTopTitle.AutoSize = true;
             this.lblTopTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
             this.lblTopTitle.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.lblTopTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblTopTitle.Location = new System.Drawing.Point(2, 0);
+            this.lblTopTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTopTitle.Name = "lblTopTitle";
-            this.lblTopTitle.Size = new System.Drawing.Size(161, 25);
+            this.lblTopTitle.Size = new System.Drawing.Size(129, 20);
             this.lblTopTitle.TabIndex = 12;
             this.lblTopTitle.Text = "Good day, Mike ";
             this.lblTopTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -430,10 +445,10 @@
             this.lblParagraph.AutoSize = true;
             this.lblParagraph.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblParagraph.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.lblParagraph.Location = new System.Drawing.Point(3, 35);
-            this.lblParagraph.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblParagraph.Location = new System.Drawing.Point(2, 28);
+            this.lblParagraph.Margin = new System.Windows.Forms.Padding(2, 8, 2, 0);
             this.lblParagraph.Name = "lblParagraph";
-            this.lblParagraph.Size = new System.Drawing.Size(270, 48);
+            this.lblParagraph.Size = new System.Drawing.Size(213, 38);
             this.lblParagraph.TabIndex = 14;
             this.lblParagraph.Text = "View your reading journey and \r\ntransactions history\r\n";
             this.lblParagraph.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -446,19 +461,20 @@
             this.flpJourney.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpJourney.Controls.Add(this.pbJourney);
             this.flpJourney.Controls.Add(this.btnJourney);
-            this.flpJourney.Location = new System.Drawing.Point(0, 103);
-            this.flpJourney.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flpJourney.Location = new System.Drawing.Point(0, 82);
+            this.flpJourney.Margin = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.flpJourney.Name = "flpJourney";
-            this.flpJourney.Size = new System.Drawing.Size(276, 44);
+            this.flpJourney.Size = new System.Drawing.Size(217, 36);
             this.flpJourney.TabIndex = 38;
             // 
             // pbJourney
             // 
             this.pbJourney.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbJourney.Image = ((System.Drawing.Image)(resources.GetObject("pbJourney.Image")));
-            this.pbJourney.Location = new System.Drawing.Point(3, 6);
+            this.pbJourney.Location = new System.Drawing.Point(2, 5);
+            this.pbJourney.Margin = new System.Windows.Forms.Padding(2);
             this.pbJourney.Name = "pbJourney";
-            this.pbJourney.Size = new System.Drawing.Size(32, 32);
+            this.pbJourney.Size = new System.Drawing.Size(24, 26);
             this.pbJourney.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbJourney.TabIndex = 35;
             this.pbJourney.TabStop = false;
@@ -474,11 +490,11 @@
             this.btnJourney.FlatAppearance.BorderSize = 0;
             this.btnJourney.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnJourney.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnJourney.Location = new System.Drawing.Point(38, 0);
+            this.btnJourney.Location = new System.Drawing.Point(28, 0);
             this.btnJourney.Margin = new System.Windows.Forms.Padding(0);
             this.btnJourney.Name = "btnJourney";
-            this.btnJourney.Padding = new System.Windows.Forms.Padding(0, 5, 5, 5);
-            this.btnJourney.Size = new System.Drawing.Size(175, 44);
+            this.btnJourney.Padding = new System.Windows.Forms.Padding(0, 4, 4, 4);
+            this.btnJourney.Size = new System.Drawing.Size(131, 36);
             this.btnJourney.TabIndex = 36;
             this.btnJourney.Text = "My journey";
             this.btnJourney.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -489,10 +505,10 @@
             // 
             this.pbConfetti.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pbConfetti.Image = ((System.Drawing.Image)(resources.GetObject("pbConfetti.Image")));
-            this.pbConfetti.Location = new System.Drawing.Point(539, 3);
-            this.pbConfetti.Margin = new System.Windows.Forms.Padding(10, 3, 3, 3);
+            this.pbConfetti.Location = new System.Drawing.Point(414, 2);
+            this.pbConfetti.Margin = new System.Windows.Forms.Padding(8, 2, 2, 2);
             this.pbConfetti.Name = "pbConfetti";
-            this.pbConfetti.Size = new System.Drawing.Size(472, 187);
+            this.pbConfetti.Size = new System.Drawing.Size(354, 152);
             this.pbConfetti.TabIndex = 39;
             this.pbConfetti.TabStop = false;
             // 
@@ -501,9 +517,10 @@
             this.panelBorrow.BackColor = System.Drawing.Color.MintCream;
             this.panelBorrow.Controls.Add(this.flowLayoutPanel2);
             this.panelBorrow.Controls.Add(this.flpBorrowBook);
-            this.panelBorrow.Location = new System.Drawing.Point(283, 222);
+            this.panelBorrow.Location = new System.Drawing.Point(212, 180);
+            this.panelBorrow.Margin = new System.Windows.Forms.Padding(2);
             this.panelBorrow.Name = "panelBorrow";
-            this.panelBorrow.Size = new System.Drawing.Size(1038, 139);
+            this.panelBorrow.Size = new System.Drawing.Size(778, 113);
             this.panelBorrow.TabIndex = 43;
             // 
             // flowLayoutPanel2
@@ -514,10 +531,10 @@
             this.flowLayoutPanel2.Controls.Add(this.lblBorrowTitle);
             this.flowLayoutPanel2.Controls.Add(this.lblBorrowSecondary);
             this.flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(20, 25);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(15, 20);
             this.flowLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(331, 83);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(259, 66);
             this.flowLayoutPanel2.TabIndex = 40;
             // 
             // lblBorrowTitle
@@ -526,9 +543,10 @@
             this.lblBorrowTitle.AutoSize = true;
             this.lblBorrowTitle.Font = new System.Drawing.Font("Outfit", 12F, System.Drawing.FontStyle.Bold);
             this.lblBorrowTitle.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblBorrowTitle.Location = new System.Drawing.Point(3, 0);
+            this.lblBorrowTitle.Location = new System.Drawing.Point(2, 0);
+            this.lblBorrowTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblBorrowTitle.Name = "lblBorrowTitle";
-            this.lblBorrowTitle.Size = new System.Drawing.Size(239, 25);
+            this.lblBorrowTitle.Size = new System.Drawing.Size(188, 20);
             this.lblBorrowTitle.TabIndex = 12;
             this.lblBorrowTitle.Text = "Looking for a new book?";
             this.lblBorrowTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -538,10 +556,10 @@
             this.lblBorrowSecondary.AutoSize = true;
             this.lblBorrowSecondary.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblBorrowSecondary.ForeColor = System.Drawing.Color.DarkGreen;
-            this.lblBorrowSecondary.Location = new System.Drawing.Point(3, 35);
-            this.lblBorrowSecondary.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblBorrowSecondary.Location = new System.Drawing.Point(2, 28);
+            this.lblBorrowSecondary.Margin = new System.Windows.Forms.Padding(2, 8, 2, 0);
             this.lblBorrowSecondary.Name = "lblBorrowSecondary";
-            this.lblBorrowSecondary.Size = new System.Drawing.Size(325, 48);
+            this.lblBorrowSecondary.Size = new System.Drawing.Size(255, 38);
             this.lblBorrowSecondary.TabIndex = 14;
             this.lblBorrowSecondary.Text = "Borrow any books you want and start\r\nreading";
             this.lblBorrowSecondary.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -553,19 +571,20 @@
             this.flpBorrowBook.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpBorrowBook.Controls.Add(this.pictureBox3);
             this.flpBorrowBook.Controls.Add(this.btnBorrow);
-            this.flpBorrowBook.Location = new System.Drawing.Point(797, 42);
-            this.flpBorrowBook.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.flpBorrowBook.Location = new System.Drawing.Point(598, 34);
+            this.flpBorrowBook.Margin = new System.Windows.Forms.Padding(0, 16, 0, 0);
             this.flpBorrowBook.Name = "flpBorrowBook";
-            this.flpBorrowBook.Size = new System.Drawing.Size(229, 44);
+            this.flpBorrowBook.Size = new System.Drawing.Size(172, 36);
             this.flpBorrowBook.TabIndex = 39;
             // 
             // pictureBox3
             // 
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox3.Location = new System.Drawing.Point(2, 5);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox3.Size = new System.Drawing.Size(24, 26);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 35;
             this.pictureBox3.TabStop = false;
@@ -582,11 +601,11 @@
             this.btnBorrow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBorrow.Font = new System.Drawing.Font("Outfit SemiBold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBorrow.ForeColor = System.Drawing.Color.DarkGreen;
-            this.btnBorrow.Location = new System.Drawing.Point(38, 0);
+            this.btnBorrow.Location = new System.Drawing.Point(28, 0);
             this.btnBorrow.Margin = new System.Windows.Forms.Padding(0);
             this.btnBorrow.Name = "btnBorrow";
-            this.btnBorrow.Padding = new System.Windows.Forms.Padding(5);
-            this.btnBorrow.Size = new System.Drawing.Size(191, 44);
+            this.btnBorrow.Padding = new System.Windows.Forms.Padding(4);
+            this.btnBorrow.Size = new System.Drawing.Size(143, 36);
             this.btnBorrow.TabIndex = 36;
             this.btnBorrow.Text = "Borrow a book";
             this.btnBorrow.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -599,9 +618,10 @@
             this.flpDataGrid.Controls.Add(this.lblUpdateMessage);
             this.flpDataGrid.Controls.Add(this.panelGridHeader);
             this.flpDataGrid.Controls.Add(this.flpGrid);
-            this.flpDataGrid.Location = new System.Drawing.Point(283, 369);
+            this.flpDataGrid.Location = new System.Drawing.Point(212, 300);
+            this.flpDataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.flpDataGrid.Name = "flpDataGrid";
-            this.flpDataGrid.Size = new System.Drawing.Size(1046, 384);
+            this.flpDataGrid.Size = new System.Drawing.Size(784, 312);
             this.flpDataGrid.TabIndex = 46;
             // 
             // lblUpdateMessage
@@ -610,11 +630,12 @@
             this.lblUpdateMessage.BackColor = System.Drawing.Color.ForestGreen;
             this.lblUpdateMessage.Font = new System.Drawing.Font("Outfit SemiBold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpdateMessage.ForeColor = System.Drawing.Color.White;
-            this.lblUpdateMessage.Location = new System.Drawing.Point(3, 0);
-            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(213, 31);
+            this.lblUpdateMessage.Location = new System.Drawing.Point(2, 0);
+            this.lblUpdateMessage.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUpdateMessage.MinimumSize = new System.Drawing.Size(160, 25);
             this.lblUpdateMessage.Name = "lblUpdateMessage";
-            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblUpdateMessage.Size = new System.Drawing.Size(1038, 31);
+            this.lblUpdateMessage.Padding = new System.Windows.Forms.Padding(0, 4, 0, 4);
+            this.lblUpdateMessage.Size = new System.Drawing.Size(778, 25);
             this.lblUpdateMessage.TabIndex = 47;
             this.lblUpdateMessage.Text = "Book has been returned successfully";
             this.lblUpdateMessage.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -626,9 +647,10 @@
             this.panelGridHeader.Controls.Add(this.rbBorrowed);
             this.panelGridHeader.Controls.Add(this.rbReturned);
             this.panelGridHeader.Controls.Add(this.lblGridTitle);
-            this.panelGridHeader.Location = new System.Drawing.Point(3, 34);
+            this.panelGridHeader.Location = new System.Drawing.Point(2, 27);
+            this.panelGridHeader.Margin = new System.Windows.Forms.Padding(2);
             this.panelGridHeader.Name = "panelGridHeader";
-            this.panelGridHeader.Size = new System.Drawing.Size(1038, 54);
+            this.panelGridHeader.Size = new System.Drawing.Size(778, 44);
             this.panelGridHeader.TabIndex = 45;
             // 
             // rbBorrowed
@@ -638,10 +660,10 @@
             this.rbBorrowed.Checked = true;
             this.rbBorrowed.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbBorrowed.ForeColor = System.Drawing.Color.ForestGreen;
-            this.rbBorrowed.Location = new System.Drawing.Point(814, 16);
-            this.rbBorrowed.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rbBorrowed.Location = new System.Drawing.Point(610, 13);
+            this.rbBorrowed.Margin = new System.Windows.Forms.Padding(0, 2, 2, 2);
             this.rbBorrowed.Name = "rbBorrowed";
-            this.rbBorrowed.Size = new System.Drawing.Size(101, 23);
+            this.rbBorrowed.Size = new System.Drawing.Size(80, 19);
             this.rbBorrowed.TabIndex = 43;
             this.rbBorrowed.TabStop = true;
             this.rbBorrowed.Text = "Borrowed";
@@ -653,10 +675,10 @@
             this.rbReturned.AutoSize = true;
             this.rbReturned.Font = new System.Drawing.Font("Outfit", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbReturned.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.rbReturned.Location = new System.Drawing.Point(931, 16);
-            this.rbReturned.Margin = new System.Windows.Forms.Padding(0, 3, 3, 3);
+            this.rbReturned.Location = new System.Drawing.Point(698, 13);
+            this.rbReturned.Margin = new System.Windows.Forms.Padding(0, 2, 2, 2);
             this.rbReturned.Name = "rbReturned";
-            this.rbReturned.Size = new System.Drawing.Size(92, 23);
+            this.rbReturned.Size = new System.Drawing.Size(74, 19);
             this.rbReturned.TabIndex = 44;
             this.rbReturned.Text = "Returned";
             this.rbReturned.UseVisualStyleBackColor = true;
@@ -668,11 +690,11 @@
             this.lblGridTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblGridTitle.ForeColor = System.Drawing.SystemColors.ControlText;
             this.lblGridTitle.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblGridTitle.Location = new System.Drawing.Point(3, 15);
-            this.lblGridTitle.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
+            this.lblGridTitle.Location = new System.Drawing.Point(2, 12);
+            this.lblGridTitle.Margin = new System.Windows.Forms.Padding(2, 4, 2, 4);
             this.lblGridTitle.Name = "lblGridTitle";
-            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 10, 0);
-            this.lblGridTitle.Size = new System.Drawing.Size(162, 24);
+            this.lblGridTitle.Padding = new System.Windows.Forms.Padding(0, 0, 8, 0);
+            this.lblGridTitle.Size = new System.Drawing.Size(133, 19);
             this.lblGridTitle.TabIndex = 42;
             this.lblGridTitle.Text = "Borrowed books";
             this.lblGridTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -680,9 +702,10 @@
             // flpGrid
             // 
             this.flpGrid.Controls.Add(this.dataGrid);
-            this.flpGrid.Location = new System.Drawing.Point(3, 94);
+            this.flpGrid.Location = new System.Drawing.Point(2, 75);
+            this.flpGrid.Margin = new System.Windows.Forms.Padding(2);
             this.flpGrid.Name = "flpGrid";
-            this.flpGrid.Size = new System.Drawing.Size(1038, 270);
+            this.flpGrid.Size = new System.Drawing.Size(778, 219);
             this.flpGrid.TabIndex = 46;
             // 
             // dataGrid
@@ -711,14 +734,15 @@
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.InactiveCaption;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
-            this.dataGrid.Location = new System.Drawing.Point(3, 3);
+            this.dataGrid.Location = new System.Drawing.Point(2, 2);
+            this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
@@ -739,7 +763,7 @@
             this.dataGrid.RowTemplate.ReadOnly = true;
             this.dataGrid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGrid.Size = new System.Drawing.Size(1035, 275);
+            this.dataGrid.Size = new System.Drawing.Size(776, 223);
             this.dataGrid.TabIndex = 47;
             this.dataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             // 
@@ -756,9 +780,10 @@
             this.flpEdit.Controls.Add(this.flowLayoutPanel3);
             this.flpEdit.Controls.Add(this.lblCancelEdit);
             this.flpEdit.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpEdit.Location = new System.Drawing.Point(285, 69);
+            this.flpEdit.Location = new System.Drawing.Point(214, 56);
+            this.flpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.flpEdit.Name = "flpEdit";
-            this.flpEdit.Size = new System.Drawing.Size(840, 586);
+            this.flpEdit.Size = new System.Drawing.Size(630, 476);
             this.flpEdit.TabIndex = 47;
             this.flpEdit.Visible = false;
             // 
@@ -768,10 +793,10 @@
             this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEditError.ForeColor = System.Drawing.Color.Red;
             this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Location = new System.Drawing.Point(3, 10);
-            this.lblEditError.Margin = new System.Windows.Forms.Padding(3, 10, 3, 10);
+            this.lblEditError.Location = new System.Drawing.Point(2, 8);
+            this.lblEditError.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
             this.lblEditError.Name = "lblEditError";
-            this.lblEditError.Size = new System.Drawing.Size(485, 48);
+            this.lblEditError.Size = new System.Drawing.Size(364, 39);
             this.lblEditError.TabIndex = 53;
             this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
             this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -788,19 +813,20 @@
             this.flpDetails.Controls.Add(this.lblThird);
             this.flpDetails.Controls.Add(this.txtThird);
             this.flpDetails.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpDetails.Location = new System.Drawing.Point(3, 71);
-            this.flpDetails.Margin = new System.Windows.Forms.Padding(3, 3, 3, 30);
+            this.flpDetails.Location = new System.Drawing.Point(2, 57);
+            this.flpDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 24);
             this.flpDetails.Name = "flpDetails";
-            this.flpDetails.Size = new System.Drawing.Size(485, 326);
+            this.flpDetails.Size = new System.Drawing.Size(364, 264);
             this.flpDetails.TabIndex = 42;
             // 
             // lblFirstName
             // 
             this.lblFirstName.AutoSize = true;
             this.lblFirstName.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFirstName.Location = new System.Drawing.Point(3, 0);
+            this.lblFirstName.Location = new System.Drawing.Point(2, 0);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(96, 24);
+            this.lblFirstName.Size = new System.Drawing.Size(77, 19);
             this.lblFirstName.TabIndex = 5;
             this.lblFirstName.Text = "Username";
             // 
@@ -808,51 +834,53 @@
             // 
             this.txtFirst.Enabled = false;
             this.txtFirst.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirst.Location = new System.Drawing.Point(3, 34);
-            this.txtFirst.Margin = new System.Windows.Forms.Padding(3, 10, 3, 25);
+            this.txtFirst.Location = new System.Drawing.Point(2, 27);
+            this.txtFirst.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
             this.txtFirst.Multiline = true;
             this.txtFirst.Name = "txtFirst";
-            this.txtFirst.Size = new System.Drawing.Size(479, 57);
+            this.txtFirst.Size = new System.Drawing.Size(360, 47);
             this.txtFirst.TabIndex = 6;
             // 
             // lblSecond
             // 
             this.lblSecond.AutoSize = true;
             this.lblSecond.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecond.Location = new System.Drawing.Point(3, 116);
+            this.lblSecond.Location = new System.Drawing.Point(2, 94);
+            this.lblSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSecond.Name = "lblSecond";
-            this.lblSecond.Size = new System.Drawing.Size(96, 24);
+            this.lblSecond.Size = new System.Drawing.Size(77, 19);
             this.lblSecond.TabIndex = 7;
             this.lblSecond.Text = "Username";
             // 
             // txtSecond
             // 
             this.txtSecond.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecond.Location = new System.Drawing.Point(3, 150);
-            this.txtSecond.Margin = new System.Windows.Forms.Padding(3, 10, 3, 25);
+            this.txtSecond.Location = new System.Drawing.Point(2, 121);
+            this.txtSecond.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
             this.txtSecond.Multiline = true;
             this.txtSecond.Name = "txtSecond";
-            this.txtSecond.Size = new System.Drawing.Size(479, 57);
+            this.txtSecond.Size = new System.Drawing.Size(360, 47);
             this.txtSecond.TabIndex = 8;
             // 
             // lblThird
             // 
             this.lblThird.AutoSize = true;
             this.lblThird.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThird.Location = new System.Drawing.Point(3, 232);
+            this.lblThird.Location = new System.Drawing.Point(2, 188);
+            this.lblThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblThird.Name = "lblThird";
-            this.lblThird.Size = new System.Drawing.Size(96, 24);
+            this.lblThird.Size = new System.Drawing.Size(77, 19);
             this.lblThird.TabIndex = 9;
             this.lblThird.Text = "Username";
             // 
             // txtThird
             // 
             this.txtThird.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThird.Location = new System.Drawing.Point(3, 266);
-            this.txtThird.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.txtThird.Location = new System.Drawing.Point(2, 215);
+            this.txtThird.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
             this.txtThird.Multiline = true;
             this.txtThird.Name = "txtThird";
-            this.txtThird.Size = new System.Drawing.Size(479, 57);
+            this.txtThird.Size = new System.Drawing.Size(360, 47);
             this.txtThird.TabIndex = 10;
             // 
             // flowLayoutPanel3
@@ -861,19 +889,20 @@
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel3.Controls.Add(this.btnSaveChanges);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(3, 427);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 3, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 345);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(485, 50);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(364, 41);
             this.flowLayoutPanel3.TabIndex = 43;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 6);
+            this.pictureBox1.Location = new System.Drawing.Point(2, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(32, 32);
+            this.pictureBox1.Size = new System.Drawing.Size(24, 26);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
@@ -889,11 +918,11 @@
             this.btnSaveChanges.FlatAppearance.BorderSize = 0;
             this.btnSaveChanges.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSaveChanges.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSaveChanges.Location = new System.Drawing.Point(38, 0);
+            this.btnSaveChanges.Location = new System.Drawing.Point(28, 0);
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveChanges.Name = "btnSaveChanges";
-            this.btnSaveChanges.Padding = new System.Windows.Forms.Padding(5);
-            this.btnSaveChanges.Size = new System.Drawing.Size(185, 44);
+            this.btnSaveChanges.Padding = new System.Windows.Forms.Padding(4);
+            this.btnSaveChanges.Size = new System.Drawing.Size(139, 36);
             this.btnSaveChanges.TabIndex = 30;
             this.btnSaveChanges.Text = "Save changes";
             this.btnSaveChanges.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -908,11 +937,11 @@
             this.lblCancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.lblCancelEdit.Font = new System.Drawing.Font("Outfit", 10.8F);
             this.lblCancelEdit.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.lblCancelEdit.Location = new System.Drawing.Point(3, 490);
-            this.lblCancelEdit.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+            this.lblCancelEdit.Location = new System.Drawing.Point(2, 396);
+            this.lblCancelEdit.Margin = new System.Windows.Forms.Padding(2, 8, 2, 0);
             this.lblCancelEdit.Name = "lblCancelEdit";
-            this.lblCancelEdit.Padding = new System.Windows.Forms.Padding(10, 5, 5, 5);
-            this.lblCancelEdit.Size = new System.Drawing.Size(223, 34);
+            this.lblCancelEdit.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
+            this.lblCancelEdit.Size = new System.Drawing.Size(167, 28);
             this.lblCancelEdit.TabIndex = 52;
             this.lblCancelEdit.TabStop = true;
             this.lblCancelEdit.Text = "Cancel edit";
@@ -920,9 +949,9 @@
             // 
             // Borrower
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1342, 753);
+            this.ClientSize = new System.Drawing.Size(1006, 612);
             this.Controls.Add(this.flpEdit);
             this.Controls.Add(this.flpDataGrid);
             this.Controls.Add(this.panelBorrow);
@@ -930,6 +959,7 @@
             this.Controls.Add(this.divLeft);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "Borrower";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
