@@ -67,11 +67,11 @@
     <Compile Include="AdminUI\AdminLogin.Designer.cs">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="BorrowerUI\Books.cs">
+    <Compile Include="BorrowerUI\Book.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BorrowerUI\Books.Designer.cs">
-      <DependentUpon>Books.cs</DependentUpon>
+    <Compile Include="BorrowerUI\Book.Designer.cs">
+      <DependentUpon>Book.cs</DependentUpon>
     </Compile>
     <Compile Include="BorrowerUI\BorrowBook.cs">
       <SubType>Form</SubType>
@@ -90,6 +90,8 @@
     <Compile Include="Handlers\DataViews.cs" />
     <Compile Include="Repository\BookRepository.cs" />
     <Compile Include="Repository\BorrowerRepository.cs" />
+    <Compile Include="Repository\BorrowingRepository.cs" />
+    <Compile Include="Repository\DataRepository.cs" />
     <Compile Include="Repository\IRepository.cs" />
     <Compile Include="Repository\ReportRepository.cs" />
     <Compile Include="UIHelpers\AddUIHelper.cs" />
@@ -141,8 +143,8 @@
     <EmbeddedResource Include="AdminUI\AdminLogin.resx">
       <DependentUpon>AdminLogin.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BorrowerUI\Books.resx">
-      <DependentUpon>Books.cs</DependentUpon>
+    <EmbeddedResource Include="BorrowerUI\Book.resx">
+      <DependentUpon>Book.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BorrowerUI\BorrowBook.resx">
       <DependentUpon>BorrowBook.cs</DependentUpon>

@@ -1,6 +1,6 @@
 ﻿namespace LibrarySystem
 {
-    partial class Books
+    partial class Book
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Books));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Book));
             this.btnContainer = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.LinkLabel();
             this.btnReturn = new System.Windows.Forms.Button();
@@ -84,7 +84,7 @@
             this.btnReturn.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
             this.btnReturn.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReturn.Location = new System.Drawing.Point(196, 1);
-            this.btnReturn.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnReturn.Margin = new System.Windows.Forms.Padding(2);
             this.btnReturn.Name = "btnReturn";
             this.btnReturn.Size = new System.Drawing.Size(180, 41);
             this.btnReturn.TabIndex = 21;
@@ -100,7 +100,7 @@
             this.returnDate.Controls.Add(this.lblReturnDate);
             this.returnDate.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.returnDate.Location = new System.Drawing.Point(243, 331);
-            this.returnDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.returnDate.Margin = new System.Windows.Forms.Padding(2);
             this.returnDate.Name = "returnDate";
             this.returnDate.Size = new System.Drawing.Size(173, 46);
             this.returnDate.TabIndex = 35;
@@ -137,7 +137,7 @@
             this.borrowDate.Controls.Add(this.lblBorrowDate);
             this.borrowDate.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.borrowDate.Location = new System.Drawing.Point(36, 331);
-            this.borrowDate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.borrowDate.Margin = new System.Windows.Forms.Padding(2);
             this.borrowDate.Name = "borrowDate";
             this.borrowDate.Size = new System.Drawing.Size(170, 46);
             this.borrowDate.TabIndex = 34;
@@ -177,7 +177,7 @@
             this.bookInfoContainer.Controls.Add(this.lblCopiesBorrowed);
             this.bookInfoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.bookInfoContainer.Location = new System.Drawing.Point(36, 24);
-            this.bookInfoContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.bookInfoContainer.Margin = new System.Windows.Forms.Padding(2);
             this.bookInfoContainer.Name = "bookInfoContainer";
             this.bookInfoContainer.Size = new System.Drawing.Size(380, 182);
             this.bookInfoContainer.TabIndex = 33;
@@ -188,7 +188,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.image.Image = ((System.Drawing.Image)(resources.GetObject("image.Image")));
             this.image.Location = new System.Drawing.Point(2, 2);
-            this.image.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.image.Margin = new System.Windows.Forms.Padding(2);
             this.image.Name = "image";
             this.image.Size = new System.Drawing.Size(376, 65);
             this.image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -203,7 +203,7 @@
             this.infoContainer.Controls.Add(this.lblAuthor);
             this.infoContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.infoContainer.Location = new System.Drawing.Point(2, 71);
-            this.infoContainer.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.infoContainer.Margin = new System.Windows.Forms.Padding(2);
             this.infoContainer.Name = "infoContainer";
             this.infoContainer.Padding = new System.Windows.Forms.Padding(0, 8, 0, 8);
             this.infoContainer.Size = new System.Drawing.Size(376, 69);
@@ -235,7 +235,7 @@
             // lblCopiesBorrowed
             // 
             this.lblCopiesBorrowed.Font = new System.Drawing.Font("Outfit", 10.8F);
-            this.lblCopiesBorrowed.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblCopiesBorrowed.ForeColor = System.Drawing.Color.Black;
             this.lblCopiesBorrowed.Location = new System.Drawing.Point(2, 150);
             this.lblCopiesBorrowed.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
             this.lblCopiesBorrowed.Name = "lblCopiesBorrowed";
@@ -260,7 +260,7 @@
             this.lblDaysBorrowed.Text = "You have already borrowed this book for 6 days";
             this.lblDaysBorrowed.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // Books
+            // Book
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -271,12 +271,11 @@
             this.Controls.Add(this.borrowDate);
             this.Controls.Add(this.bookInfoContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
-            this.Name = "Books";
+            this.Name = "Book";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Book details";
-            this.Load += new System.EventHandler(this.Books_Load);
             this.btnContainer.ResumeLayout(false);
             this.btnContainer.PerformLayout();
             this.returnDate.ResumeLayout(false);

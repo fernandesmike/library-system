@@ -23,10 +23,15 @@ namespace LibrarySystem
             borrowUI.lblBookAuthor.Text = "-";
             borrowUI.lblBookAuthor.Visible = true;
             borrowUI.txtQuantities.Enabled = false;
+            borrowUI.txtQuantities.Text = "1";
+            borrowUI.dataGrid.ClearSelection();
 
             borrowUI.lblMessage.Text = "Please select a book to borrow";
 
             borrowUI.btnBorrow.Enabled = false;
+            borrowUI.lblQuantityError.Visible = false;
+            borrowUI.lblQuantity.Visible = false;
+
         }
 
         public void displayBookToBorrow(string id, string title, string author, string copies)

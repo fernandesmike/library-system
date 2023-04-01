@@ -17,15 +17,10 @@ namespace LibrarySystem
 
         // Data repositories & UI helpers
         private readonly BorrowerUIHelper borrowerUI;
-        private readonly BorrowerRepository borrower;
         private readonly BookRepository book;
 
         public static int borrowerId;
-        public static string bookId;
-        public static string bookTitle;
-        public static string bookAuthor;
-        public static string bookCopies;
-        public static string bookCopiesBorrowed;
+        public static int transactionId;
 
 
         public Borrower()
@@ -33,7 +28,6 @@ namespace LibrarySystem
             InitializeComponent();
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             book = new BookRepository(connection, dataGrid);
-            borrower = new BorrowerRepository(connection, dataGrid);
 
             borrowerUI = new BorrowerUIHelper(this);
             borrowerId = Login.currentUserId;
@@ -50,7 +44,7 @@ namespace LibrarySystem
                 {
                     borrowerUI.loadHomeUI();
                     //TODO: Load borrowed books
-                    book.loadBorrowed();
+                    book.loadBorrowed(borrowerId);
                 });
             });
         }
@@ -78,15 +72,12 @@ namespace LibrarySystem
             {
                 DataGridViewRow row = this.dataGrid.Rows[e.RowIndex];
 
-                bookId = row.Cells["ID"].Value.ToString();
-                bookTitle = row.Cells["Book title"].Value.ToString();
-                bookAuthor = row.Cells["Author"].Value.ToString();
-                bookCopies = row.Cells["Available copeis"].Value.ToString();
+                transactionId = Int32.Parse(row.Cells["Transaction ID"].Value.ToString());
 
-                //Books bookDetails = new Books(data.getBookID(bookTitle, bookAuthor), this);
-                //bookDetails.ShowDialog();
+                Book bookDetails = new Book(this);
+                bookDetails.ShowDialog();
 
-                //Load borrowed books
+                //Load borrowed books when the dialog is closed
                 //dataView.displayBorrowedBooks();
             }
         }

@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BorrowBook));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.viewBorrowers = new System.Windows.Forms.FlowLayoutPanel();
             this.icoBorrower = new System.Windows.Forms.PictureBox();
@@ -44,6 +44,11 @@
             this.lblBookTitle = new System.Windows.Forms.Label();
             this.lblBookAuthor = new System.Windows.Forms.Label();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
+            this.titleContainer = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblQuantity = new System.Windows.Forms.Label();
+            this.txtQuantities = new System.Windows.Forms.TextBox();
+            this.lblQuantityError = new System.Windows.Forms.Label();
+            this.lblAvailableCopies = new System.Windows.Forms.Label();
             this.lblCategory = new System.Windows.Forms.Label();
             this.viewReports = new System.Windows.Forms.FlowLayoutPanel();
             this.iconEdit = new System.Windows.Forms.PictureBox();
@@ -60,17 +65,13 @@
             this.lblParagraph = new System.Windows.Forms.Label();
             this.lblUpdateMessage = new System.Windows.Forms.Label();
             this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
-            this.titleContainer = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblQuantity = new System.Windows.Forms.Label();
-            this.txtQuantities = new System.Windows.Forms.TextBox();
-            this.lblAvailableCopies = new System.Windows.Forms.Label();
-            this.lblQuantityError = new System.Windows.Forms.Label();
             this.divLeft.SuspendLayout();
             this.viewBorrowers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.icoBorrower)).BeginInit();
             this.info.SuspendLayout();
             this.infoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
+            this.titleContainer.SuspendLayout();
             this.viewReports.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconEdit)).BeginInit();
             this.flpDataGrid.SuspendLayout();
@@ -79,7 +80,6 @@
             this.searchContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).BeginInit();
             this.flpTitle.SuspendLayout();
-            this.titleContainer.SuspendLayout();
             this.SuspendLayout();
             // 
             // divLeft
@@ -242,6 +242,72 @@
             this.imgAvatar.TabIndex = 14;
             this.imgAvatar.TabStop = false;
             // 
+            // titleContainer
+            // 
+            this.titleContainer.AutoSize = true;
+            this.titleContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.titleContainer.Controls.Add(this.lblQuantity);
+            this.titleContainer.Controls.Add(this.txtQuantities);
+            this.titleContainer.Controls.Add(this.lblQuantityError);
+            this.titleContainer.Controls.Add(this.lblAvailableCopies);
+            this.titleContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.titleContainer.Location = new System.Drawing.Point(13, 309);
+            this.titleContainer.Margin = new System.Windows.Forms.Padding(2);
+            this.titleContainer.Name = "titleContainer";
+            this.titleContainer.Size = new System.Drawing.Size(201, 131);
+            this.titleContainer.TabIndex = 44;
+            // 
+            // lblQuantity
+            // 
+            this.lblQuantity.AutoSize = true;
+            this.lblQuantity.Font = new System.Drawing.Font("Outfit", 10F);
+            this.lblQuantity.ForeColor = System.Drawing.SystemColors.Desktop;
+            this.lblQuantity.Location = new System.Drawing.Point(2, 0);
+            this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
+            this.lblQuantity.Name = "lblQuantity";
+            this.lblQuantity.Size = new System.Drawing.Size(156, 18);
+            this.lblQuantity.TabIndex = 18;
+            this.lblQuantity.Text = "No. of copies to borrow";
+            this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // txtQuantities
+            // 
+            this.txtQuantities.Enabled = false;
+            this.txtQuantities.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtQuantities.Location = new System.Drawing.Point(2, 28);
+            this.txtQuantities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 10);
+            this.txtQuantities.Multiline = true;
+            this.txtQuantities.Name = "txtQuantities";
+            this.txtQuantities.Size = new System.Drawing.Size(91, 41);
+            this.txtQuantities.TabIndex = 19;
+            this.txtQuantities.Text = "1";
+            // 
+            // lblQuantityError
+            // 
+            this.lblQuantityError.AutoSize = true;
+            this.lblQuantityError.Font = new System.Drawing.Font("Outfit", 10F);
+            this.lblQuantityError.ForeColor = System.Drawing.Color.Red;
+            this.lblQuantityError.Location = new System.Drawing.Point(2, 79);
+            this.lblQuantityError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
+            this.lblQuantityError.Name = "lblQuantityError";
+            this.lblQuantityError.Size = new System.Drawing.Size(197, 18);
+            this.lblQuantityError.TabIndex = 21;
+            this.lblQuantityError.Text = "Please provide a valid quantity";
+            this.lblQuantityError.Visible = false;
+            // 
+            // lblAvailableCopies
+            // 
+            this.lblAvailableCopies.AutoSize = true;
+            this.lblAvailableCopies.Font = new System.Drawing.Font("Outfit", 10F);
+            this.lblAvailableCopies.ForeColor = System.Drawing.Color.ForestGreen;
+            this.lblAvailableCopies.Location = new System.Drawing.Point(2, 105);
+            this.lblAvailableCopies.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
+            this.lblAvailableCopies.Name = "lblAvailableCopies";
+            this.lblAvailableCopies.Size = new System.Drawing.Size(178, 18);
+            this.lblAvailableCopies.TabIndex = 20;
+            this.lblAvailableCopies.Text = "Number of copies available";
+            this.lblAvailableCopies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // lblCategory
             // 
             this.lblCategory.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -322,42 +388,42 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(2, 2);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -499,73 +565,6 @@
             this.tmHideMessage.Interval = 3000;
             this.tmHideMessage.Tick += new System.EventHandler(this.TmHideMessage_Tick);
             // 
-            // titleContainer
-            // 
-            this.titleContainer.AutoSize = true;
-            this.titleContainer.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.titleContainer.Controls.Add(this.lblQuantity);
-            this.titleContainer.Controls.Add(this.txtQuantities);
-            this.titleContainer.Controls.Add(this.lblQuantityError);
-            this.titleContainer.Controls.Add(this.lblAvailableCopies);
-            this.titleContainer.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.titleContainer.Location = new System.Drawing.Point(13, 309);
-            this.titleContainer.Margin = new System.Windows.Forms.Padding(2);
-            this.titleContainer.Name = "titleContainer";
-            this.titleContainer.Size = new System.Drawing.Size(201, 131);
-            this.titleContainer.TabIndex = 44;
-            // 
-            // lblQuantity
-            // 
-            this.lblQuantity.AutoSize = true;
-            this.lblQuantity.Font = new System.Drawing.Font("Outfit", 10F);
-            this.lblQuantity.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.lblQuantity.Location = new System.Drawing.Point(2, 0);
-            this.lblQuantity.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
-            this.lblQuantity.Name = "lblQuantity";
-            this.lblQuantity.Size = new System.Drawing.Size(156, 18);
-            this.lblQuantity.TabIndex = 18;
-            this.lblQuantity.Text = "No. of copies to borrow";
-            this.lblQuantity.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // txtQuantities
-            // 
-            this.txtQuantities.Enabled = false;
-            this.txtQuantities.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantities.Location = new System.Drawing.Point(2, 28);
-            this.txtQuantities.Margin = new System.Windows.Forms.Padding(2, 2, 2, 10);
-            this.txtQuantities.Multiline = true;
-            this.txtQuantities.Name = "txtQuantities";
-            this.txtQuantities.Size = new System.Drawing.Size(91, 41);
-            this.txtQuantities.TabIndex = 19;
-            this.txtQuantities.Text = "1";
-            // 
-            // lblAvailableCopies
-            // 
-            this.lblAvailableCopies.AutoSize = true;
-            this.lblAvailableCopies.Font = new System.Drawing.Font("Outfit", 10F);
-            this.lblAvailableCopies.ForeColor = System.Drawing.Color.ForestGreen;
-            this.lblAvailableCopies.Location = new System.Drawing.Point(2, 105);
-            this.lblAvailableCopies.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
-            this.lblAvailableCopies.Name = "lblAvailableCopies";
-            this.lblAvailableCopies.Size = new System.Drawing.Size(178, 18);
-            this.lblAvailableCopies.TabIndex = 20;
-            this.lblAvailableCopies.Text = "Number of copies available";
-            this.lblAvailableCopies.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // lblQuantityError
-            // 
-            this.lblQuantityError.AutoSize = true;
-            this.lblQuantityError.Font = new System.Drawing.Font("Outfit", 10F);
-            this.lblQuantityError.ForeColor = System.Drawing.Color.Red;
-            this.lblQuantityError.Location = new System.Drawing.Point(2, 79);
-            this.lblQuantityError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 8);
-            this.lblQuantityError.Name = "lblQuantityError";
-            this.lblQuantityError.Size = new System.Drawing.Size(197, 18);
-            this.lblQuantityError.TabIndex = 21;
-            this.lblQuantityError.Text = "Please provide a valid quantity";
-            this.lblQuantityError.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.lblQuantityError.Visible = false;
-            // 
             // BorrowBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -591,6 +590,8 @@
             this.info.ResumeLayout(false);
             this.infoContainer.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).EndInit();
+            this.titleContainer.ResumeLayout(false);
+            this.titleContainer.PerformLayout();
             this.viewReports.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.iconEdit)).EndInit();
             this.flpDataGrid.ResumeLayout(false);
@@ -602,8 +603,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.iconSearch)).EndInit();
             this.flpTitle.ResumeLayout(false);
             this.flpTitle.PerformLayout();
-            this.titleContainer.ResumeLayout(false);
-            this.titleContainer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

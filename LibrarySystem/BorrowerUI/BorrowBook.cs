@@ -22,7 +22,7 @@ namespace LibrarySystem
 
         // Book information
         String title, author;
-        int bookId, copies;
+        int bookId, copies, copiesToBorrow;
 
         private readonly DateTime today;
         private readonly DateTime returnDate;
@@ -79,14 +79,20 @@ namespace LibrarySystem
             // TODO:
             // Update the status of the book
             // And add the book to the borrower's collection
-            if(validateQuantity(txtQuantities.Text.Trim(), copies))
+
+            if (validateQuantity(txtQuantities.Text.Trim(), copies))
             {
+                copiesToBorrow = Int32.Parse(txtQuantities.Text.Trim());
+
                 // Borrow the book 
-                transaction.borrowBook(bookId, Borrower.borrowerId, today.ToString("yyyy-MM-d"), returnDate.ToString("yyyy-MM-d"), copies);
-                book.decreaseQuantity(copies);
+                transaction.borrowBook(bookId, Borrower.borrowerId, today.ToString("yyyy-MM-d"), returnDate.ToString("yyyy-MM-d"), copiesToBorrow);
+                book.decreaseQuantity(bookId, copiesToBorrow);
 
                 borrowerUI.showMessage(title);
                 borrowerUI.resetUI();
+
+                // Requery to update the datagrid contents
+                book.loadAvailable();
             }
 
         }
@@ -99,8 +105,11 @@ namespace LibrarySystem
             // Check if the specified quantity is actually a number
             if (int.TryParse(quantity, out _quantity))
             {
+                borrowerUI.hideQuantityErrorMessage();
+
+
                 // If it is, then check if it exceeds the maxium copy the current book has
-                if(_quantity < 0 || _quantity > availableCopies)
+                if(_quantity < 1 || _quantity > availableCopies)
                 {
                     valid = false;
                     borrowerUI.showInvalidQuantityMessage(availableCopies);
@@ -110,6 +119,11 @@ namespace LibrarySystem
                     valid = true;
                     borrowerUI.hideQuantityErrorMessage();
                 }
+            }
+
+            else
+            {
+                borrowerUI.showNotQuantityMessage();
             }
 
             return valid;

@@ -67,7 +67,7 @@ namespace LibrarySystem
 
                                 // Get the stored hash of the corresponding user and the user itself
                                 string storedHash = reader.GetString(1);
-                                currentUserId = Int32.Parse(reader.GetString(0));
+                                currentUserId = reader.GetInt32(0);
 
                                 // If password is correct, proceed to login
                                 if (PasswordHandler.ValidatePassword(txtPass.Text.Trim(), storedHash))

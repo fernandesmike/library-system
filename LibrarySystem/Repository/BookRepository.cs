@@ -16,15 +16,19 @@ namespace LibrarySystem.Repository
 
         private int queryPerformed;
 
+        private List<string> bookDetails;
+
         public BookRepository(string connection)
         {
             this.connection = connection;
+            this.bookDetails = new List<string>();
         }
 
         public BookRepository(string connection, DataGridView dataGrid)
         {
             this.connection = connection;
             this.dataGrid = dataGrid;
+            this.bookDetails = new List<string>();
         }
 
 
@@ -67,23 +71,26 @@ namespace LibrarySystem.Repository
             }
         }
 
-        public void loadBorrowed()
+        public void loadBorrowed(int borrowerId)
         {
             try
             {
                 using (SqlConnection con = new SqlConnection(connection))
                 {
-                    //TODO: Load the book_id, title, author, borrower, and borrow_date 
-                    string command = "SELECT tbl_borrow_book.borrow_id AS [Borrowing ID], " +
-                                     "CONCAT (tbl_book.book_title + ' by ' + tbl_book.book_author AS Book, " +
-                                     "CONCAT (tbl_borrower.borrower_fname + ' ' + tbl_borrower_lname AS [Borrowed by], " +
-                                     "tbl_borrow_book.date_borrowed AS Borrowed last, " +
+                    string command = "SELECT tbl_borrow_book.borrow_id AS [Transaction ID], " +
+                                     "CONCAT(tbl_book.book_title, ' by ', tbl_book.book_author) AS Book, " +
+                                     "tbl_borrow_book.quantities_borrowed AS [Borrowed copies], " +
+                                     "tbl_borrow_book.date_borrowed AS [Borrowed on], " +
                                      "tbl_borrow_book.date_deadline AS Deadline " +
-                                     "FROM tbl_borrow_book";
+                                     "FROM tbl_book " +
+                                     "INNER JOIN tbl_borrow_book ON tbl_borrow_book.book_id = tbl_book.book_id " +
+                                     "INNER JOIN tbl_borrower ON tbl_borrow_book.borrower_id = tbl_borrower.borrower_id " +
+                                     "WHERE tbl_borrow_book.borrower_id = @borrowerId";
                     con.Open();
 
                     using (SqlCommand cmd = new SqlCommand(command, con))
                     {
+                        cmd.Parameters.AddWithValue("@borrowerId", borrowerId);
                         cmd.ExecuteNonQuery();
 
                         using (SqlDataAdapter adapter = new SqlDataAdapter(cmd))
@@ -342,6 +349,47 @@ namespace LibrarySystem.Repository
             }
         }
 
+        public List<string> getTransactionDetails(int transactionId)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "SELECT tbl_book.book_title AS title, " +
+                                     "tbl_book.book_author AS author, " +
+                                     "tbl_borrow_book.date_borrowed, " +
+                                     "tbl_borrow_book.date_deadline, " +
+                                     "tbl_borrow_book.quantities_borrowed AS quantities " +
+                                     "FROM tbl_book " +
+                                     "INNER JOIN tbl_borrow_book ON tbl_borrow_book.book_id = tbl_book.book_id " +
+                                     "WHERE tbl_borrow_book.borrow_id = @transacId";
+                    con.Open();
+
+                    using (SqlCommand cmd = new SqlCommand(command, con))
+                    {
+                        cmd.Parameters.AddWithValue("@transacId", transactionId);
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if(reader.Read())
+                            {
+                                for (int i = 0; i < reader.FieldCount; i++)
+                                {
+                                    bookDetails.Add(reader[i].ToString());
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+
+            catch (Exception err)
+            {
+                MessageBox.Show(err + "There was a problem retrieving book details");
+            }
+
+            return bookDetails;
+        }
 
         // DATA MANIPULATION LANGUAGE
 
@@ -462,7 +510,7 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = book_quantities + 1" +
+                                     "SET book_quantities = book_quantities + 1 " +
                                      "WHERE book_id = @bookId ";
                     con.Open();
 
@@ -492,7 +540,7 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = book_quantities + @increaseAmt" +
+                                     "SET book_quantities = book_quantities + @increaseAmt " +
                                      "WHERE book_id = @bookId ";
                     con.Open();
 
@@ -523,7 +571,7 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = book_quantities - 1" +
+                                     "SET book_quantities = book_quantities - 1 " +
                                      "WHERE book_id = @bookId ";
                     con.Open();
 
@@ -553,7 +601,7 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = book_quantities - @decreaseAmt" +
+                                     "SET book_quantities = book_quantities - @decreaseAmt " +
                                      "WHERE book_id = @bookId ";
                     con.Open();
 
@@ -584,7 +632,7 @@ namespace LibrarySystem.Repository
                 using (SqlConnection con = new SqlConnection(connection))
                 {
                     string command = "UPDATE tbl_book " +
-                                     "SET book_quantities = @newQuantity" +
+                                     "SET book_quantities = @newQuantity " +
                                      "WHERE book_id = @bookId ";
                     con.Open();
 
