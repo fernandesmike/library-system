@@ -18,6 +18,7 @@ namespace LibrarySystem
         // Data repositories & UI helpers
         private readonly BorrowerUIHelper borrowerUI;
         private readonly BookRepository book;
+        private readonly BorrowerRepository borrower;
 
         public static int borrowerId;
         public static int transactionId;
@@ -28,6 +29,7 @@ namespace LibrarySystem
             InitializeComponent();
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             book = new BookRepository(connection, dataGrid);
+            borrower = new BorrowerRepository(connection, dataGrid);
 
             borrowerUI = new BorrowerUIHelper(this);
             borrowerId = Login.currentUserId;
@@ -82,6 +84,58 @@ namespace LibrarySystem
             }
         }
 
+        private void BtnSaveChanges_Click(object sender, EventArgs e)
+        {
+            string newFirstName = txtFirstname.Text.Trim();
+            string newLastName = txtLastname.Text.Trim();
+            string newUsername = txtUsername.Text.Trim();
+
+            if (!newFirstName.Equals(Login.firstName) || !newLastName.Equals(Login.lastName))
+            {
+                borrowerUI.hideErrorMessage();
+                borrower.updateName(Login.currentUserId, newFirstName, newLastName);
+                Login.firstName = newFirstName;
+                Login.lastName = newLastName;
+
+                borrowerUI.loadProfileUI();
+            }
+
+            else if (!newUsername.Equals(Login.username))
+            {
+                borrowerUI.hideErrorMessage();
+
+                if (newUsername.Length < 6)
+                {
+                    borrowerUI.showInvalidUsernameMessage();
+                }
+
+                else
+                {
+                    borrowerUI.hideErrorMessage();
+                    
+                    if (borrower.checkIfExist(newUsername))
+                    {
+                        borrowerUI.showUsernameExistsMessage();
+                    }
+
+                    else
+                    {
+                        borrowerUI.hideErrorMessage();
+                        borrower.updateUsername(Login.currentUserId, newUsername);
+                        Login.username = newUsername;
+
+                        borrowerUI.loadProfileUI();
+                    }
+                }
+            }
+
+        }
+
+        private void BtnSavePass_Click(object sender, EventArgs e)
+        {
+
+
+        }
         private void TmHideMessage_Tick(object sender, EventArgs e)
         {
             lblUpdateMessage.Visible = false;

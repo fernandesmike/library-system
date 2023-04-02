@@ -30,9 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Borrower));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.divLeft = new System.Windows.Forms.FlowLayoutPanel();
             this.userInfoContainer = new System.Windows.Forms.FlowLayoutPanel();
             this.imgAvatar = new System.Windows.Forms.PictureBox();
@@ -77,18 +77,30 @@
             this.dataGrid = new System.Windows.Forms.DataGridView();
             this.tmHideMessage = new System.Windows.Forms.Timer(this.components);
             this.flpEdit = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblEditError = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.flpDetails = new System.Windows.Forms.FlowLayoutPanel();
             this.lblFirstName = new System.Windows.Forms.Label();
-            this.txtFirst = new System.Windows.Forms.TextBox();
-            this.lblSecond = new System.Windows.Forms.Label();
-            this.txtSecond = new System.Windows.Forms.TextBox();
-            this.lblThird = new System.Windows.Forms.Label();
-            this.txtThird = new System.Windows.Forms.TextBox();
+            this.txtFirstname = new System.Windows.Forms.TextBox();
+            this.lblLastname = new System.Windows.Forms.Label();
+            this.txtLastname = new System.Windows.Forms.TextBox();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.txtUsername = new System.Windows.Forms.TextBox();
+            this.lblProfileError = new System.Windows.Forms.Label();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSaveChanges = new System.Windows.Forms.Button();
-            this.lblCancelEdit = new System.Windows.Forms.LinkLabel();
+            this.flpPasswords = new System.Windows.Forms.FlowLayoutPanel();
+            this.lblPasswordTitle = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblPassword = new System.Windows.Forms.Label();
+            this.txtNewPass = new System.Windows.Forms.TextBox();
+            this.lblConfirm = new System.Windows.Forms.Label();
+            this.txtConfirm = new System.Windows.Forms.TextBox();
+            this.lblPasswordError = new System.Windows.Forms.Label();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnSavePass = new System.Windows.Forms.Button();
             this.divLeft.SuspendLayout();
             this.userInfoContainer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgAvatar)).BeginInit();
@@ -118,6 +130,9 @@
             this.flpDetails.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flpPasswords.SuspendLayout();
+            this.flowLayoutPanel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // divLeft
@@ -719,42 +734,42 @@
             this.dataGrid.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.dataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.dataGrid.ColumnHeadersHeight = 40;
             this.dataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGrid.Cursor = System.Windows.Forms.Cursors.Hand;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGrid.DefaultCellStyle = dataGridViewCellStyle11;
             this.dataGrid.GridColor = System.Drawing.Color.LightGray;
             this.dataGrid.Location = new System.Drawing.Point(2, 2);
             this.dataGrid.Margin = new System.Windows.Forms.Padding(2);
             this.dataGrid.MultiSelect = false;
             this.dataGrid.Name = "dataGrid";
             this.dataGrid.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.WindowFrame;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dataGrid.RowHeadersVisible = false;
             this.dataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dataGrid.RowTemplate.DefaultCellStyle.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -775,48 +790,60 @@
             // 
             // flpEdit
             // 
-            this.flpEdit.Controls.Add(this.lblEditError);
+            this.flpEdit.Controls.Add(this.lblTitle);
+            this.flpEdit.Controls.Add(this.lblDate);
             this.flpEdit.Controls.Add(this.flpDetails);
-            this.flpEdit.Controls.Add(this.flowLayoutPanel3);
-            this.flpEdit.Controls.Add(this.lblCancelEdit);
+            this.flpEdit.Controls.Add(this.flpPasswords);
             this.flpEdit.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpEdit.Location = new System.Drawing.Point(214, 56);
+            this.flpEdit.Location = new System.Drawing.Point(214, 23);
             this.flpEdit.Margin = new System.Windows.Forms.Padding(2);
             this.flpEdit.Name = "flpEdit";
-            this.flpEdit.Size = new System.Drawing.Size(630, 476);
+            this.flpEdit.Size = new System.Drawing.Size(781, 499);
             this.flpEdit.TabIndex = 47;
             this.flpEdit.Visible = false;
             // 
-            // lblEditError
+            // lblTitle
             // 
-            this.lblEditError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblEditError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEditError.ForeColor = System.Drawing.Color.Red;
-            this.lblEditError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Location = new System.Drawing.Point(2, 8);
-            this.lblEditError.Margin = new System.Windows.Forms.Padding(2, 8, 2, 8);
-            this.lblEditError.Name = "lblEditError";
-            this.lblEditError.Size = new System.Drawing.Size(364, 39);
-            this.lblEditError.TabIndex = 53;
-            this.lblEditError.Text = "No update have been made as the desired\r\nchanges are still the same";
-            this.lblEditError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.lblEditError.Visible = false;
+            this.lblTitle.AutoEllipsis = true;
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblTitle.Location = new System.Drawing.Point(2, 0);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(88, 19);
+            this.lblTitle.TabIndex = 54;
+            this.lblTitle.Text = "Edit profile";
+            // 
+            // lblDate
+            // 
+            this.lblDate.AutoSize = true;
+            this.lblDate.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDate.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.lblDate.Location = new System.Drawing.Point(2, 29);
+            this.lblDate.Margin = new System.Windows.Forms.Padding(2, 10, 2, 0);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(280, 19);
+            this.lblDate.TabIndex = 55;
+            this.lblDate.Text = "Please provide the following informations";
             // 
             // flpDetails
             // 
             this.flpDetails.AutoSize = true;
             this.flpDetails.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flpDetails.Controls.Add(this.lblFirstName);
-            this.flpDetails.Controls.Add(this.txtFirst);
-            this.flpDetails.Controls.Add(this.lblSecond);
-            this.flpDetails.Controls.Add(this.txtSecond);
-            this.flpDetails.Controls.Add(this.lblThird);
-            this.flpDetails.Controls.Add(this.txtThird);
+            this.flpDetails.Controls.Add(this.txtFirstname);
+            this.flpDetails.Controls.Add(this.lblLastname);
+            this.flpDetails.Controls.Add(this.txtLastname);
+            this.flpDetails.Controls.Add(this.lblUsername);
+            this.flpDetails.Controls.Add(this.txtUsername);
+            this.flpDetails.Controls.Add(this.lblProfileError);
+            this.flpDetails.Controls.Add(this.flowLayoutPanel3);
             this.flpDetails.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpDetails.Location = new System.Drawing.Point(2, 57);
-            this.flpDetails.Margin = new System.Windows.Forms.Padding(2, 2, 2, 24);
+            this.flpDetails.Location = new System.Drawing.Point(2, 73);
+            this.flpDetails.Margin = new System.Windows.Forms.Padding(2, 25, 2, 5);
             this.flpDetails.Name = "flpDetails";
-            this.flpDetails.Size = new System.Drawing.Size(364, 264);
+            this.flpDetails.Size = new System.Drawing.Size(294, 376);
             this.flpDetails.TabIndex = 42;
             // 
             // lblFirstName
@@ -826,62 +853,76 @@
             this.lblFirstName.Location = new System.Drawing.Point(2, 0);
             this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblFirstName.Name = "lblFirstName";
-            this.lblFirstName.Size = new System.Drawing.Size(77, 19);
+            this.lblFirstName.Size = new System.Drawing.Size(76, 19);
             this.lblFirstName.TabIndex = 5;
-            this.lblFirstName.Text = "Username";
+            this.lblFirstName.Text = "Firstname";
             // 
-            // txtFirst
+            // txtFirstname
             // 
-            this.txtFirst.Enabled = false;
-            this.txtFirst.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFirst.Location = new System.Drawing.Point(2, 27);
-            this.txtFirst.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
-            this.txtFirst.Multiline = true;
-            this.txtFirst.Name = "txtFirst";
-            this.txtFirst.Size = new System.Drawing.Size(360, 47);
-            this.txtFirst.TabIndex = 6;
+            this.txtFirstname.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFirstname.Location = new System.Drawing.Point(2, 27);
+            this.txtFirstname.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
+            this.txtFirstname.Multiline = true;
+            this.txtFirstname.Name = "txtFirstname";
+            this.txtFirstname.Size = new System.Drawing.Size(290, 47);
+            this.txtFirstname.TabIndex = 6;
             // 
-            // lblSecond
+            // lblLastname
             // 
-            this.lblSecond.AutoSize = true;
-            this.lblSecond.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSecond.Location = new System.Drawing.Point(2, 94);
-            this.lblSecond.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblSecond.Name = "lblSecond";
-            this.lblSecond.Size = new System.Drawing.Size(77, 19);
-            this.lblSecond.TabIndex = 7;
-            this.lblSecond.Text = "Username";
+            this.lblLastname.AutoSize = true;
+            this.lblLastname.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastname.Location = new System.Drawing.Point(2, 94);
+            this.lblLastname.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastname.Name = "lblLastname";
+            this.lblLastname.Size = new System.Drawing.Size(76, 19);
+            this.lblLastname.TabIndex = 7;
+            this.lblLastname.Text = "Lastname";
             // 
-            // txtSecond
+            // txtLastname
             // 
-            this.txtSecond.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSecond.Location = new System.Drawing.Point(2, 121);
-            this.txtSecond.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
-            this.txtSecond.Multiline = true;
-            this.txtSecond.Name = "txtSecond";
-            this.txtSecond.Size = new System.Drawing.Size(360, 47);
-            this.txtSecond.TabIndex = 8;
+            this.txtLastname.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtLastname.Location = new System.Drawing.Point(2, 121);
+            this.txtLastname.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
+            this.txtLastname.Multiline = true;
+            this.txtLastname.Name = "txtLastname";
+            this.txtLastname.Size = new System.Drawing.Size(290, 47);
+            this.txtLastname.TabIndex = 8;
             // 
-            // lblThird
+            // lblUsername
             // 
-            this.lblThird.AutoSize = true;
-            this.lblThird.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblThird.Location = new System.Drawing.Point(2, 188);
-            this.lblThird.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblThird.Name = "lblThird";
-            this.lblThird.Size = new System.Drawing.Size(77, 19);
-            this.lblThird.TabIndex = 9;
-            this.lblThird.Text = "Username";
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Location = new System.Drawing.Point(2, 188);
+            this.lblUsername.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(77, 19);
+            this.lblUsername.TabIndex = 9;
+            this.lblUsername.Text = "Username";
             // 
-            // txtThird
+            // txtUsername
             // 
-            this.txtThird.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtThird.Location = new System.Drawing.Point(2, 215);
-            this.txtThird.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
-            this.txtThird.Multiline = true;
-            this.txtThird.Name = "txtThird";
-            this.txtThird.Size = new System.Drawing.Size(360, 47);
-            this.txtThird.TabIndex = 10;
+            this.txtUsername.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsername.Location = new System.Drawing.Point(2, 215);
+            this.txtUsername.Margin = new System.Windows.Forms.Padding(2, 8, 2, 2);
+            this.txtUsername.Multiline = true;
+            this.txtUsername.Name = "txtUsername";
+            this.txtUsername.Size = new System.Drawing.Size(290, 47);
+            this.txtUsername.TabIndex = 10;
+            // 
+            // lblProfileError
+            // 
+            this.lblProfileError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblProfileError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProfileError.ForeColor = System.Drawing.Color.Red;
+            this.lblProfileError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblProfileError.Location = new System.Drawing.Point(2, 274);
+            this.lblProfileError.Margin = new System.Windows.Forms.Padding(2, 10, 2, 10);
+            this.lblProfileError.Name = "lblProfileError";
+            this.lblProfileError.Size = new System.Drawing.Size(290, 39);
+            this.lblProfileError.TabIndex = 53;
+            this.lblProfileError.Text = "No update have been made as the desired\r\nchanges are still the same";
+            this.lblProfileError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblProfileError.Visible = false;
             // 
             // flowLayoutPanel3
             // 
@@ -889,10 +930,10 @@
             this.flowLayoutPanel3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel3.Controls.Add(this.pictureBox1);
             this.flowLayoutPanel3.Controls.Add(this.btnSaveChanges);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 345);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 2);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(2, 333);
+            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(2, 10, 2, 2);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(364, 41);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(290, 41);
             this.flowLayoutPanel3.TabIndex = 43;
             // 
             // pictureBox1
@@ -922,30 +963,161 @@
             this.btnSaveChanges.Margin = new System.Windows.Forms.Padding(0);
             this.btnSaveChanges.Name = "btnSaveChanges";
             this.btnSaveChanges.Padding = new System.Windows.Forms.Padding(4);
-            this.btnSaveChanges.Size = new System.Drawing.Size(139, 36);
+            this.btnSaveChanges.Size = new System.Drawing.Size(138, 36);
             this.btnSaveChanges.TabIndex = 30;
             this.btnSaveChanges.Text = "Save changes";
             this.btnSaveChanges.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.btnSaveChanges.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSaveChanges.UseVisualStyleBackColor = false;
+            this.btnSaveChanges.Click += new System.EventHandler(this.BtnSaveChanges_Click);
             // 
-            // lblCancelEdit
+            // flpPasswords
             // 
-            this.lblCancelEdit.ActiveLinkColor = System.Drawing.Color.Brown;
-            this.lblCancelEdit.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.lblCancelEdit.BackColor = System.Drawing.Color.Transparent;
-            this.lblCancelEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.lblCancelEdit.Font = new System.Drawing.Font("Outfit", 10.8F);
-            this.lblCancelEdit.LinkColor = System.Drawing.SystemColors.GrayText;
-            this.lblCancelEdit.Location = new System.Drawing.Point(2, 396);
-            this.lblCancelEdit.Margin = new System.Windows.Forms.Padding(2, 8, 2, 0);
-            this.lblCancelEdit.Name = "lblCancelEdit";
-            this.lblCancelEdit.Padding = new System.Windows.Forms.Padding(8, 4, 4, 4);
-            this.lblCancelEdit.Size = new System.Drawing.Size(167, 28);
-            this.lblCancelEdit.TabIndex = 52;
-            this.lblCancelEdit.TabStop = true;
-            this.lblCancelEdit.Text = "Cancel edit";
-            this.lblCancelEdit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.flpPasswords.AutoSize = true;
+            this.flpPasswords.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flpPasswords.Controls.Add(this.lblPasswordTitle);
+            this.flpPasswords.Controls.Add(this.label5);
+            this.flpPasswords.Controls.Add(this.lblPassword);
+            this.flpPasswords.Controls.Add(this.txtNewPass);
+            this.flpPasswords.Controls.Add(this.lblConfirm);
+            this.flpPasswords.Controls.Add(this.txtConfirm);
+            this.flpPasswords.Controls.Add(this.lblPasswordError);
+            this.flpPasswords.Controls.Add(this.flowLayoutPanel4);
+            this.flpPasswords.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flpPasswords.Location = new System.Drawing.Point(368, 0);
+            this.flpPasswords.Margin = new System.Windows.Forms.Padding(70, 0, 2, 5);
+            this.flpPasswords.Name = "flpPasswords";
+            this.flpPasswords.Size = new System.Drawing.Size(294, 353);
+            this.flpPasswords.TabIndex = 56;
+            // 
+            // lblPasswordTitle
+            // 
+            this.lblPasswordTitle.AutoEllipsis = true;
+            this.lblPasswordTitle.AutoSize = true;
+            this.lblPasswordTitle.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasswordTitle.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.lblPasswordTitle.Location = new System.Drawing.Point(2, 0);
+            this.lblPasswordTitle.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblPasswordTitle.Name = "lblPasswordTitle";
+            this.lblPasswordTitle.Size = new System.Drawing.Size(135, 19);
+            this.lblPasswordTitle.TabIndex = 56;
+            this.lblPasswordTitle.Text = "Change password";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.SystemColors.GrayText;
+            this.label5.Location = new System.Drawing.Point(2, 29);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 10, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(236, 19);
+            this.label5.TabIndex = 57;
+            this.label5.Text = "Please provide your new password";
+            // 
+            // lblPassword
+            // 
+            this.lblPassword.AutoSize = true;
+            this.lblPassword.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPassword.Location = new System.Drawing.Point(2, 73);
+            this.lblPassword.Margin = new System.Windows.Forms.Padding(2, 25, 2, 0);
+            this.lblPassword.Name = "lblPassword";
+            this.lblPassword.Size = new System.Drawing.Size(106, 19);
+            this.lblPassword.TabIndex = 5;
+            this.lblPassword.Text = "New password";
+            // 
+            // txtNewPass
+            // 
+            this.txtNewPass.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNewPass.Location = new System.Drawing.Point(2, 100);
+            this.txtNewPass.Margin = new System.Windows.Forms.Padding(2, 8, 2, 20);
+            this.txtNewPass.Multiline = true;
+            this.txtNewPass.Name = "txtNewPass";
+            this.txtNewPass.Size = new System.Drawing.Size(290, 47);
+            this.txtNewPass.TabIndex = 6;
+            // 
+            // lblConfirm
+            // 
+            this.lblConfirm.AutoSize = true;
+            this.lblConfirm.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConfirm.Location = new System.Drawing.Point(2, 167);
+            this.lblConfirm.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblConfirm.Name = "lblConfirm";
+            this.lblConfirm.Size = new System.Drawing.Size(130, 19);
+            this.lblConfirm.TabIndex = 7;
+            this.lblConfirm.Text = "Confirm password";
+            // 
+            // txtConfirm
+            // 
+            this.txtConfirm.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtConfirm.Location = new System.Drawing.Point(2, 194);
+            this.txtConfirm.Margin = new System.Windows.Forms.Padding(2, 8, 2, 10);
+            this.txtConfirm.Multiline = true;
+            this.txtConfirm.Name = "txtConfirm";
+            this.txtConfirm.Size = new System.Drawing.Size(290, 47);
+            this.txtConfirm.TabIndex = 8;
+            // 
+            // lblPasswordError
+            // 
+            this.lblPasswordError.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPasswordError.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPasswordError.ForeColor = System.Drawing.Color.Red;
+            this.lblPasswordError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPasswordError.Location = new System.Drawing.Point(2, 251);
+            this.lblPasswordError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 10);
+            this.lblPasswordError.Name = "lblPasswordError";
+            this.lblPasswordError.Size = new System.Drawing.Size(290, 39);
+            this.lblPasswordError.TabIndex = 53;
+            this.lblPasswordError.Text = "Passwords do not match";
+            this.lblPasswordError.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblPasswordError.Visible = false;
+            // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.flowLayoutPanel4.Controls.Add(this.pictureBox2);
+            this.flowLayoutPanel4.Controls.Add(this.btnSavePass);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(2, 310);
+            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(2, 10, 2, 2);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(290, 41);
+            this.flowLayoutPanel4.TabIndex = 43;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(2, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(24, 26);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 35;
+            this.pictureBox2.TabStop = false;
+            // 
+            // btnSavePass
+            // 
+            this.btnSavePass.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnSavePass.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnSavePass.BackColor = System.Drawing.Color.Transparent;
+            this.btnSavePass.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnSavePass.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSavePass.FlatAppearance.BorderColor = System.Drawing.SystemColors.Control;
+            this.btnSavePass.FlatAppearance.BorderSize = 0;
+            this.btnSavePass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSavePass.Font = new System.Drawing.Font("Outfit", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSavePass.Location = new System.Drawing.Point(28, 0);
+            this.btnSavePass.Margin = new System.Windows.Forms.Padding(0);
+            this.btnSavePass.Name = "btnSavePass";
+            this.btnSavePass.Padding = new System.Windows.Forms.Padding(4);
+            this.btnSavePass.Size = new System.Drawing.Size(186, 36);
+            this.btnSavePass.TabIndex = 30;
+            this.btnSavePass.Text = "Change my password";
+            this.btnSavePass.TextAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.btnSavePass.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSavePass.UseVisualStyleBackColor = false;
+            this.btnSavePass.Click += new System.EventHandler(this.BtnSavePass_Click);
             // 
             // Borrower
             // 
@@ -1002,6 +1174,10 @@
             this.flpDetails.PerformLayout();
             this.flowLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flpPasswords.ResumeLayout(false);
+            this.flpPasswords.PerformLayout();
+            this.flowLayoutPanel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1032,14 +1208,12 @@
         internal System.Windows.Forms.PictureBox pbJourney;
         internal System.Windows.Forms.Button btnJourney;
         private System.Windows.Forms.PictureBox pbConfetti;
-        private System.Windows.Forms.Panel panelBorrow;
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         internal System.Windows.Forms.Label lblBorrowTitle;
         internal System.Windows.Forms.Label lblBorrowSecondary;
         internal System.Windows.Forms.FlowLayoutPanel flpBorrowBook;
         internal System.Windows.Forms.PictureBox pictureBox3;
         internal System.Windows.Forms.Button btnBorrow;
-        private System.Windows.Forms.FlowLayoutPanel flpDataGrid;
         private System.Windows.Forms.Panel panelGridHeader;
         internal System.Windows.Forms.Label lblGridTitle;
         private System.Windows.Forms.FlowLayoutPanel flpGrid;
@@ -1053,17 +1227,31 @@
         internal System.Windows.Forms.RadioButton rbReturned;
         internal System.Windows.Forms.Timer tmHideMessage;
         internal System.Windows.Forms.FlowLayoutPanel flpEdit;
-        internal System.Windows.Forms.Label lblEditError;
+        internal System.Windows.Forms.Label lblProfileError;
         private System.Windows.Forms.FlowLayoutPanel flpDetails;
         internal System.Windows.Forms.Label lblFirstName;
-        internal System.Windows.Forms.TextBox txtFirst;
-        internal System.Windows.Forms.Label lblSecond;
-        internal System.Windows.Forms.TextBox txtSecond;
-        internal System.Windows.Forms.Label lblThird;
-        internal System.Windows.Forms.TextBox txtThird;
+        internal System.Windows.Forms.TextBox txtFirstname;
+        internal System.Windows.Forms.Label lblLastname;
+        internal System.Windows.Forms.TextBox txtLastname;
+        internal System.Windows.Forms.Label lblUsername;
+        internal System.Windows.Forms.TextBox txtUsername;
         internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         internal System.Windows.Forms.PictureBox pictureBox1;
         internal System.Windows.Forms.Button btnSaveChanges;
-        private System.Windows.Forms.LinkLabel lblCancelEdit;
+        internal System.Windows.Forms.Panel panelBorrow;
+        internal System.Windows.Forms.FlowLayoutPanel flpDataGrid;
+        internal System.Windows.Forms.Label lblTitle;
+        internal System.Windows.Forms.Label lblDate;
+        private System.Windows.Forms.FlowLayoutPanel flpPasswords;
+        internal System.Windows.Forms.Label lblPassword;
+        internal System.Windows.Forms.TextBox txtNewPass;
+        internal System.Windows.Forms.Label lblConfirm;
+        internal System.Windows.Forms.TextBox txtConfirm;
+        internal System.Windows.Forms.Label lblPasswordError;
+        internal System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        internal System.Windows.Forms.PictureBox pictureBox2;
+        internal System.Windows.Forms.Button btnSavePass;
+        internal System.Windows.Forms.Label lblPasswordTitle;
+        internal System.Windows.Forms.Label label5;
     }
 }

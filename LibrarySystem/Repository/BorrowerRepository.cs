@@ -255,6 +255,7 @@ namespace LibrarySystem.Repository
             return result > 0 ? true : false; 
         }
 
+
         // DATA QUERY LANGUAGE
 
         public int add(string username, string firstname, string lastname, string registrationDate)
@@ -313,6 +314,83 @@ namespace LibrarySystem.Repository
             {
                 MessageBox.Show(err + $"Error updating status of borrower {borrowerId}");
                 return 0;
+            }
+        }
+
+        public void updateName(int borrowerId, string firstName, string lastName)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_borrower " +
+                                     "SET borrower_fname = @fname," +
+                                     "borrower_lname = @lname " +
+                                     "WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@fname", firstName);
+                    cmd.Parameters.AddWithValue("@lname", lastName);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    queryPerformed = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + $"Error updating status of borrower {borrowerId}");
+            }
+        }
+
+        public void updateUsername(int borrowerId, string newUsername)
+        {
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    string command = "UPDATE tbl_borrower " +
+                                     "SET borrower_username = @newUsername " + 
+                                     "WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@newUsername", newUsername);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + $"Error updating status of borrower {borrowerId}");
+            }
+        }
+
+        public void changePassword(string borrowerId, string newPassword)
+        {
+
+            string hashedPass = PasswordHandler.HashPassword(newPassword);
+
+            try
+            {
+                using (SqlConnection con = new SqlConnection(connection))
+                {
+                    con.Open();
+
+                    string command = "UPDATE tbl_borrower " +
+                                     "SET borrower_password = @newPass " +
+                                     "WHERE borrower_id = @id";
+                    con.Open();
+
+                    SqlCommand cmd = new SqlCommand(command, con);
+                    cmd.Parameters.AddWithValue("@newPass", newPassword);
+                    cmd.Parameters.AddWithValue("@id", borrowerId);
+                    cmd.ExecuteNonQuery();
+
+                }
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show(err + " There was an error updating your account password!");
             }
         }
 

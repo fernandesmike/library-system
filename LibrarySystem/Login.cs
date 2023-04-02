@@ -17,6 +17,9 @@ namespace LibrarySystem
         // Fetch the current user of the form
         public static string currentUser;
         public static int currentUserId;
+        public static string firstName;
+        public static string lastName;
+        public static string username;
 
         private readonly string connection;
 
@@ -25,10 +28,6 @@ namespace LibrarySystem
             InitializeComponent();
             //TODO: Change the connection string
             connection = @"Data Source=(localdb)\ProjectsV13;Initial Catalog=library_system_mock;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
         }
 
         private void LnkToReg_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -49,7 +48,11 @@ namespace LibrarySystem
                 {
                     using (SqlConnection con = new SqlConnection(connection))
                     {
-                        string command = "SELECT borrower_id, borrower_password " +
+                        string command = "SELECT borrower_id, " +
+                                         "borrower_password, " +
+                                         "borrower_fname, " +
+                                         "borrower_lname, " +
+                                         "borrower_username " +
                                          "FROM tbl_borrower " +
                                          "WHERE borrower_username = @username " +
                                          "COLLATE SQL_Latin1_General_CP1_CS_AS";
@@ -68,6 +71,9 @@ namespace LibrarySystem
                                 // Get the stored hash of the corresponding user and the user itself
                                 string storedHash = reader.GetString(1);
                                 currentUserId = reader.GetInt32(0);
+                                firstName = reader.GetString(2);
+                                lastName = reader.GetString(3);
+                                username = reader.GetString(4);
 
                                 // If password is correct, proceed to login
                                 if (PasswordHandler.ValidatePassword(txtPass.Text.Trim(), storedHash))
